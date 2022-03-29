@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Project;
+package CourseworkProject;
 
 import java.awt.Color;
 import java.util.regex.Matcher;
@@ -279,12 +279,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         
         //confirm passwords match
-        if (!password.equals(passwordConfirm)) {
-            String errorMessage = "Error!";
-            errorMessage += "\n" + "Passwords don't match";
-            errorLabel.setText(errorMessage);
-            errorLabel.setForeground(Color.red);
-            
+        if (!checkIfPasswordsMatch(password, passwordConfirm)){             
             //Exit the function to avoid a registration error
             return;
         }
@@ -412,5 +407,18 @@ public class RegistrationPage extends javax.swing.JFrame {
             errorLabel.setForeground(Color.red);
         }
         return result;
+    }
+
+    private boolean checkIfPasswordsMatch(String password, String passwordConfirmation) {
+        if(!password.equals(passwordConfirmation)){
+            String errorMessage = "Error!";
+            errorMessage += "\n" + "Passwords don't match";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }

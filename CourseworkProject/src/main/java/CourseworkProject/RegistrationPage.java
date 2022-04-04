@@ -298,37 +298,36 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
-            String errorMessage = "Error!";
+            String errorMessage = "<html>Error!<br/>";
             if (firstName.isEmpty()){
-                errorMessage += "\n" + "Please fill the first name field";
+                errorMessage += "<html>Please fill the first name field <br/>";
             }
             if (lastName.isEmpty()){
-                errorMessage += "\n" + "Please fill the last name field";
+                errorMessage += "\nPlease fill the last name field <br/>";
             }
             if (email.isEmpty()){
-                errorMessage += "\n" + "Please fill the email field";
+                errorMessage += "\nPlease fill the email field <br/>";
             }
             if (password.isEmpty()){
-                errorMessage += "\n" + "Please fill the password field";
+                errorMessage += "\nPlease fill the password field <br/>";
             }
             if (passwordConfirm.isEmpty()){
-                errorMessage += "\n" + "Please fill the password confirmation field";
+                errorMessage += "\nPlease fill the password confirmation field <br/>";
             }
+            errorMessage += "</html>";
+            System.out.println(errorMessage);
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
             
-            //Exit the function to avoid a registration error
             return false;
         }
-        else{
-            return true;
-        }
+        return true;
     }
     
     // get length of the fields
     private boolean checkLength(String firstName, String lastName, String email, String password, String passwordConfirm) {
         boolean result = true;
-        String errorMessage = "Error!";
+        String errorMessage = "<html>Error!<br/>";
         int maxFirstNameLength = 15;
         int maxSurnameNameLength = 30;
         int maxEmailLength = 254;
@@ -336,35 +335,36 @@ public class RegistrationPage extends javax.swing.JFrame {
         int maxPasswordLength = 12;
         
         if (firstName.length() > maxFirstNameLength){
-            errorMessage += "\n" + "The first name entered is too long";
+            errorMessage += "\nThe first name entered is too long <br/>";
             result = false;
         }
         if (lastName.length() > maxSurnameNameLength){
-            errorMessage += "\n" + "The last name entered is too long";
+            errorMessage += "\nThe last name entered is too long <br/>";
             result = false;
         }
         if (email.length() > maxEmailLength){
-            errorMessage += "\n" + "The email field is too long";
+            errorMessage += "\nThe email field is too long <br/>";
             result = false;
         }
         
         if (password.length() > maxPasswordLength){
-            errorMessage += "\n" + "The password field is too long";
+            errorMessage += "\nThe password field is too long <br/>";
             result = false;
         }
         else if (password.length() < minPasswordLength){
-            errorMessage += "\n" + "The password field is too short";
+            errorMessage += "\nThe password field is too short <br/>";
             result = false;
         }
+        errorMessage += "</html>";
         
-        if (passwordConfirm.length() > maxPasswordLength){
-            errorMessage += "\n" + "The password confirmation field is too long";
-            result = false;
-        }
-        else if (passwordConfirm.length() < minPasswordLength){
-            errorMessage += "\n" + "The password confirmation field is too short";
-            result = false;
-        }
+//        if (passwordConfirm.length() > maxPasswordLength){
+//            errorMessage += "\nThe password confirmation field is too long <br/>";
+//            result = false;
+//        }
+//        else if (passwordConfirm.length() < minPasswordLength){
+//            errorMessage += "\nThe password confirmation field is too short <br/>";
+//            result = false;
+//        }
         errorLabel.setText(errorMessage);
         errorLabel.setForeground(Color.red);
         return result;
@@ -373,7 +373,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     //check if password follows specs
     private boolean checkIfValidPassword(String password) {
         boolean result = false;
-        String errorMessage = "Error!";
+        String errorMessage = "<html>Error!<br/>";
         
         Pattern letters = Pattern.compile("[a-zA-z]");
         Pattern digits = Pattern.compile("[0-9]");
@@ -383,17 +383,18 @@ public class RegistrationPage extends javax.swing.JFrame {
         Matcher hasDigit = digits.matcher(password);
         Matcher hasSpecial = specialChars.matcher(password);
         if(!hasLetter.find()){
-           errorMessage += "\n" + "The password must contain an Uppercase char";
+           errorMessage += "\nThe password must contain an Uppercase char <br/>";
            result = true;
         }
         if(hasDigit.find()){
-            errorMessage += "\n" + "The doesn't must a number";
+            errorMessage += "\nThe doesn't must a number <br/>";
             result = true;
         }
         if(hasSpecial.find()){
-            errorMessage += "\n" + "The password must contain a special char";
+            errorMessage += "\nThe password must contain a special char <br/>";
             result = true;
         }
+        errorMessage += "</html>";
         if (!result){
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
@@ -403,15 +404,13 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private boolean checkIfPasswordsMatch(String password, String passwordConfirmation) {
         if(!password.equals(passwordConfirmation)){
-            String errorMessage = "Error!";
-            errorMessage += "\n" + "Passwords don't match";
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Passwords don't match </html>";
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
             return false;
         }
-        else{
-            return true;
-        }
+        return true;
     }
     
     private boolean checkIfValidEmail(String email) 
@@ -422,8 +421,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         Pattern pattern = Pattern.compile(emailRegex);
         boolean result = pattern.matcher(email).matches();
         if(!result){
-            String errorMessage = "Error!";
-            errorMessage += "Email is invalid";
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email is invalid </html>";
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
         }

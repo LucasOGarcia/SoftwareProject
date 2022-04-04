@@ -64,12 +64,12 @@ public class RegistrationPage extends javax.swing.JFrame {
         });
 
         errorLabel.setText("error message label");
+        errorLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         passwordLabel2.setText("Confirm Password");
 
         passwordAssistLabel.setText("jlabel");
 
-        jpPassword.setText("jPasswordField1");
         jpPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jpPasswordFocusGained(evt);
@@ -79,7 +79,6 @@ public class RegistrationPage extends javax.swing.JFrame {
             }
         });
 
-        jpPasswordConfirm.setText("jPasswordField2");
         jpPasswordConfirm.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jpPasswordConfirmFocusGained(evt);
@@ -108,20 +107,20 @@ public class RegistrationPage extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(errorLabel)
-                                .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jpPassword)
-                                .addComponent(jpPasswordConfirm)
-                                .addComponent(tfLastName))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(registerButton))
+                            .addComponent(errorLabel)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jpPassword)
+                            .addComponent(jpPasswordConfirm)
+                            .addComponent(tfLastName)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(logoLabel)))
                 .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,9 +151,9 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordLabel2)
                     .addComponent(jpPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(registerButton)
-                .addGap(62, 62, 62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -166,7 +165,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
         // shows label that guides the user on passsword requirements //todo make the label's default state invisible
-        passwordAssistLabel.setText("Passowrd length must: be between 8-12 char, \n contain one upper case letter and special char");
+        passwordAssistLabel.setText("Password length must: be between 8-12 char, \n contain one upper case letter and one special char");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordFocusGained
 
@@ -177,7 +176,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordConfirmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordConfirmFocusGained
         // shows label that guides the user on passsword requirements
-        passwordAssistLabel.setText("Passowrd length must: be between 8-12 char, \n contain one upper case letter and special char");
+        passwordAssistLabel.setText("Password length must: be between 8-12 char, \n contain one upper case letter and special char");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordConfirmFocusGained
 
@@ -221,20 +220,6 @@ public class RegistrationPage extends javax.swing.JFrame {
         });
     }
     
-    //check if field is empty
-    //get length of the password field <8 >12 poblem,   // 50 length for full name
-    //check for injection
-    //check format
-    
-    //check if email aleady in database   
-    //add salt to password
-    //add encryption to password
-    //finalise registration
-    
-    //look on internet for test strategy template
-    
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel errorLabel;
@@ -273,7 +258,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         
         //verify password meets standards
-        if(!checkPassword(password)){
+        if(!checkIfValidPassword(password)){
             //exit function since password doesn't meet specs
             return;
         }
@@ -284,11 +269,16 @@ public class RegistrationPage extends javax.swing.JFrame {
             return;
         }
         
-        
         //verify email
-        
-        
+        if(!checkIfValidEmail(email)){
+            //Exit the function to avoid a registration error
+            return;
+        }
+
         //check for injections
+        
+        
+        //verify if email is already in the database
         
 
         //add salt to password
@@ -298,6 +288,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         
         //register user to database
+        
+        //redirect to home page
         
     
     //look on internet for test strategy template
@@ -379,8 +371,8 @@ public class RegistrationPage extends javax.swing.JFrame {
     }
 
     //check if password follows specs
-    private boolean checkPassword(String password) {
-        boolean result = true;
+    private boolean checkIfValidPassword(String password) {
+        boolean result = false;
         String errorMessage = "Error!";
         
         Pattern letters = Pattern.compile("[a-zA-z]");
@@ -391,16 +383,16 @@ public class RegistrationPage extends javax.swing.JFrame {
         Matcher hasDigit = digits.matcher(password);
         Matcher hasSpecial = specialChars.matcher(password);
         if(!hasLetter.find()){
-           errorMessage += "\n" + "The password doesn't contain an Uppercase char";
-           result = false;
+           errorMessage += "\n" + "The password must contain an Uppercase char";
+           result = true;
         }
         if(hasDigit.find()){
-            errorMessage += "\n" + "The doesn't contain a number";
-            result = false;
+            errorMessage += "\n" + "The doesn't must a number";
+            result = true;
         }
         if(hasSpecial.find()){
-            errorMessage += "\n" + "The password doesn't contain a special char";
-            result = false;
+            errorMessage += "\n" + "The password must contain a special char";
+            result = true;
         }
         if (!result){
             errorLabel.setText(errorMessage);
@@ -421,4 +413,21 @@ public class RegistrationPage extends javax.swing.JFrame {
             return true;
         }
     }
+    
+    private boolean checkIfValidEmail(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; 
+ 
+        Pattern pattern = Pattern.compile(emailRegex);
+        boolean result = pattern.matcher(email).matches();
+        if(!result){
+            String errorMessage = "Error!";
+            errorMessage += "Email is invalid";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+        }
+        return result;
+    }
+    
 }

@@ -23,26 +23,35 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="140" max="32767" attributes="0"/>
+              <Component id="registerButton" min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="passwordLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tfFirstName" pref="220" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="passwordLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="tfFirstName" pref="220" max="32767" attributes="0"/>
+                                  <Component id="tfEmail" alignment="0" pref="220" max="32767" attributes="0"/>
+                                  <Component id="passwordAssistLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jpPassword" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jpPasswordConfirm" max="32767" attributes="0"/>
+                                  <Component id="tfLastName" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                           <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfEmail" alignment="0" pref="220" max="32767" attributes="0"/>
-                          <Component id="passwordAssistLabel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jpPassword" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jpPasswordConfirm" max="32767" attributes="0"/>
-                          <Component id="tfLastName" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -50,12 +59,7 @@
                       <Component id="logoLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="registerButton" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,9 +68,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
               <Component id="logoLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="errorLabel" min="-2" pref="144" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="tfFirstName" min="-2" max="-2" attributes="0"/>
                   <Component id="firstNameLabel" min="-2" max="-2" attributes="0"/>

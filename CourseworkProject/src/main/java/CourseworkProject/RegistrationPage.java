@@ -20,6 +20,8 @@ public class RegistrationPage extends javax.swing.JFrame {
      */
     public RegistrationPage() {
         initComponents();
+        passwordAssistLabel.setVisible(false);
+        
     }
 
     /**
@@ -63,13 +65,10 @@ public class RegistrationPage extends javax.swing.JFrame {
             }
         });
 
-        errorLabel.setText("error message label");
+        errorLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         passwordLabel2.setText("Confirm Password");
 
-        passwordAssistLabel.setText("jlabel");
-
-        jpPassword.setText("jPasswordField1");
         jpPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jpPasswordFocusGained(evt);
@@ -79,7 +78,6 @@ public class RegistrationPage extends javax.swing.JFrame {
             }
         });
 
-        jpPasswordConfirm.setText("jPasswordField2");
         jpPasswordConfirm.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jpPasswordConfirmFocusGained(evt);
@@ -95,42 +93,44 @@ public class RegistrationPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 140, Short.MAX_VALUE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordLabel)
-                            .addComponent(emailLabel)
-                            .addComponent(passwordLabel2)
-                            .addComponent(lastNameLabel)
-                            .addComponent(firstNameLabel))
-                        .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(errorLabel)
-                                .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jpPassword)
-                                .addComponent(jpPasswordConfirm)
-                                .addComponent(tfLastName))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(registerButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailLabel)
+                                    .addComponent(passwordLabel2)
+                                    .addComponent(lastNameLabel)
+                                    .addComponent(firstNameLabel)
+                                    .addComponent(passwordLabel))
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(jpPassword)
+                                    .addComponent(jpPasswordConfirm)
+                                    .addComponent(tfLastName)))
+                            .addComponent(errorLabel)
+                            .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(logoLabel)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addComponent(logoLabel)
-                .addGap(79, 79, 79)
-                .addComponent(errorLabel)
-                .addGap(85, 85, 85)
+                .addGap(18, 18, 18)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(firstNameLabel))
@@ -142,19 +142,19 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(passwordAssistLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordAssistLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordLabel2)
                     .addComponent(jpPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(registerButton)
-                .addGap(62, 62, 62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -166,7 +166,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
         // shows label that guides the user on passsword requirements //todo make the label's default state invisible
-        passwordAssistLabel.setText("Passowrd length must: be between 8-12 char, \n contain one upper case letter and special char");
+        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> upper case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordFocusGained
 
@@ -177,7 +177,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordConfirmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordConfirmFocusGained
         // shows label that guides the user on passsword requirements
-        passwordAssistLabel.setText("Passowrd length must: be between 8-12 char, \n contain one upper case letter and special char");
+        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> upper case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordConfirmFocusGained
 
@@ -221,20 +221,6 @@ public class RegistrationPage extends javax.swing.JFrame {
         });
     }
     
-    //check if field is empty
-    //get length of the password field <8 >12 poblem,   // 50 length for full name
-    //check for injection
-    //check format
-    
-    //check if email aleady in database   
-    //add salt to password
-    //add encryption to password
-    //finalise registration
-    
-    //look on internet for test strategy template
-    
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel errorLabel;
@@ -251,6 +237,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private javax.swing.JTextField tfFirstName;
     private javax.swing.JTextField tfLastName;
     // End of variables declaration//GEN-END:variables
+    
     
     private void registerUser() {
         //extract information from fields
@@ -273,7 +260,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         
         //verify password meets standards
-        if(!checkPassword(password)){
+        if(!checkIfValidPassword(password)){
             //exit function since password doesn't meet specs
             return;
         }
@@ -284,11 +271,16 @@ public class RegistrationPage extends javax.swing.JFrame {
             return;
         }
         
-        
         //verify email
-        
-        
+        if(!checkIfValidEmail(email)){
+            //Exit the function to avoid a registration error
+            return;
+        }
+
         //check for injections
+        
+        
+        //verify if email is already in the database
         
 
         //add salt to password
@@ -299,6 +291,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         //register user to database
         
+        //redirect to home page
+        
     
     //look on internet for test strategy template
     }
@@ -306,37 +300,36 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
-            String errorMessage = "Error!";
+            String errorMessage = "<html>Error!<br/>";
             if (firstName.isEmpty()){
-                errorMessage += "\n" + "Please fill the first name field";
+                errorMessage += "<html>Please fill the first name field <br/>";
             }
             if (lastName.isEmpty()){
-                errorMessage += "\n" + "Please fill the last name field";
+                errorMessage += "\nPlease fill the last name field <br/>";
             }
             if (email.isEmpty()){
-                errorMessage += "\n" + "Please fill the email field";
+                errorMessage += "\nPlease fill the email field <br/>";
             }
             if (password.isEmpty()){
-                errorMessage += "\n" + "Please fill the password field";
+                errorMessage += "\nPlease fill the password field <br/>";
             }
             if (passwordConfirm.isEmpty()){
-                errorMessage += "\n" + "Please fill the password confirmation field";
+                errorMessage += "\nPlease fill the password confirmation field <br/>";
             }
+            errorMessage += "</html>";
+            System.out.println(errorMessage);
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
             
-            //Exit the function to avoid a registration error
             return false;
         }
-        else{
-            return true;
-        }
+        return true;
     }
     
     // get length of the fields
     private boolean checkLength(String firstName, String lastName, String email, String password, String passwordConfirm) {
         boolean result = true;
-        String errorMessage = "Error!";
+        String errorMessage = "<html>Error!<br/>";
         int maxFirstNameLength = 15;
         int maxSurnameNameLength = 30;
         int maxEmailLength = 254;
@@ -344,44 +337,45 @@ public class RegistrationPage extends javax.swing.JFrame {
         int maxPasswordLength = 12;
         
         if (firstName.length() > maxFirstNameLength){
-            errorMessage += "\n" + "The first name entered is too long";
+            errorMessage += "\nThe first name entered is too long <br/>";
             result = false;
         }
         if (lastName.length() > maxSurnameNameLength){
-            errorMessage += "\n" + "The last name entered is too long";
+            errorMessage += "\nThe last name entered is too long <br/>";
             result = false;
         }
         if (email.length() > maxEmailLength){
-            errorMessage += "\n" + "The email field is too long";
+            errorMessage += "\nThe email field is too long <br/>";
             result = false;
         }
         
         if (password.length() > maxPasswordLength){
-            errorMessage += "\n" + "The password field is too long";
+            errorMessage += "\nThe password field is too long <br/>";
             result = false;
         }
         else if (password.length() < minPasswordLength){
-            errorMessage += "\n" + "The password field is too short";
+            errorMessage += "\nThe password field is too short <br/>";
             result = false;
         }
+        errorMessage += "</html>";
         
-        if (passwordConfirm.length() > maxPasswordLength){
-            errorMessage += "\n" + "The password confirmation field is too long";
-            result = false;
-        }
-        else if (passwordConfirm.length() < minPasswordLength){
-            errorMessage += "\n" + "The password confirmation field is too short";
-            result = false;
-        }
+//        if (passwordConfirm.length() > maxPasswordLength){
+//            errorMessage += "\nThe password confirmation field is too long <br/>";
+//            result = false;
+//        }
+//        else if (passwordConfirm.length() < minPasswordLength){
+//            errorMessage += "\nThe password confirmation field is too short <br/>";
+//            result = false;
+//        }
         errorLabel.setText(errorMessage);
         errorLabel.setForeground(Color.red);
         return result;
     }
 
     //check if password follows specs
-    private boolean checkPassword(String password) {
-        boolean result = true;
-        String errorMessage = "Error!";
+    private boolean checkIfValidPassword(String password) {
+        boolean result = false;
+        String errorMessage = "<html>Error!<br/>";
         
         Pattern letters = Pattern.compile("[a-zA-z]");
         Pattern digits = Pattern.compile("[0-9]");
@@ -391,17 +385,18 @@ public class RegistrationPage extends javax.swing.JFrame {
         Matcher hasDigit = digits.matcher(password);
         Matcher hasSpecial = specialChars.matcher(password);
         if(!hasLetter.find()){
-           errorMessage += "\n" + "The password doesn't contain an Uppercase char";
-           result = false;
+           errorMessage += "\nThe password must contain an Uppercase char <br/>";
+           result = true;
         }
         if(hasDigit.find()){
-            errorMessage += "\n" + "The doesn't contain a number";
-            result = false;
+            errorMessage += "\nThe doesn't must a number <br/>";
+            result = true;
         }
         if(hasSpecial.find()){
-            errorMessage += "\n" + "The password doesn't contain a special char";
-            result = false;
+            errorMessage += "\nThe password must contain a special char <br/>";
+            result = true;
         }
+        errorMessage += "</html>";
         if (!result){
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
@@ -411,14 +406,29 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private boolean checkIfPasswordsMatch(String password, String passwordConfirmation) {
         if(!password.equals(passwordConfirmation)){
-            String errorMessage = "Error!";
-            errorMessage += "\n" + "Passwords don't match";
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Passwords don't match </html>";
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
             return false;
         }
-        else{
-            return true;
-        }
+        return true;
     }
+    
+    private boolean checkIfValidEmail(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; 
+ 
+        Pattern pattern = Pattern.compile(emailRegex);
+        boolean result = pattern.matcher(email).matches();
+        if(!result){
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email is invalid </html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+        }
+        return result;
+    }
+    
 }

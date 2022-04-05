@@ -254,7 +254,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         
         // check length of the fields
-        if (!checkLength(firstName, lastName, email, password, passwordConfirm)){
+        if (!checkLength(firstName, lastName, email, password)){
             //exit function if any of the fields has a mistake
             return;
         }
@@ -277,7 +277,43 @@ public class RegistrationPage extends javax.swing.JFrame {
             return;
         }
 
-        //check for injections
+        //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
+        
+             
+//        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//                    throws ServletException, IOException {
+//            boolean success = false;
+//            String username = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            // Unsafe query which uses string concatenation
+//            String query = "select * from tbluser where username=? and password = ?";
+//            Connection conn = null;
+//            PreparedStatement stmt = null;
+//            try {
+//                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/user", "root", "root");
+//                stmt = conn.prepareStatement(query);
+//                stmt.setString(1, username);
+//                stmt.setString(2, password);
+//                ResultSet rs = stmt.executeQuery();
+//                if (rs.next()) {
+//                    // Login Successful if match is found
+//                    success = true;
+//                }
+//                rs.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            } finally {
+//                try {
+//                    stmt.close();
+//                    conn.close();
+//                } catch (Exception e) {}
+//            }
+//            if (success) {
+//                response.sendRedirect("home.html");
+//            } else {
+//                response.sendRedirect("login.html?error=1");
+//            }
+//        }
         
         
         //verify if email is already in the database
@@ -285,11 +321,12 @@ public class RegistrationPage extends javax.swing.JFrame {
 
         //add salt to password
         
-        
+
         //add encryption to password
         
         
         //register user to database
+        
         
         //redirect to home page
         
@@ -305,19 +342,18 @@ public class RegistrationPage extends javax.swing.JFrame {
                 errorMessage += "<html>Please fill the first name field <br/>";
             }
             if (lastName.isEmpty()){
-                errorMessage += "\nPlease fill the last name field <br/>";
+                errorMessage += "Please fill the last name field <br/>";
             }
             if (email.isEmpty()){
-                errorMessage += "\nPlease fill the email field <br/>";
+                errorMessage += "Please fill the email field <br/>";
             }
             if (password.isEmpty()){
-                errorMessage += "\nPlease fill the password field <br/>";
+                errorMessage += "Please fill the password field <br/>";
             }
             if (passwordConfirm.isEmpty()){
-                errorMessage += "\nPlease fill the password confirmation field <br/>";
+                errorMessage += "Please fill the password confirmation field <br/>";
             }
             errorMessage += "</html>";
-            System.out.println(errorMessage);
             errorLabel.setText(errorMessage);
             errorLabel.setForeground(Color.red);
             
@@ -327,7 +363,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     }
     
     // get length of the fields
-    private boolean checkLength(String firstName, String lastName, String email, String password, String passwordConfirm) {
+    private boolean checkLength(String firstName, String lastName, String email, String password) {
         boolean result = true;
         String errorMessage = "<html>Error!<br/>";
         int maxFirstNameLength = 15;
@@ -337,24 +373,24 @@ public class RegistrationPage extends javax.swing.JFrame {
         int maxPasswordLength = 12;
         
         if (firstName.length() > maxFirstNameLength){
-            errorMessage += "\nThe first name entered is too long <br/>";
+            errorMessage += "The first name entered is too long <br/>";
             result = false;
         }
         if (lastName.length() > maxSurnameNameLength){
-            errorMessage += "\nThe last name entered is too long <br/>";
+            errorMessage += "The last name entered is too long <br/>";
             result = false;
         }
         if (email.length() > maxEmailLength){
-            errorMessage += "\nThe email field is too long <br/>";
+            errorMessage += "The email field is too long <br/>";
             result = false;
         }
         
         if (password.length() > maxPasswordLength){
-            errorMessage += "\nThe password field is too long <br/>";
+            errorMessage += "The password field is too long <br/>";
             result = false;
         }
         else if (password.length() < minPasswordLength){
-            errorMessage += "\nThe password field is too short <br/>";
+            errorMessage += "The password field is too short <br/>";
             result = false;
         }
         errorMessage += "</html>";
@@ -385,15 +421,15 @@ public class RegistrationPage extends javax.swing.JFrame {
         Matcher hasDigit = digits.matcher(password);
         Matcher hasSpecial = specialChars.matcher(password);
         if(!hasLetter.find()){
-           errorMessage += "\nThe password must contain an Uppercase char <br/>";
+           errorMessage += "The password must contain an Uppercase char <br/>";
            result = true;
         }
         if(hasDigit.find()){
-            errorMessage += "\nThe doesn't must a number <br/>";
+            errorMessage += "The doesn't must a number <br/>";
             result = true;
         }
         if(hasSpecial.find()){
-            errorMessage += "\nThe password must contain a special char <br/>";
+            errorMessage += "The password must contain a special char <br/>";
             result = true;
         }
         errorMessage += "</html>";
@@ -416,9 +452,9 @@ public class RegistrationPage extends javax.swing.JFrame {
     }
     
     private boolean checkIfValidEmail(String email) 
-    { 
+    {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
-                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; 
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
  
         Pattern pattern = Pattern.compile(emailRegex);
         boolean result = pattern.matcher(email).matches();
@@ -430,5 +466,5 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         return result;
     }
-    
+
 }

@@ -166,7 +166,8 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
         // shows label that guides the user on passsword requirements //todo make the label's default state invisible
-        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> upper case letter and one special char<html>");
+        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> number, "
+                + "one upper and lower case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordFocusGained
 
@@ -176,8 +177,8 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jpPasswordFocusLost
 
     private void jpPasswordConfirmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordConfirmFocusGained
-        // shows label that guides the user on passsword requirements
-        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> upper case letter and one special char<html>");
+        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> number, "
+                + "one upper and lower case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordConfirmFocusGained
 
@@ -240,10 +241,13 @@ public class RegistrationPage extends javax.swing.JFrame {
     
     
     private void registerUser() {
+        //reset the errorLabel in case a mistake was made before
+        errorLabel.setText("");
+        //do try catch when introducting connection
         //extract information from fields
-        String firstName = tfFirstName.getText();
-        String lastName = tfLastName.getText();
-        String email = tfEmail.getText();
+        String firstName = tfFirstName.getText().toLowerCase().trim();
+        String lastName = tfLastName.getText().toLowerCase().trim();
+        String email = tfEmail.getText().toLowerCase().trim();
         String password = String.valueOf(jpPassword.getPassword());
         String passwordConfirm = String.valueOf(jpPasswordConfirm.getPassword());
         
@@ -275,65 +279,63 @@ public class RegistrationPage extends javax.swing.JFrame {
         if(!checkIfValidEmail(email)){
             //Exit the function to avoid a registration error
             return;
-        }
-
-        //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
-        
-             
-//        protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//                    throws ServletException, IOException {
-//            boolean success = false;
-//            String username = request.getParameter("username");
-//            String password = request.getParameter("password");
-//            // Unsafe query which uses string concatenation
-//            String query = "select * from tbluser where username=? and password = ?";
-//            Connection conn = null;
-//            PreparedStatement stmt = null;
-//            try {
-//                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/user", "root", "root");
-//                stmt = conn.prepareStatement(query);
-//                stmt.setString(1, username);
-//                stmt.setString(2, password);
-//                ResultSet rs = stmt.executeQuery();
-//                if (rs.next()) {
-//                    // Login Successful if match is found
-//                    success = true;
-//                }
-//                rs.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            } finally {
-//                try {
-//                    stmt.close();
-//                    conn.close();
-//                } catch (Exception e) {}
-//            }
-//            if (success) {
-//                response.sendRedirect("home.html");
-//            } else {
-//                response.sendRedirect("login.html?error=1");
-//            }
-//        }
-        
+        }      
         
         //verify if email is already in the database
         
-
-        //add salt to password
+        // Crud code
+//        try{ 
+//            Connection con = ConnectDB.getConnection();
+//            String query = "select * from user where email=?";
+//            PreparedStatement pst = con.preparedStatement(query);
+//            pst.setString(1, email);
+//            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                return true;
+//            }
+//            return false;
+//        }
+//        catch (Exception ex){
+//            // display error message
+//        }
         
-
-        //add encryption to password
+        //create variables to generate a secure password
+        String salt = null;
+        String securePassword = null;
         
+        //generate a secure password
+        salt = getSalt(salt);
+        System.out.println("salt length "+salt.length());
+        System.out.println("salt \n"+salt);
+        securePassword = getSecurePassword(password, salt);
+        System.out.println("secure password length " + securePassword.length());
+        System.out.println("secure password \n"+securePassword);
         
         //register user to database
         
+        // Crud code
+//        try{ 
+//            firstName.substring(0, 1).toUpperCase();
+//            lastName.substring(0, 1).toUpperCase();
+//            Connection con = ConnectDB.getConnection();
+//            String query = "insert into user(email,fName,lName,salt,securePassword) "
+//                    + "VALUES (?,?,?,?,?)";
+//            PreparedStatement pst = con.preparedStatement(query);
+//            pst.setString(1, email);
+//            pst.setString(2, firstName);
+//            pst.setString(3, lastName);
+//            pst.setString(4, salt);
+//            pst.setString(5, password);
+//            pst.executeUpdate();
+//            con.close
+//            
+//        }
+//        catch (Exception ex){
+//            // display error message
+//        }
         
         //redirect to home page
-        
-    
-    //look on internet for test strategy template
     }
-    
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
@@ -403,34 +405,42 @@ public class RegistrationPage extends javax.swing.JFrame {
 //            errorMessage += "\nThe password confirmation field is too short <br/>";
 //            result = false;
 //        }
-        errorLabel.setText(errorMessage);
-        errorLabel.setForeground(Color.red);
+        if (!result){
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+        }
         return result;
     }
 
     //check if password follows specs
     private boolean checkIfValidPassword(String password) {
-        boolean result = false;
+        boolean result = true;
         String errorMessage = "<html>Error!<br/>";
         
-        Pattern letters = Pattern.compile("[a-zA-z]");
+        Pattern lowerLetters = Pattern.compile("[a-z]");
+        Pattern upperLetters = Pattern.compile("[A-Z]");
         Pattern digits = Pattern.compile("[0-9]");
         Pattern specialChars = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
 
-        Matcher hasLetter = letters.matcher(password);
+        Matcher hasLowerLetter = lowerLetters.matcher(password);
+        Matcher hasUpperLetter = upperLetters.matcher(password);
         Matcher hasDigit = digits.matcher(password);
         Matcher hasSpecial = specialChars.matcher(password);
-        if(!hasLetter.find()){
-           errorMessage += "The password must contain an Uppercase char <br/>";
-           result = true;
+        if(!hasLowerLetter.find()){
+           errorMessage += "The password must contain at least one lower case char <br/>";
+           result = false;
         }
-        if(hasDigit.find()){
-            errorMessage += "The doesn't must a number <br/>";
-            result = true;
+        if(!hasUpperLetter.find()){
+           errorMessage += "The password must contain at least one upper case char <br/>";
+           result = false;
         }
-        if(hasSpecial.find()){
+        if(!hasDigit.find()){
+            errorMessage += "The  password must contain a number <br/>";
+            result = false;
+        }
+        if(!hasSpecial.find()){
             errorMessage += "The password must contain a special char <br/>";
-            result = true;
+            result = false;
         }
         errorMessage += "</html>";
         if (!result){
@@ -442,6 +452,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private boolean checkIfPasswordsMatch(String password, String passwordConfirmation) {
         if(!password.equals(passwordConfirmation)){
+            System.out.println("password match error");
             String errorMessage = "<html>Error!<br/>";
             errorMessage += "Passwords don't match </html>";
             errorLabel.setText(errorMessage);
@@ -456,9 +467,10 @@ public class RegistrationPage extends javax.swing.JFrame {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
                 "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
  
-        Pattern pattern = Pattern.compile(emailRegex);
-        boolean result = pattern.matcher(email).matches();
+        Pattern emailPattern = Pattern.compile(emailRegex);
+        boolean result = emailPattern.matcher(email).matches();
         if(!result){
+            System.out.println("email error");
             String errorMessage = "<html>Error!<br/>";
             errorMessage += "Email is invalid </html>";
             errorLabel.setText(errorMessage);
@@ -466,5 +478,59 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         return result;
     }
+
+    private String getSalt(String salt) {
+        // generate salt
+        int saltLength = 254;
+        salt = PasswordManager.generateSalt(saltLength);
+        return salt;
+    }
+
+    private String getSecurePassword(String password, String salt) {
+        //add encyption to password+salt
+        String result = PasswordManager.generateSecurePassword(password, salt);
+        return result;
+    }
+    
+        //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
+        
+             
+//        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//                    throws ServletException, IOException {
+//            boolean success = false;
+//            String username = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            // Unsafe query which uses string concatenation
+//            String query = "select * from tbluser where username=? and password = ?";
+//            Connection conn = null;
+//            PreparedStatement stmt = null;
+//            try {
+//                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/user", "root", "root");
+//                stmt = conn.prepareStatement(query);
+//                stmt.setString(1, username);
+//                stmt.setString(2, password);
+//                ResultSet rs = stmt.executeQuery();
+//                if (rs.next()) {
+//                    // Login Successful if match is found
+//                    success = true;
+//                }
+//                rs.close();
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            finally {
+//                try {
+//                    stmt.close();
+//                    conn.close();
+//                } catch (Exception e) {}
+//            }
+//            if (success){
+//                response.sendRedirect("home.html");
+//            } 
+//            else{
+//                response.sendRedirect("login.html?error=1");
+//            }
+//        }
 
 }

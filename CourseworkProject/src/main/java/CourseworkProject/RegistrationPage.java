@@ -334,6 +334,10 @@ public class RegistrationPage extends javax.swing.JFrame {
 //            // display error message
 //        }
         
+        
+        //Define user
+        createUser(email, firstName, lastName);
+        
         //redirect to home page
     }
 
@@ -386,7 +390,6 @@ public class RegistrationPage extends javax.swing.JFrame {
             errorMessage += "The email field is too long <br/>";
             result = false;
         }
-        
         if (password.length() > maxPasswordLength){
             errorMessage += "The password field is too long <br/>";
             result = false;
@@ -532,5 +535,10 @@ public class RegistrationPage extends javax.swing.JFrame {
 //                response.sendRedirect("login.html?error=1");
 //            }
 //        }
+
+    private void createUser(String email, String firstName, String lastName) {
+        int userType = 0;
+        User user = new User(email, firstName, lastName, userType);
+    }
 
 }

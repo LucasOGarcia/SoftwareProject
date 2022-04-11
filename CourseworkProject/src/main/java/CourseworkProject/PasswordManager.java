@@ -32,13 +32,14 @@ public class PasswordManager {
         return new String(result);
     }
     
-    public static byte[] hash(char[] password, byte[] salt){
+    public static byte[] hashPassword(char[] password, byte[] salt){
         PBEKeySpec keySpec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
         Arrays.fill(password, Character.MIN_VALUE);
-        try {
+        try{
             SecretKeyFactory secretKF = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             return secretKF.generateSecret(keySpec).getEncoded();
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
+        }
+        catch (NoSuchAlgorithmException | InvalidKeySpecException ex){
             throw new AssertionError("Error while hashing the password " + ex.getMessage(), ex);
         }
         finally{
@@ -48,9 +49,9 @@ public class PasswordManager {
     
     public static String generateSecurePassword(String password, String salt){
         String result = null;
-        byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
+        byte[] securePassword = hashPassword(password.toCharArray(), salt.getBytes());
         result = Base64.getEncoder().encodeToString(securePassword);
-        return result;    
+        return result;
     }
     
     public static boolean verifyPassword(String passwordInput, String securePassword, String salt){

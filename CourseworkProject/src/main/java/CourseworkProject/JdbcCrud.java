@@ -20,7 +20,7 @@ public class JdbcCrud {
     //verify if email is already within the database  
     public static boolean checkIfEmailExists(String email){
         try{ 
-            Connection con = ConnectDB.getConnection();
+            Connection con = connectDB.getConnection();
             String query = "select * from user_Info where user_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, email);

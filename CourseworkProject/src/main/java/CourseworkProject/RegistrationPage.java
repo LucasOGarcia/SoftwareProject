@@ -6,6 +6,7 @@
 package CourseworkProject;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,6 +21,7 @@ public class RegistrationPage extends javax.swing.JFrame {
      */
     public RegistrationPage() {
         initComponents();
+        setMinimumSize(new Dimension(374, 667));
         passwordAssistLabel.setVisible(false);
         
     }
@@ -489,6 +491,10 @@ public class RegistrationPage extends javax.swing.JFrame {
     private void logUser(User user){
         ApplicationInfo.setUser(user);
     }
+
+    private void registerUser(String email, String firstName, String lastName, String salt, String password) {
+        JdbcCrud.registerUser(email, firstName, lastName, salt, password);
+    }
     
     
         //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
@@ -531,8 +537,4 @@ public class RegistrationPage extends javax.swing.JFrame {
 //                response.sendRedirect("login.html?error=1");
 //            }
 //        }
-
-    private void registerUser(String email, String firstName, String lastName, String salt, String password) {
-        JdbcCrud.registerUser(email, firstName, lastName, salt, password);
-    }
 }

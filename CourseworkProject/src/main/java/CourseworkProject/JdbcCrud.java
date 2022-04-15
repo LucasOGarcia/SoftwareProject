@@ -16,9 +16,8 @@ import javax.swing.JOptionPane;
  * @author lucas
  */
 public class JdbcCrud {
-    
-            
-    //verify if email is already in the database  
+        
+    //verify if email is already within the database  
     public static boolean checkIfEmailExists(String email){
         try{ 
             Connection con = ConnectDB.getConnection();
@@ -32,11 +31,12 @@ public class JdbcCrud {
         }
         catch (SQLException ex){
             // display error message
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
             return true;
         }
     }
     
-    //register user to database
+    //register user to the database
     public static void registerUser(String email, String firstName, String lastName, String salt, String password){
         try{
             Connection con = ConnectDB.getConnection();
@@ -55,10 +55,9 @@ public class JdbcCrud {
         }
         catch (SQLException ex){
             // display error message
-            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
         }
     }
-
     
     
 }

@@ -39,7 +39,7 @@ public class JdbcCrud {
     //register user to the database
     public static void registerUser(String email, String firstName, String lastName, String salt, String password){
         try{
-            Connection con = ConnectDB.getConnection();
+            Connection con = connectDB.getConnection();
             int accountType = 0; //0 regular user //1 admin
             String query = "insert into user_Info(user_email, user_first_name, user_last_name, user_salt, user_encrypted_password, user_account_type) "
                     + "VALUES (?,?,?,?,?,?)";

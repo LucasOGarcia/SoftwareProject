@@ -283,21 +283,14 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         //verify if email is already in the database
         
-        // Crud code
-//        try{ 
-//            Connection con = ConnectDB.getConnection();
-//            String query = "select * from user where email=?";
-//            PreparedStatement pst = con.preparedStatement(query);
-//            pst.setString(1, email);
-//            ResultSet rs = pst.executeQuery();
-//            if (rs.next()) {
-//                return true;
-//            }
-//            return false;
-//        }
-//        catch (Exception ex){
-//            // display error message
-//        }
+        if (checkIfEmailExists(email)) {
+            //Exit the function to avoid a registration error
+            return;
+        }
+        
+        //change name strings into desired format
+        firstName.substring(0, 1).toUpperCase();
+        lastName.substring(0, 1).toUpperCase();
         
         //create variables to generate a secure password
         String salt = null;
@@ -305,37 +298,18 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         //generate a secure password
         salt = getSalt(salt);
-        System.out.println("salt length "+salt.length());
-        System.out.println("salt \n"+salt);
         securePassword = getSecurePassword(password, salt);
-        System.out.println("secure password length " + securePassword.length());
-        System.out.println("secure password \n"+securePassword);
+        
+//        System.out.println("salt length "+salt.length());
+//        System.out.println("salt \n"+salt);
+//        System.out.println("secure password length " + securePassword.length());
+//        System.out.println("secure password \n"+securePassword);
         
         //register user to database
         
-        // Crud code
-//        try{ 
-//            firstName.substring(0, 1).toUpperCase();
-//            lastName.substring(0, 1).toUpperCase();
-//            Connection con = ConnectDB.getConnection();
-//            String query = "insert into user(email,fName,lName,salt,securePassword) "
-//                    + "VALUES (?,?,?,?,?)";
-//            PreparedStatement pst = con.preparedStatement(query);
-//            pst.setString(1, email);
-//            pst.setString(2, firstName);
-//            pst.setString(3, lastName);
-//            pst.setString(4, salt);
-//            pst.setString(5, password);
-//            pst.executeUpdate();
-//            con.close
-//            
-//        }
-//        catch (Exception ex){
-//            // display error message
-//        }
+        registerUser(email, firstName, lastName, salt, password);
         
-        
-        //Define user
+        //Define user and set user details within the application
         createUser(email, firstName, lastName);
         
         //redirect to home page
@@ -372,8 +346,8 @@ public class RegistrationPage extends javax.swing.JFrame {
     private boolean checkLength(String firstName, String lastName, String email, String password) {
         boolean result = true;
         String errorMessage = "<html>Error!<br/>";
-        int maxFirstNameLength = 15;
-        int maxSurnameNameLength = 30;
+        int maxFirstNameLength = 32;
+        int maxSurnameNameLength = 32;
         int maxEmailLength = 254;
         int minPasswordLength = 8;
         int maxPasswordLength = 12;
@@ -465,13 +439,12 @@ public class RegistrationPage extends javax.swing.JFrame {
         return true;
     }
     
-    private boolean checkIfValidEmail(String email) 
-    {
+    private boolean checkIfValidEmail(String email){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
                 "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
- 
         Pattern emailPattern = Pattern.compile(emailRegex);
         boolean result = emailPattern.matcher(email).matches();
+        
         if(!result){
             System.out.println("email error");
             String errorMessage = "<html>Error!<br/>";
@@ -494,6 +467,29 @@ public class RegistrationPage extends javax.swing.JFrame {
         String result = PasswordManager.generateSecurePassword(password, salt);
         return result;
     }
+
+    private boolean checkIfEmailExists(String email) {
+        boolean result = JdbcCrud.checkIfEmailExists(email);
+        if (result){
+            System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email already in use </html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+        }
+        return result;
+    }
+    
+    private void createUser(String email, String firstName, String lastName) {
+        int accountType = 0;
+        User user = new User(email, firstName, lastName, accountType);
+        logUser(user);
+    }
+    
+    private void logUser(User user){
+        ApplicationInfo.setUser(user);
+    }
+    
     
         //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
         
@@ -536,9 +532,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 //            }
 //        }
 
-    private void createUser(String email, String firstName, String lastName) {
-        int userType = 0;
-        User user = new User(email, firstName, lastName, userType);
+    private void registerUser(String email, String firstName, String lastName, String salt, String password) {
+        JdbcCrud.registerUser(email, firstName, lastName, salt, password);
     }
-
 }

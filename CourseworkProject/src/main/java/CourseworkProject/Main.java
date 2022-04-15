@@ -5,6 +5,8 @@
  */
 package CourseworkProject;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Gabriel
@@ -25,6 +27,6 @@ public class Main {
     
     public static void main(String[] args) {
         // TODO code application logic here
+        Connection con = ConnectDB.getConnection();
     }
-    
 }

@@ -18,12 +18,16 @@ public class connectDB {
       public static Connection getConnection() {
 
         try {
-            Class.forName("org.sqlite.JDBC");
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+//            String url = "jdbc:mysql://phpmyadmin.ecs.westminster.ac.uk:3306/w1783737_0?zeroDateTimeBehavior=convertToNull";
             String url = "jdbc:mysql://sql4.freesqldatabase.com:3306/sql4483459?zeroDateTimeBehavior=convertToNull";
             Connection con = DriverManager.getConnection(url);
+
             JOptionPane.showMessageDialog(null, "Connection Established");
             return con;
         } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, e);
             return null;
         }

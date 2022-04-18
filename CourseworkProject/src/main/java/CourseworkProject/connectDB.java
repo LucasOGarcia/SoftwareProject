@@ -5,8 +5,10 @@
  */
 package CourseworkProject;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,13 +22,22 @@ public class connectDB {
         try {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-//            String url = "jdbc:mysql://phpmyadmin.ecs.westminster.ac.uk:3306/w1783737_0?zeroDateTimeBehavior=convertToNull";
+//           Host: sql4.freesqldatabase.com
+//           Database name: sql4483459
+//           Database user: sql4483459
+//           Database password: hkycry1n2M
+//           Port number: 3306
+//           http://www.phpmyadmin.co use this link to access the DB using the details above. If under Services Connection does not Exist,
+//           setup a new connection using a MySQL connector and adding "mysql-connector-java-8.0.27.jar" onto it. Then fill in the details above
+
             String url = "jdbc:mysql://sql4.freesqldatabase.com:3306/sql4483459?zeroDateTimeBehavior=convertToNull";
-            Connection con = DriverManager.getConnection(url);
+            String user = "sql4483459";
+            String pw =  "hkycry1n2M"  ;   
+            Connection con = DriverManager.getConnection(url,user,pw);
 
             JOptionPane.showMessageDialog(null, "Connection Established");
             return con;
-        } catch (Exception e) {
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, e);
             return null;

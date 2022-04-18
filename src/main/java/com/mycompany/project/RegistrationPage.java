@@ -23,6 +23,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         initComponents();
         setMinimumSize(new Dimension(374, 667));
         passwordAssistLabel.setVisible(false);
+        firstNameLabel.requestFocus();
         
     }
 
@@ -49,6 +50,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         jpPasswordConfirm = new javax.swing.JPasswordField();
         lastNameLabel = new javax.swing.JLabel();
         tfLastName = new javax.swing.JTextField();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +93,15 @@ public class RegistrationPage extends javax.swing.JFrame {
 
         lastNameLabel.setText("Last name");
 
+        returnButton.setText("← Home page");
+        returnButton.setMaximumSize(new java.awt.Dimension(50, 50));
+        returnButton.setMinimumSize(new java.awt.Dimension(50, 50));
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,13 +133,18 @@ public class RegistrationPage extends javax.swing.JFrame {
                             .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
-                        .addComponent(logoLabel)))
+                        .addComponent(logoLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(38, 38, 38)
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(logoLabel)
                 .addGap(18, 18, 18)
                 .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,6 +205,11 @@ public class RegistrationPage extends javax.swing.JFrame {
         passwordAssistLabel.setVisible(false);
     }//GEN-LAST:event_jpPasswordConfirmFocusLost
 
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        ApplicationInfo.changeMainPageVisibility(true);
+        ApplicationInfo.changeRegistrationPageVisibility(false);
+    }//GEN-LAST:event_returnButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +258,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel passwordLabel2;
     private javax.swing.JButton registerButton;
+    private javax.swing.JButton returnButton;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfFirstName;
     private javax.swing.JTextField tfLastName;
@@ -259,46 +281,45 @@ public class RegistrationPage extends javax.swing.JFrame {
             return;
         }
         
-        // check length of the fields
+        // Check length of the fields
         if (!checkLength(firstName, lastName, email, password)){
             //exit function if any of the fields has a mistake
             return;
         }
         
-        //verify password meets standards
+        // Verify password meets standards
         if(!checkIfValidPassword(password)){
             //exit function since password doesn't meet specs
             return;
         }
         
-        //confirm passwords match
-        if (!checkIfPasswordsMatch(password, passwordConfirm)){             
-            //Exit the function to avoid a registration error
+        // Confirm passwords match
+        if (!checkIfPasswordsMatch(password, passwordConfirm)){
+            //Exit since passwords don't match
             return;
         }
         
-        //verify email
+        // Verify email format
         if(!checkIfValidEmail(email)){
-            //Exit the function to avoid a registration error
+            //Exit since email isn't in the right format
             return;
-        }      
+        }
         
-        //verify if email is already in the database
-        
+        // Check if email is already in the database
         if (checkIfEmailInDataBase(email)) {
             //Exit the function to avoid a registration error
             return;
         }
         
-        //change name strings into desired format
+        // Change name strings into desired format
         firstName.substring(0, 1).toUpperCase();
         lastName.substring(0, 1).toUpperCase();
         
-        //create variables to generate a secure password
+        // Create variables to generate a secure password
         String salt = null;
         String securePassword = null;
         
-        //generate a secure password
+        // Generate a secure password
         salt = getSalt(salt);
         securePassword = getSecurePassword(password, salt);
         
@@ -307,15 +328,15 @@ public class RegistrationPage extends javax.swing.JFrame {
 //        System.out.println("secure password length " + securePassword.length());
 //        System.out.println("secure password \n"+securePassword);
         
-        //register user to database
+        // Register user to database
         
         registerUser(email, firstName, lastName, salt, securePassword);
         //  -------------------- todo insert user into statistics table later ------------------------------
         
-        //Define user and set user details within the application
+        // Define user and set user details within the application
         createUser(email, firstName, lastName);
         
-        //redirect to home page
+        // Redirect to home page
     }
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {

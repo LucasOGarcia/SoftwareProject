@@ -5,6 +5,8 @@
 
 package com.mycompany.project;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author lucas
@@ -12,6 +14,10 @@ package com.mycompany.project;
 public class Project {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ApplicationInfo.createPages();
+        ApplicationInfo.changeMainPageVisibility(true);
+//        
+//        JFrame homePage = new MainPage();
+//        homePage.setVisible(true);
     }
 }

@@ -16,8 +16,5 @@ public class Project {
     public static void main(String[] args) {
         ApplicationInfo.createPages();
         ApplicationInfo.changeMainPageVisibility(true);
-//        
-//        JFrame homePage = new MainPage();
-//        homePage.setVisible(true);
     }
 }

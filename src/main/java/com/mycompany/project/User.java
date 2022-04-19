@@ -30,6 +30,9 @@ public class User { //user object to retain information throughout different pag
         this.accountType = accountType;
     }
     
+    public User(){
+    }
+    
     public void resetUser(){ //when user is logged out of the application
         this.userEmail = null;
         this.userFirstName = null;

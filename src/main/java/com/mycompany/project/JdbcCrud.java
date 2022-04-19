@@ -58,7 +58,7 @@ public class JdbcCrud {
     }
     
     //register user to the database
-    public static void registerUser(String email, String firstName, String lastName, String salt, String password){
+    public static void registerUser(String email, String firstName, String lastName, String salt, String password) throws Exception{
         Connection con = null;
         PreparedStatement pst = null;
         try{
@@ -81,6 +81,8 @@ public class JdbcCrud {
         catch (SQLException ex){
             // display error message
             JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
         }
         finally {
             try {
@@ -97,6 +99,7 @@ public class JdbcCrud {
                 // display error message
                 System.out.println("couldn't execute finally branch");
                 JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+                throw new Exception();
             }
         }
     }

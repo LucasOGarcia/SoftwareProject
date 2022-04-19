@@ -41,7 +41,7 @@ public class Language extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         French.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        French.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/France.png")); // NOI18N
+        French.setIcon(new javax.swing.ImageIcon(getClass().getResource("/France.png"))); // NOI18N
         French.setText("FRENCH       ");
         French.setToolTipText("");
         French.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +51,7 @@ public class Language extends javax.swing.JFrame {
         });
 
         Port.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        Port.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Portugal.png")); // NOI18N
+        Port.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Portugal.png"))); // NOI18N
         Port.setText("PORTUGUESE");
         Port.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class Language extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Germany.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Germany.png"))); // NOI18N
         jButton3.setText("GERMAN       ");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class Language extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Spain.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Spain.png"))); // NOI18N
         jButton4.setText("SPANISH       ");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +78,7 @@ public class Language extends javax.swing.JFrame {
         });
 
         jButton5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Italy.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Italy.png"))); // NOI18N
         jButton5.setText("ITALIAN        ");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +86,7 @@ public class Language extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Profile.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Profile.png"))); // NOI18N
         jButton1.setText("Profile ");
         jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +95,7 @@ public class Language extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Home.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
         jButton2.setText("Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +103,7 @@ public class Language extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Settings.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/settings_icon.png"))); // NOI18N
         jButton6.setText("Settings ");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +112,7 @@ public class Language extends javax.swing.JFrame {
         });
 
         jButton7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon("/Applications/LanguagePage/src/main/java/Images/Greece.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Greece.png"))); // NOI18N
         jButton7.setText("GREEK         ");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,20 +136,20 @@ public class Language extends javax.swing.JFrame {
                             .addComponent(Port, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                        .addGap(24, 24, 24)
                         .addComponent(jButton1)
-                        .addGap(12, 12, 12)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton6)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jButton6))
                 .addGap(35, 35, 35)
@@ -164,7 +164,7 @@ public class Language extends javax.swing.JFrame {
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         pack();

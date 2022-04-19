@@ -7,8 +7,11 @@ package com.mycompany.project;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,10 +24,8 @@ public class RegistrationPage extends javax.swing.JFrame {
      */
     public RegistrationPage() {
         initComponents();
-        setMinimumSize(new Dimension(374, 667));
         passwordAssistLabel.setVisible(false);
         firstNameLabel.requestFocus();
-        
     }
 
     /**
@@ -53,6 +54,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
 
         logoLabel.setText("(LOGO HERE)");
 
@@ -93,7 +95,8 @@ public class RegistrationPage extends javax.swing.JFrame {
 
         lastNameLabel.setText("Last name");
 
-        returnButton.setText("← Home page");
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        returnButton.setText("Back");
         returnButton.setMaximumSize(new java.awt.Dimension(50, 50));
         returnButton.setMinimumSize(new java.awt.Dimension(50, 50));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
@@ -106,15 +109,18 @@ public class RegistrationPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 140, Short.MAX_VALUE)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(logoLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(emailLabel)
@@ -124,20 +130,16 @@ public class RegistrationPage extends javax.swing.JFrame {
                                     .addComponent(passwordLabel))
                                 .addGap(4, 4, 4)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(tfLastName)
+                                    .addComponent(tfFirstName)
+                                    .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                                     .addComponent(jpPassword)
-                                    .addComponent(jpPasswordConfirm)
-                                    .addComponent(tfLastName)))
-                            .addComponent(errorLabel)
-                            .addComponent(passwordAssistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jpPasswordConfirm)))
+                            .addComponent(errorLabel)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(logoLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(136, 136, 136)
+                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +162,9 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(passwordAssistLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(passwordAssistLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(passwordLabel))
@@ -170,9 +172,9 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordLabel2)
                     .addComponent(jpPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(25, 25, 25)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -184,7 +186,7 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
         // shows label that guides the user on passsword requirements //todo make the label's default state invisible
-        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> number, "
+        passwordAssistLabel.setText("<html>Password length must: <br/>Be between 8-12 char, contain one number,<br/>  "
                 + "one upper and lower case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordFocusGained
@@ -195,7 +197,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jpPasswordFocusLost
 
     private void jpPasswordConfirmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordConfirmFocusGained
-        passwordAssistLabel.setText("<html>Password length must: Be between 8-12 char, contain one <br/> number, "
+         passwordAssistLabel.setText("<html>Password length must: <br/>Be between 8-12 char, contain one number,<br/>  "
                 + "one upper and lower case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordConfirmFocusGained
@@ -208,6 +210,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         ApplicationInfo.changeMainPageVisibility(true);
         ApplicationInfo.changeRegistrationPageVisibility(false);
+        resetPage();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
@@ -312,8 +315,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         
         // Change name strings into desired format
-        firstName.substring(0, 1).toUpperCase();
-        lastName.substring(0, 1).toUpperCase();
+        firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+        lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
         
         // Create variables to generate a secure password
         String salt = null;
@@ -323,20 +326,24 @@ public class RegistrationPage extends javax.swing.JFrame {
         salt = getSalt(salt);
         securePassword = getSecurePassword(password, salt);
         
-//        System.out.println("salt length "+salt.length());
-//        System.out.println("salt \n"+salt);
-//        System.out.println("secure password length " + securePassword.length());
-//        System.out.println("secure password \n"+securePassword);
+        System.out.println("salt length "+salt.length());
+        System.out.println("salt: "+salt);
+        System.out.println("secure password length " + securePassword.length());
+        System.out.println("secure password \n"+securePassword);
         
         // Register user to database
         
-        registerUser(email, firstName, lastName, salt, securePassword);
-        //  -------------------- todo insert user into statistics table later ------------------------------
+        if (!registerUser(email, firstName, lastName, salt, securePassword)){
+            // error inputing data into Database
+            return;
+        }
+        //  -------------------- todo insert user email into statistics table later ------------------------------
         
         // Define user and set user details within the application
         createUser(email, firstName, lastName);
         
         // Redirect to home page
+        startHomePage();
     }
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {
@@ -505,9 +512,43 @@ public class RegistrationPage extends javax.swing.JFrame {
         ApplicationInfo.setUser(user);
     }
 
-    private void registerUser(String email, String firstName, String lastName, String salt, String password) {
-        JdbcCrud.registerUser(email, firstName, lastName, salt, password);
+    private boolean registerUser(String email, String firstName, String lastName, String salt, String password) {
+        try {
+            JdbcCrud.registerUser(email, firstName, lastName, salt, password);
+            return true;
+        } catch (Exception ex) {
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Unable to connect to the server, try again later... </html>";
+            Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public void startHomePage(){
+        JFrame homePage = new HomePage();
+        homePage.setTitle("iLearn");
+        homePage.setPreferredSize(ApplicationInfo.getScreenSize());
+        homePage.setMaximumSize(ApplicationInfo.getScreenSize());
+        homePage.setMinimumSize(ApplicationInfo.getScreenSize());
+        homePage.setResizable(false);
+        homePage.setLocationRelativeTo(null);
+        ApplicationInfo.setHomePage(homePage);
+
+        ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeRegistrationPageVisibility(false);
+        resetPage();
     }
 
         //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
+
+    private void resetPage() {
+        errorLabel.setText(null);
+        passwordAssistLabel.setVisible(false);
+        firstNameLabel.requestFocus();
+        tfFirstName.setText(null);
+        tfLastName.setText(null);
+        tfEmail.setText(null);
+        jpPassword.setText(null);
+        jpPasswordConfirm.setText(null);
+    }
 }

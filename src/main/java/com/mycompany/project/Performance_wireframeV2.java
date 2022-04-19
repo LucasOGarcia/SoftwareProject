@@ -183,7 +183,7 @@ public class Performance_wireframeV2 extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/images/home_icon.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
         jButton5.setText("HOME");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,10 +195,10 @@ public class Performance_wireframeV2 extends javax.swing.JFrame {
 
         jLabel24.setText("(STUDENT NAME)");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/images/settings_icon.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Settings.png"))); // NOI18N
         jButton4.setText("Settings");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/images/back_icon.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
         jButton2.setText("Back");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -214,7 +214,7 @@ public class Performance_wireframeV2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(27, 27, 27)
                 .addComponent(jButton4))

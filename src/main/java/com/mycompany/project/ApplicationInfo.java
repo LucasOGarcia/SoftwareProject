@@ -206,6 +206,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         mainPage.setMinimumSize(screenSize);
         mainPage.setResizable(false);
         mainPage.setLocationRelativeTo(null);
+        mainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setMainPage(mainPage);
    }
    
@@ -217,6 +218,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         registrationPage.setMinimumSize(screenSize);
         registrationPage.setResizable(false);
         registrationPage.setLocationRelativeTo(null);
+        registrationPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setRegistrationPage(registrationPage);
    }
    
@@ -228,6 +230,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         loginPage.setMinimumSize(screenSize);
         loginPage.setResizable(false);
         loginPage.setLocationRelativeTo(null);
+        loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setLoginPage(loginPage);
    }
    
@@ -239,6 +242,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         homePage.setMinimumSize(screenSize);
         homePage.setResizable(false);
         homePage.setLocationRelativeTo(null);
+        homePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setHomePage(homePage);
    }
    
@@ -250,6 +254,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         languagePage.setMinimumSize(screenSize);
         languagePage.setResizable(false);
         languagePage.setLocationRelativeTo(null);
+        languagePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setLanguagePage(languagePage);
    }
    
@@ -261,6 +266,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePage.setMinimumSize(screenSize);
         rolePage.setResizable(false);
         rolePage.setLocationRelativeTo(null);
+        rolePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setRolePage(rolePage);
    }
    
@@ -272,6 +278,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         conversationLevelSelectionPage.setMinimumSize(screenSize);
         conversationLevelSelectionPage.setResizable(false);
         conversationLevelSelectionPage.setLocationRelativeTo(null);
+        conversationLevelSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
    }
    
@@ -283,6 +290,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         topicSelectionPage.setMinimumSize(screenSize);
         topicSelectionPage.setResizable(false);
         topicSelectionPage.setLocationRelativeTo(null);
+        topicSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setTopicSelectionPage(topicSelectionPage);
    }
    
@@ -294,6 +302,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         subTopicSelectionPage.setMinimumSize(screenSize);
         subTopicSelectionPage.setResizable(false);
         subTopicSelectionPage.setLocationRelativeTo(null);
+        subTopicSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
    }
    
@@ -305,6 +314,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setMinimumSize(screenSize);
         rolePlayPage.setResizable(false);
         rolePlayPage.setLocationRelativeTo(null);
+        rolePlayPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setRolePlayPage(rolePlayPage);
    }
    
@@ -316,6 +326,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
 //        performancePage.setMinimumSize(screenSize);
 //        performancePage.setResizable(false);
 //        performancePage.setLocationRelativeTo(null);
+//        performancePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        ApplicationInfo.setRolePlayPage(performancePage);
 //   }
 }

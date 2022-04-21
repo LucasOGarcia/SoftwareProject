@@ -20,6 +20,7 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         initPage();
         profilePicture.requestFocus();
+        adminButton.setEnabled(false);
     }
 
     /**

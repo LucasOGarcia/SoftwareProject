@@ -45,15 +45,12 @@ public class Language extends javax.swing.JFrame {
         GermanButton = new javax.swing.JButton();
         SpanishButton = new javax.swing.JButton();
         ItalianButton = new javax.swing.JButton();
-        ProfileButton = new javax.swing.JButton();
         HomeButton = new javax.swing.JButton();
-        SettingsButton = new javax.swing.JButton();
         GreekButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         FrenchButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        FrenchButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/France.png")); // NOI18N
         FrenchButton.setText("FRENCH       ");
         FrenchButton.setToolTipText("");
         FrenchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +60,6 @@ public class Language extends javax.swing.JFrame {
         });
 
         PortugueseButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        PortugueseButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Portugal.png")); // NOI18N
         PortugueseButton.setText("PORTUGUESE");
         PortugueseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +68,6 @@ public class Language extends javax.swing.JFrame {
         });
 
         GermanButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        GermanButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Germany.png")); // NOI18N
         GermanButton.setText("GERMAN       ");
         GermanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +76,6 @@ public class Language extends javax.swing.JFrame {
         });
 
         SpanishButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        SpanishButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Spain.png")); // NOI18N
         SpanishButton.setText("SPANISH       ");
         SpanishButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +84,6 @@ public class Language extends javax.swing.JFrame {
         });
 
         ItalianButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        ItalianButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Italy.png")); // NOI18N
         ItalianButton.setText("ITALIAN        ");
         ItalianButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,33 +91,17 @@ public class Language extends javax.swing.JFrame {
             }
         });
 
-        ProfileButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Profile.png")); // NOI18N
-        ProfileButton.setText("Profile ");
-        ProfileButton.setToolTipText("");
-        ProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProfileButtonActionPerformed(evt);
-            }
-        });
-
-        HomeButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Home.png")); // NOI18N
+        HomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home.png"))); // NOI18N
         HomeButton.setText("Home");
+        HomeButton.setMaximumSize(new java.awt.Dimension(123, 38));
+        HomeButton.setMinimumSize(new java.awt.Dimension(123, 38));
         HomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeButtonActionPerformed(evt);
             }
         });
 
-        SettingsButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Settings.png")); // NOI18N
-        SettingsButton.setText("Settings ");
-        SettingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SettingsButtonActionPerformed(evt);
-            }
-        });
-
         GreekButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        GreekButton.setIcon(new javax.swing.ImageIcon("/Applications/LanguagePage/src/main/java/Images/Greece.png")); // NOI18N
         GreekButton.setText("GREEK         ");
         GreekButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,46 +114,39 @@ public class Language extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ItalianButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(SpanishButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(GermanButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(FrenchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(PortugueseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                            .addComponent(GreekButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(ProfileButton)
-                        .addGap(12, 12, 12)
-                        .addComponent(HomeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SettingsButton)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(SpanishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ItalianButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(GermanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FrenchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PortugueseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(GreekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(83, 83, 83))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProfileButton)
-                    .addComponent(HomeButton)
-                    .addComponent(SettingsButton))
-                .addGap(35, 35, 35)
+                .addComponent(HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(SpanishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(FrenchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addComponent(PortugueseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(GermanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(SpanishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ItalianButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(GreekButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(193, 193, 193))
         );
 
         pack();
@@ -224,14 +194,6 @@ public class Language extends javax.swing.JFrame {
         Role displayRole = new Role(); 
         displayRole.setVisible(true); 
     }//GEN-LAST:event_ItalianButtonActionPerformed
-
-    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProfileButtonActionPerformed
-
-    private void SettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SettingsButtonActionPerformed
 
     private void GreekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GreekButtonActionPerformed
         // TODO add your handling code here:
@@ -282,8 +244,6 @@ public class Language extends javax.swing.JFrame {
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton ItalianButton;
     private javax.swing.JButton PortugueseButton;
-    private javax.swing.JButton ProfileButton;
-    private javax.swing.JButton SettingsButton;
     private javax.swing.JButton SpanishButton;
     // End of variables declaration//GEN-END:variables
 }

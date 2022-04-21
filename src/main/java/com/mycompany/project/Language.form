@@ -24,28 +24,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="ItalianButton" alignment="0" pref="207" max="32767" attributes="0"/>
-                          <Component id="SpanishButton" alignment="0" pref="207" max="32767" attributes="0"/>
-                          <Component id="GermanButton" alignment="0" pref="207" max="32767" attributes="0"/>
-                          <Component id="FrenchButton" pref="207" max="32767" attributes="0"/>
-                          <Component id="PortugueseButton" alignment="0" pref="207" max="32767" attributes="0"/>
-                          <Component id="GreekButton" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="ProfileButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="HomeButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="SettingsButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="SpanishButton" min="-2" pref="207" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ItalianButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="GermanButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="FrenchButton" max="32767" attributes="0"/>
+                      <Component id="PortugueseButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="GreekButton" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="HomeButton" min="-2" pref="99" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,24 +48,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ProfileButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="HomeButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SettingsButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="HomeButton" min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+              <Component id="SpanishButton" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="FrenchButton" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="PortugueseButton" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="GermanButton" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="SpanishButton" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="ItalianButton" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="GreekButton" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace pref="76" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,9 +71,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/France.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="FRENCH       "/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -96,9 +84,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Portugal.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="PORTUGUESE"/>
       </Properties>
       <Events>
@@ -109,9 +94,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Germany.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="GERMAN       "/>
       </Properties>
@@ -124,9 +106,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Spain.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="SPANISH       "/>
       </Properties>
       <Events>
@@ -138,56 +117,33 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Italy.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="ITALIAN        "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItalianButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ProfileButton">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Profile.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Profile "/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProfileButtonActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="HomeButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Home.png"/>
+          <Image iconType="3" name="/Home.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Home"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[123, 38]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[123, 38]"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HomeButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="SettingsButton">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/OsaiedJan/Documents/LanguagePage/src/main/java/Images/Settings.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Settings "/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SettingsButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="GreekButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="0"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Applications/LanguagePage/src/main/java/Images/Greece.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="GREEK         "/>
       </Properties>

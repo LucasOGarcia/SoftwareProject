@@ -6,6 +6,7 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
+import javax.swing.JFrame;
 
 /**
  *
@@ -96,9 +97,9 @@ public class MainPage extends javax.swing.JFrame {
                 .addComponent(registerButton)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addContainerGap()
                 .addComponent(loginButton)
-                .addGap(146, 146, 146))
+                .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,15 +121,16 @@ public class MainPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        ApplicationInfo.createRegistrationPage();
         ApplicationInfo.changeRegistrationPageVisibility(true);
         ApplicationInfo.changeMainPageVisibility(false);
-        resetPage();
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        ApplicationInfo.createLoginPage();
         ApplicationInfo.changeLoginPageVisibility(true);
         ApplicationInfo.changeMainPageVisibility(false);
-        resetPage();
+//        resetPage();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -178,7 +180,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel registerLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void resetPage() {
-        logoLabel.requestFocus();
-    }
+//    private void resetPage() {
+//        logoLabel.requestFocus();
+//    }
 }

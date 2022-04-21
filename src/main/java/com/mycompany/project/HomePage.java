@@ -5,6 +5,7 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
+import javax.swing.JFrame;
 
 /**
  *
@@ -120,10 +121,11 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void languagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languagesButtonActionPerformed
-        // TODO add your handling code here:
+//         TODO add your handling code here:
+        ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
         ApplicationInfo.changeHomePageVisibility(false);
-        profilePicture.requestFocus();
+
     }//GEN-LAST:event_languagesButtonActionPerformed
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
@@ -195,22 +197,23 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
     
-    private void resetPage(){
-        adminButton.setEnabled(false);
-        adminButton.setVisible(false);
-        userNameLabel.setText(null);
-        userEmailLabel.setText(null);
-        profilePicture.requestFocus();
-    }
-
     private void logout() {
+        //reset the user object to null
         User nullUser = new User();
-        if (nullUser == null){
-            System.out.println("user is null");
-        }
         ApplicationInfo.setUser(nullUser);
+        
+        // remake the homepage
+        ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
         ApplicationInfo.changeHomePageVisibility(false);
-        resetPage();
+//        resetPage();
     }
+    
+//    private void resetPage(){
+//        adminButton.setEnabled(false);
+//        adminButton.setVisible(false);
+//        userNameLabel.setText(null);
+//        userEmailLabel.setText(null);
+//        profilePicture.requestFocus();
+//    }
 }

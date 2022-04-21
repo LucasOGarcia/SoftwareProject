@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author lucas
  */
 public class JdbcCrud {
+    
+    //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
         
     //verify if email is already within the database  
     public static boolean checkIfEmailExists(String email){
@@ -29,7 +31,7 @@ public class JdbcCrud {
             pst.setString(1, email);
             ResultSet rs = pst.executeQuery();
             boolean result = rs.next();
-            System.out.println("email check finished " + result);
+            System.out.println("email in database check finished " + result);
             return result;
         }
         catch (SQLException ex){
@@ -57,8 +59,8 @@ public class JdbcCrud {
         }
     }
     
-    //register user to the database
-    public static void registerUser(String email, String firstName, String lastName, String salt, String password) throws Exception{
+    // Registers user to the client_Info table in the database
+    public static void registerUserClientInfo(String email, String firstName, String lastName, String salt, String password) throws Exception{
         Connection con = null;
         PreparedStatement pst = null;
         try{
@@ -76,7 +78,7 @@ public class JdbcCrud {
             pst.setString(5, password);
             pst.setInt(6, accountType);
             pst.executeUpdate();
-            System.out.println("registration completed");
+            System.out.println("registration client_Info completed");
         }
         catch (SQLException ex){
             // display error message
@@ -87,17 +89,93 @@ public class JdbcCrud {
         finally {
             try {
                 if (con != null) {
-                    System.out.println("registration connection closed");
+                    System.out.println("registration client_Info connection closed");
                     con.close();
                 }
                 if (pst != null){
-                    System.out.println("registration statement closed");
+                    System.out.println("registration client_Info statement closed");
                     pst.close();
                 }
             }
             catch (SQLException ex) {
                 // display error message
-                System.out.println("couldn't execute finally branch");
+                System.out.println("Registration client_Info error - couldn't execute finally branch");
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+                throw new Exception();
+            }
+        }
+    }
+    
+    // Registers user to the client_Statistics table in the database
+    public static void registerUserClienStatistics(String email) throws Exception{
+        Connection con = null;
+        PreparedStatement pst = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            int startingValue = 0; // base value for all statistics counter
+            
+            String query = "insert into client_Statistics(client_email, client_statistics_language_roleplay_complete_a1,"
+                    + " client_statistics_language_roleplay_complete_a2, client_statistics_language_roleplay_complete_b1,"
+                    + " client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                    + " client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist,"
+                    + " client_statistics_topic_directions, client_statistics_topic_employment,"
+                    + " client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                    + " client_statistics_topic_shopping, client_statistics_topic_health, "
+                    + " client_statistics_topic_housing, client_statistics_topic_introductions,"
+                    + " client_statistics_topic_appointments, client_statistics_topic_invitations,"
+                    + " client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                    + " client_statistics_topic_socialising, client_statistics_topic_university,"
+                    + " client_statistics_topic_weather, client_statistics_topic_work) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            pst.setInt(2, startingValue);
+            pst.setInt(3, startingValue);
+            pst.setInt(4, startingValue);
+            pst.setInt(5, startingValue);
+            pst.setInt(6, startingValue);
+            pst.setInt(7, startingValue);
+            pst.setInt(8, startingValue);
+            pst.setInt(9, startingValue);
+            pst.setInt(10, startingValue);
+            pst.setInt(11, startingValue);
+            pst.setInt(12, startingValue);
+            pst.setInt(13, startingValue);
+            pst.setInt(14, startingValue);
+            pst.setInt(15, startingValue);
+            pst.setInt(16, startingValue);
+            pst.setInt(17, startingValue);
+            pst.setInt(18, startingValue);
+            pst.setInt(19, startingValue);
+            pst.setInt(20, startingValue);
+            pst.setInt(21, startingValue);
+            pst.setInt(22, startingValue);
+            pst.setInt(23, startingValue);
+            pst.setInt(24, startingValue);
+            pst.executeUpdate();
+            System.out.println("registration client_Statistics completed");
+        }
+        catch (SQLException ex){
+            // display error message
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    System.out.println("registration client_Statistics connection closed");
+                    con.close();
+                }
+                if (pst != null){
+                    System.out.println("registration client_Statistics statement closed");
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+                // display error message
+                System.out.println("Registration client_Statistics error - couldn't execute finally branch");
                 JOptionPane.showMessageDialog(null, "Error!\n"+ex);
                 throw new Exception();
             }

@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 public class ApplicationInfo { //keeps track of what user is currently logged in the application and pages
     private static Dimension screenSize;
     private static User user;
+    private static String appName;
     private static JFrame mainPage;
     private static JFrame registrationPage;
     private static JFrame loginPage;
@@ -81,6 +82,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.screenSize = screenSize;
     }
     
+    public static void setAppName(String appName) {
+        ApplicationInfo.appName = appName;
+    }
+    
     // Getters
     
     public static User getUser(){
@@ -135,6 +140,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         return ApplicationInfo.screenSize;
     }
     
+    public static String getAppName() {
+        return ApplicationInfo.appName;
+    }
+    
     // page visibility functions
     
     public static void changeMainPageVisibility(boolean bool){
@@ -182,12 +191,14 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     // Other functions
-    
-    public static void createPages(){ // creates all pages, set their bounds and store them in a variable for reference
+   
+
+    public static void initialise() { // sets all of the application's basic info
         ApplicationInfo.setScreenSize(new Dimension(375, 667));
-        String appName = "iLearn";
-        
-        // Main page
+        ApplicationInfo.setAppName("iLearnIt");
+    }
+   
+   public static void createMainPage() { // Creates the main page
         JFrame mainPage = new MainPage();
         mainPage.setTitle(appName);
         mainPage.setPreferredSize(screenSize);
@@ -196,8 +207,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         mainPage.setResizable(false);
         mainPage.setLocationRelativeTo(null);
         ApplicationInfo.setMainPage(mainPage);
-        
-        // Registration page
+   }
+   
+   public static void createRegistrationPage() { // Creates the registration page
         JFrame registrationPage = new RegistrationPage();
         registrationPage.setTitle(appName);
         registrationPage.setPreferredSize(screenSize);
@@ -206,8 +218,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         registrationPage.setResizable(false);
         registrationPage.setLocationRelativeTo(null);
         ApplicationInfo.setRegistrationPage(registrationPage);
-        
-        // Login page
+   }
+   
+   public static void createLoginPage() { // Creates the login page
         JFrame loginPage = new LoginPage();
         loginPage.setTitle(appName);
         loginPage.setPreferredSize(screenSize);
@@ -216,8 +229,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         loginPage.setResizable(false);
         loginPage.setLocationRelativeTo(null);
         ApplicationInfo.setLoginPage(loginPage);
-        
-        // Home page
+   }
+   
+   public static void createHomePage() { // Creates the home page
         JFrame homePage = new HomePage();
         homePage.setTitle(appName);
         homePage.setPreferredSize(screenSize);
@@ -226,8 +240,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         homePage.setResizable(false);
         homePage.setLocationRelativeTo(null);
         ApplicationInfo.setHomePage(homePage);
-        
-        // Language page
+   }
+   
+   public static void createLanguagePage() { // Creates the language page
         JFrame languagePage = new Language();
         languagePage.setTitle(appName);
         languagePage.setPreferredSize(screenSize);
@@ -236,8 +251,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         languagePage.setResizable(false);
         languagePage.setLocationRelativeTo(null);
         ApplicationInfo.setLanguagePage(languagePage);
-        
-        // Role page
+   }
+   
+   public static void createRolePage() { // Creates the role page
         JFrame rolePage = new Role();
         rolePage.setTitle(appName);
         rolePage.setPreferredSize(screenSize);
@@ -246,8 +262,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePage.setResizable(false);
         rolePage.setLocationRelativeTo(null);
         ApplicationInfo.setRolePage(rolePage);
-        
-        // Conversation level selection page
+   }
+   
+   public static void createConversationLevelSelectionPage() { // Creates the conversation Level SelectionPage page
         JFrame conversationLevelSelectionPage = new ConversationLevelSelection();
         conversationLevelSelectionPage.setTitle(appName);
         conversationLevelSelectionPage.setPreferredSize(screenSize);
@@ -256,8 +273,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         conversationLevelSelectionPage.setResizable(false);
         conversationLevelSelectionPage.setLocationRelativeTo(null);
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
-        
-        // Topic selection page
+   }
+   
+   public static void createTopicSelectionPage() { // Creates the topic selection page
         JFrame topicSelectionPage = new TopicSelection();
         topicSelectionPage.setTitle(appName);
         topicSelectionPage.setPreferredSize(screenSize);
@@ -266,8 +284,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         topicSelectionPage.setResizable(false);
         topicSelectionPage.setLocationRelativeTo(null);
         ApplicationInfo.setTopicSelectionPage(topicSelectionPage);
-        
-        // Sub-topic selection page
+   }
+   
+   public static void createSubTopicSelectionPage() { // Creates the sub-topic selection page
         JFrame subTopicSelectionPage = new SubTopicSelection();
         subTopicSelectionPage.setTitle(appName);
         subTopicSelectionPage.setPreferredSize(screenSize);
@@ -276,8 +295,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         subTopicSelectionPage.setResizable(false);
         subTopicSelectionPage.setLocationRelativeTo(null);
         ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
-        
-        // Role play page
+   }
+   
+   public static void createRolePlayPage() { // Creates the create role play page
         JFrame rolePlayPage = new RolePlay();
         rolePlayPage.setTitle(appName);
         rolePlayPage.setPreferredSize(screenSize);
@@ -286,8 +306,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setResizable(false);
         rolePlayPage.setLocationRelativeTo(null);
         ApplicationInfo.setRolePlayPage(rolePlayPage);
-        
-        // Performance page
+   }
+   
+//  public static void createPerformancePage() { // Creates the performance page
 //        JFrame performancePage = new Performance_wireframeV2();
 //        performancePage.setTitle(appName);
 //        performancePage.setPreferredSize(screenSize);
@@ -296,6 +317,5 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
 //        performancePage.setResizable(false);
 //        performancePage.setLocationRelativeTo(null);
 //        ApplicationInfo.setRolePlayPage(performancePage);
-
-    }
+//   }
 }

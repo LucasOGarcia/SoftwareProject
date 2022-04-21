@@ -109,14 +109,16 @@ public class RegistrationPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(logoLabel))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(logoLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -135,20 +137,17 @@ public class RegistrationPage extends javax.swing.JFrame {
                                     .addComponent(tfEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                                     .addComponent(jpPassword)
                                     .addComponent(jpPasswordConfirm)))
-                            .addComponent(errorLabel)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(logoLabel)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoLabel))
+                .addGap(73, 73, 73)
                 .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -172,9 +171,9 @@ public class RegistrationPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordLabel2)
                     .addComponent(jpPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -208,9 +207,10 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jpPasswordConfirmFocusLost
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
         ApplicationInfo.changeRegistrationPageVisibility(false);
-        resetPage();
+//        resetPage();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
@@ -326,11 +326,6 @@ public class RegistrationPage extends javax.swing.JFrame {
         salt = getSalt(salt);
         securePassword = getSecurePassword(password, salt);
         
-        System.out.println("salt length "+salt.length());
-        System.out.println("salt: "+salt);
-        System.out.println("secure password length " + securePassword.length());
-        System.out.println("secure password \n"+securePassword);
-        
         // Register user to database
         
         if (!registerUser(email, firstName, lastName, salt, securePassword)){
@@ -339,8 +334,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         //  -------------------- todo insert user email into statistics table later ------------------------------
         
-        // Define user and set user details within the application
-        createUser(email, firstName, lastName);
+        // Create user object and assign to variable in ApplicationInfo class
+        createUserObject(email, firstName, lastName);
         
         // Redirect to home page
         startHomePage();
@@ -501,54 +496,42 @@ public class RegistrationPage extends javax.swing.JFrame {
         }
         return result;
     }
-    
-    private void createUser(String email, String firstName, String lastName) {
-        int accountType = 0;
-        User user = new User(email, firstName, lastName, accountType);
-        logUser(user);
-    }
-    
-    private void logUser(User user){
-        ApplicationInfo.setUser(user);
-    }
 
     private boolean registerUser(String email, String firstName, String lastName, String salt, String password) {
         try {
-            JdbcCrud.registerUser(email, firstName, lastName, salt, password);
+            JdbcCrud.registerUserClientInfo(email, firstName, lastName, salt, password);
+            JdbcCrud.registerUserClienStatistics(email);
             return true;
         } catch (Exception ex) {
             String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Unable to connect to the server, try again later... </html>";
+            errorMessage += "<html>Error!<br/> Unable to connect to the server, try again later... </html>";
+            errorLabel.setText(errorMessage);
             Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
     
-    public void startHomePage(){
-        JFrame homePage = new HomePage();
-        homePage.setTitle("iLearn");
-        homePage.setPreferredSize(ApplicationInfo.getScreenSize());
-        homePage.setMaximumSize(ApplicationInfo.getScreenSize());
-        homePage.setMinimumSize(ApplicationInfo.getScreenSize());
-        homePage.setResizable(false);
-        homePage.setLocationRelativeTo(null);
-        ApplicationInfo.setHomePage(homePage);
-
+    private void createUserObject(String email, String firstName, String lastName) {
+        int accountType = 0;
+        User user = new User(email, firstName, lastName, accountType);
+        ApplicationInfo.setUser(user);
+    }
+    
+    public void startHomePage(){ //restarts the user homepage with the user object info
+        ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
         ApplicationInfo.changeRegistrationPageVisibility(false);
-        resetPage();
+//        resetPage();
     }
 
-        //check for injections in every db query //ref https://www.journaldev.com/34028/sql-injection-in-java
-
-    private void resetPage() {
-        errorLabel.setText(null);
-        passwordAssistLabel.setVisible(false);
-        firstNameLabel.requestFocus();
-        tfFirstName.setText(null);
-        tfLastName.setText(null);
-        tfEmail.setText(null);
-        jpPassword.setText(null);
-        jpPasswordConfirm.setText(null);
-    }
+//    private void resetPage() {
+//        errorLabel.setText(null);
+//        passwordAssistLabel.setVisible(false);
+//        firstNameLabel.requestFocus();
+//        tfFirstName.setText(null);
+//        tfLastName.setText(null);
+//        tfEmail.setText(null);
+//        jpPassword.setText(null);
+//        jpPasswordConfirm.setText(null);
+//    }
 }

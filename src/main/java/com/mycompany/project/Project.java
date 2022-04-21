@@ -14,7 +14,8 @@ import javax.swing.JFrame;
 public class Project {
 
     public static void main(String[] args) {
-        ApplicationInfo.createPages();
+        ApplicationInfo.initialise();
+        ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
     }
 }

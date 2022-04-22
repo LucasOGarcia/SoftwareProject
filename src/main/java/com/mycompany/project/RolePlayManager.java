@@ -15,19 +15,69 @@ import java.util.List;
  * @author lucas
  */
 public class RolePlayManager {
+    private static RolePlaySettings rolePlaySettings;
     private static List<RolePlayTopic> topicsA1;
     private static List<RolePlayTopic> topicsA2;
     private static List<RolePlayTopic> topicsB1;
     private static List<RolePlayTopic> topicsB2;
+    private static String languageSpanish;
+    private static String difficultyA1;
+    private static String difficultyA2;
+    private static String difficultyB1;
+    private static String difficultyB2;
+    private static String directions;
+    private static String employment;
+    private static String culturalExperiences;
+    private static String personalInfo;
+    private static String shopping;
+    private static String health;
+    private static String housing;
+    private static String introductions;
+    private static String appointments;
+    private static String invitations;
+    private static String travel;
+    private static String foodAndDrink;
+    private static String socialising;
+    private static String university;
+    private static String weather;
+    private static String work;
     
+    public static void setRolePlaySettings(RolePlaySettings newSettings){
+        RolePlayManager.rolePlaySettings = newSettings;
+    }
+    
+    public static RolePlaySettings getRolePlaySettings() {
+        return RolePlayManager.rolePlaySettings;
+    }
+    
+    public static void initialise() {
+        rolePlaySettings = new RolePlaySettings();
+        languageSpanish = "Spanish";
+        directions = "Asking and giving directions";
+        employment = "Basic employment issues";
+        culturalExperiences = "Cross-cultural experiences";
+        personalInfo = "Exchanging personal information";
+        shopping = "Going shopping and asking for prices";
+        health = "Health";
+        housing = "Housing conditions";
+        introductions = "Introductions";
+        appointments = "Making Appointments";
+        invitations = "Making invitations";
+        travel = "Making travel arrangements";
+        foodAndDrink = "Ordering food and drink";
+        socialising = "Socialising";
+        university = "University life";
+        weather = "Weather";
+        work = "Work life";
+    }
     
     public static void createTopics() {
         RolePlayTopic A1exercise1 = new RolePlayTopic();
         // basic role play info
-        A1exercise1.difficulty = "A1";
-        A1exercise1.language = "Spanish";
-        A1exercise1.topic = "Asking and giving directions";
-        A1exercise1.subTopic = "Delivery Driver";
+        A1exercise1.difficulty = difficultyA1;
+        A1exercise1.language = languageSpanish;
+        A1exercise1.topicType = directions;
+        A1exercise1.subTopicType = "Delivery Driver";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1exercise1.personAText = "<html> Hello there. Is this Mary?<br/>"

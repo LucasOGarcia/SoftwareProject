@@ -13,10 +13,11 @@ import java.util.List;
 public class RolePlayTopic {
     String language;
     String difficulty;
-    String topic;
-    String subTopic;
+    String topicType;
+    String subTopicType;
     List personAVocabAssist;
     List personBVocabAssist;
     String personAText;
     String personBText;
 }
+

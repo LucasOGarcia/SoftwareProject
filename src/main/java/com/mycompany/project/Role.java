@@ -66,7 +66,7 @@ public class Role extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home.png"))); // NOI18N
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
         homeButton.setText("Home");
         homeButton.setMaximumSize(new java.awt.Dimension(123, 38));
         homeButton.setMinimumSize(new java.awt.Dimension(123, 38));
@@ -267,15 +267,21 @@ public class Role extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void languageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageButtonActionPerformed
-        // TODO add your handling code here:
-        close();
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
     }//GEN-LAST:event_languageButtonActionPerformed
 
     private void studentRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentRadioButtonActionPerformed
@@ -287,22 +293,21 @@ public class Role extends javax.swing.JFrame {
     }//GEN-LAST:event_teacherRadioButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (studentRadioButton.isSelected()){
-                    close();
-                    ConversationLevelSelection displayLevel = new ConversationLevelSelection(); 
-                    displayLevel.setVisible(true); 
-                     
-                }
-                else if (teacherRadioButton.isSelected()){
-                    close();
-                    ConversationLevelSelection displayLevel = new ConversationLevelSelection(); 
-                    displayLevel.setVisible(true); 
-                }
-            }
-        });        // TODO add your handling code here:
+        if (studentRadioButton.isSelected()){
+            close();
+            RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+            settings.setRole("Student");
+            RolePlayManager.setRolePlaySettings(settings);
+        }
+        else{
+            close();
+            RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+            settings.setRole("Teacher");
+            RolePlayManager.setRolePlaySettings(settings);
+        }
+        ApplicationInfo.createConversationLevelSelectionPage();
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed

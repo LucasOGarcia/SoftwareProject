@@ -15,6 +15,7 @@ public class Project {
 
     public static void main(String[] args) {
         ApplicationInfo.initialise();
+        RolePlayManager.initialise();
         ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
     }

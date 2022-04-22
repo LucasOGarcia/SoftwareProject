@@ -5,8 +5,8 @@
  */
 package com.mycompany.project;
 
-import java.awt.Dimension;
-import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -122,14 +122,13 @@ public class MainPage extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         ApplicationInfo.createRegistrationPage();
         ApplicationInfo.changeRegistrationPageVisibility(true);
-        ApplicationInfo.changeMainPageVisibility(false);
+        ApplicationInfo.getMainPage().dispose();
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         ApplicationInfo.createLoginPage();
         ApplicationInfo.changeLoginPageVisibility(true);
-        ApplicationInfo.changeMainPageVisibility(false);
-//        resetPage();
+        ApplicationInfo.getMainPage().dispose();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -179,7 +178,4 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel registerLabel;
     // End of variables declaration//GEN-END:variables
 
-//    private void resetPage() {
-//        logoLabel.requestFocus();
-//    }
 }

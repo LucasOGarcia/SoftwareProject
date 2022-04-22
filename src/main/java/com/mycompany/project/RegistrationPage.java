@@ -24,8 +24,7 @@ public class RegistrationPage extends javax.swing.JFrame {
      */
     public RegistrationPage() {
         initComponents();
-        passwordAssistLabel.setVisible(false);
-        firstNameLabel.requestFocus();
+        initPage();
     }
 
     /**
@@ -209,8 +208,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
-        ApplicationInfo.changeRegistrationPageVisibility(false);
-//        resetPage();
+        ApplicationInfo.getRegistrationPage().dispose();
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
@@ -339,6 +337,11 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         // Redirect to home page
         startHomePage();
+    }
+    
+    private void initPage() {
+        passwordAssistLabel.setVisible(false);
+        firstNameLabel.requestFocus();
     }
 
     private boolean checkIfFieldsAreEmpty(String firstName, String lastName, String email, String password, String passwordConfirm) {
@@ -520,18 +523,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     public void startHomePage(){ //restarts the user homepage with the user object info
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
-        ApplicationInfo.changeRegistrationPageVisibility(false);
-//        resetPage();
+        ApplicationInfo.getRegistrationPage().dispose();
     }
-
-//    private void resetPage() {
-//        errorLabel.setText(null);
-//        passwordAssistLabel.setVisible(false);
-//        firstNameLabel.requestFocus();
-//        tfFirstName.setText(null);
-//        tfLastName.setText(null);
-//        tfEmail.setText(null);
-//        jpPassword.setText(null);
-//        jpPasswordConfirm.setText(null);
-//    }
+    
 }

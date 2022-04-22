@@ -125,7 +125,7 @@ public class HomePage extends javax.swing.JFrame {
 //         TODO add your handling code here:
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
-        ApplicationInfo.changeHomePageVisibility(false);
+        ApplicationInfo.getHomePage().dispose();
 
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -134,6 +134,7 @@ public class HomePage extends javax.swing.JFrame {
             return;
         }
         // send to admin page
+        ApplicationInfo.getHomePage().dispose();
     }//GEN-LAST:event_adminButtonActionPerformed
 
     /**

@@ -5,6 +5,8 @@
  */
 package com.mycompany.project;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author lucas
@@ -32,7 +34,7 @@ public class TopicSelection extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         languagesButton = new javax.swing.JButton();
         homeButton = new javax.swing.JButton();
-        infoLabel = new javax.swing.JLabel();
+        languageLabel = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         directionsButton = new javax.swing.JButton();
         employmentButton = new javax.swing.JButton();
@@ -51,7 +53,7 @@ public class TopicSelection extends javax.swing.JFrame {
         weatherButton = new javax.swing.JButton();
         workButton = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        roleIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +84,7 @@ public class TopicSelection extends javax.swing.JFrame {
             }
         });
 
-        infoLabel.setText("Language - Difficulty");
+        languageLabel.setText("Language - Difficulty");
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -214,7 +216,7 @@ public class TopicSelection extends javax.swing.JFrame {
         });
 
         jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(60, 63, 65));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Lucida Console", 0, 22)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("SELECT A TOPIC");
@@ -292,17 +294,6 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -320,9 +311,9 @@ public class TopicSelection extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(backButton)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(languageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -337,8 +328,8 @@ public class TopicSelection extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(backButton)
                         .addGap(18, 18, 18)
-                        .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -489,14 +480,14 @@ public class TopicSelection extends javax.swing.JFrame {
     private javax.swing.JButton healthButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JButton housingButton;
-    private javax.swing.JLabel infoLabel;
     private javax.swing.JButton introductionsButton;
     private javax.swing.JButton invitationButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel languageLabel;
     private javax.swing.JButton languagesButton;
+    private javax.swing.JLabel roleIcon;
     private javax.swing.JButton shoppingButton;
     private javax.swing.JButton socialisingButton;
     private javax.swing.JButton travelButton;
@@ -504,8 +495,46 @@ public class TopicSelection extends javax.swing.JFrame {
     private javax.swing.JButton weatherButton;
     private javax.swing.JButton workButton;
     // End of variables declaration//GEN-END:variables
-
+    
     private void initPage() {
         jTextField1.setFocusable(false);
+        jTextField1.setFocusable(false);
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getLanguage() != null) {
+            String imageName = null;
+            //set the langauge label text to the selected language
+            if (RolePlayManager.getRolePlaySettings().getDifficulty() != null) {
+                // set the language label icon according to the selected language and difficulty
+                languageLabel.setText(RolePlayManager.getRolePlaySettings().getLanguage() + " "  + RolePlayManager.getRolePlaySettings().getDifficulty());
+            }
+            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
+                case "Spanish":
+                    imageName = "Spain";
+                    
+                case "French":
+                    imageName = "France";
+                
+                case "Portuguese":
+                    imageName = "Portugual";
+                
+                case "German":
+                    imageName = "Germany";
+                
+                case "Italian":
+                    imageName = "Italy";
+                
+                case "Greek":
+                    imageName = "Greece";
+            }
+            if (imageName != null) {
+                ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+                languageLabel.setIcon((image));
+            }
+        }
+        // set the correct role icon
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getRole() != null) {
+            String imageName = RolePlayManager.getRolePlaySettings().getRole();
+            ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            roleIcon.setIcon((image));
+        }
     }
 }

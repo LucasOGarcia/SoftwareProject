@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,10 +24,7 @@ public class Role extends javax.swing.JFrame {
      */
     public Role() {
         initComponents();
-        confirmButton.setEnabled(false);
-        jTextField1.setFocusable(false);
-        jTextField2.setFocusable(false);
-        jTextField3.setFocusable(false);
+        initPage();
     }
     public void close(){
             WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING); 
@@ -252,21 +250,17 @@ public class Role extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(languageButton))
+                        .addComponent(backButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backButton))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(languageLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(languageLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(homeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(languageButton)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
@@ -442,5 +436,44 @@ public class Role extends javax.swing.JFrame {
         studentRadioButton.setSelected(false);
         teacherRadioButton.setSelected(true);
         confirmButton.setEnabled(true);
+    }
+    
+    private void initPage() {
+        // disable the confirm button and make textfields unfocusable
+        confirmButton.setEnabled(false);
+        jTextField1.setFocusable(false);
+        jTextField2.setFocusable(false);
+        jTextField3.setFocusable(false);
+        jTextField1.setFocusable(false);
+        // Assign the right langauge and icon to label
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getLanguage() != null) {
+            String imageName = null;
+            //set the langauge label text to the selected language
+            languageLabel.setText(RolePlayManager.getRolePlaySettings().getLanguage());
+            // set the language label icon according to the selected language
+            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
+                case "Spanish":
+                    imageName = "Spain";
+                    
+                case "French":
+                    imageName = "France";
+                
+                case "Portuguese":
+                    imageName = "Portugual";
+                
+                case "German":
+                    imageName = "Germany";
+                
+                case "Italian":
+                    imageName = "Italy";
+                
+                case "Greek":
+                    imageName = "Greece";
+            }
+            if (imageName != null) {
+                ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+                languageLabel.setIcon((image));
+            }
+        }
     }
 }

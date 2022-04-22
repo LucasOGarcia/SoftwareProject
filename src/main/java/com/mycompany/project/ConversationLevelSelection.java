@@ -89,7 +89,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         jLabel7.setText("Intermediate");
 
         jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(60, 63, 65));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Lucida Console", 0, 22)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("SELECT A DIFFICULTY");
@@ -354,13 +354,12 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
 
     private void initPage() {
         jTextField1.setFocusable(false);
-        if (RolePlayManager.getRolePlaySettings().getLanguage() != null) {
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getLanguage() != null) {
             String imageName = null;
-            String language = RolePlayManager.getRolePlaySettings().getLanguage();
             //set the langauge label text to the selected language
-            languageLabel.setText(language);
+            languageLabel.setText(RolePlayManager.getRolePlaySettings().getLanguage());
             // set the language label icon according to the selected language
-            switch (language) {
+            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
                 case "Spanish":
                     imageName = "Spain";
                     
@@ -385,7 +384,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
             }
         }
         // set the correct role icon
-        if (RolePlayManager.getRolePlaySettings().getRole() != null) {
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getRole() != null) {
             String imageName = RolePlayManager.getRolePlaySettings().getRole();
             ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
             roleIcon.setIcon((image));

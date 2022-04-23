@@ -5,6 +5,12 @@
  */
 package com.mycompany.project;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
  * @author lucas
@@ -16,7 +22,10 @@ public class SubTopicSelection extends javax.swing.JFrame {
      */
     public SubTopicSelection() {
         initComponents();
+        initPage();
     }
+    
+    List<String> buttonsSubTopicTypes;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,260 +37,232 @@ public class SubTopicSelection extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        languageLabel = new javax.swing.JLabel();
+        homeButton = new javax.swing.JButton();
+        languagesButton = new javax.swing.JButton();
+        roleIcon = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        topicName = new javax.swing.JLabel();
+        topic1Button = new javax.swing.JButton();
+        topic2Button = new javax.swing.JButton();
+        topic3Button = new javax.swing.JButton();
+        topic4Button = new javax.swing.JButton();
+        topic5Button = new javax.swing.JButton();
+        topic6Button = new javax.swing.JButton();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Home");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setRequestFocusEnabled(false);
+
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        backButton.setText("Back");
+        backButton.setRequestFocusEnabled(false);
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Languages");
+        languageLabel.setText("Language - Difficulty");
+        languageLabel.setFocusable(false);
+        languageLabel.setRequestFocusEnabled(false);
 
-        jLabel8.setText("Logo");
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
+        homeButton.setText("Home");
+        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
+        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
+        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
+        homeButton.setRequestFocusEnabled(false);
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
+        languagesButton.setText("Languages");
+        languagesButton.setRequestFocusEnabled(false);
+        languagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languagesButtonActionPerformed(evt);
+            }
+        });
+
+        roleIcon.setFocusable(false);
+        roleIcon.setRequestFocusEnabled(false);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setRequestFocusEnabled(false);
+
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Lucida Console", 0, 22)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("CHOOSE A SUB-TOPIC");
+        jTextField1.setFocusable(false);
+        jTextField1.setRequestFocusEnabled(false);
+
+        topicName.setText("<html><div style='text-align: center;'>TopicName</div></html>");
+        topicName.setFocusable(false);
+        topicName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        topicName.setRequestFocusEnabled(false);
+
+        topic1Button.setText("jButton1");
+        topic1Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic1Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic1Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic1Button.setRequestFocusEnabled(false);
+        topic1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic1ButtonActionPerformed(evt);
+            }
+        });
+
+        topic2Button.setText("jButton2");
+        topic2Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic2Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic2Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic2Button.setRequestFocusEnabled(false);
+        topic2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic2ButtonActionPerformed(evt);
+            }
+        });
+
+        topic3Button.setText("jButton3");
+        topic3Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic3Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic3Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic3Button.setRequestFocusEnabled(false);
+        topic3Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic3ButtonActionPerformed(evt);
+            }
+        });
+
+        topic4Button.setText("jButton4");
+        topic4Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic4Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic4Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic4Button.setRequestFocusEnabled(false);
+        topic4Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic4ButtonActionPerformed(evt);
+            }
+        });
+
+        topic5Button.setText("jButton5");
+        topic5Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic5Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic5Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic5Button.setRequestFocusEnabled(false);
+        topic5Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic5ButtonActionPerformed(evt);
+            }
+        });
+
+        topic6Button.setText("jButton6");
+        topic6Button.setMaximumSize(new java.awt.Dimension(138, 38));
+        topic6Button.setMinimumSize(new java.awt.Dimension(138, 38));
+        topic6Button.setPreferredSize(new java.awt.Dimension(138, 38));
+        topic6Button.setRequestFocusEnabled(false);
+        topic6Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topic6ButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(topic1Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(topic2Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(topic3Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(topic5Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(topic6Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(topic4Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(topicName)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(errorLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel8)
-                .addContainerGap(20, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(topicName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(topic1Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topic2Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(topic3Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topic4Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(topic5Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topic6Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(errorLabel)
+                .addContainerGap())
         );
-
-        jLabel1.setText("Language - Difficulty");
-
-        jLabel2.setText("Topic");
-
-        jLabel3.setText("Choose a conversation");
-
-        jButton4.setText("Subtopic 1");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("Subtopic 2");
-
-        jButton6.setText("Subtopic 3");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setText("Subtopic 4");
-
-        jButton8.setText("Subtopic 5");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Subtopic 6");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setText("Subtopic 12");
-
-        jButton11.setText("Subtopic 9");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
-        jButton12.setText("Subtopic 7");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-
-        jButton13.setText("Subtopic 8");
-
-        jButton14.setText("Subtopic 10");
-
-        jButton15.setText("Subtopic 11");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-
-        jButton16.setText("Subtopic 18");
-
-        jButton17.setText("Subtopic 15");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
-
-        jButton18.setText("Subtopic 13");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
-            }
-        });
-
-        jButton19.setText("Subtopic 14");
-
-        jButton20.setText("Subtopic 16");
-
-        jButton21.setText("Subtopic 17");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(languagesButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jLabel2))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton1)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jButton2))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton21)
-                    .addComponent(jButton17)
-                    .addComponent(jButton18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton20)
-                    .addComponent(jButton19)
-                    .addComponent(jButton16)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60))
+                            .addComponent(backButton)
+                            .addComponent(languageLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(languagesButton)
+                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton14))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15)
-                    .addComponent(jButton10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton18)
-                    .addComponent(jButton19))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton17)
-                    .addComponent(jButton20))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton21)
-                    .addComponent(jButton16))
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(backButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -304,49 +285,62 @@ public class SubTopicSelection extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void topic1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic1ButtonActionPerformed
+        int buttonIndex = 0;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic1ButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void topic2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic2ButtonActionPerformed
+        int buttonIndex = 1;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic2ButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void topic3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic3ButtonActionPerformed
+        int buttonIndex = 2;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic3ButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void topic4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic4ButtonActionPerformed
+        int buttonIndex = 3;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic4ButtonActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void topic5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic5ButtonActionPerformed
+        int buttonIndex = 4;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic5ButtonActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void topic6ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topic6ButtonActionPerformed
+        int buttonIndex = 5;
+        setSelectedSubTopic(buttonIndex);
+    }//GEN-LAST:event_topic6ButtonActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createHomePage();
+        ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.getSubTopicSelectionPage().dispose();
+    }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void languagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languagesButtonActionPerformed
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createLanguagePage();
+        ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.getSubTopicSelectionPage().dispose();
+    }//GEN-LAST:event_languagesButtonActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+        settings.setTopicType(null);
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createTopicSelectionPage();
+        ApplicationInfo.changeTopicSelectionPageVisibility(true);
+        ApplicationInfo.getSubTopicSelectionPage().dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,31 +379,138 @@ public class SubTopicSelection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JButton homeButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel languageLabel;
+    private javax.swing.JButton languagesButton;
+    private javax.swing.JLabel roleIcon;
+    private javax.swing.JButton topic1Button;
+    private javax.swing.JButton topic2Button;
+    private javax.swing.JButton topic3Button;
+    private javax.swing.JButton topic4Button;
+    private javax.swing.JButton topic5Button;
+    private javax.swing.JButton topic6Button;
+    private javax.swing.JLabel topicName;
     // End of variables declaration//GEN-END:variables
+
+    private void initPage() {
+        
+        // -------------------showcase user's selections-----------------------
+        jTextField1.setFocusable(false);
+        jTextField1.setFocusable(false);
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getLanguage() != null) {
+            String imageName = null;
+            //set the langauge label text to the selected language
+            if (RolePlayManager.getRolePlaySettings().getDifficulty() != null) {
+                // set the language label icon according to the selected language and difficulty
+                languageLabel.setText(RolePlayManager.getRolePlaySettings().getLanguage() + " "  + RolePlayManager.getRolePlaySettings().getDifficulty());
+            }
+            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
+                case "Spanish":
+                    imageName = "Spain";
+                    
+                case "French":
+                    imageName = "France";
+                
+                case "Portuguese":
+                    imageName = "Portugual";
+                
+                case "German":
+                    imageName = "Germany";
+                
+                case "Italian":
+                    imageName = "Italy";
+                
+                case "Greek":
+                    imageName = "Greece";
+            }
+            if (imageName != null) {
+                ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+                languageLabel.setIcon((image));
+            }
+        }
+        // set the correct role icon
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getRole() != null) {
+            String imageName = RolePlayManager.getRolePlaySettings().getRole();
+            ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            roleIcon.setIcon((image));
+        }
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
+            topicName.setText(RolePlayManager.getRolePlaySettings().getTopicType());
+        }
+        
+        // -----------------set buttons and their text-------------------------
+        buttonsSubTopicTypes = new ArrayList();
+        // add buttons to a list
+        List<JButton> buttons = new ArrayList();
+        buttons.add(topic1Button);
+        buttons.add(topic2Button);
+        buttons.add(topic3Button);
+        buttons.add(topic4Button);
+        buttons.add(topic5Button);
+        buttons.add(topic6Button);
+        // todo disable all buttons by default
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).setEnabled(false);
+            buttons.get(i).setVisible(false);
+        }
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
+            List<RolePlayTopic> matchingRolePlays = new ArrayList();
+            List<RolePlayTopic> rolePlayList = new ArrayList();
+            // check which difficulty the user has selected and get role plays tha match
+            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
+                case "A1":
+                    rolePlayList = RolePlayManager.getTopicsA1();
+                    break;
+                case "A2":
+                    rolePlayList = RolePlayManager.getTopicsA2();
+                    break;
+                case "B1":
+                    rolePlayList = RolePlayManager.getTopicsB1();
+                    break;
+                case "B2":
+                    rolePlayList = RolePlayManager.getTopicsB2();
+                    break;
+            }
+            //get matching roleplays
+            matchingRolePlays = getMatchingRolePlays(matchingRolePlays, rolePlayList);
+            if (matchingRolePlays.isEmpty()) {
+                // the topic has no subtopic for this difficulty
+                errorLabel.setText("<html> There are currently no subtopics available<br/> for this difficulty...");
+                errorLabel.setForeground(Color.red);
+                return;
+            }
+            // set button text and enable them according to the number of matching sub-topics
+            for (int i = 0; i < matchingRolePlays.size(); i++) {
+                buttonsSubTopicTypes.add(matchingRolePlays.get(i).subTopicType);
+                buttons.get(i).setText(matchingRolePlays.get(i).subTopicType);
+                buttons.get(i).setEnabled(true);
+                buttons.get(i).setVisible(true);
+
+            }
+            
+        }
+    }
+    
+    private List getMatchingRolePlays(List<RolePlayTopic> matchingRolePlays, List<RolePlayTopic> rolePlayList){
+        for (int i = 0; i < rolePlayList.size(); i++) {
+            if (rolePlayList.get(i).topicType.equals(RolePlayManager.getRolePlaySettings().getTopicType())) {
+                matchingRolePlays.add(rolePlayList.get(i));
+            }
+        }
+        return matchingRolePlays;
+    }
+    
+    public void setSelectedSubTopic(int index) {
+        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+        settings.setSubTopicType(buttonsSubTopicTypes.get(index));
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createRolePlayPage();
+        ApplicationInfo.changeRolePlayPageVisibility(true);
+        ApplicationInfo.getSubTopicSelectionPage().dispose();
+    }
 }

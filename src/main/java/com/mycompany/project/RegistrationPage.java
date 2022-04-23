@@ -509,6 +509,7 @@ public class RegistrationPage extends javax.swing.JFrame {
             String errorMessage = "<html>Error!<br/>";
             errorMessage += "<html>Error!<br/> Unable to connect to the server, try again later... </html>";
             errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
             Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }

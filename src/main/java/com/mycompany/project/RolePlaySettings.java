@@ -13,6 +13,7 @@ public class RolePlaySettings {
     private String role;
     private String difficulty;
     private String topicType;
+    private String subTopicType;
     
     // Setters
     
@@ -32,6 +33,10 @@ public class RolePlaySettings {
         this.topicType = newTopicType;
     }
     
+    public void setSubTopicType(String newSubTopicType) {
+        this.subTopicType = newSubTopicType;
+    }
+    
     // Getters
     
     public String getLanguage() {
@@ -48,5 +53,9 @@ public class RolePlaySettings {
     
     public String getTopicType() {
         return this.topicType;
+    }
+    
+    public String getSubTopicType() {
+        return this.subTopicType;
     }
 }

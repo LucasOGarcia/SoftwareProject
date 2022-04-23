@@ -53,6 +53,22 @@ public class RolePlayManager {
         return RolePlayManager.rolePlaySettings;
     }
     
+    public static List getTopicsA1() {
+        return RolePlayManager.topicsA1;
+    }
+    
+    public static List getTopicsA2() {
+        return RolePlayManager.topicsA1;
+    }
+    
+    public static List getTopicsB1() {
+        return RolePlayManager.topicsA1;
+    }
+    
+    public static List getTopicsB2() {
+        return RolePlayManager.topicsA1;
+    }
+    
     public static void initialise() {
         rolePlaySettings = new RolePlaySettings();
         topicsA1 = new ArrayList<>();

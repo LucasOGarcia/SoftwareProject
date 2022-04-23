@@ -75,9 +75,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
         homeButton.setText("Home");
-        homeButton.setMaximumSize(new java.awt.Dimension(123, 38));
-        homeButton.setMinimumSize(new java.awt.Dimension(123, 38));
-        homeButton.setPreferredSize(new java.awt.Dimension(123, 38));
+        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
+        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
+        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
@@ -90,6 +90,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         directionsButton.setText("<html>Asking and giving<br/>\n directions<html>");
         directionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        directionsButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        directionsButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        directionsButton.setPreferredSize(new java.awt.Dimension(138, 38));
         directionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 directionsButtonActionPerformed(evt);
@@ -98,6 +101,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         employmentButton.setText("<html>Basic employment<br/> issues<html>");
         employmentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        employmentButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        employmentButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        employmentButton.setPreferredSize(new java.awt.Dimension(138, 38));
         employmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employmentButtonActionPerformed(evt);
@@ -105,6 +111,9 @@ public class TopicSelection extends javax.swing.JFrame {
         });
 
         crossCulturalButton.setText("<html>Cross-cultural <br/>experiences<html>");
+        crossCulturalButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        crossCulturalButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        crossCulturalButton.setPreferredSize(new java.awt.Dimension(138, 38));
         crossCulturalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crossCulturalButtonActionPerformed(evt);
@@ -113,6 +122,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         exchangingPersonalInfoButton.setText("<html>Exchanging personal <br/>information<html>");
         exchangingPersonalInfoButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exchangingPersonalInfoButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        exchangingPersonalInfoButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        exchangingPersonalInfoButton.setPreferredSize(new java.awt.Dimension(138, 38));
         exchangingPersonalInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exchangingPersonalInfoButtonActionPerformed(evt);
@@ -121,6 +133,8 @@ public class TopicSelection extends javax.swing.JFrame {
 
         shoppingButton.setText("<html>Going shopping and <br/>asking for prices<html>");
         shoppingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        shoppingButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        shoppingButton.setMinimumSize(new java.awt.Dimension(138, 38));
         shoppingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shoppingButtonActionPerformed(evt);
@@ -129,6 +143,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         healthButton.setText("<html>Health<html>");
         healthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        healthButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        healthButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        healthButton.setPreferredSize(new java.awt.Dimension(138, 38));
         healthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 healthButtonActionPerformed(evt);
@@ -137,6 +154,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         housingButton.setText("<html>Housing conditions<html>");
         housingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        housingButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        housingButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        housingButton.setPreferredSize(new java.awt.Dimension(138, 38));
         housingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 housingButtonActionPerformed(evt);
@@ -145,6 +165,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         introductionsButton.setText("<html>Introductions<html>");
         introductionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        introductionsButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        introductionsButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        introductionsButton.setPreferredSize(new java.awt.Dimension(138, 38));
         introductionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 introductionsButtonActionPerformed(evt);
@@ -153,6 +176,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         appointmentButton.setText("<html>Making <br/>Appointments<html>");
         appointmentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        appointmentButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        appointmentButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        appointmentButton.setPreferredSize(new java.awt.Dimension(138, 38));
         appointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 appointmentButtonActionPerformed(evt);
@@ -161,6 +187,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         invitationButton.setText("<html>Making invitations<html>");
         invitationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        invitationButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        invitationButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        invitationButton.setPreferredSize(new java.awt.Dimension(138, 38));
         invitationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 invitationButtonActionPerformed(evt);
@@ -169,6 +198,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         travelButton.setText("<html>Making travel <br/>arrangements<html>");
         travelButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        travelButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        travelButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        travelButton.setPreferredSize(new java.awt.Dimension(138, 38));
         travelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travelButtonActionPerformed(evt);
@@ -177,6 +209,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         foodAndDrinkButton.setText("<html>Ordering food <br/>and drink<html>");
         foodAndDrinkButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        foodAndDrinkButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        foodAndDrinkButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        foodAndDrinkButton.setPreferredSize(new java.awt.Dimension(138, 38));
         foodAndDrinkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodAndDrinkButtonActionPerformed(evt);
@@ -185,6 +220,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         socialisingButton.setText("<html>Socialising<html>");
         socialisingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        socialisingButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        socialisingButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        socialisingButton.setPreferredSize(new java.awt.Dimension(138, 38));
         socialisingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 socialisingButtonActionPerformed(evt);
@@ -193,6 +231,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         universityButton.setText("<html>University life<html>");
         universityButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        universityButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        universityButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        universityButton.setPreferredSize(new java.awt.Dimension(138, 38));
         universityButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 universityButtonActionPerformed(evt);
@@ -201,6 +242,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         weatherButton.setText("<html>Weather<html>");
         weatherButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        weatherButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        weatherButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        weatherButton.setPreferredSize(new java.awt.Dimension(138, 38));
         weatherButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weatherButtonActionPerformed(evt);
@@ -209,6 +253,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         workButton.setText("<html>Work life<html>");
         workButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        workButton.setMaximumSize(new java.awt.Dimension(138, 38));
+        workButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        workButton.setPreferredSize(new java.awt.Dimension(138, 38));
         workButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workButtonActionPerformed(evt);
@@ -230,24 +277,24 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(crossCulturalButton, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(crossCulturalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(shoppingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(housingButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(appointmentButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(travelButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(socialisingButton, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(directionsButton)
-                            .addComponent(weatherButton, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(housingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(appointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(travelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(socialisingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(directionsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(weatherButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(employmentButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(healthButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(introductionsButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(invitationButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(universityButton, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(healthButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(introductionsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(invitationButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(universityButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(workButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jTextField1))
                 .addContainerGap())
@@ -262,9 +309,9 @@ public class TopicSelection extends javax.swing.JFrame {
                     .addComponent(directionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(employmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(crossCulturalButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(crossCulturalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(shoppingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,7 +350,7 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(languagesButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -322,7 +369,7 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(languagesButton)
-                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -356,79 +403,110 @@ public class TopicSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createHomePage();
+        ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void directionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directionsButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Asking and giving directions";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_directionsButtonActionPerformed
 
     private void shoppingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shoppingButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Going shopping and asking for prices";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_shoppingButtonActionPerformed
 
     private void exchangingPersonalInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exchangingPersonalInfoButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Exchanging personal information";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_exchangingPersonalInfoButtonActionPerformed
 
     private void healthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Health";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_healthButtonActionPerformed
 
     private void employmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employmentButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Basic employment issues";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_employmentButtonActionPerformed
 
     private void crossCulturalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crossCulturalButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Cross-cultural experiences";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_crossCulturalButtonActionPerformed
 
     private void housingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_housingButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Housing conditions";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_housingButtonActionPerformed
 
     private void introductionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_introductionsButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Introductions";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_introductionsButtonActionPerformed
 
     private void appointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appointmentButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Making Appointments";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_appointmentButtonActionPerformed
 
     private void invitationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invitationButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Making invitations";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_invitationButtonActionPerformed
 
     private void travelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_travelButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Making travel arrangements";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_travelButtonActionPerformed
 
     private void foodAndDrinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodAndDrinkButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Ordering food and drink";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_foodAndDrinkButtonActionPerformed
 
     private void socialisingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_socialisingButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Socialising";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_socialisingButtonActionPerformed
 
     private void universityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_universityButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "University life";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_universityButtonActionPerformed
 
     private void weatherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weatherButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Weather";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_weatherButtonActionPerformed
 
     private void workButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workButtonActionPerformed
-        // TODO add your handling code here:
+        String rolePlayType = "Work life";
+        setSelectedRolePlay(rolePlayType);
     }//GEN-LAST:event_workButtonActionPerformed
 
     private void languagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languagesButtonActionPerformed
-        // TODO add your handling code here:
+        // reset role play settings
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createLanguagePage();
+        ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
+        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+        settings.setDifficulty(null);
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createConversationLevelSelectionPage();
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
+        ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -536,5 +614,15 @@ public class TopicSelection extends javax.swing.JFrame {
             ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
             roleIcon.setIcon((image));
         }
+    }
+    
+    // Set the rolePlayType variable in the rolePlaySettings object and redirect to the next page
+    private void setSelectedRolePlay (String rolePlayType) {
+        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+        settings.setTopicType(rolePlayType);
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createSubTopicSelectionPage();
+        ApplicationInfo.changeSubTopicSelectionPageVisibility(true);
+        ApplicationInfo.getTopicSelectionPage().dispose();
     }
 }

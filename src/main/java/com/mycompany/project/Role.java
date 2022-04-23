@@ -344,7 +344,7 @@ public class Role extends javax.swing.JFrame {
         }
         ApplicationInfo.createConversationLevelSelectionPage();
         ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
-        ApplicationInfo.changeRolePageVisibility(false);
+        ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void teacherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teacherButtonActionPerformed

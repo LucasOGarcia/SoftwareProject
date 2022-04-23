@@ -100,12 +100,12 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="448" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" pref="107" max="-2" attributes="0"/>
-                          <EmptySpace pref="784" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -300,7 +300,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel10" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -315,11 +315,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="jRadioButton1">
-              <Properties>
-                <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
-                  <Point value="[-32275, -30000]"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
               </Events>

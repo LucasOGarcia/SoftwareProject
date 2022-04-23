@@ -242,6 +242,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -251,6 +252,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -261,43 +263,28 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePage();
         ApplicationInfo.changeRolePageVisibility(true);
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void a1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ButtonActionPerformed
-        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
-        settings.setDifficulty("A1");
-        RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.getConversationLevelSelectionPage().dispose();
+        String newDifficuly = "A1";
+        setSelectedDifficulty(newDifficuly);
     }//GEN-LAST:event_a1ButtonActionPerformed
 
     private void a2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ButtonActionPerformed
-        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
-        settings.setDifficulty("A2");
-        RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.getConversationLevelSelectionPage().dispose();
+        String newDifficuly = "A2";
+        setSelectedDifficulty(newDifficuly);
     }//GEN-LAST:event_a2ButtonActionPerformed
 
     private void b1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ButtonActionPerformed
-        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
-        settings.setDifficulty("B1");
-        RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.getConversationLevelSelectionPage().dispose();
+        String newDifficuly = "B1";
+        setSelectedDifficulty(newDifficuly);
     }//GEN-LAST:event_b1ButtonActionPerformed
 
     private void b2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ButtonActionPerformed
-        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
-        settings.setDifficulty("B2");
-        RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.getConversationLevelSelectionPage().dispose();
+        String newDifficuly = "B2";
+        setSelectedDifficulty(newDifficuly);
     }//GEN-LAST:event_b2ButtonActionPerformed
 
     /**
@@ -392,5 +379,15 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
             ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
             roleIcon.setIcon((image));
         }
+    }
+
+    private void setSelectedDifficulty(String newDifficuly) {
+        RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
+        settings.setDifficulty(newDifficuly);
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createTopicSelectionPage();
+        ApplicationInfo.changeTopicSelectionPageVisibility(true);
+        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
+        ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }
 }

@@ -208,6 +208,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
+        ApplicationInfo.changeRegistrationPageVisibility(false);
         ApplicationInfo.getRegistrationPage().dispose();
     }//GEN-LAST:event_returnButtonActionPerformed
 

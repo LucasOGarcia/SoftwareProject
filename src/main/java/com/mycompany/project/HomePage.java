@@ -125,6 +125,7 @@ public class HomePage extends javax.swing.JFrame {
 //         TODO add your handling code here:
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeHomePageVisibility(false);
         ApplicationInfo.getHomePage().dispose();
 
     }//GEN-LAST:event_languagesButtonActionPerformed
@@ -133,7 +134,7 @@ public class HomePage extends javax.swing.JFrame {
         if (ApplicationInfo.getUser().accountType != 1) {
             return;
         }
-        // send to admin page
+        // to-do send to admin page
         ApplicationInfo.getHomePage().dispose();
     }//GEN-LAST:event_adminButtonActionPerformed
 
@@ -208,14 +209,6 @@ public class HomePage extends javax.swing.JFrame {
         ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
         ApplicationInfo.changeHomePageVisibility(false);
-//        resetPage();
+        ApplicationInfo.getHomePage().dispose();
     }
-    
-//    private void resetPage(){
-//        adminButton.setEnabled(false);
-//        adminButton.setVisible(false);
-//        userNameLabel.setText(null);
-//        userEmailLabel.setText(null);
-//        profilePicture.requestFocus();
-//    }
 }

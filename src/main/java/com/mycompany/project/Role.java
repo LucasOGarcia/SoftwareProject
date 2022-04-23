@@ -309,6 +309,7 @@ public class Role extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -318,6 +319,7 @@ public class Role extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_languageButtonActionPerformed
 
@@ -344,6 +346,7 @@ public class Role extends javax.swing.JFrame {
         }
         ApplicationInfo.createConversationLevelSelectionPage();
         ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_confirmButtonActionPerformed
 
@@ -361,6 +364,7 @@ public class Role extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeRolePageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 

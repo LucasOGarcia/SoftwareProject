@@ -135,21 +135,19 @@ public class Language extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
-        // TODO add your handling code here:
-//        close();
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changelanguagePageVisibility(false);
         ApplicationInfo.getLanguagePage().dispose();
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     private void SpanishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpanishButtonActionPerformed
-        // TODO add your handling code here:
-//        close();
         RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
         settings.setLanguage("Spanish");
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePage();
         ApplicationInfo.changeRolePageVisibility(true);
+        ApplicationInfo.changelanguagePageVisibility(false);
         ApplicationInfo.getLanguagePage().dispose();
     }//GEN-LAST:event_SpanishButtonActionPerformed
 

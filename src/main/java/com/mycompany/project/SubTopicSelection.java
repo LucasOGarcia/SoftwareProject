@@ -321,6 +321,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -330,6 +331,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -339,6 +341,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createTopicSelectionPage();
         ApplicationInfo.changeTopicSelectionPageVisibility(true);
+        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -461,7 +464,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
             List<RolePlayTopic> matchingRolePlays = new ArrayList();
             List<RolePlayTopic> rolePlayList = new ArrayList();
-            // check which difficulty the user has selected and get role plays tha match
+            // check which difficulty the user has selected and get the list associated with that difficulty
             switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
                 case "A1":
                     rolePlayList = RolePlayManager.getTopicsA1();
@@ -511,6 +514,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePlayPage();
         ApplicationInfo.changeRolePlayPageVisibility(true);
+        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }
 }

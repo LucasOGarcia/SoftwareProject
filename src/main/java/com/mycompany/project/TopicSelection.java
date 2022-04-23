@@ -408,6 +408,7 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
         ApplicationInfo.changeHomePageVisibility(true);
+        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -497,6 +498,7 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
         ApplicationInfo.changelanguagePageVisibility(true);
+        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -506,6 +508,7 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createConversationLevelSelectionPage();
         ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
+        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -623,6 +626,7 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createSubTopicSelectionPage();
         ApplicationInfo.changeSubTopicSelectionPageVisibility(true);
+        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }
 }

@@ -90,9 +90,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         directionsButton.setText("<html>Asking and giving<br/>\n directions<html>");
         directionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        directionsButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        directionsButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        directionsButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        directionsButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        directionsButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        directionsButton.setPreferredSize(new java.awt.Dimension(150, 45));
         directionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 directionsButtonActionPerformed(evt);
@@ -101,9 +101,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         employmentButton.setText("<html>Basic employment<br/> issues<html>");
         employmentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        employmentButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        employmentButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        employmentButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        employmentButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        employmentButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        employmentButton.setPreferredSize(new java.awt.Dimension(150, 45));
         employmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employmentButtonActionPerformed(evt);
@@ -111,20 +111,20 @@ public class TopicSelection extends javax.swing.JFrame {
         });
 
         crossCulturalButton.setText("<html>Cross-cultural <br/>experiences<html>");
-        crossCulturalButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        crossCulturalButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        crossCulturalButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        crossCulturalButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        crossCulturalButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        crossCulturalButton.setPreferredSize(new java.awt.Dimension(150, 45));
         crossCulturalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 crossCulturalButtonActionPerformed(evt);
             }
         });
 
-        exchangingPersonalInfoButton.setText("<html>Exchanging personal <br/>information<html>");
+        exchangingPersonalInfoButton.setText("<html>Exchanging personal information<html>");
         exchangingPersonalInfoButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exchangingPersonalInfoButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        exchangingPersonalInfoButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        exchangingPersonalInfoButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        exchangingPersonalInfoButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        exchangingPersonalInfoButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        exchangingPersonalInfoButton.setPreferredSize(new java.awt.Dimension(150, 45));
         exchangingPersonalInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exchangingPersonalInfoButtonActionPerformed(evt);
@@ -133,8 +133,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         shoppingButton.setText("<html>Going shopping and <br/>asking for prices<html>");
         shoppingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        shoppingButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        shoppingButton.setMinimumSize(new java.awt.Dimension(138, 38));
+        shoppingButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        shoppingButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        shoppingButton.setPreferredSize(new java.awt.Dimension(150, 45));
         shoppingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shoppingButtonActionPerformed(evt);
@@ -143,9 +144,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         healthButton.setText("<html>Health<html>");
         healthButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        healthButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        healthButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        healthButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        healthButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        healthButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        healthButton.setPreferredSize(new java.awt.Dimension(150, 45));
         healthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 healthButtonActionPerformed(evt);
@@ -154,9 +155,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         housingButton.setText("<html>Housing conditions<html>");
         housingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        housingButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        housingButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        housingButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        housingButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        housingButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        housingButton.setPreferredSize(new java.awt.Dimension(150, 45));
         housingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 housingButtonActionPerformed(evt);
@@ -165,9 +166,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         introductionsButton.setText("<html>Introductions<html>");
         introductionsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        introductionsButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        introductionsButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        introductionsButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        introductionsButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        introductionsButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        introductionsButton.setPreferredSize(new java.awt.Dimension(150, 45));
         introductionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 introductionsButtonActionPerformed(evt);
@@ -176,9 +177,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         appointmentButton.setText("<html>Making <br/>Appointments<html>");
         appointmentButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        appointmentButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        appointmentButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        appointmentButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        appointmentButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        appointmentButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        appointmentButton.setPreferredSize(new java.awt.Dimension(150, 45));
         appointmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 appointmentButtonActionPerformed(evt);
@@ -187,9 +188,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         invitationButton.setText("<html>Making invitations<html>");
         invitationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        invitationButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        invitationButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        invitationButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        invitationButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        invitationButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        invitationButton.setPreferredSize(new java.awt.Dimension(150, 45));
         invitationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 invitationButtonActionPerformed(evt);
@@ -198,9 +199,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         travelButton.setText("<html>Making travel <br/>arrangements<html>");
         travelButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        travelButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        travelButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        travelButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        travelButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        travelButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        travelButton.setPreferredSize(new java.awt.Dimension(150, 45));
         travelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 travelButtonActionPerformed(evt);
@@ -209,9 +210,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         foodAndDrinkButton.setText("<html>Ordering food <br/>and drink<html>");
         foodAndDrinkButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        foodAndDrinkButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        foodAndDrinkButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        foodAndDrinkButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        foodAndDrinkButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        foodAndDrinkButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        foodAndDrinkButton.setPreferredSize(new java.awt.Dimension(150, 45));
         foodAndDrinkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodAndDrinkButtonActionPerformed(evt);
@@ -220,9 +221,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         socialisingButton.setText("<html>Socialising<html>");
         socialisingButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        socialisingButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        socialisingButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        socialisingButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        socialisingButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        socialisingButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        socialisingButton.setPreferredSize(new java.awt.Dimension(150, 45));
         socialisingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 socialisingButtonActionPerformed(evt);
@@ -231,9 +232,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         universityButton.setText("<html>University life<html>");
         universityButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        universityButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        universityButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        universityButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        universityButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        universityButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        universityButton.setPreferredSize(new java.awt.Dimension(150, 45));
         universityButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 universityButtonActionPerformed(evt);
@@ -242,9 +243,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         weatherButton.setText("<html>Weather<html>");
         weatherButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        weatherButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        weatherButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        weatherButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        weatherButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        weatherButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        weatherButton.setPreferredSize(new java.awt.Dimension(150, 45));
         weatherButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weatherButtonActionPerformed(evt);
@@ -253,9 +254,9 @@ public class TopicSelection extends javax.swing.JFrame {
 
         workButton.setText("<html>Work life<html>");
         workButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        workButton.setMaximumSize(new java.awt.Dimension(138, 38));
-        workButton.setMinimumSize(new java.awt.Dimension(138, 38));
-        workButton.setPreferredSize(new java.awt.Dimension(138, 38));
+        workButton.setMaximumSize(new java.awt.Dimension(150, 45));
+        workButton.setMinimumSize(new java.awt.Dimension(150, 45));
+        workButton.setPreferredSize(new java.awt.Dimension(150, 45));
         workButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workButtonActionPerformed(evt);
@@ -277,25 +278,25 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(crossCulturalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(shoppingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(housingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(appointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(travelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(weatherButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(socialisingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(directionsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(weatherButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                            .addComponent(travelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(appointmentButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(housingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(shoppingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(crossCulturalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(directionsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(employmentButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(healthButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(introductionsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(invitationButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(universityButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(workButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(invitationButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(introductionsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(employmentButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(healthButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(universityButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(workButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTextField1))
                 .addContainerGap())
         );
@@ -304,41 +305,41 @@ public class TopicSelection extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(directionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(employmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(crossCulturalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(crossCulturalButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(exchangingPersonalInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(shoppingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(healthButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shoppingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(healthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                        .addComponent(housingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(housingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(appointmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(appointmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                        .addComponent(introductionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(introductionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(invitationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(invitationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(travelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(travelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodAndDrinkButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(universityButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(socialisingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(universityButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(socialisingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weatherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(workButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(weatherButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(workButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -378,8 +379,8 @@ public class TopicSelection extends javax.swing.JFrame {
                         .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -388,8 +389,8 @@ public class TopicSelection extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,21 +591,27 @@ public class TopicSelection extends javax.swing.JFrame {
             switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
                 case "Spanish":
                     imageName = "Spain";
+                    break;
                     
                 case "French":
                     imageName = "France";
+                    break;
                 
                 case "Portuguese":
                     imageName = "Portugual";
+                    break;
                 
                 case "German":
                     imageName = "Germany";
+                    break;
                 
                 case "Italian":
                     imageName = "Italy";
+                    break;
                 
                 case "Greek":
                     imageName = "Greece";
+                    break;
             }
             if (imageName != null) {
                 ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));

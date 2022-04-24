@@ -23,10 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,8 +89,8 @@
                       <Component id="roleIcon" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel11" min="-2" pref="479" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <Component id="jPanel11" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -158,27 +158,27 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="crossCulturalButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="shoppingButton" alignment="0" pref="150" max="32767" attributes="0"/>
-                                  <Component id="housingButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="appointmentButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="travelButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="socialisingButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="directionsButton" max="32767" attributes="0"/>
                                   <Component id="weatherButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="socialisingButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="travelButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="appointmentButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="housingButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="shoppingButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="crossCulturalButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="directionsButton" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="employmentButton" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="exchangingPersonalInfoButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="healthButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="introductionsButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="invitationButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="foodAndDrinkButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="universityButton" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="workButton" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="invitationButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="introductionsButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="exchangingPersonalInfoButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="employmentButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="healthButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="universityButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="foodAndDrinkButton" alignment="1" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="workButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
@@ -192,50 +192,50 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField1" min="-2" pref="42" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="directionsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="employmentButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="crossCulturalButton" max="32767" attributes="0"/>
+                          <Component id="crossCulturalButton" pref="50" max="32767" attributes="0"/>
                           <Component id="exchangingPersonalInfoButton" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="shoppingButton" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="healthButton" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="shoppingButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="healthButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="housingButton" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="housingButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="appointmentButton" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="appointmentButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="introductionsButton" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="introductionsButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="invitationButton" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="invitationButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="travelButton" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="foodAndDrinkButton" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="travelButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="foodAndDrinkButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="universityButton" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="socialisingButton" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="universityButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="socialisingButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="weatherButton" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="workButton" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="weatherButton" max="32767" attributes="0"/>
+                          <Component id="workButton" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -246,13 +246,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Asking and giving&lt;br/&gt;&#xa; directions&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -264,13 +264,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Basic employment&lt;br/&gt; issues&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -281,13 +281,13 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Cross-cultural &lt;br/&gt;experiences&lt;html&gt;"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -296,16 +296,16 @@
             </Component>
             <Component class="javax.swing.JButton" name="exchangingPersonalInfoButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Exchanging personal &lt;br/&gt;information&lt;html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;Exchanging personal information&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -317,10 +317,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Going shopping and &lt;br/&gt;asking for prices&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -332,13 +335,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Health&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -350,13 +353,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Housing conditions&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -368,13 +371,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Introductions&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -386,13 +389,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Making &lt;br/&gt;Appointments&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -404,13 +407,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Making invitations&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -422,13 +425,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Making travel &lt;br/&gt;arrangements&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -440,13 +443,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Ordering food &lt;br/&gt;and drink&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -458,13 +461,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Socialising&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -476,13 +479,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;University life&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -494,13 +497,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Weather&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>
@@ -512,13 +515,13 @@
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Work life&lt;html&gt;"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[138, 38]"/>
+                  <Dimension value="[150, 45]"/>
                 </Property>
               </Properties>
               <Events>

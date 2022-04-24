@@ -5,7 +5,7 @@
 
 package com.mycompany.project;
 
-import javax.swing.JFrame;
+import java.io.File;
 
 /**
  *
@@ -14,10 +14,23 @@ import javax.swing.JFrame;
 public class Project {
 
     public static void main(String[] args) {
+        checkIfDatabaseExists();
         ApplicationInfo.initialise();
         RolePlayManager.initialise();
         RolePlayManager.createTopics();
         ApplicationInfo.createMainPage();
         ApplicationInfo.changeMainPageVisibility(true);
+    }
+    
+    public static void checkIfDatabaseExists(){
+        String dbName = "coursework.db";
+        File file = new File (dbName);
+        if(!file.exists()) {
+            System.out.println("Database doesn't exist. Creating database now...");
+            CreateDatabase.createDB();
+            CreateTable.createTables();
+            CreateTable.createTestAdmin();
+            System.out.println("Database successfully created!");
+        }
     }
 }

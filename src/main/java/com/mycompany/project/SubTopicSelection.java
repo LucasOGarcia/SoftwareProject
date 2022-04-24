@@ -415,21 +415,27 @@ public class SubTopicSelection extends javax.swing.JFrame {
             switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
                 case "Spanish":
                     imageName = "Spain";
+                    break;
                     
                 case "French":
                     imageName = "France";
+                    break;
                 
                 case "Portuguese":
                     imageName = "Portugual";
+                    break;
                 
                 case "German":
                     imageName = "Germany";
+                    break;
                 
                 case "Italian":
                     imageName = "Italy";
+                    break;
                 
                 case "Greek":
                     imageName = "Greece";
+                    break;
             }
             if (imageName != null) {
                 ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
@@ -502,7 +508,9 @@ public class SubTopicSelection extends javax.swing.JFrame {
     private List getMatchingRolePlays(List<RolePlayTopic> matchingRolePlays, List<RolePlayTopic> rolePlayList){
         for (int i = 0; i < rolePlayList.size(); i++) {
             if (rolePlayList.get(i).topicType.equals(RolePlayManager.getRolePlaySettings().getTopicType())) {
-                matchingRolePlays.add(rolePlayList.get(i));
+                if (rolePlayList.get(i).difficulty.equals(RolePlayManager.getRolePlaySettings().getDifficulty())) {
+                    matchingRolePlays.add(rolePlayList.get(i));
+                }
             }
         }
         return matchingRolePlays;

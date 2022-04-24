@@ -62,23 +62,35 @@ public class JdbcCrud {
     // Registers user to the client_Info table in the database
     public static void registerUserClientInfo(String email, String firstName, String lastName, String salt, String password) throws Exception{
         Connection con = null;
-        PreparedStatement pst = null;
+        PreparedStatement psmt = null;
+        String query = "INSERT INTO client_Info("
+        + " client_email,"
+        + " client_forename,"
+        + " client_surname,"
+        + " client_salt,"
+        + " client_encrypted_password,"
+        + " client_account_type)"
+        + " VALUES (?,?,?,?,?,?)";
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             int accountType = 0; //0 regular user //1 admin
+            System.out.println("Registering user into client_Info...");
             
-            String query = "insert into client_Info(client_email, client_forename, client_surname, client_salt, client_encrypted_password, client_account_type) "
-                    + "VALUES (?,?,?,?,?,?)";
-            pst = con.prepareStatement(query);
-            pst.setString(1, email);
-            pst.setString(2, firstName);
-            pst.setString(3, lastName);
-            pst.setString(4, salt);
-            pst.setString(5, password);
-            pst.setInt(6, accountType);
-            pst.executeUpdate();
-            System.out.println("registration client_Info completed");
+            // set all parameters
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, email);
+            psmt.setString(2, firstName);
+            psmt.setString(3, lastName);
+            psmt.setString(4, salt);
+            psmt.setString(5, password);
+            psmt.setInt(6, accountType);
+            
+            //execute preparedStatement INSERT
+            psmt.executeUpdate();
+            con.commit();
+            
+            System.out.println("Registering into client_Info completed");
         }
         catch (SQLException ex){
             // display error message
@@ -92,9 +104,9 @@ public class JdbcCrud {
                     System.out.println("registration client_Info connection closed");
                     con.close();
                 }
-                if (pst != null){
+                if (psmt != null){
                     System.out.println("registration client_Info statement closed");
-                    pst.close();
+                    psmt.close();
                 }
             }
             catch (SQLException ex) {

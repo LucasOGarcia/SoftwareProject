@@ -64,6 +64,7 @@ public class Role extends javax.swing.JFrame {
         confirmButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         languageLabel = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -245,6 +246,8 @@ public class Role extends javax.swing.JFrame {
 
         languageLabel.setText("Language");
 
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -258,6 +261,8 @@ public class Role extends javax.swing.JFrame {
                                 .addComponent(backButton)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(languageButton))))
@@ -276,16 +281,18 @@ public class Role extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(languageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(languageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backButton)
-                .addGap(18, 18, 18)
-                .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -427,6 +434,7 @@ public class Role extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton languageButton;
     private javax.swing.JLabel languageLabel;
+    private javax.swing.JLabel logo;
     private javax.swing.JButton studentButton;
     private javax.swing.JRadioButton studentRadioButton;
     private javax.swing.JButton teacherButton;
@@ -446,6 +454,7 @@ public class Role extends javax.swing.JFrame {
     }
     
     private void initPage() {
+        setPageIcon();
         // disable the confirm button and make textfields unfocusable
         confirmButton.setEnabled(false);
         jTextField1.setFocusable(false);
@@ -487,6 +496,15 @@ public class Role extends javax.swing.JFrame {
                 ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
                 languageLabel.setIcon((image));
             }
+        }
+    }
+    
+    private void setPageIcon(){
+        // set window icon for the JFrame
+        if (ApplicationInfo.getPageIconName() != null) {
+            String imageName = ApplicationInfo.getPageIconName();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            this.setIconImage(icon.getImage());
         }
     }
 }

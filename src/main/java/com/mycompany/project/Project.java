@@ -22,7 +22,7 @@ public class Project {
         ApplicationInfo.changeMainPageVisibility(true);
     }
     
-    public static void checkIfDatabaseExists(){
+    public static void checkIfDatabaseExists()  {
         String dbName = "coursework.db";
         File file = new File (dbName);
         if(!file.exists()) {

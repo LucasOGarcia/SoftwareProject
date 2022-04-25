@@ -16,6 +16,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static Dimension screenSize;
     private static User user;
     private static String appName;
+    private static String pageIconName;
     private static JFrame mainPage;
     private static JFrame registrationPage;
     private static JFrame loginPage;
@@ -86,6 +87,11 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.appName = appName;
     }
     
+    public static void setPageIconName(String iconName) {
+        ApplicationInfo.pageIconName = iconName;
+    }
+    
+    
     // Getters
     
     public static User getUser(){
@@ -144,6 +150,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         return ApplicationInfo.appName;
     }
     
+    public static String getPageIconName(){
+        return ApplicationInfo.pageIconName;
+    }
+    
     // page visibility functions
     
     public static void changeMainPageVisibility(boolean bool){
@@ -196,6 +206,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     public static void initialise() { // sets all of the application's basic info
         ApplicationInfo.setScreenSize(new Dimension(375, 667));
         ApplicationInfo.setAppName("iLearnIt");
+        ApplicationInfo.setPageIconName("logo64x");
     }
    
    public static void createMainPage() { // Creates the main page

@@ -229,7 +229,7 @@ public class RegistrationPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jpPasswordFocusLost
 
     private void jpPasswordConfirmFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordConfirmFocusGained
-         passwordAssistLabel.setText("<html>Password must: <br/>Be between 8-12 char, contain one number,<br/>  "
+        passwordAssistLabel.setText("<html>Password must: <br/>Be between 8-12 char, contain one number,<br/>  "
                 + "one upper and lower case letter and one special char<html>");
         passwordAssistLabel.setVisible(true);
     }//GEN-LAST:event_jpPasswordConfirmFocusGained
@@ -241,8 +241,6 @@ public class RegistrationPage extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         ApplicationInfo.createMainPage();
-        ApplicationInfo.changeMainPageVisibility(true);
-        ApplicationInfo.changeRegistrationPageVisibility(false);
         ApplicationInfo.getRegistrationPage().dispose();
     }//GEN-LAST:event_returnButtonActionPerformed
 
@@ -370,6 +368,8 @@ public class RegistrationPage extends javax.swing.JFrame {
         
         // Create user object and assign to variable in ApplicationInfo class
         createUserObject(email, firstName, lastName);
+        // set user login timestamp in the  database
+        userLoginTimestamp();
         
         // Redirect to home page
         startHomePage();
@@ -569,8 +569,17 @@ public class RegistrationPage extends javax.swing.JFrame {
     
     public void startHomePage(){ //restarts the user homepage with the user object info
         ApplicationInfo.createHomePage();
-        ApplicationInfo.changeHomePageVisibility(true);
         ApplicationInfo.getRegistrationPage().dispose();
+    }
+
+    private void userLoginTimestamp() {
+        try {
+            JdbcCrud.updateClientLoginTimestamp();
+        } catch (Exception ex) {
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "<html>Error!<br/> Unable to connect to the server, try again later... </html>";
+            Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

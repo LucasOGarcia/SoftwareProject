@@ -6,7 +6,12 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+
 
 /**
  *
@@ -15,6 +20,7 @@ import javax.swing.JFrame;
 public class ApplicationInfo { //keeps track of what user is currently logged in the application and pages
     private static Dimension screenSize;
     private static User user;
+    private static String databaseName;
     private static String appName;
     private static String pageIconName;
     private static JFrame mainPage;
@@ -91,6 +97,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.pageIconName = iconName;
     }
     
+    public static void setDatabaseName(String newDatabaseName) {
+         ApplicationInfo.databaseName = newDatabaseName;
+    }
+    
     
     // Getters
     
@@ -153,63 +163,20 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     public static String getPageIconName(){
         return ApplicationInfo.pageIconName;
     }
-    
-    // page visibility functions
-    
-    public static void changeMainPageVisibility(boolean bool){
-         ApplicationInfo.mainPage.setVisible(bool);
-    }
-    
-    public static void changeRegistrationPageVisibility(boolean bool){
-         ApplicationInfo.registrationPage.setVisible(bool);
-    }
-    
-    public static void changeLoginPageVisibility(boolean bool){
-         ApplicationInfo.loginPage.setVisible(bool);
-    }
-    
-    public static void changeHomePageVisibility(boolean bool){
-         ApplicationInfo.homePage.setVisible(bool);
-    }
-    
-    public static void changelanguagePageVisibility(boolean bool){
-         ApplicationInfo.languagePage.setVisible(bool);
-    }
-    
-    public static void changeRolePageVisibility(boolean bool){
-         ApplicationInfo.rolePage.setVisible(bool);
-    }
-    
-    public static void changeConversationLevelSelectionPageVisibility(boolean bool){
-         ApplicationInfo.conversationLevelSelectionPage.setVisible(bool);
-    }
-    
-    public static void changeTopicSelectionPageVisibility(boolean bool){
-         ApplicationInfo.topicSelectionPage.setVisible(bool);
-    }
-    
-    public static void changeSubTopicSelectionPageVisibility(boolean bool){
-         ApplicationInfo.subTopicSelectionPage.setVisible(bool);
-    }
-
-    public static void changeRolePlayPageVisibility(boolean bool){
-         ApplicationInfo.rolePlayPage.setVisible(bool);
-    }
-    
-   public static void changePerformancePageVisibility(boolean bool){
-         ApplicationInfo.performancePage.setVisible(bool);
+    public static String getDatabaseName() {
+        return ApplicationInfo.databaseName;
     }
     
     // Other functions
    
-
     public static void initialise() { // sets all of the application's basic info
         ApplicationInfo.setScreenSize(new Dimension(375, 667));
         ApplicationInfo.setAppName("iLearnIt");
         ApplicationInfo.setPageIconName("logo64x");
+        ApplicationInfo.setDatabaseName("coursework.db") ;
     }
    
-   public static void createMainPage() { // Creates the main page
+    public static void createMainPage() { // Creates the main page
         JFrame mainPage = new MainPage();
         mainPage.setTitle(appName);
         mainPage.setPreferredSize(screenSize);
@@ -217,11 +184,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         mainPage.setMinimumSize(screenSize);
         mainPage.setResizable(false);
         mainPage.setLocationRelativeTo(null);
-        mainPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(mainPage);
         ApplicationInfo.setMainPage(mainPage);
-   }
+        mainPage.setVisible(true);
+    }
    
-   public static void createRegistrationPage() { // Creates the registration page
+    public static void createRegistrationPage() { // Creates the registration page
         JFrame registrationPage = new RegistrationPage();
         registrationPage.setTitle(appName);
         registrationPage.setPreferredSize(screenSize);
@@ -229,11 +197,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         registrationPage.setMinimumSize(screenSize);
         registrationPage.setResizable(false);
         registrationPage.setLocationRelativeTo(null);
-        registrationPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(registrationPage);
         ApplicationInfo.setRegistrationPage(registrationPage);
-   }
+        registrationPage.setVisible(true);
+    }
    
-   public static void createLoginPage() { // Creates the login page
+    public static void createLoginPage() { // Creates the login page
         JFrame loginPage = new LoginPage();
         loginPage.setTitle(appName);
         loginPage.setPreferredSize(screenSize);
@@ -241,11 +210,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         loginPage.setMinimumSize(screenSize);
         loginPage.setResizable(false);
         loginPage.setLocationRelativeTo(null);
-        loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(loginPage);
         ApplicationInfo.setLoginPage(loginPage);
-   }
+        loginPage.setVisible(true);
+    }
    
-   public static void createHomePage() { // Creates the home page
+    public static void createHomePage() { // Creates the home page
         JFrame homePage = new HomePage();
         homePage.setTitle(appName);
         homePage.setPreferredSize(screenSize);
@@ -253,11 +223,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         homePage.setMinimumSize(screenSize);
         homePage.setResizable(false);
         homePage.setLocationRelativeTo(null);
-        homePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(homePage);
         ApplicationInfo.setHomePage(homePage);
-   }
+        homePage.setVisible(true);
+    }
    
-   public static void createLanguagePage() { // Creates the language page
+    public static void createLanguagePage() { // Creates the language page
         JFrame languagePage = new Language();
         languagePage.setTitle(appName);
         languagePage.setPreferredSize(screenSize);
@@ -265,11 +236,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         languagePage.setMinimumSize(screenSize);
         languagePage.setResizable(false);
         languagePage.setLocationRelativeTo(null);
-        languagePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(languagePage);
         ApplicationInfo.setLanguagePage(languagePage);
-   }
+        languagePage.setVisible(true);
+    }
    
-   public static void createRolePage() { // Creates the role page
+    public static void createRolePage() { // Creates the role page
         JFrame rolePage = new Role();
         rolePage.setTitle(appName);
         rolePage.setPreferredSize(screenSize);
@@ -277,11 +249,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePage.setMinimumSize(screenSize);
         rolePage.setResizable(false);
         rolePage.setLocationRelativeTo(null);
-        rolePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(rolePage);
         ApplicationInfo.setRolePage(rolePage);
-   }
+        rolePage.setVisible(true);
+    }
    
-   public static void createConversationLevelSelectionPage() { // Creates the conversation Level SelectionPage page
+    public static void createConversationLevelSelectionPage() { // Creates the conversation Level SelectionPage page
         JFrame conversationLevelSelectionPage = new ConversationLevelSelection();
         conversationLevelSelectionPage.setTitle(appName);
         conversationLevelSelectionPage.setPreferredSize(screenSize);
@@ -289,11 +262,13 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         conversationLevelSelectionPage.setMinimumSize(screenSize);
         conversationLevelSelectionPage.setResizable(false);
         conversationLevelSelectionPage.setLocationRelativeTo(null);
-        conversationLevelSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(conversationLevelSelectionPage);
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
-   }
+        conversationLevelSelectionPage.setVisible(true);
+        
+    }
    
-   public static void createTopicSelectionPage() { // Creates the topic selection page
+    public static void createTopicSelectionPage() { // Creates the topic selection page
         JFrame topicSelectionPage = new TopicSelection();
         topicSelectionPage.setTitle(appName);
         topicSelectionPage.setPreferredSize(screenSize);
@@ -301,11 +276,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         topicSelectionPage.setMinimumSize(screenSize);
         topicSelectionPage.setResizable(false);
         topicSelectionPage.setLocationRelativeTo(null);
-        topicSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(topicSelectionPage);
         ApplicationInfo.setTopicSelectionPage(topicSelectionPage);
-   }
+        topicSelectionPage.setVisible(true);
+    }
    
-   public static void createSubTopicSelectionPage() { // Creates the sub-topic selection page
+    public static void createSubTopicSelectionPage() { // Creates the sub-topic selection page
         JFrame subTopicSelectionPage = new SubTopicSelection();
         subTopicSelectionPage.setTitle(appName);
         subTopicSelectionPage.setPreferredSize(screenSize);
@@ -313,11 +289,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         subTopicSelectionPage.setMinimumSize(screenSize);
         subTopicSelectionPage.setResizable(false);
         subTopicSelectionPage.setLocationRelativeTo(null);
-        subTopicSelectionPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(subTopicSelectionPage);
         ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
-   }
+        subTopicSelectionPage.setVisible(true);
+    }
    
-   public static void createRolePlayPage() { // Creates the create role play page
+    public static void createRolePlayPage() { // Creates the create role play page
         JFrame rolePlayPage = new RolePlay();
         rolePlayPage.setTitle(appName);
         rolePlayPage.setPreferredSize(screenSize);
@@ -325,10 +302,12 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setMinimumSize(screenSize);
         rolePlayPage.setResizable(false);
         rolePlayPage.setLocationRelativeTo(null);
-        rolePlayPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseMethods(rolePlayPage);
+//        .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setRolePlayPage(rolePlayPage);
-   }
-   
+        rolePlayPage.setVisible(true);
+    }
+    
 //  public static void createPerformancePage() { // Creates the performance page
 //        JFrame performancePage = new Performance_wireframeV2();
 //        performancePage.setTitle(appName);
@@ -340,4 +319,34 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
 //        performancePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        ApplicationInfo.setRolePlayPage(performancePage);
 //   }
+    
+    //create admin page
+   
+    public static void setDefaultCloseMethods(JFrame page) {
+        page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        page.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                setLogoutTimeStamp();
+                closeApplication(page);
+            }
+        });
+    }
+   
+    public static void setLogoutTimeStamp() {
+        if (ApplicationInfo.user != null) {
+            try {
+                JdbcCrud.updateClientLogoutTimestamp();
+            } catch (Exception ex) {
+                Logger.getLogger(ApplicationInfo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+   
+    public static void closeApplication(JFrame page) {
+        page.dispose();
+        System.exit(0);
+    }
+    
+    
 }

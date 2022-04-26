@@ -156,8 +156,6 @@ public class HomePage extends javax.swing.JFrame {
     private void languagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languagesButtonActionPerformed
 //         TODO add your handling code here:
         ApplicationInfo.createLanguagePage();
-        ApplicationInfo.changelanguagePageVisibility(true);
-        ApplicationInfo.changeHomePageVisibility(false);
         ApplicationInfo.getHomePage().dispose();
 
     }//GEN-LAST:event_languagesButtonActionPerformed
@@ -236,14 +234,12 @@ public class HomePage extends javax.swing.JFrame {
     }
     
     private void logout() {
-        //reset the user object to null
-        User nullUser = new User();
-        ApplicationInfo.setUser(nullUser);
-        
-        // remake the homepage
+        // set user logout timestamp
+        ApplicationInfo.setLogoutTimeStamp();
+        // reset the user object to null
+        ApplicationInfo.setUser(null);
+        // remake the main page
         ApplicationInfo.createMainPage();
-        ApplicationInfo.changeMainPageVisibility(true);
-        ApplicationInfo.changeHomePageVisibility(false);
         ApplicationInfo.getHomePage().dispose();
     }
     

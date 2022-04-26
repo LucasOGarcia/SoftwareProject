@@ -57,6 +57,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
         homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
         homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
+        homeButton.setRequestFocusEnabled(false);
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
@@ -65,6 +66,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
 
         languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
         languagesButton.setText("Languages");
+        languagesButton.setRequestFocusEnabled(false);
         languagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 languagesButtonActionPerformed(evt);
@@ -190,7 +192,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(languagesButton))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -198,7 +200,7 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
                             .addComponent(languageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(backButton)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, 0)))
                         .addGap(18, 18, 18)
                         .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -209,9 +211,9 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(languagesButton))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -250,8 +252,6 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
-        ApplicationInfo.changeHomePageVisibility(true);
-        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -260,8 +260,6 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
-        ApplicationInfo.changelanguagePageVisibility(true);
-        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -271,8 +269,6 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         settings.setRole(null);
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePage();
-        ApplicationInfo.changeRolePageVisibility(true);
-        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -412,8 +408,6 @@ public class ConversationLevelSelection extends javax.swing.JFrame {
         settings.setDifficulty(newDifficuly);
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.changeConversationLevelSelectionPageVisibility(false);
         ApplicationInfo.getConversationLevelSelectionPage().dispose();
     }
 }

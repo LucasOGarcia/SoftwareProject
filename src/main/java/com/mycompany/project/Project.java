@@ -14,16 +14,15 @@ import java.io.File;
 public class Project {
 
     public static void main(String[] args) {
-        checkIfDatabaseExists();
         ApplicationInfo.initialise();
         RolePlayManager.initialise();
         RolePlayManager.createTopics();
+        checkIfDatabaseExists();
         ApplicationInfo.createMainPage();
-        ApplicationInfo.changeMainPageVisibility(true);
     }
     
     public static void checkIfDatabaseExists()  {
-        String dbName = "coursework.db";
+        String dbName = ApplicationInfo.getDatabaseName();
         File file = new File (dbName);
         if(!file.exists()) {
             System.out.println("Database doesn't exist. Creating database now...");

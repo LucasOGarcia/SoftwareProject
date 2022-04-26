@@ -26,6 +26,8 @@ public class CreateTable {
                 + "     client_surname VARCHAR(32) not null,"
                 + "     client_salt VARCHAR(254) not null,"
                 + "     client_encrypted_password VARCHAR(50) not null,"
+                + "     client_last_login TIMESTAMP,"
+                + "     client_last_logout TIMESTAMP,"
                 + "     client_account_type INTEGER not null\n" + ");";
         try {
             stmt = con.createStatement();

@@ -32,8 +32,6 @@ public class TopicSelection extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
-        languagesButton = new javax.swing.JButton();
-        homeButton = new javax.swing.JButton();
         languageLabel = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         directionsButton = new javax.swing.JButton();
@@ -55,6 +53,8 @@ public class TopicSelection extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         roleIcon = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
+        languagesButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,25 +65,6 @@ public class TopicSelection extends javax.swing.JFrame {
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
-            }
-        });
-
-        languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
-        languagesButton.setText("Languages");
-        languagesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                languagesButtonActionPerformed(evt);
-            }
-        });
-
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
-        homeButton.setText("Home");
-        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
-        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
-        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
             }
         });
 
@@ -289,7 +270,7 @@ public class TopicSelection extends javax.swing.JFrame {
                             .addComponent(shoppingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(crossCulturalButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(directionsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(invitationButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -347,25 +328,44 @@ public class TopicSelection extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
+        languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
+        languagesButton.setText("Languages");
+        languagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languagesButtonActionPerformed(evt);
+            }
+        });
+
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
+        homeButton.setText("Home");
+        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
+        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
+        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(languagesButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(backButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 0, 0))
                             .addComponent(languageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -377,13 +377,15 @@ public class TopicSelection extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(languagesButton)
-                            .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(homeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(26, 26, 26)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -418,8 +420,6 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
-        ApplicationInfo.changeHomePageVisibility(true);
-        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getRolePage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -508,8 +508,6 @@ public class TopicSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
-        ApplicationInfo.changelanguagePageVisibility(true);
-        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -518,8 +516,6 @@ public class TopicSelection extends javax.swing.JFrame {
         settings.setDifficulty(null);
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createConversationLevelSelectionPage();
-        ApplicationInfo.changeConversationLevelSelectionPageVisibility(true);
-        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -653,8 +649,6 @@ public class TopicSelection extends javax.swing.JFrame {
         settings.setTopicType(rolePlayType);
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createSubTopicSelectionPage();
-        ApplicationInfo.changeSubTopicSelectionPageVisibility(true);
-        ApplicationInfo.changeTopicSelectionPageVisibility(false);
         ApplicationInfo.getTopicSelectionPage().dispose();
     }
 }

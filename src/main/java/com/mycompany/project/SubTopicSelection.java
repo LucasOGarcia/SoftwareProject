@@ -39,8 +39,6 @@ public class SubTopicSelection extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         languageLabel = new javax.swing.JLabel();
-        homeButton = new javax.swing.JButton();
-        languagesButton = new javax.swing.JButton();
         roleIcon = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -53,6 +51,8 @@ public class SubTopicSelection extends javax.swing.JFrame {
         topic6Button = new javax.swing.JButton();
         errorLabel = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
+        languagesButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,27 +71,6 @@ public class SubTopicSelection extends javax.swing.JFrame {
         languageLabel.setText("Language - Difficulty");
         languageLabel.setFocusable(false);
         languageLabel.setRequestFocusEnabled(false);
-
-        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
-        homeButton.setText("Home");
-        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
-        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
-        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
-        homeButton.setRequestFocusEnabled(false);
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
-            }
-        });
-
-        languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
-        languagesButton.setText("Languages");
-        languagesButton.setRequestFocusEnabled(false);
-        languagesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                languagesButtonActionPerformed(evt);
-            }
-        });
 
         roleIcon.setFocusable(false);
         roleIcon.setRequestFocusEnabled(false);
@@ -188,7 +167,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
                     .addComponent(jTextField1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(topic1Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(topic2Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,6 +209,27 @@ public class SubTopicSelection extends javax.swing.JFrame {
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
+        languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
+        languagesButton.setText("Languages");
+        languagesButton.setRequestFocusEnabled(false);
+        languagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languagesButtonActionPerformed(evt);
+            }
+        });
+
+        homeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon.png"))); // NOI18N
+        homeButton.setText("Home");
+        homeButton.setMaximumSize(new java.awt.Dimension(126, 38));
+        homeButton.setMinimumSize(new java.awt.Dimension(126, 38));
+        homeButton.setPreferredSize(new java.awt.Dimension(126, 38));
+        homeButton.setRequestFocusEnabled(false);
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -241,8 +241,8 @@ public class SubTopicSelection extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(languagesButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,8 +261,8 @@ public class SubTopicSelection extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(languagesButton)
-                            .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(roleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -331,8 +331,6 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
-        ApplicationInfo.changeHomePageVisibility(true);
-        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -341,8 +339,6 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createLanguagePage();
-        ApplicationInfo.changelanguagePageVisibility(true);
-        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_languagesButtonActionPerformed
 
@@ -351,8 +347,6 @@ public class SubTopicSelection extends javax.swing.JFrame {
         settings.setTopicType(null);
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.changeTopicSelectionPageVisibility(true);
-        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -544,8 +538,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         settings.setSubTopicType(buttonsSubTopicTypes.get(index));
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePlayPage();
-        ApplicationInfo.changeRolePlayPageVisibility(true);
-        ApplicationInfo.changeSubTopicSelectionPageVisibility(false);
+
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }
 }

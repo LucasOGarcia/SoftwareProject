@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class ConnectDB {
         
-    static String url = "jdbc:sqlite:coursework.db";
+    static String url = "jdbc:sqlite:"+ApplicationInfo.getDatabaseName();
     
       public static Connection getConnection() {
         try {

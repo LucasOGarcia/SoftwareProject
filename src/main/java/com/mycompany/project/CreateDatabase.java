@@ -26,7 +26,7 @@ class DataBase {
     private Connection SQLiteConnection;
     
     public DataBase() {        
-    SQLiteUrl = "jdbc:sqlite:coursework.db";
+    SQLiteUrl = "jdbc:sqlite:"+ApplicationInfo.getDatabaseName();
 
        try {
            SQLiteDriver = new org.sqlite.JDBC();

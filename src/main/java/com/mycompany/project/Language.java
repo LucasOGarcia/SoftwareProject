@@ -165,8 +165,6 @@ public class Language extends javax.swing.JFrame {
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         ApplicationInfo.createHomePage();
-        ApplicationInfo.changeHomePageVisibility(true);
-        ApplicationInfo.changelanguagePageVisibility(false);
         ApplicationInfo.getLanguagePage().dispose();
     }//GEN-LAST:event_HomeButtonActionPerformed
 
@@ -175,8 +173,6 @@ public class Language extends javax.swing.JFrame {
         settings.setLanguage("Spanish");
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createRolePage();
-        ApplicationInfo.changeRolePageVisibility(true);
-        ApplicationInfo.changelanguagePageVisibility(false);
         ApplicationInfo.getLanguagePage().dispose();
     }//GEN-LAST:event_SpanishButtonActionPerformed
 

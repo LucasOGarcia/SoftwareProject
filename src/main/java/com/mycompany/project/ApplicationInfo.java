@@ -319,8 +319,6 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
 //        performancePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        ApplicationInfo.setRolePlayPage(performancePage);
 //   }
-    
-    //create admin page
    
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -347,6 +345,5 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         page.dispose();
         System.exit(0);
     }
-    
-    
+   
 }

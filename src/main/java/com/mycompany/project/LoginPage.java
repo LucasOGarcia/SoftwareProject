@@ -303,7 +303,7 @@ public class LoginPage extends javax.swing.JFrame {
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "SELECT client_forename FROM client_Info WHERE client_email=?"; //or prepared statement
+            String query = "SELECT client_account_type FROM client_Info WHERE client_email=?"; //or prepared statement
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, email);
             ResultSet rs = pst.executeQuery();

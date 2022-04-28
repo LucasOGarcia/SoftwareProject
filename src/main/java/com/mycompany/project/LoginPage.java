@@ -6,11 +6,15 @@
 package com.mycompany.project;
 
 import static com.mycompany.project.PasswordManager.generateSecurePassword;
+//import static com.mycompany.project.User.User;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -43,7 +47,7 @@ public class LoginPage extends javax.swing.JFrame {
         passwordInput = new javax.swing.JPasswordField();
         emailLabel1 = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        errorLabels = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -68,8 +72,6 @@ public class LoginPage extends javax.swing.JFrame {
 
         passLabel.setText("Password:");
 
-        jLabel4.setText("(TOAST ERROR HERE)");
-
         jButton1.setText("Register");
 
         jLabel2.setText("Don't have an account? Click below to register");
@@ -80,7 +82,7 @@ public class LoginPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
-                .addComponent(jLabel4)
+                .addComponent(errorLabels)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(16, Short.MAX_VALUE)
@@ -122,8 +124,8 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(errorLabels)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
@@ -141,6 +143,7 @@ public class LoginPage extends javax.swing.JFrame {
         @SuppressWarnings("empty-statement")
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
                 // TODO add your handling code here: 
+
                 loginUser();
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -162,82 +165,226 @@ public class LoginPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel emailLabel1;
+    private javax.swing.JLabel errorLabels;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passwordInput;
     // End of variables declaration//GEN-END:variables
-
+       //PROBLEMS
+        //connecting to user class
+            //Telling that the user is admin or not
+            
     
-    private String getSalt(String salt) {
-        int saltLength = 254;
-        salt = PasswordManager.generateSalt(saltLength);
-        return salt;
-    }   
-    
-    private String convert(String input_password, String salt) {
-        String result = PasswordManager.generateSecurePassword(input_password, salt);
-        return result;
-    }
-    
-    
-    
-    private boolean verify(String input_password, String final_password, String salt)  {
-        boolean result = false;
-        String newSecurePassword = generateSecurePassword(input_password, salt);
-        result = newSecurePassword.equalsIgnoreCase(final_password);
-        return result;
-    } 
     
     private void loginUser() {
-                String salt = null;
-        
-        
-                String email = emailInput.getText().toLowerCase().trim();
-                String input_password = String.valueOf(passwordInput.getPassword()).trim();
-                salt = getSalt(salt);
-                String final_password = convert(input_password, salt); //convrted password
+            errorLabels.setText("");
+            
+            //check if email is valid
+            //check if email exists
+            String email = emailInput.getText().toLowerCase().trim();
+            String input_password = passwordInput.getText().trim();
+            
+            
+            //if they are valid and it exists
+                //getPass
+                //getSalt
+                //Verify / convert
+                //User objects
+                //timestamps
+                //go to homepage
 
-                
-                ///if verify is true continue?
-                //else print toast saying error password is incorrect
+            getEmailDB();
+            getPassDB();
+            getSaltDB();
+            
+            if (!verifyPassword(input_password, getPassDB(), getSaltDB())){//if verify password is false
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email or Password <-- is invalid </html>";
+            errorLabels.setText(errorMessage);
+            errorLabels.setForeground(Color.red);
+            return;
+            }else{
+                //get their name
+            Connection con = null;
+            PreparedStatement pst = null;
+            PreparedStatement pst2 = null;
+            String fn_query = "select client_forename from client_Info where client_email=?";
+            String ln_query = "select client_surname from client_Info where client_email=?";
+            try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            //set all parameters
+            pst2 = con.prepareStatement(fn_query);
+            pst = con.prepareStatement(ln_query);
+            pst.setString(1, email);
+            pst2.setString(1, email);
+                con.close();
+            }catch(Exception e){
+                 throw new IllegalStateException("Can't find names", e);
+            }
+            System.out.print("Working");
+            
+           // User.User(email,fn_query,ln_query, 0);
+               
+                //creates user objects
+                //creates timestamp
+                //makes user go to homepage
+            }
+            
+            
+            
+            
+           /* 
+        Connection con = null;
+        PreparedStatement pst = null;
+        String query = "select client_password from client_Info where client_email=?";
         try{
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection connection = DriverManager.getConnection("jdbc:mysql://");
-        String query = "SELET * FROM DATABASE WHERE client_email=? AND client_password=?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, email);
-        statement.setString(2, final_password);
-        //password salt recovery
-        ResultSet rs = statement.executeQuery();
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            //set all parameters
+            pst = con.prepareStatement(query);
+            pst.setString(1, email);
+                con.close();
+            }catch(Exception e){
+                
+            }
+            */
+
+    } 
+   /* private boolean isValidEmailAddress(String email) {
+           String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+           java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+           java.util.regex.Matcher m = p.matcher(email);
+           return m.matches();
+    }*/
+        private boolean checkIfValidEmail(String email){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern emailPattern = Pattern.compile(emailRegex);
+        boolean result = emailPattern.matcher(email).matches();
+        
+        if(!result){
+            System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email is invalid </html>";
+            errorLabels.setText(errorMessage);
+            errorLabels.setForeground(Color.red);
+        }
+        return result;
+    }
+   /* private boolean checkEmailDB(){
+                
+        
+        boolean exists = JdbcCrud.checkIfEmailExists(email);
+        if (exists){
+            return email;
+        }else{
+            return error;
+            //Reset page
+        } 
+        
+    }    
+        */
         
         
-        if(rs.next()){
-         //if it matches
-            //show success
-            //put name into variables
-                //get name from the email and place into global variable
-            //go to home page function
+    public String accountTypeCheck(){
+        Connection con = null;
+        PreparedStatement pst = null;
+        
+        return null;
+    }    
+    
+    private String getEmailDB() {
+         String email = emailInput.getText().toLowerCase().trim();
+         
+         
+         
+        boolean valid = checkIfValidEmail(email);
+        boolean exists = JdbcCrud.checkIfEmailExists(email);
+        if (!valid){ //!exists is false
+           System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Please eneter a valid email </html>";
+            errorLabels.setText(errorMessage);
+            errorLabels.setForeground(Color.red);
         }
-        //else if username is not email
-        //ask to create an account
-        else{
-         //password or username is incorrect   
+        else if (!exists){
+                       System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email or Password is incorrect </html>";
+            errorLabels.setText(errorMessage);
+            errorLabels.setForeground(Color.red);
         }
-        connection.close();               
-        }catch (Exception e) {
-               throw new IllegalStateException("Can't connect to the database", e);}  
+        return email;
     }
     
+     public String getPassDB(){
+        Connection con = null;
+        //PreparedStatement pst = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String pw_query = "SELECT client_password FROM client_info WHERE client_email=?"; //or prepared statement
+            PreparedStatement pst = con.prepareStatement(pw_query);
+            pst.setString(1, getEmailDB());
+            con.close();
+            return pw_query;
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database or wrong email", e);}  
+    }
+     
+     public String getSaltDB(){
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String salt_query = "SELECT client_salt FROM client_info WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(salt_query);
+            pst.setString(1, getEmailDB());
+            con.close();
+            return salt_query;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database or wrong email", e);}  
+         }
+     
+    public static boolean verifyPassword(String input_password,  String pw_query, String salt_query){ //find place to put input_password
+        boolean result = false;
+        String newSecurePassword = generateSecurePassword(input_password, salt_query);
+        result = newSecurePassword.equalsIgnoreCase(pw_query);
+        return result;
+    }
+     
+     
+     /*
+     public static boolean verifyPassword(String input_password, String securePassword, String salt){
+        boolean result = false;
+        String newSecurePassword = generateSecurePassword(passwordInput, salt);
+        result = newSecurePassword.equalsIgnoreCase(securePassword);
+        return result;
+    }
+*/  
+     
+     
+     
+ 
     private void registerPage(){
-        //code to go to register page
-        
+        //code to go to register page  
     }
     
     private void homePage(){
         //code to go to homepage
     }
+    
+    
+    
+    //get client_salt from database
+    //get client_password from database
+    
+    
+    //verify code is input_password client_password and client_salt
+    //createuserobject
+    //logintimestamp
 }

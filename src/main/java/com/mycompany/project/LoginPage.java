@@ -14,6 +14,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
@@ -27,8 +29,8 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        setMinimumSize(new Dimension(374, 667));
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        //setMinimumSize(new Dimension(374, 667));
+        //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
 
@@ -48,7 +50,7 @@ public class LoginPage extends javax.swing.JFrame {
         emailLabel1 = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
         errorLabels = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,7 +74,12 @@ public class LoginPage extends javax.swing.JFrame {
 
         passLabel.setText("Password:");
 
-        jButton1.setText("Register");
+        registerButton.setText("Register");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Don't have an account? Click below to register");
 
@@ -99,7 +106,7 @@ public class LoginPage extends javax.swing.JFrame {
                                 .addComponent(emailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)))
                         .addGap(20, 20, 20))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(registerButton)
                         .addGap(139, 139, 139))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,7 +135,7 @@ public class LoginPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(registerButton)
                 .addGap(21, 21, 21))
         );
 
@@ -146,6 +153,11 @@ public class LoginPage extends javax.swing.JFrame {
 
                 loginUser();
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+        startregisterPage();
+    }//GEN-LAST:event_registerButtonActionPerformed
 
     
     
@@ -166,14 +178,14 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel emailLabel1;
     private javax.swing.JLabel errorLabels;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passwordInput;
+    private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
-       //PROBLEMS
+//PROBLEMS
         //connecting to user class
             //Telling that the user is admin or not
             
@@ -195,8 +207,19 @@ public class LoginPage extends javax.swing.JFrame {
                 //User objects
                 //timestamps
                 //go to homepage
-
-            getEmailDB();
+                
+                
+             //valid email
+             
+            if(!checkIfValidEmail(email)){
+                return;
+            } 
+            
+            
+            if(!checkIfEmailInDataBase(email)){
+                return;
+            }
+            //getEmailDB();
             getPassDB();
             getSaltDB();
             
@@ -205,61 +228,34 @@ public class LoginPage extends javax.swing.JFrame {
             errorMessage += "Email or Password <-- is invalid </html>";
             errorLabels.setText(errorMessage);
             errorLabels.setForeground(Color.red);
-            return;
+            }
+            
+            
+            else{
+ 
+            System.out.print(accountTypeCheck());
+            User user = new User();
+            user.userEmail = email;
+            user.userFirstName = getFirstNameDB();
+            user.userLastname = getLastNameDB();
+            user.accountType = accountTypeCheck();
+            
+            
+            userLoginTimestamp();
+            if(accountTypeCheck() == 1){
+                //admin home
+                adminLogin();
             }else{
-                //get their name
-            Connection con = null;
-            PreparedStatement pst = null;
-            PreparedStatement pst2 = null;
-            String fn_query = "select client_forename from client_Info where client_email=?";
-            String ln_query = "select client_surname from client_Info where client_email=?";
-            try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            //set all parameters
-            pst2 = con.prepareStatement(fn_query);
-            pst = con.prepareStatement(ln_query);
-            pst.setString(1, email);
-            pst2.setString(1, email);
-                con.close();
-            }catch(Exception e){
-                 throw new IllegalStateException("Can't find names", e);
-            }
-            System.out.print("Working");
-            
-           // User.User(email,fn_query,ln_query, 0);
-               
-                //creates user objects
-                //creates timestamp
-                //makes user go to homepage
+                //normal home
+                System.out.println(user.userFirstName);
+                normalLogin();
             }
             
-            
-            
-            
-           /* 
-        Connection con = null;
-        PreparedStatement pst = null;
-        String query = "select client_password from client_Info where client_email=?";
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            //set all parameters
-            pst = con.prepareStatement(query);
-            pst.setString(1, email);
-                con.close();
-            }catch(Exception e){
-                
             }
-            */
-
+    
     } 
-   /* private boolean isValidEmailAddress(String email) {
-           String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-           java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-           java.util.regex.Matcher m = p.matcher(email);
-           return m.matches();
-    }*/
+            
+
         private boolean checkIfValidEmail(String email){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
                 "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -274,29 +270,23 @@ public class LoginPage extends javax.swing.JFrame {
             errorLabels.setForeground(Color.red);
         }
         return result;
+    }    
+      
+
+
+    private boolean checkIfEmailInDataBase(String email) {
+        boolean result = JdbcCrud.checkIfEmailExists(email);
+        if (!result){
+            System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email does not exist </html>";
+            errorLabels.setText(errorMessage);
+            errorLabels.setForeground(Color.red);
+        }
+        return result;
     }
-   /* private boolean checkEmailDB(){
-                
-        
-        boolean exists = JdbcCrud.checkIfEmailExists(email);
-        if (exists){
-            return email;
-        }else{
-            return error;
-            //Reset page
-        } 
-        
-    }    
-        */
-        
-        
-    public String accountTypeCheck(){
-        Connection con = null;
-        PreparedStatement pst = null;
-        
-        return null;
-    }    
     
+    /*
     private String getEmailDB() {
          String email = emailInput.getText().toLowerCase().trim();
          
@@ -320,34 +310,100 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return email;
     }
+    */
+        public Integer accountTypeCheck(){
+        String email = emailInput.getText().toLowerCase().trim();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_forename FROM client_Info WHERE client_email=?"; //or prepared statement
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            Integer accType = rs.getInt(1);
+            con.close();
+            return accType;
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database, account type", e);}       
+            
+            
+            
+            
+            
+    }
+        
+        
+    public String getFirstNameDB(){
+        String email = emailInput.getText().toLowerCase().trim();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_forename FROM client_Info WHERE client_email=?"; //or prepared statement
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            String fname = rs.getString(1);
+            con.close();
+            return fname;
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database, surname", e);}     
+    }
+        
+    
+    
+    public String getLastNameDB(){
+                String email = emailInput.getText().toLowerCase().trim();
+                Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_surname FROM client_Info WHERE client_email=?"; //or prepared statement
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            String sname = rs.getString(1);
+            con.close();
+            return sname;
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database, surname", e);}     
+    }
     
      public String getPassDB(){
+        String email = emailInput.getText().toLowerCase().trim();
         Connection con = null;
         //PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String pw_query = "SELECT client_password FROM client_info WHERE client_email=?"; //or prepared statement
+            String pw_query = "SELECT client_encrypted_password FROM client_Info WHERE client_email=?"; //or prepared statement
             PreparedStatement pst = con.prepareStatement(pw_query);
-            pst.setString(1, getEmailDB());
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            String password_2 = rs.getString(1);
             con.close();
-            return pw_query;
+            System.out.println(password_2);
+            return password_2;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database or wrong email", e);}  
+               throw new IllegalStateException("Can't connect to the database, password", e);}  
     }
      
      public String getSaltDB(){
+         String email = emailInput.getText().toLowerCase().trim();
          Connection con = null; 
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String salt_query = "SELECT client_salt FROM client_info WHERE client_email=?";
+            String salt_query = "SELECT client_salt FROM client_Info WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(salt_query);
-            pst.setString(1, getEmailDB());
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            String salt_2 = rs.getString(1);
             con.close();
-            return salt_query;
+            return salt_2;
          }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database or wrong email", e);}  
+               throw new IllegalStateException("Can't connect to the database, salt", e);}  
          }
      
     public static boolean verifyPassword(String input_password,  String pw_query, String salt_query){ //find place to put input_password
@@ -355,6 +411,16 @@ public class LoginPage extends javax.swing.JFrame {
         String newSecurePassword = generateSecurePassword(input_password, salt_query);
         result = newSecurePassword.equalsIgnoreCase(pw_query);
         return result;
+    }
+    
+        private void userLoginTimestamp() {
+        try {
+            JdbcCrud.updateClientLoginTimestamp();
+        } catch (Exception ex) {
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "<html>Error!<br/> Unable to connect to the server, try again later... </html>";
+            Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
      
      
@@ -365,17 +431,24 @@ public class LoginPage extends javax.swing.JFrame {
         result = newSecurePassword.equalsIgnoreCase(securePassword);
         return result;
     }
-*/  
-     
-     
+*/ 
      
  
-    private void registerPage(){
-        //code to go to register page  
+    private void startregisterPage(){
+        //code to go to register page
+        ApplicationInfo.createRegistrationPage();
+        ApplicationInfo.getLoginPage().dispose();
     }
     
-    private void homePage(){
+    private void normalLogin(){
         //code to go to homepage
+        ApplicationInfo.createHomePage();
+        ApplicationInfo.getLoginPage().dispose();
+    }
+    
+    private void adminLogin(){
+       //ApplicationInfo.getAdminHomePage(); 
+       ApplicationInfo.getLoginPage().dispose();
     }
     
     

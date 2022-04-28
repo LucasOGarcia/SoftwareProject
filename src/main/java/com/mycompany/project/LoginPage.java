@@ -220,13 +220,9 @@ public class LoginPage extends javax.swing.JFrame {
             else{
  
             System.out.print(accountTypeCheck());
-            User user = new User();
-            user.userEmail = email;
-            user.userFirstName = getFirstNameDB();
-            user.userLastname = getLastNameDB();
-            user.accountType = accountTypeCheck();
-            
-            
+            User user = new User(email, getFirstNameDB(), getLastNameDB(), accountTypeCheck());
+            ApplicationInfo.setUser(user);
+
             userLoginTimestamp();
             if(accountTypeCheck() == 1){
                 //admin home
@@ -418,7 +414,6 @@ public class LoginPage extends javax.swing.JFrame {
         return result;
     }
 */ 
-     
  
     private void startregisterPage(){
         //code to go to register page

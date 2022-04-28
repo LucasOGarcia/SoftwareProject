@@ -96,7 +96,6 @@ public class RolePlayManager {
         university = "University life";
         weather = "Weather";
         work = "Work life";
-        createTopics();
     }
     
     public static void createTopics() {

@@ -303,22 +303,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setResizable(false);
         rolePlayPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(rolePlayPage);
-//        .setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ApplicationInfo.setRolePlayPage(rolePlayPage);
         rolePlayPage.setVisible(true);
     }
-    
-//  public static void createPerformancePage() { // Creates the performance page
-//        JFrame performancePage = new Performance_wireframeV2();
-//        performancePage.setTitle(appName);
-//        performancePage.setPreferredSize(screenSize);
-//        performancePage.setMaximumSize(screenSize);
-//        performancePage.setMinimumSize(screenSize);
-//        performancePage.setResizable(false);
-//        performancePage.setLocationRelativeTo(null);
-//        performancePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        ApplicationInfo.setRolePlayPage(performancePage);
-//   }
    
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

@@ -11,8 +11,9 @@ import java.io.File;
  *
  * @author lucas
  */
-public class Project {
+public class Project { 
 
+    // admin account credentials:   email: test@my.westminster.ac.uk  password: Test12345@
     public static void main(String[] args) {
         ApplicationInfo.initialise();
         RolePlayManager.initialise();
@@ -20,7 +21,7 @@ public class Project {
         ApplicationInfo.createMainPage();
     }
     
-    public static void checkIfDatabaseExists()  {
+    public static void checkIfDatabaseExists() {
         String dbName = ApplicationInfo.getDatabaseName();
         File file = new File (dbName);
         if(!file.exists()) {

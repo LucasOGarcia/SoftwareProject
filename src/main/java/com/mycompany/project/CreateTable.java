@@ -123,11 +123,11 @@ public class CreateTable {
         query = "INSERT INTO "
                 + "     client_Info(client_email, client_forename, client_surname, client_salt, client_encrypted_password, client_account_type)"
                 + "     VALUES"
-                + "     ('w1783737@my.westminster.ac.uk',"
-                + "     'Lucas',"
-                + "     'Garcia',"
-                + "     'SjYuSVdMX81KlhzAZieWwjCwPIFxG#P@Y!G#33j7MTKnNo7&RB08gX0LLRi8dic6VrZsKk^81yIGts@4j^B4oAn0H&ZS2bbYRKpG#cAw@mkg#Yc6Fbx#WZ!rIkMb8CiQ8Tc6#5D3Of&*b0tFsd^!iI#tUYo9VHBWwN�GXRmqQx#tm7QuakcBPi4lTj7K84k6#a�XLy4rPfzw0#bGSnyiPY5MMtbDJTdLaD@3b4db19siLQh@R2#LE*GeBW63sL',"
-                + "     'Aqpgwmk9r8t2/+4DkUEE1tK8wUaV/RCJ+Q==',"
+                + "     ('test@my.westminster.ac.uk',"
+                + "     'Test',"
+                + "     'Account',"
+                + "     'z&cU2eA7nYf�E&6GQLvA6jfUSx�SWdy7ojr@mSpOivicTAqBfR!OZUUMT^efck6sZl!9bnve&jJ�7vLcJ8Di#QS!RBrLCN3wd5gWRjQt*�sHQBpyrK*LqkPC29Jpk3FF*Emgava4klU^0aR0e!dPfXoinha!n7bqLX&9jChQLTZp4vZpQy@w4@Ot#R37lc4@ufJY^8q#dLe12EoEz4Zgbz0eM65PRwiO1id^7B7tM9k6MvyGM3i!s2FYVGQ#aL',"
+                + "     '6/4l9GiJx+5lgIe8ep9pCyD645jJdPvt7g==',"
                 + "     1" + ");";
         String query2;
         query2 = "INSERT INTO "
@@ -147,8 +147,8 @@ public class CreateTable {
             con.commit();
             System.out.println("Admin user created");
         }
-         catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "SQLException: " + ex.getMessage());
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "SQLException: " + ex.getMessage());
         }
         finally {
             if (stmt != null) {
@@ -164,7 +164,7 @@ public class CreateTable {
                     con.close();
                 }
                 catch (SQLException ex) {
-                   JOptionPane.showMessageDialog(null, "SQLException: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "SQLException: " + ex.getMessage());
                 }
             }
         }

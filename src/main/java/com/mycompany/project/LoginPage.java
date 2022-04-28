@@ -193,24 +193,10 @@ public class LoginPage extends javax.swing.JFrame {
     
     private void loginUser() {
             errorLabels.setText("");
-            
-            //check if email is valid
-            //check if email exists
+
             String email = emailInput.getText().toLowerCase().trim();
             String input_password = passwordInput.getText().trim();
-            
-            
-            //if they are valid and it exists
-                //getPass
-                //getSalt
-                //Verify / convert
-                //User objects
-                //timestamps
-                //go to homepage
-                
-                
-             //valid email
-             
+
             if(!checkIfValidEmail(email)){
                 return;
             } 
@@ -446,8 +432,8 @@ public class LoginPage extends javax.swing.JFrame {
         ApplicationInfo.getLoginPage().dispose();
     }
     
-    private void adminLogin(){
-       //ApplicationInfo.getAdminHomePage(); 
+    private void adminLogin(){ //temporary - puts admin into performance page
+       ApplicationInfo.createPerformancePage(); 
        ApplicationInfo.getLoginPage().dispose();
     }
     

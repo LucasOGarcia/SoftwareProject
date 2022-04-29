@@ -34,6 +34,8 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame subTopicSelectionPage;
     private static JFrame rolePlayPage;
     private static JFrame performancePage;
+    private static JFrame adminhomePage;
+    private static JFrame adminPage;
     
     // Setters
     
@@ -55,6 +57,14 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     
     public static void setHomePage(JFrame homePage){
         ApplicationInfo.homePage = homePage;
+    }
+    
+    public static void setAdminHomePage(JFrame adminhomePage){
+        ApplicationInfo.adminhomePage = adminhomePage;
+    }
+    
+    public static void setAdminPage(JFrame adminPage){
+        ApplicationInfo.adminPage = adminPage;
     }
     
     public static void setLanguagePage(JFrame languagePage){
@@ -150,6 +160,14 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     
     public static JFrame getPerformancePage(){
         return ApplicationInfo.performancePage;
+    }
+    
+    public static JFrame getAdminHomePage(){
+        return ApplicationInfo.adminhomePage;
+    }
+    
+        public static JFrame getAdminPage(){
+        return ApplicationInfo.adminPage;
     }
     
     public static Dimension getScreenSize(){
@@ -319,6 +337,33 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setPerformancePage(performancePage);
         performancePage.setVisible(true);
     }
+        
+        public static void createadminHomePage() { // Creates Admin home Page
+        JFrame adminhomePage = new AdminHomePage();
+        adminhomePage.setTitle(appName);
+        adminhomePage.setPreferredSize(screenSize);
+        adminhomePage.setMaximumSize(screenSize);
+        adminhomePage.setMinimumSize(screenSize);
+        adminhomePage.setResizable(false);
+        adminhomePage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminhomePage);
+        ApplicationInfo.setPerformancePage(adminhomePage);
+        adminhomePage.setVisible(true);
+    }
+        
+         public static void createadminPage() { // Admin Page (adjust size)
+        JFrame adminPage = new AdminPage();
+        adminPage.setTitle(appName);
+        adminPage.setPreferredSize(screenSize);
+        adminPage.setMaximumSize(screenSize);
+        adminPage.setMinimumSize(screenSize);
+        adminPage.setResizable(true); //temp set
+        adminPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminhomePage);
+        ApplicationInfo.setPerformancePage(adminPage);
+        adminPage.setVisible(true);
+    } 
+    
    
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

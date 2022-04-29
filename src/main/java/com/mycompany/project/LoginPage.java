@@ -428,7 +428,7 @@ public class LoginPage extends javax.swing.JFrame {
     }
     
     private void adminLogin(){ //temporary - puts admin into performance page
-       ApplicationInfo.createPerformancePage(); 
+       ApplicationInfo.createadminHomePage(); 
        ApplicationInfo.getLoginPage().dispose();
     }
     

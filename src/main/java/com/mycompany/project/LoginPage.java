@@ -29,9 +29,6 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        //setMinimumSize(new Dimension(374, 667));
-        //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
     }
 
     /**
@@ -185,12 +182,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordInput;
     private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
-//PROBLEMS
-        //connecting to user class
-            //Telling that the user is admin or not
-            
-    
-    
+ 
     private void loginUser() {
             errorLabels.setText("");
 
@@ -205,7 +197,6 @@ public class LoginPage extends javax.swing.JFrame {
             if(!checkIfEmailInDataBase(email)){
                 return;
             }
-            //getEmailDB();
             getPassDB();
             getSaltDB();
             
@@ -267,32 +258,7 @@ public class LoginPage extends javax.swing.JFrame {
         }
         return result;
     }
-    
-    /*
-    private String getEmailDB() {
-         String email = emailInput.getText().toLowerCase().trim();
-         
-         
-         
-        boolean valid = checkIfValidEmail(email);
-        boolean exists = JdbcCrud.checkIfEmailExists(email);
-        if (!valid){ //!exists is false
-           System.out.println("email error");
-            String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Please eneter a valid email </html>";
-            errorLabels.setText(errorMessage);
-            errorLabels.setForeground(Color.red);
-        }
-        else if (!exists){
-                       System.out.println("email error");
-            String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Email or Password is incorrect </html>";
-            errorLabels.setText(errorMessage);
-            errorLabels.setForeground(Color.red);
-        }
-        return email;
-    }
-    */
+
         public Integer accountTypeCheck(){
         String email = emailInput.getText().toLowerCase().trim();
         Connection con = null;
@@ -404,16 +370,7 @@ public class LoginPage extends javax.swing.JFrame {
             Logger.getLogger(RegistrationPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-     
-     /*
-     public static boolean verifyPassword(String input_password, String securePassword, String salt){
-        boolean result = false;
-        String newSecurePassword = generateSecurePassword(passwordInput, salt);
-        result = newSecurePassword.equalsIgnoreCase(securePassword);
-        return result;
-    }
-*/ 
+
  
     private void startregisterPage(){
         //code to go to register page
@@ -427,18 +384,9 @@ public class LoginPage extends javax.swing.JFrame {
         ApplicationInfo.getLoginPage().dispose();
     }
     
-    private void adminLogin(){ //temporary - puts admin into performance page
+    private void adminLogin(){
        ApplicationInfo.createadminHomePage(); 
        ApplicationInfo.getLoginPage().dispose();
     }
-    
-    
-    
-    //get client_salt from database
-    //get client_password from database
-    
-    
-    //verify code is input_password client_password and client_salt
-    //createuserobject
-    //logintimestamp
+
 }

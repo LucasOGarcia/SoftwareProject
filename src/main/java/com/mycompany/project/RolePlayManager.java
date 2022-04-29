@@ -105,32 +105,46 @@ public class RolePlayManager {
         // basic role play info
         A1Exercise1.difficulty = difficultyA1;
         A1Exercise1.language = languageSpanish;
-        A1Exercise1.topicType = directions;
-        A1Exercise1.subTopicType = "Delivery Driver";
+        A1Exercise1.topicType = culturalExperiences;
+        A1Exercise1.subTopicType = "International Food";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
-        A1Exercise1.personAText = "<html> Hello there. Is this Mary?<br/>"
-                + " This is Jhon, the <font color='red'>delivery driver</font>. I am <font color='red'>having trouble</font> finding your apartment. <br/>"
-                + " I can't see a statue. Are you sure it's correct?. <br/>"
-                + " Oh yes, I see it. I will be there soon. Goodbye!<html>";
+        
+        A1Exercise1.personAText = "<html> What is this? <br/>"
+                + " What kind of tea? <br/>"
+                + " Yes, I like it. I want to make it at home. <br/>"
+                + " How do I make it? <br/>"
+                + " Can you <font color ='red'>text</font> it to me so I don't forget. <br/>"
+                + " Thank you. <html>";
         
         // list of vocab words associated with person A
-        List<String> personAVocabAssistList = Arrays.asList("conductor, a de reparto", "tengo un problema");
+        List<String> personAVocabAssistList1 = Arrays.asList("texto");
+        
         
         // add to the list in the object
-        A1Exercise1.personAVocabAssist = personAVocabAssistList;
+        A1Exercise1.personAVocabAssist = personAVocabAssistList1;
+         
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
-        A1Exercise1.personBText = "<html> Hi, yes it is. Who's speaking?<br/> "
-                + " Yes it can be a little <font color ='red'>tricky</font>. Go past the big black <font color ='red'>gates</font>, turn left at the statue and you should see my building. I live on the 4th floor so I would <font color ='red'>recommend</font> taking the <font color ='red'>lift</font>.<br/>"
-                + " It is a big <font color ='red'>stone statue</font>, <font color ='red'>round</font> and grey in colour.<br/>"
-                + " See you soon. Goodbye!<html> ";
+        A1Exercise1.personBText = "<html> It's tea. <br/> "
+                + " Chai tea. It's made with black tea, milk and <font color ='red'>spices</font>. Do you like it? <br/>"
+                + " You can buy the spices at the supermarket. <br/>"
+                + " First you <font color ='red'>boil</font> the milk, then you add the teabag and spices. <br/>"
+                + " No problem, I'll do it now. <html> ";
         
         // list of vocab words associated with person B
-        List<String> personBVocabAssistList = Arrays.asList("complicado", "verjas", "estatua", "recomendaría", "ascensor", "piedra", "redonda");
+        List<String> personBVocabAssistList1 = Arrays.asList("especias", "hervir");
         
         // add to the list in the object
-        A1Exercise1.personBVocabAssist = personBVocabAssistList;
+        A1Exercise1.personBVocabAssist = personBVocabAssistList1;
+        
+        
+        List<String> personAVocabEnglish1= Arrays.asList("text");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish1;
+        
+        List<String> personBVocabEnglish1= Arrays.asList("spices", "boil");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish1; 
+        
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise1);
@@ -154,8 +168,12 @@ public class RolePlayManager {
         // list of vocab words associated with person A
         List<String> personAVocabAssistList2 = Arrays.asList("espera");
         
+        
         // add to the list in the object
         A1Exercise2.personAVocabAssist = personAVocabAssistList2;
+        
+        List<String> personAVocabEnglish2= Arrays.asList("wait");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish2;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise2.personBText = "<html> Good evening. Do you have a <font color ='red'>reservation</font> with us? <br/> "
@@ -168,6 +186,9 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise2.personBVocabAssist = personBVocabAssistList2;
+        
+        List<String> personBVocabEnglish2= Arrays.asList("reservation", "about", "takeaway");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish2;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise2);
@@ -188,6 +209,17 @@ public class RolePlayManager {
                 + " I want to see her. What's her name? I'll look her up on Instagram. <br/>"
                 + " I found her! Wow, she is beautiful. I'm happy for you! <html>";
 
+        // list of vocab words associated with person A
+        List<String> personAVocabAssistList3 = Arrays.asList();
+        
+        
+        // add to the list in the object
+        A1Exercise2.personAVocabAssist = personAVocabAssistList3;
+        
+        
+        List<String> personAVocabEnglish3= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish3;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise3.personBText = "<html> Hi. It was good thank you. I met a nice girl. <br/> "
@@ -200,6 +232,9 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise3.personBVocabAssist = personBVocabAssistList3;
+        
+        List<String> personBVocabEnglish3= Arrays.asList("use");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish3;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise3);
@@ -226,6 +261,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise4.personAVocabAssist = personAVocabAssistList4;
         
+        List<String> personAVocabEnglish4= Arrays.asList("PIN");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish4;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise4.personBText = "<html> Hello, yes of course. Your total is £35. Will you be paying by <font color ='red'>cash</font> or <font color ='red'>card</font>? <br/> "
                 + " No problem. You can <font color ='red'>insert</font> or <font color ='red'>touch</font> your card to the machine.  <br/>"
@@ -237,6 +275,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise4.personBVocabAssist = personBVocabAssistList4;
+        
+        
+        
+        List<String> personBVocabEnglish4= Arrays.asList("cash", "card", "insert", "touch", "hasn't worked");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish4;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise4);
@@ -262,6 +305,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise5.personAVocabAssist = personAVocabAssistList5;
         
+        List<String> personAVocabEnglish5= Arrays.asList("appointment");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish5;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise5.personBText = "<html> No problem, what time would you like <font color ='red'>to book</font>? <br/> "
                 + " I'm sorry, that time is not <font color ='red'>available</font>. We have 10am and 5pm.<br/>"
@@ -272,6 +318,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise5.personBVocabAssist = personBVocabAssistList5;
+        
+        
+        
+        List<String> personBVocabEnglish5= Arrays.asList("to book", "available");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish5;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise5);
@@ -298,11 +349,25 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise6.personAVocabAssist = personAVocabAssistList6;
         
+        
+        List<String> personAVocabEnglish6= Arrays.asList("repeat");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish6;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise6.personBText = "<html> Hello Danielle, my name is Michael.<br/> "
                 + " My name is Michael.<br/>"
                 + " Yes, it's Michael.<br/>"
                 + " It's nice to meet you too. <html> ";
+        
+        // list of vocab words associated with person B
+        List<String> personBVocabAssistList6 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise5.personBVocabAssist = personBVocabAssistList6;
+        
+        List<String> personBVocabEnglish6= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish6;
        
         
         // add object to a list of topic based on the difficulty
@@ -332,6 +397,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise7.personAVocabAssist = personAVocabAssistList7;
         
+        List<String> personAVocabEnglish7= Arrays.asList("manager", "I've got a cold");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish7;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise7.personBText = "<html> They will arrive in an hour, do you want <font color ='red'>to call back</font> or I can <font color ='red'>take a message?</font><br/> "
                 + " What's the matter?<br/>"
@@ -345,6 +413,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise7.personBVocabAssist = personBVocabAssistList7;
+        
+        
+        
+        List<String> personBVocabEnglish7= Arrays.asList("spices", "boil");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish7;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise7);
@@ -366,10 +439,13 @@ public class RolePlayManager {
                 + " Oh. Well, in that case I will just take the gift voucher. Thank you and have a good day. <html>";
         
         // list of vocab words associated with person A
-        List<String> personAVocabAssistList8 = Arrays.asList("reembolso", "artículos", "jefe,a");
+        List<String> personAVocabAssistList8 = Arrays.asList("reembolso", "artículos", "gerente");
         
         // add to the list in the object
         A1Exercise8.personAVocabAssist = personAVocabAssistList8;
+        
+        List<String> personAVocabEnglish8= Arrays.asList("refund", "items", "manager");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish8;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise8.personBText = "<html> Hi there. <font color ='red'>Unfortunately</font>, these items look like they have been <font color ='red'>used</font>. I can offer an <font color ='red'>exchange</font> or a <font color ='red'>gift voucher</font> instead. <br/> "
@@ -382,6 +458,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise8.personBVocabAssist = personBVocabAssistList8;
+        
+       
+        
+        List<String> personBVocabEnglish8= Arrays.asList("Unfortunately", "used", "exchange", "gift voucher");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish8;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise8);
@@ -407,6 +488,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise9.personAVocabAssist = personAVocabAssistList9;
         
+        List<String> personAVocabEnglish9= Arrays.asList("face-to-face", "online");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish9;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise9.personBText = "<html> Hi Pete. Well, I actually <font color ='red'>secured a job interview</font> for this <font color ='red'>admin role</font>. I'm so excited! <br/> "
                 + " Well, the interview is at 10:00 tomorrow. The <font color ='red'>dress code</font> is <font color ='red'>smart-casual</font> so I need to wear a shirt and jeans.  <br/>"
@@ -418,6 +502,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise9.personBVocabAssist = personBVocabAssistList9;
+        
+        
+        List<String> personBVocabEnglish9= Arrays.asList("secured a job interview", "admin role", "dress code", "smart-casual", "only 3 stops on the no.32 bus", "let you know");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish9;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise9);
@@ -444,6 +532,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise10.personAVocabAssist = personAVocabAssistList10;
         
+        List<String> personAVocabEnglish10= Arrays.asList("decafe latte", "iced", "sugar-free syrup", "oat milk");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish10;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise10.personBText = "<html> We have no decafe, sorry about that. <br/> "
                 + " Yes. <br/>"
@@ -455,6 +546,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise10.personBVocabAssist = personBVocabAssistList10;
+        
+        
+        
+        List<String> personBVocabEnglish10= Arrays.asList("caramel", "vanilla", "hazelnut", "Is that to have in or to go");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish10;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise10);
@@ -476,6 +572,15 @@ public class RolePlayManager {
                 + " Yes, J E S S I C A, T A Y L O R. <br/>"
                 + " Thank you, see you then. <html>";
         
+        List<String> personAVocabAssistList11 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise11.personAVocabAssist = personAVocabAssistList11;
+        
+        
+        List<String> personAVocabEnglish11= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish11;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise11.personBText = "<html> <font color ='red'> We're booked </font> for the next week unfortunately. <br/> "
@@ -489,6 +594,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise11.personBVocabAssist = personBVocabAssistList11;
+        
+        
+        List<String> personBVocabEnglish11= Arrays.asList("spices", "boil");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish11;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise11);
@@ -516,6 +625,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise12.personAVocabAssist = personAVocabAssistList12;
         
+        List<String> personAVocabEnglish12= Arrays.asList("right", "turn left");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish12;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise12.personBText = "<html> Good afternoon, I have an <font color ='red'>interview</font> here today. <br/> "
                 + " at 13:30. <br/>"
@@ -528,6 +640,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise12.personBVocabAssist = personBVocabAssistList12;
+        
+        
+        
+        List<String> personBVocabEnglish12= Arrays.asList("interview");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish12;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise12);
@@ -547,6 +664,15 @@ public class RolePlayManager {
                 + " I'll get that for you now. Is this your daughter? She's beautiful. <br/>"
                 + " Of course, excuse me, I'll get your drinks. <html>";
         
+        // list of vocab words associated with person B
+        List<String> personAVocabAssistList13 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise13.personAVocabAssist = personAVocabAssistList13;
+        
+        List<String> personAVocabEnglish13= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish13;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise13.personBText = "<html> Excellent thanks. <br/> "
@@ -558,6 +684,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise13.personBVocabAssist = personBVocabAssistList13;
+        
+        
+        
+        List<String> personBVocabEnglish13= Arrays.asList("tap water");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish13;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise13);
@@ -585,6 +716,10 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise14.personAVocabAssist = personAVocabAssistList14;
         
+        
+        List<String> personAVocabEnglish14= Arrays.asList("wait");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish14;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise14.personBText = "<html> Good evening. Do you have a <font color ='red'>reservation</font> with us? <br/> "
                 + " I'm afraid we're very busy tonight so there are no free tables. Would you like to wait or come back later? <br/>"
@@ -597,6 +732,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise14.personBVocabAssist = personBVocabAssistList14;
+        
+        
+        List<String> personBVocabEnglish14= Arrays.asList("reservation", "about");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish14;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise14);
@@ -624,12 +763,26 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise15.personAVocabAssist = personAVocabAssistList15;
         
+        
+        List<String> personAVocabEnglish15= Arrays.asList("delivery driver", "having trouble");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish15;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise15.personBText = "<html> Hi, yes it is. Who's speaking? <br/> "
                 + " Where are you right now? <br/>"
                 + " Oh, you're close by. Just cross the street, my house is number 12. It has a red door.  <br/>"
                 + " See you soon. Goodbye! <html> ";
         
+        // list of vocab words associated with person B
+        List<String> personBVocabAssistList15 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise15.personBVocabAssist = personBVocabAssistList15;
+        
+        
+        List<String> personBVocabEnglish15= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish15;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise15);
@@ -656,6 +809,9 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise16.personAVocabAssist = personAVocabAssistList16;
         
+        List<String> personAVocabEnglish16= Arrays.asList("head off", "give out", "I suppose");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish16;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise16.personBText = "<html> That's a shame, it was nice getting to know you. <br/> "
                 + " I understand. I work too. <br/>"
@@ -668,6 +824,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise16.personBVocabAssist = personBVocabAssistList16;
+        
+        
+        
+        List<String> personBVocabEnglish16= Arrays.asList("username");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish16;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise16);
@@ -690,6 +851,14 @@ public class RolePlayManager {
                 + " Sarah Smith. And that's S-A-R-A-H with a H at the end. <br/>"
                 + " You too, bye. <html>";
         
+        List<String> personAVocabAssistList17 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise17.personAVocabAssist = personAVocabAssistList17;
+        
+        List<String> personAVocabEnglish17= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish17;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise17.personBText = "<html> Hi I have a <font color ='red'>parcel</font> for your <font color ='red'>neighbour</font>, but they're not home, can I leave it with you? <br/> "
@@ -702,6 +871,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise17.personBVocabAssist = personBVocabAssistList17;
+        
+        
+        
+        List<String> personBVocabEnglish17= Arrays.asList("parcel", "neighbour", "corridor", "signing");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish17;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise17);
@@ -723,6 +897,14 @@ public class RolePlayManager {
                 + " Our table is number 17 and here are my details. <br/>"
                 + " Great thanks! <html>";
         
+        List<String> personAVocabAssistList18 = Arrays.asList();
+        
+        // add to the list in the object
+        A1Exercise17.personAVocabAssist = personAVocabAssistList18;
+        
+        List<String> personAVocabEnglish18= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish18;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise18.personBText = "<html> Good evening. Would you like to start a tab for your table or pay now? <br/> "
@@ -735,6 +917,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise18.personBVocabAssist = personBVocabAssistList18;
+        
+        
+        List<String> personBVocabEnglish18= Arrays.asList("free refills", "soft drinks");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish18;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise18);
@@ -759,6 +945,9 @@ public class RolePlayManager {
         // list of vocab words associated with person A
         List<String> personAVocabAssistList19 = Arrays.asList("suerte");
         
+        List<String> personAVocabEnglish19= Arrays.asList("lucky");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish19;
+        
         // add to the list in the object
         A1Exercise19.personAVocabAssist = personAVocabAssistList19;
         
@@ -768,6 +957,10 @@ public class RolePlayManager {
                 + " Thanks I will. And sorry again for not being able to come. <br/>"
                 + " You too. <html> ";
         
+        
+        
+        List<String> personBVocabEnglish19= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish19;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise19);
@@ -789,6 +982,8 @@ public class RolePlayManager {
                 + " I actually do. It's not easy organising a party for 30 kids. <br/>"
                 + " That would be great.  See you then. <html>";
         
+        List<String> personAVocabEnglish20= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish20;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise20.personBText = "<html> Hi! About your son's birthday next week? <br/> "
@@ -802,6 +997,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise20.personBVocabAssist = personBVocabAssistList20;
+        
+        
+        
+        List<String> personBVocabEnglish20= Arrays.asList("setting up");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish20;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise20);
@@ -831,6 +1031,10 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise21.personAVocabAssist = personAVocabAssistList21;
         
+        
+        List<String> personAVocabEnglish21= Arrays.asList("close to the beach", "ancient", "festivals");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish21;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise21.personBText = "<html> Nice to meet you, I'm Robert. <br/> "
                 + " I'm from London, how about you? <br/>"
@@ -838,6 +1042,10 @@ public class RolePlayManager {
                 + " What is it like? <br/>"
                 + " I don't like going to the beach because I don't like sand. Is there anything else there to see? <br/>"
                 + " That does sound like a nice place, maybe I will visit sometime. <html> ";
+        
+        
+        List<String> personBVocabEnglish21= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish21;
         
         
         // add object to a list of topic based on the difficulty
@@ -868,6 +1076,10 @@ public class RolePlayManager {
         // add to the list in the object
         A1Exercise22.personAVocabAssist = personAVocabAssistList22;
         
+        
+        List<String> personAVocabEnglish22= Arrays.asList("assignments");
+        A1Exercise1.personAVocabEnglish = personAVocabEnglish22;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise22.personBText = "<html> Hey, how's things? <br/> "
                 + " What's happening? <br/>"
@@ -881,6 +1093,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A1Exercise22.personBVocabAssist = personBVocabAssistList22;
+        
+        
+        List<String> personBVocabEnglish22= Arrays.asList("next door");
+        A1Exercise1.personBVocabEnglish = personBVocabEnglish22;
         
         // add object to a list of topic based on the difficulty
         topicsA1.add(A1Exercise22);
@@ -910,6 +1126,9 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise1.personAVocabAssist = personA2VocabAssistList1;
         
+        List<String> personA2VocabEnglish1= Arrays.asList("delivery driver", "having trouble");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish1;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise1.personBText = "<html> Hi, yes it is. Who's speaking?<br/> "
                 + " Yes it can be a little <font color ='red'>tricky</font>. Go past the big black <font color ='red'>gates</font>, turn left at the statue and you should see my building. I live on the 4th floor so I would <font color ='red'>recommend</font> taking the <font color ='red'>lift</font>.<br/>"
@@ -921,6 +1140,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise1.personBVocabAssist = personB2VocabAssistList1;
+        
+        
+        
+        List<String> personB2VocabEnglish1= Arrays.asList("tricky", "gates", "estatua", "recommend", "lift", "stone statue", "round");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish1;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise1);
@@ -949,6 +1173,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise2.personAVocabAssist = personA2VocabAssistList2;
         
+        
+        List<String> personA2VocabEnglish2= Arrays.asList("wrong order", "vegan", "That is not good enough", "waiting over", "hurry up" ,"starving");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish2;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise2.personBText = "<html> Hi there, what seems to be the problem? <br/> "
                 + " I'm so sorry about that there must have been a <font color ='red'>mix up</font>. I will bring you a new one immediately. <br/>"
@@ -960,6 +1188,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise2.personBVocabAssist = personB2VocabAssistList2;
+        
+        
+        List<String> personB2VocabEnglish2= Arrays.asList("mix up", "accept our sincere apologies", "kitchen");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish2;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise2);
@@ -986,6 +1218,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise3.personAVocabAssist = personA2VocabAssistList3;
         
+        
+        List<String> personA2VocabEnglish3= Arrays.asList("done my teeth", "trust", "sooner");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish3;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise3.personBText = "<html> Hi there, I'm sorry but Clara is not available at the moment. Could I <font color ='red'>put you down </font>with someone else? <br/> "
                 + " She is on holiday until the 22nd. I can book you in with Clara on the 30th. <br/>"
@@ -997,6 +1233,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise3.personBVocabAssist = personB2VocabAssistList3;
+        
+        
+        List<String> personB2VocabEnglish3= Arrays.asList("put you down", "cancellation", "appointment");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish3;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise3);
@@ -1025,6 +1265,9 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise4.personAVocabAssist = personA2VocabAssistList4;
         
+        List<String> personA2VocabEnglish4= Arrays.asList("delay");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish4;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise4.personBText = "<html> Good evening. Do you have a <font color ='red'>reservation</font> with us? <br/> "
                 + " What is your name? <br/>"
@@ -1038,6 +1281,11 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise4.personBVocabAssist = personB2VocabAssistList4;
+        
+        
+        
+        List<String> personB2VocabEnglish4= Arrays.asList("reservation", "intended");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish4;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise4);
@@ -1060,6 +1308,10 @@ public class RolePlayManager {
                 + " I will be back as soon as possible. <html>";
         
         
+        List<String> personA2VocabEnglish5= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish5;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise5.personBText = "<html> Hello, yes of course. Your total is £35. Will you be paying by <font color ='red'>cash</font> or <font color ='red'>card</font>? <br/> "
                 + " No problem. You can <font color ='red'>insert</font> or <font color ='red'>touch</font> your card to the machine. <br/>"
@@ -1072,6 +1324,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise5.personBVocabAssist = personB2VocabAssistList5;
+        
+        
+        List<String> personB2VocabEnglish5= Arrays.asList("cash", "card", "insert", "touch", "hasn't worked");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish5;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise5);
@@ -1093,6 +1349,10 @@ public class RolePlayManager {
                 + " Take care. <html>";
         
         
+        List<String> personA2VocabEnglish6= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish6;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise6.personBText = "<html> I'm in Italy, didn't you know? <br/> "
                 + " I meant to stay for 2 weeks but my grandma is <font color ='red'>unwell</font>, so I am staying another week. <br/>"
@@ -1104,6 +1364,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise6.personBVocabAssist = personB2VocabAssistList6;
+        
+        
+        List<String> personB2VocabEnglish6= Arrays.asList("unwell");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish6;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise6);
@@ -1130,6 +1394,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise7.personAVocabAssist = personA2VocabAssistList7;
         
+        
+        List<String> personA2VocabEnglish7= Arrays.asList("charitable organisation", "don't give to charity", "choose", "sign up");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish7;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise7.personBText = "<html> No, I am busy. <br/> "
                 + " I am going to work. <br/>"
@@ -1142,6 +1410,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise7.personBVocabAssist = personB2VocabAssistList7;
+        
+        
+        List<String> personB2VocabEnglish7= Arrays.asList("Leave me alone");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish7;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise7);
@@ -1168,6 +1440,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise8.personAVocabAssist = personA2VocabAssistList8;
         
+        
+        List<String> personA2VocabEnglish8= Arrays.asList("to go for lunch", "days do you have off");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish8;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise8.personBText = "<html> <font color ='red'>I'm afraid not</font>, I work on weekends. <br/> "
                 + " I am <font color ='red'>free</font> on Tuesday and Wednesday <br/>"
@@ -1179,6 +1455,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise8.personBVocabAssist = personB2VocabAssistList8;
+        
+        
+        List<String> personB2VocabEnglish8= Arrays.asList("I'm afraid not", "free", "That's a shame");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish8;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise8);
@@ -1199,10 +1479,14 @@ public class RolePlayManager {
                 + " Thank you very much. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList9 = Arrays.asList("");
+        List<String> personA2VocabAssistList9 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise9.personAVocabAssist = personA2VocabAssistList9;
+        
+        
+        List<String> personA2VocabEnglish9= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish9;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise9.personBText = "<html> We're really busy, they are making the drinks as fast as they can, can you wait a little longer? <br/> "
@@ -1214,6 +1498,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise9.personBVocabAssist = personB2VocabAssistList9;
+        
+        
+        List<String> personB2VocabEnglish9= Arrays.asList("mix up");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish9;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise9);
@@ -1242,6 +1530,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise10.personAVocabAssist = personA2VocabAssistList10;
         
+        
+        List<String> personA2VocabEnglish10= Arrays.asList("only child");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish10;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise10.personBText = "<html> Oh, that's Suzanna. <br/> "
                 + " She's my sister. <br/>"
@@ -1251,10 +1543,14 @@ public class RolePlayManager {
                 + " Must have been very quiet at home then! <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB2VocabAssistList10 = Arrays.asList("media hermana", "noisy");
+        List<String> personB2VocabAssistList10 = Arrays.asList("media hermana", "ruidosa");
         
         // add to the list in the object
         A2Exercise10.personBVocabAssist = personB2VocabAssistList10;
+        
+        
+        List<String> personB2VocabEnglish10= Arrays.asList("half sister", "noisy");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish10;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise10);
@@ -1282,6 +1578,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise11.personAVocabAssist = personA2VocabAssistList11;
         
+        
+        List<String> personA2VocabEnglish11= Arrays.asList("almond", "peppermint", "subscription");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish11;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise11.personBText = "<html> Sorry about this but, we are all out of almond milk. We do have <font color ='red'>oat</font> milk or <font color ='red'>soya</font> milk though.  <br/> "
                 + " Sorry about that, can I get you anything else?<br/>"
@@ -1295,6 +1595,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise11.personBVocabAssist = personB2VocabAssistList11;
+        
+        
+        List<String> personB2VocabEnglish11= Arrays.asList("oat", "soya", "scan");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish11;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise11);
@@ -1323,6 +1627,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise12.personAVocabAssist = personA2VocabAssistList12;
         
+        
+        List<String> personA2VocabEnglish12= Arrays.asList("earache");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish12;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise12.personBText = "<html> What's your date of birth? <br/>"
                 + " And your name? <br/>"
@@ -1337,6 +1645,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise12.personBVocabAssist = personB2VocabAssistList12;
+        
+        
+        List<String> personB2VocabEnglish12= Arrays.asList("flu jab");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish12;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise12);
@@ -1364,6 +1676,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise13.personAVocabAssist = personA2VocabAssistList13;
         
+        
+        List<String> personA2VocabEnglish13= Arrays.asList("valid", "misunderstood");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish13;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise13.personBText = "<html> Good morning, here you go.  <br/> "
                 + " But the lady at the ticket office told me it will be okay for the whole journey. <br/>"
@@ -1376,6 +1692,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise13.personBVocabAssist = personB2VocabAssistList13;
+        
+        
+        List<String> personB2VocabEnglish13= Arrays.asList("outstanding");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish13;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise13);
@@ -1403,6 +1723,11 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise14.personAVocabAssist = personA2VocabAssistList14;
         
+                
+        List<String> personA2VocabEnglish14= Arrays.asList("age restricted");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish14;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise14.personBText = "<html> Hi, that's me, thanks.  <br/> "
                 + " Oh? I don't remember ordering anything dangerous. <br/>"
@@ -1412,10 +1737,14 @@ public class RolePlayManager {
                 + " Thank you, have a good day. <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB2VocabAssistList14 = Arrays.asList("");
+        List<String> personB2VocabAssistList14 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise14.personBVocabAssist = personB2VocabAssistList14;
+
+        
+        List<String> personB2VocabEnglish14= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish14;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise14);
@@ -1437,10 +1766,15 @@ public class RolePlayManager {
                 + " You will get used to it don't worry. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList15 = Arrays.asList("");
+        List<String> personA2VocabAssistList15 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise15.personAVocabAssist = personA2VocabAssistList15;
+        
+        
+        List<String> personA2VocabEnglish15= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish15;
+        
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise15.personBText = "<html> Good thanks, how are you? <br/> "
@@ -1453,6 +1787,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise15.personBVocabAssist = personB2VocabAssistList15;
+        
+        
+        List<String> personB2VocabEnglish15= Arrays.asList("Exhausting but rewarding");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish15;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise15);
@@ -1479,6 +1817,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise16.personAVocabAssist = personA2VocabAssistList16;
         
+        
+        List<String> personA2VocabEnglish16= Arrays.asList("following", "position", "paperwork");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish16;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise16.personBText = "<html> Hi, yes that's me.  <br/> "
                 + " That's brilliant news! I am busy this weekend but I can start as soon as Monday. <br/>"
@@ -1487,10 +1829,14 @@ public class RolePlayManager {
                 + " Bye-bye! <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB2VocabAssistList16 = Arrays.asList("");
+        List<String> personB2VocabAssistList16 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise16.personBVocabAssist = personB2VocabAssistList16;
+        
+        
+        List<String> personB2VocabEnglish16= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish16;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise16);
@@ -1512,10 +1858,14 @@ public class RolePlayManager {
                 + " Thank you very much for your help. Have a good day! <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList17 = Arrays.asList("aceptada");
+        List<String> personA2VocabAssistList17 = Arrays.asList("admitted");
         
         // add to the list in the object
         A2Exercise17.personAVocabAssist = personA2VocabAssistList17;
+        
+        
+        List<String> personA2VocabEnglish17= Arrays.asList("text");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish17;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise17.personBText = "<html> Good morning, I need the full name of the <font color ='red'>patient</font> and the time he was taken in. <br/> "
@@ -1529,6 +1879,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise17.personBVocabAssist = personB2VocabAssistList17;
+        
+        
+        List<String> personB2VocabEnglish17= Arrays.asList("patient", "ward");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish17;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise17);
@@ -1555,6 +1909,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise18.personAVocabAssist = personA2VocabAssistList18;
         
+        
+        List<String> personA2VocabEnglish18= Arrays.asList("2 for 1 offer");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish18;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise18.personBText = "<html> Coming right up. Would you like to start <font color ='red'>a tab</font> for your table or pay now? <br/> "
                 + " Okay your total is £22.50 please. <br/>"
@@ -1562,10 +1920,14 @@ public class RolePlayManager {
                 + " I’m sorry to hear that. I hope you have a good night. <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB2VocabAssistList18 = Arrays.asList("una pestaña", "válida");
+        List<String> personB2VocabAssistList18 = Arrays.asList("a tab", "valid");
         
         // add to the list in the object
         A2Exercise18.personBVocabAssist = personB2VocabAssistList18;
+        
+        
+        List<String> personB2VocabEnglish18= Arrays.asList("spices", "boil");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish18;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise18);
@@ -1588,10 +1950,14 @@ public class RolePlayManager {
                 + " Yes, I have them on tiktok. Do you want to see? <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList19 = Arrays.asList("");
+        List<String> personA2VocabAssistList19 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise19.personAVocabAssist = personA2VocabAssistList19;
+        
+        
+        List<String> personA2VocabEnglish19= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish19;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise19.personBText = "<html> Yes, it's real. <br/> "
@@ -1606,6 +1972,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise19.personBVocabAssist = personB2VocabAssistList19;
+        
+        
+        List<String> personB2VocabEnglish19= Arrays.asList("succulent", "tropical", "sunlight", "link");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish19;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise19);
@@ -1631,6 +2001,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise20.personAVocabAssist = personA2VocabAssistList20;
         
+        
+        List<String> personA2VocabEnglish20= Arrays.asList("wedding", "RSVP");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish20;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise20.personBText = "<html> I did, yes. <br/> "
                 + " Unfortunately, we won't be able to come, the invitation said that it's adults only but there won't be anyone to look after our daughter. <br/>"
@@ -1638,10 +2012,14 @@ public class RolePlayManager {
                 + " You too. <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB2VocabAssistList20 = Arrays.asList("");
+        List<String> personB2VocabAssistList20 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise20.personBVocabAssist = personB2VocabAssistList20;
+        
+        
+        List<String> personB2VocabEnglish20= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish20;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise20);
@@ -1669,6 +2047,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise21.personAVocabAssist = personA2VocabAssistList21;
         
+        
+        List<String> personA2VocabEnglish21= Arrays.asList("catering");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish21;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise21.personBText = "<html> I did, yes. <br/> "
                 + " I don't know if I can make it yet, I have to travel a lot for work. <br/>"
@@ -1682,6 +2064,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise21.personBVocabAssist = personB2VocabAssistList21;
+        
+        
+        List<String> personB2VocabEnglish21= Arrays.asList("schedule", "vegetarian");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish21;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise21);
@@ -1708,6 +2094,10 @@ public class RolePlayManager {
         // add to the list in the object
         A2Exercise22.personAVocabAssist = personA2VocabAssistList22;
         
+        
+        List<String> personA2VocabEnglish22= Arrays.asList("omelette", "recycleable");
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish22;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise22.personBText = "<html> It's a Tortilla. <br/> "
                 + " Yes, it's an egg and potato omelette. Do you like it? <br/>"
@@ -1720,6 +2110,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise22.personBVocabAssist = personB2VocabAssistList22;
+        
+        
+        List<String> personB2VocabEnglish22= Arrays.asList("takeaway box");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish22;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise22);
@@ -1741,10 +2135,14 @@ public class RolePlayManager {
                 + " Wow, great thanks! <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList23 = Arrays.asList("");
+        List<String> personA2VocabAssistList23 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise2.personAVocabAssist = personA2VocabAssistList23;
+        
+        
+        List<String> personA2VocabEnglish23= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish23;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise23.personBText = "<html> Good evening. Here's the menu which one would you like? <br/> "
@@ -1758,6 +2156,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise2.personBVocabAssist = personB2VocabAssistList23;
+        
+        
+        List<String> personB2VocabEnglish23= Arrays.asList("happy hour");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish23;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise23);
@@ -1779,10 +2181,14 @@ public class RolePlayManager {
                 + " How is he doing? Is he eating normally? <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList24 = Arrays.asList("");
+        List<String> personA2VocabAssistList24 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise2.personAVocabAssist = personA2VocabAssistList24;
+        
+        
+        List<String> personA2VocabEnglish24= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish24;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise24.personBText = "<html> Good morning, I need the full name of the patient and the time he was taken in. <br/> "
@@ -1796,6 +2202,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise2.personBVocabAssist = personB2VocabAssistList24;
+        
+        
+        List<String> personB2VocabEnglish24= Arrays.asList("making his rounds");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish24;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise24);
@@ -1817,10 +2227,14 @@ public class RolePlayManager {
                 + " We don't have any milk, can you get some. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA2VocabAssistList25 = Arrays.asList("");
+        List<String> personA2VocabAssistList25 = Arrays.asList();
         
         // add to the list in the object
         A2Exercise2.personAVocabAssist = personA2VocabAssistList25;
+        
+        
+        List<String> personA2VocabEnglish25= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA2VocabEnglish25;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise25.personBText = "<html> Welcome home. <font color ='red'>Just in time</font>, I'm about to leave now. <br/> "
@@ -1834,6 +2248,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         A2Exercise2.personBVocabAssist = personB2VocabAssistList25;
+        
+        
+        List<String> personB2VocabEnglish25= Arrays.asList("Just in time", "scarf");
+        A1Exercise1.personBVocabEnglish = personB2VocabEnglish25;
         
         // add object to a list of topic based on the difficulty
         topicsA2.add(A2Exercise25);
@@ -1858,10 +2276,14 @@ public class RolePlayManager {
                 + " Oh dear. I think I'll leave it. Bye. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA3VocabAssistList1 = Arrays.asList("");
+        List<String> personA3VocabAssistList1 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise1.personAVocabAssist = personA3VocabAssistList1;
+        
+        
+        List<String> personA3VocabEnglish1= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish1;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise1.personBText = "<html> Hello, yes of course. Your total is £255. Will you be paying by <font color ='red'>cash</font> or <font color ='red'>card</font>? <br/> "
@@ -1875,6 +2297,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise1.personBVocabAssist = personB3VocabAssistList1;
+        
+        
+        List<String> personB3VocabEnglish1= Arrays.asList("cash", "card", "authorised");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish1;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise1);
@@ -1903,6 +2329,10 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise2.personAVocabAssist = personA3VocabAssistList2;
         
+        
+        List<String> personA3VocabEnglish2= Arrays.asList("assignments", "due", "distracted");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish2;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise2.personBText = "<html> I'm doing okay, you? <br/> "
                 + " Why are you stressed? <br/>"
@@ -1915,6 +2345,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise2.personBVocabAssist = personB3VocabAssistList2;
+        
+        
+        List<String> personB3VocabEnglish2= Arrays.asList("structure", "maintain");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish2;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise2);
@@ -1941,6 +2375,9 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise3.personAVocabAssist = personA3VocabAssistList3;
         
+        List<String> personA3VocabEnglish3= Arrays.asList("QR code", "rail card");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish3;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise3.personBText = "<html> Good morning. Oh no..I think I forgot my ticket. Can you wait a moment? <br/> "
                 + " No, I'm sure I have it somewhere just give me a minute. I printed off a copy yesterday evening. <br/>"
@@ -1949,10 +2386,14 @@ public class RolePlayManager {
                 + " Have a good day! <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB3VocabAssistList3 = Arrays.asList("");
+        List<String> personB3VocabAssistList3 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise3.personBVocabAssist = personB3VocabAssistList3;
+        
+        
+        List<String> personB3VocabEnglish3= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish3;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise3);
@@ -1979,6 +2420,11 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise4.personAVocabAssist = personA3VocabAssistList4;
         
+        
+        List<String> personA3VocabEnglish4= Arrays.asList("notice", "cancellation charge", "walk-ins");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish4;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise4.personBText = "<html> Good morning, I'd like to cancel my appointment please. <br/> "
                 + " Today at 4pm. <br/>"
@@ -1991,6 +2437,9 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise4.personBVocabAssist = personB3VocabAssistList4;
+        
+        List<String> personB3VocabEnglish4= Arrays.asList("last minute");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish4;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise4);
@@ -2019,6 +2468,11 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise5.personAVocabAssist = personA3VocabAssistList5;
         
+        
+        List<String> personA3VocabEnglish5= Arrays.asList("similar");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish5;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise5.personBText = "<html> That one is quite popular, let me check if it's <font color ='red'>in stock</font>. <br/> "
                 + " I've had a look and we don't have the black or grey in stock, however we do have the pink avaliable. <br/>"
@@ -2032,6 +2486,9 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise5.personBVocabAssist = personB3VocabAssistList5;
+        
+        List<String> personB3VocabEnglish5= Arrays.asList("in stock", "memory", "processor", "discount");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish5;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise5);
@@ -2055,10 +2512,14 @@ public class RolePlayManager {
                 + " You as well, bye. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA3VocabAssistList6 = Arrays.asList("");
+        List<String> personA3VocabAssistList6 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise6.personAVocabAssist = personA3VocabAssistList6;
+        
+        
+        List<String> personA3VocabEnglish6= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish6;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise6.personBText = "<html> Hi, yeah, it's been ages. How are you getting on? <br/> "
@@ -2073,6 +2534,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise6.personBVocabAssist = personB3VocabAssistList6;
+        
+        
+        List<String> personB3VocabEnglish6= Arrays.asList("blowdry");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish6;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise6);
@@ -2094,10 +2559,14 @@ public class RolePlayManager {
                 + " Bye. And good luck for your journey home. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA3VocabAssistList7 = Arrays.asList("mojada");
+        List<String> personA3VocabAssistList7 = Arrays.asList("soaked");
         
         // add to the list in the object
         B1Exercise7.personAVocabAssist = personA3VocabAssistList7;
+        
+        
+        List<String> personA3VocabEnglish7= Arrays.asList("text");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish7;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise7.personBText = "<html> Hi! Well because of the rain my station was completely <font color ='red'>flooded</font>. I had to get a <font color ='red'>replacement bus</font>  which was 30 minutes late.  <br/> "
@@ -2111,6 +2580,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise7.personBVocabAssist = personB3VocabAssistList7;
+        
+        
+        List<String> personB3VocabEnglish7= Arrays.asList("flooded", "replacement bus");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish7;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise7);
@@ -2131,10 +2604,14 @@ public class RolePlayManager {
                 + " We will see about that. <html>";
         
         // list of vocab words associated with person A
-        List<String> personA3VocabAssistList8 = Arrays.asList("");
+        List<String> personA3VocabAssistList8 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise8.personAVocabAssist = personA3VocabAssistList8;
+        
+        
+        List<String> personA3VocabEnglish8= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish8;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise8.personBText = "<html> Good evening, I'm sorry but we're only taking orders through our app at the moment. If you take a seat at your table you can <font color ='red'>scan the barcode</font> and your drinks will be delivered right to your table.  <br/> "
@@ -2146,6 +2623,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise8.personBVocabAssist = personB3VocabAssistList8;
+        
+        
+        List<String> personB3VocabEnglish8= Arrays.asList("scan the barcode", "system ensures", "assure", "policy");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish8;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise8);
@@ -2173,6 +2654,10 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise9.personAVocabAssist = personA3VocabAssistList9;
         
+        
+        List<String> personA3VocabEnglish9= Arrays.asList("pink, unicorn theme");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish9;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise9.personBText = "<html> Hi! About your daughter's birthday party next week? <br/>"
                 + " Of course! Me and the kids would be delighted to attend. What time does it start? <br/>"
@@ -2181,10 +2666,14 @@ public class RolePlayManager {
                 + " I will see what I can do. Shall I meet you at your place at 12? <br/>"
                 + " Oh, don't mention it! See you soon. <html>";
         // list of vocab words associated with person B
-        List<String> personB3VocabAssistList9 = Arrays.asList("escanear el código de barras", "el sistema asegura", "asegurar", "política");
+        List<String> personB3VocabAssistList9 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise9.personBVocabAssist = personB3VocabAssistList9;
+        
+        
+        List<String> personB3VocabEnglish9= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish9;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise9);
@@ -2212,6 +2701,10 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise10.personAVocabAssist = personA3VocabAssistList10;
         
+        
+        List<String> personA3VocabEnglish10= Arrays.asList("reception", "card/national insurance number", "attire");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish10;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise10.personBText = "<html> Hi, yes that's me.  <br/> "
                 + " That's brilliant news! I had to give 2 weeks <font color ='red'>notice</font> at work, so I can start on Monday in 2 weeks. <br/>"
@@ -2224,6 +2717,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B1Exercise10.personBVocabAssist = personB3VocabAssistList10;
+        
+        
+        List<String> personB3VocabEnglish10= Arrays.asList("notice", "dress code", "uniform");
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish10;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise10);
@@ -2252,6 +2749,10 @@ public class RolePlayManager {
         // add to the list in the object
         B1Exercise11.personAVocabAssist = personA3VocabAssistList11;
         
+        
+        List<String> personA3VocabEnglish11= Arrays.asList("at least", "careful");
+        A1Exercise1.personAVocabEnglish = personA3VocabEnglish11;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B1Exercise11.personBText = "<html> Hi, it's your neighbour from number 5. <br/> "
                 + " Yeah, a few weeks ago my package was delivered here, do you have it? <br/>"
@@ -2261,10 +2762,14 @@ public class RolePlayManager {
                 + " Okay, thank you for telling me. I'll go to her door and ask. <html> ";
         
         // list of vocab words associated with person B
-        List<String> personB3VocabAssistList11 = Arrays.asList("");
+        List<String> personB3VocabAssistList11 = Arrays.asList();
         
         // add to the list in the object
         B1Exercise11.personBVocabAssist = personB3VocabAssistList11;
+        
+        
+        List<String> personB3VocabEnglish11= Arrays.asList();
+        A1Exercise1.personBVocabEnglish = personB3VocabEnglish11;
         
         // add object to a list of topic based on the difficulty
         topicsB1.add(B1Exercise11);
@@ -2285,10 +2790,14 @@ public class RolePlayManager {
                 + " Fine, I will make the reservation. But is there anything you can offer me in return for my having to wait?<html>";
         
         // list of vocab words associated with person A
-        List<String> personA4VocabAssistList1 = Arrays.asList("");
+        List<String> personA4VocabAssistList1 = Arrays.asList();
         
         // add to the list in the object
         B2Exercise1.personAVocabAssist = personA4VocabAssistList1;
+        
+        
+        List<String> personA4VocabEnglish1= Arrays.asList();
+        A1Exercise1.personAVocabEnglish = personA4VocabEnglish1;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B2Exercise1.personBText = "<html> Did you make a reservation? <br/> "
@@ -2301,6 +2810,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B2Exercise1.personBVocabAssist = personB4VocabAssistList1;
+        
+        
+        List<String> personB4VocabEnglish1= Arrays.asList("launch", "models", "slot");
+        A1Exercise1.personBVocabEnglish = personB4VocabEnglish1;
         
         // add object to a list of topic based on the difficulty
         topicsB2.add(B2Exercise1);
@@ -2329,6 +2842,11 @@ public class RolePlayManager {
         // add to the list in the object
         B2Exercise2.personAVocabAssist = personA4VocabAssistList2;
         
+        
+        List<String> personA4VocabEnglish2= Arrays.asList("No kidding", "decent");
+        A1Exercise1.personAVocabEnglish = personA4VocabEnglish2;
+        
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B2Exercise2.personBText = "<html> Hi, yeah I am! Yesterday was my first day. <br/> "
                 + " Pretty good. Everyone is really nice and the <font color ='red'>workload</font> is <font color ='red'>managable</font>. <br/>"
@@ -2341,6 +2859,9 @@ public class RolePlayManager {
         
         // add to the list in the object
         B2Exercise2.personBVocabAssist = personB4VocabAssistList2;
+        
+        List<String> personB4VocabEnglish2= Arrays.asList("workload", "managable");
+        A1Exercise1.personBVocabEnglish = personB4VocabEnglish2;
         
         // add object to a list of topic based on the difficulty
         topicsB2.add(B2Exercise2);
@@ -2367,6 +2888,10 @@ public class RolePlayManager {
         // add to the list in the object
         B2Exercise3.personAVocabAssist = personA4VocabAssistList3;
         
+        
+        List<String> personA4VocabEnglish3= Arrays.asList("tricky", "resort");
+        A1Exercise1.personAVocabEnglish = personA4VocabEnglish3;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B2Exercise3.personBText = "<html> About your son's birthday party next week?  <br/> "
                 + " Ah, unfortunately we won't be able to come. My wife planned a trip to Disneyland for the whole family, so we're going to be away all week. <br/>"
@@ -2379,6 +2904,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B2Exercise3.personBVocabAssist = personB4VocabAssistList3;
+        
+        
+        List<String> personB4VocabEnglish3= Arrays.asList("Airbnb", "accomodation");
+        A1Exercise1.personBVocabEnglish = personB4VocabEnglish3;
         
         // add object to a list of topic based on the difficulty
         topicsB2.add(B2Exercise3);
@@ -2406,6 +2935,10 @@ public class RolePlayManager {
         // add to the list in the object
         B2Exercise4.personAVocabAssist = personA4VocabAssistList4;
         
+        
+        List<String> personA4VocabEnglish4= Arrays.asList("there's plenty more fish in the sea");
+        A1Exercise1.personAVocabEnglish = personA4VocabEnglish4;
+        
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         B2Exercise4.personBText = "<html> Could have been better. <br/> "
                 + " I was supposed to go on <font color ='red'>a date</font> but she <font color ='red'>ghosted</font> me. <br/>"
@@ -2418,6 +2951,10 @@ public class RolePlayManager {
         
         // add to the list in the object
         B2Exercise4.personBVocabAssist = personB4VocabAssistList4;
+        
+        
+        List<String> personB4VocabEnglish4= Arrays.asList("a date", "ghosted", "keen", "Such a shame");
+        A1Exercise1.personBVocabEnglish = personB4VocabEnglish4;
         
         // add object to a list of topic based on the difficulty
         topicsB2.add(B2Exercise4);

@@ -1,5 +1,10 @@
 package com.mycompany.project;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,10 +23,7 @@ public class RolePlay extends javax.swing.JFrame {
      */
     public RolePlay() {
         initComponents();
-        jPanel6.setVisible(false); 
-        jPanel12.setVisible(false);         
-        jPanel10.setVisible(false);         
-        jPanel13.setVisible(false); 
+        initPage();
 
 
 
@@ -49,7 +51,7 @@ public class RolePlay extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        jButton4 = new javax.swing.JButton();
+        completeButton = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
@@ -113,8 +115,13 @@ public class RolePlay extends javax.swing.JFrame {
         jTextArea3.setText("- A: ...\n- B: Good Evening. Do you have a **reservation** \nwith us?\n- A: ...\n- B: I'm afraid we're very busy tonight so there are no free tables.\nWould you like to wait or come back later?\n- A: ...\n- B: It is **about** one hour. \nI’m sorry about that.\n Would you like to order your food for **takeaway** instead?\n- A: ...\n- B: No problem. \nYour food should be there soon. Have a nice evening!\n- A: ...");
         jScrollPane3.setViewportView(jTextArea3);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setText("COMPLETE !");
+        completeButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        completeButton.setText("COMPLETE !");
+        completeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completeButtonActionPerformed(evt);
+            }
+        });
 
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,33 +292,30 @@ public class RolePlay extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(completeButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel1)
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(221, 221, 221)
-                                .addComponent(jButton4))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(84, 84, 84)
-                                .addComponent(jLabel1)
-                                .addGap(54, 54, 54)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -339,7 +343,7 @@ public class RolePlay extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(completeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
@@ -416,6 +420,15 @@ public class RolePlay extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
+    private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed
+        increaseRolePlayTopicCount();
+        increaseRolePlayDifficultyCounter();
+        increaseRolePlayRoleCounter();
+        lastRolePlayTimeStamp();
+        ApplicationInfo.createHomePage();
+        ApplicationInfo.getRolePlayPage().dispose();
+    }//GEN-LAST:event_completeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -455,10 +468,10 @@ public class RolePlay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton completeButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -487,4 +500,207 @@ public class RolePlay extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
+
+    private void initPage() {
+        jPanel6.setVisible(false); 
+        jPanel12.setVisible(false);         
+        jPanel10.setVisible(false);         
+        jPanel13.setVisible(false);
+        
+        // add all radio buttons and labels to two seperate lists, do a for loop to disable all radio buttons and make the labels invisble and set their text to blank
+        
+        //use if statements to filter through role play lists within the rolePlayManger based on the difficulty the user selected to see which role play object matches the user's selections
+        
+        List<String> vocabAssist = new ArrayList();
+        //if statement to see if a user is student or teacher, retrieve vocab list  from the role Play Object equivalent and assign to vocabAssit list
+        
+        // enable radio buttons based on the size of the vocab list retrieved assign all the labels text to respective indexes and keep label invisible
+        
+        // assign role play text to scrollable panel within the page based if the user is student or teacher
+    }
+    
+    
+    // CRUD operations functions
+    
+    private void increaseVocabAssistCount() {
+        try {
+            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail)+1;
+            JdbcCrud.upateVocabAssistCount(newAssistCount);
+        } catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void increaseRolePlayTopicCount() {
+        if (RolePlayManager.getRolePlaySettings().getTopicType() == null){
+            return;
+        }
+        if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userEmail = ApplicationInfo.getUser().userEmail;
+        Integer newCount;
+        try{
+            switch (RolePlayManager.getRolePlaySettings().getTopicType()) {
+                case "Asking and giving directions":
+                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail) +1;
+                    JdbcCrud.upateTopicDirectionsCount(newCount);
+                    break;
+                    
+                case "Basic employment issues":
+                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail) +1;
+                    JdbcCrud.upateTopicEmploymentCount(newCount);
+                    break;
+                    
+                case "Cross-cultural experiences":
+                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail) +1;
+                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount);
+                    break;
+                    
+                case "Exchanging personal information":
+                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail) +1;
+                    JdbcCrud.upateTopicPersonalInfoCount(newCount);
+                    break;
+                    
+                case "Going shopping and asking for prices":
+                    newCount = JdbcCrud.getTopicShoppingCount(userEmail) +1;
+                    JdbcCrud.upateTopicShoppingCount(newCount);
+                    break;
+                    
+                case "Health":
+                    newCount = JdbcCrud.getTopicHealthCount(userEmail) +1;
+                    JdbcCrud.upateTopicHealthCount(newCount);
+                    break;
+                    
+                case "Housing conditions":
+                    newCount = JdbcCrud.getTopicHousingCount(userEmail) +1;
+                    JdbcCrud.upateTopicHousingCount(newCount);
+                    break;
+                    
+                case "Introductions":
+                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail) +1;
+                    JdbcCrud.upateTopicIntroductionsCount(newCount);
+                    break;
+                    
+                case "Making Appointments":
+                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail) +1;
+                    JdbcCrud.upateTopicAppointmentsCount(newCount);
+                    break;
+                    
+                case "Making invitations":
+                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail) +1;
+                    JdbcCrud.upateTopicInvitationsCount(newCount);
+                    break;
+                    
+                case "Making travel arrangements":
+                    newCount = JdbcCrud.getTopicTravelCount(userEmail) +1;
+                    JdbcCrud.upateTopicTravelCount(newCount);
+                    break;
+                    
+                case "Ordering food and drink":
+                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail) +1;
+                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount);
+                    break;
+                    
+                case "Socialising":
+                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail) +1;
+                    JdbcCrud.upateTopicSocialisingCount(newCount);
+                    break;
+                    
+                case "University life":
+                    newCount = JdbcCrud.getTopicUniversityCount(userEmail) +1;
+                    JdbcCrud.upateTopicUniversityCount(newCount);
+                    break;
+                    
+                case "Weather":
+                    newCount = JdbcCrud.getTopicWeatherCount(userEmail) +1;
+                    JdbcCrud.upateTopicWeatherCount(newCount);
+                    break;
+                    
+                case "Work life":
+                    newCount = JdbcCrud.getTopicWorkCount(userEmail) +1;
+                    JdbcCrud.upateTopicWorkCount(newCount);
+                    break;
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void lastRolePlayTimeStamp() {
+        try {
+            JdbcCrud.setUserLastRolePlay();
+        } catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void increaseRolePlayDifficultyCounter() {
+        if (RolePlayManager.getRolePlaySettings() == null){
+            return;
+        }
+       if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userEmail = ApplicationInfo.getUser().userEmail;
+        Integer newCount;
+        
+        try{
+            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
+                case "A1":
+                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail) +1;
+                    JdbcCrud.SetRolePlayCompleteA1(newCount);
+                    break;
+                    
+                case "A2":
+                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail) +1;
+                    JdbcCrud.SetRolePlayCompleteA2(newCount);
+                    break;
+                    
+                case "B1":
+                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail) +1;
+                    JdbcCrud.SetRolePlayCompleteB1(newCount);
+                    break;
+                    
+                case "B2":
+                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail) +1;
+                    JdbcCrud.SetRolePlayCompleteB2(newCount);
+                    break;
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void increaseRolePlayRoleCounter() {
+        if (RolePlayManager.getRolePlaySettings() == null){
+            return;
+        }
+       if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userEmail = ApplicationInfo.getUser().userEmail;
+        Integer newCount;
+        
+        try{
+            switch (RolePlayManager.getRolePlaySettings().getRole()){
+                case "Student":
+                    newCount = JdbcCrud.getRolePlayStudent(userEmail) +1;
+                    JdbcCrud.setRolePlayStudent(newCount);
+                    break;
+                    
+                case "Teacher":
+                    newCount = JdbcCrud.getRolePlayTeacher(userEmail) +1;
+                    JdbcCrud.setRolePlayTeacher(newCount);
+                    break;
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 }

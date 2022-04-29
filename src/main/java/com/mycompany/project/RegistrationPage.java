@@ -364,10 +364,10 @@ public class RegistrationPage extends javax.swing.JFrame {
             // error inputing data into Database
             return;
         }
-        //  -------------------- todo insert user email into statistics table later ------------------------------
         
         // Create user object and assign to variable in ApplicationInfo class
         createUserObject(email, firstName, lastName);
+        
         // set user login timestamp in the  database
         userLoginTimestamp();
         

@@ -31,8 +31,7 @@ public class JdbcCrud {
         PreparedStatement pst = null;
         String query = "select * from client_Info where client_email=?";
         try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Checking if email "+email+" is already in database");
             //set all parameters
             pst = con.prepareStatement(query);
@@ -1875,8 +1874,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_last_roleplay= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             con = ConnectDB.getConnection();
             System.out.println("Updating user last role play...");

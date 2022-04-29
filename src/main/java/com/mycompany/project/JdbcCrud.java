@@ -82,8 +82,7 @@ public class JdbcCrud {
         + " client_account_type)"
         + " VALUES (?,?,?,?,?,?,?,?)";
         try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             int accountType = 0; //0 regular user //1 admin
             System.out.println("Registering user into client_Info...");
             
@@ -148,8 +147,7 @@ public class JdbcCrud {
         + " client_statistics_topic_weather, client_statistics_topic_work) "
         + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             int startingValue = 0; // base value for all statistics counter
             System.out.println("Registering user into client_Statistics...");
             
@@ -222,8 +220,7 @@ public class JdbcCrud {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user login timestamp...");
 
             // set all parameters
@@ -273,8 +270,7 @@ public class JdbcCrud {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user logout timestamp...");
 
             // set all parameters
@@ -315,8 +311,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user vocab assist count...");
 
             // set all parameters
@@ -364,8 +359,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_vocab_assist= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user vocab assist count...");
 
             // set all parameters
@@ -406,8 +400,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_directions FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user directions topic count...");
 
             // set all parameters
@@ -455,8 +448,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_directions= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user directions topic count...");
 
             // set all parameters
@@ -497,8 +489,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_employment FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user employment topic count...");
 
             // set all parameters
@@ -546,8 +537,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_employment= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user employment topic count...");
 
             // set all parameters
@@ -588,8 +578,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_cultural_experiences FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user cultural experiences topic count...");
 
             // set all parameters
@@ -637,8 +626,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_cultural_experiences= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user cultural experiences topic count...");
 
             // set all parameters
@@ -679,8 +667,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_personal_info FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user personal info topic count...");
 
             // set all parameters
@@ -728,8 +715,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_personal_info= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user personal info topic count...");
 
             // set all parameters
@@ -770,8 +756,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_shopping FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user shopping topic count...");
 
             // set all parameters
@@ -819,8 +804,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_shopping= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user shopping topic count...");
 
             // set all parameters
@@ -861,8 +845,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_health FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user health topic count...");
 
             // set all parameters
@@ -910,8 +893,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_health= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user health topic count...");
 
             // set all parameters
@@ -952,8 +934,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_housing FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user housing topic count...");
 
             // set all parameters
@@ -1001,8 +982,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_housing= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user housing topic count...");
 
             // set all parameters
@@ -1043,8 +1023,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_introductions FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user introductions topic count...");
 
             // set all parameters
@@ -1092,8 +1071,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_introductions= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user introductions topic count...");
 
             // set all parameters
@@ -1134,8 +1112,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_appointments FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user appointments topic count...");
 
             // set all parameters
@@ -1183,8 +1160,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_appointments= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user appointments topic count...");
 
             // set all parameters
@@ -1225,8 +1201,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_invitations FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user invitations topic count...");
 
             // set all parameters
@@ -1274,8 +1249,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_invitations= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user invitations topic count...");
 
             // set all parameters
@@ -1316,8 +1290,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_travel FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user travel topic count...");
 
             // set all parameters
@@ -1365,8 +1338,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_travel= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user travel topic count...");
 
             // set all parameters
@@ -1407,8 +1379,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_food_drink FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user food & drink topic count...");
 
             // set all parameters
@@ -1456,8 +1427,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_food_drink= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user food & drink  topic count...");
 
             // set all parameters
@@ -1498,8 +1468,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_socialising FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user socialising topic count...");
 
             // set all parameters
@@ -1547,8 +1516,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_socialising= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user socialising topic count...");
 
             // set all parameters
@@ -1589,8 +1557,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_university FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user university topic count...");
 
             // set all parameters
@@ -1638,8 +1605,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_university= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user university topic count...");
 
             // set all parameters
@@ -1680,8 +1646,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_weather FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user weather topic count...");
 
             // set all parameters
@@ -1729,8 +1694,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_weather= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user weather topic count...");
 
             // set all parameters
@@ -1771,8 +1735,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_topic_work FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user work topic count...");
 
             // set all parameters
@@ -1820,8 +1783,7 @@ public class JdbcCrud {
                 + " SET client_statistics_topic_work= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user work topic count...");
 
             // set all parameters
@@ -1862,8 +1824,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_last_roleplay FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user last role play...");
 
             // set all parameters
@@ -1917,8 +1878,7 @@ public class JdbcCrud {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user last role play...");
 
             // set all parameters
@@ -1959,8 +1919,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete A1...");
 
             // set all parameters
@@ -2008,8 +1967,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_complete_a1= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play complete A1...");
 
             // set all parameters
@@ -2050,8 +2008,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_complete_a2 FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete A2...");
 
             // set all parameters
@@ -2099,8 +2056,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_complete_a2= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play complete A2...");
 
             // set all parameters
@@ -2141,8 +2097,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_complete_b1 FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete B1...");
 
             // set all parameters
@@ -2190,8 +2145,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_complete_b1= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play complete B1...");
 
             // set all parameters
@@ -2232,8 +2186,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_complete_b2 FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete B2...");
 
             // set all parameters
@@ -2281,8 +2234,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_complete_b2= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play complete B2...");
 
             // set all parameters
@@ -2323,8 +2275,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play student count...");
 
             // set all parameters
@@ -2372,8 +2323,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_person_a= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play student count...");
 
             // set all parameters
@@ -2414,8 +2364,7 @@ public class JdbcCrud {
         PreparedStatement psmt = null;
         String query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics WHERE client_email=?";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play teacher count...");
 
             // set all parameters
@@ -2463,8 +2412,7 @@ public class JdbcCrud {
                 + " SET client_statistics_language_roleplay_person_b= ?"
                 + " WHERE client_email= ?;";
         try {
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
+            con = ConnectDB.getConnection();
             System.out.println("Updating user role play teacher count...");
 
             // set all parameters

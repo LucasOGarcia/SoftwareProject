@@ -662,8 +662,6 @@ public class RolePlay1 extends javax.swing.JFrame {
             buttons.get(i).setVisible(false);
         }
         
-        //use if statements to filter through role play lists within the rolePlayManger based on the difficulty the user selected to see which role play object matches the user's selections
-        
         if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
             RolePlayTopic matchingRolePlay = new RolePlayTopic();
             List<RolePlayTopic> rolePlayList = new ArrayList();
@@ -687,6 +685,7 @@ public class RolePlay1 extends javax.swing.JFrame {
             if (matchingRolePlay == null) {
                 return;
             }
+            // extract key vocab
             if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
                 buttonsVocabs = matchingRolePlay.personBVocabAssist;
                 radioVocabs = matchingRolePlay.personBVocabEnglish;
@@ -695,6 +694,7 @@ public class RolePlay1 extends javax.swing.JFrame {
                 buttonsVocabs = matchingRolePlay.personAVocabAssist;
                 radioVocabs = matchingRolePlay.personAVocabEnglish;
             }
+            // set keyvocab and enable buttons based on the amount of vocab words
             if (!buttonsVocabs.isEmpty()) {
                 for (int i = 0; i < buttonsVocabs.size(); i++) {
                     radioButtons.get(i).setEnabled(true);
@@ -705,28 +705,16 @@ public class RolePlay1 extends javax.swing.JFrame {
                     buttons.get(i).setText(buttonsVocabs.get(i));
                 }
             }
+            // assign role play text to scrollable panel within the page based if the user is student or teacher
+            if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
+                String personBText = matchingRolePlay.personBText;
+                // to-do assign to panel/label
+            }
+            else{
+                String personAText = matchingRolePlay.personAText;
+                 // to-do assign to panel/label
+            }
         }
-        
-        
-        
-        
-        buttonsVocabs = new ArrayList();
-        
-        
-        //how to get the key vocab and enable the buttons -- because person A and B key vocab is not set in settings page. 
-        /*for (int i = 0; i < radioButtons.size(); i++) {
-                buttonsVocabs.add(radioButtons.get(i).subTopicType);
-                buttons.get(i).setText(radioButtons.get(i).subTopicType);
-                buttons.get(i).setEnabled(true);
-                buttons.get(i).setVisible(true);
-            }*/
-        
-        List<String> vocabAssist = new ArrayList();
-        //if statement to see if a user is student or teacher, retrieve vocab list  from the role Play Object equivalent and assign to vocabAssit list
-        
-        // enable radio buttons based on the size of the vocab list retrieved assign all the labels text to respective indexes and keep label invisible
-        
-        // assign role play text to scrollable panel within the page based if the user is student or teacher
     }
     
     private RolePlayTopic getMatchingRolePlay(RolePlayTopic matchingRolePlays, List<RolePlayTopic> rolePlayList){
@@ -741,21 +729,13 @@ public class RolePlay1 extends javax.swing.JFrame {
                         if (rolePlayList.get(i).language.equals(RolePlayManager.getRolePlaySettings().getLanguage())) {
                             matchingRolePlays = rolePlayList.get(i);
                         }
-                        
                     }
-
                 }
             }
         }
         return matchingRolePlays;
     }
 
-
-    public void setKeyVocab(int index) {
-        
-    }
-    
-    
     // CRUD operations functions
     
     private void increaseVocabAssistCount() {

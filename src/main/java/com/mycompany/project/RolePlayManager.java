@@ -59,15 +59,15 @@ public class RolePlayManager {
     }
     
     public static List getTopicsA2() {
-        return RolePlayManager.topicsA1;
+        return RolePlayManager.topicsA2;
     }
     
     public static List getTopicsB1() {
-        return RolePlayManager.topicsA1;
+        return RolePlayManager.topicsB1;
     }
     
     public static List getTopicsB2() {
-        return RolePlayManager.topicsA1;
+        return RolePlayManager.topicsB2;
     }
     
     public static void initialise() {
@@ -893,7 +893,7 @@ public class RolePlayManager {
        
         RolePlayTopic A2Exercise1 = new RolePlayTopic();
         // basic role play info
-        A2Exercise1.difficulty = difficultyA1;
+        A2Exercise1.difficulty = difficultyA2;
         A2Exercise1.language = languageSpanish;
         A2Exercise1.topicType = directions;
         A2Exercise1.subTopicType = "Delivery Driver";
@@ -930,7 +930,7 @@ public class RolePlayManager {
         
         RolePlayTopic A2Exercise2 = new RolePlayTopic();
         // basic role play info
-        A2Exercise2.difficulty = difficultyA1;
+        A2Exercise2.difficulty = difficultyA2;
         A2Exercise2.language = languageSpanish;
         A2Exercise2.topicType = foodAndDrink;
         A2Exercise2.subTopicType = "Vegan pizza";
@@ -968,7 +968,7 @@ public class RolePlayManager {
         
         RolePlayTopic A2Exercise3 = new RolePlayTopic();
         // basic role play info
-        A2Exercise3.difficulty = difficultyA1;
+        A2Exercise3.difficulty = difficultyA2;
         A2Exercise3.language = languageSpanish;
         A2Exercise3.topicType = appointments;
         A2Exercise3.subTopicType = "Dentist";
@@ -1004,7 +1004,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise4 = new RolePlayTopic();
         // basic role play info
-        A2Exercise4.difficulty = difficultyA1;
+        A2Exercise4.difficulty = difficultyA2;
         A2Exercise4.language = languageSpanish;
         A2Exercise4.topicType = foodAndDrink;
         A2Exercise4.subTopicType = "Reservation";
@@ -1045,7 +1045,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise5 = new RolePlayTopic();
         // basic role play info
-        A2Exercise5.difficulty = difficultyA1;
+        A2Exercise5.difficulty = difficultyA2;
         A2Exercise5.language = languageSpanish;
         A2Exercise5.topicType = shopping;
         A2Exercise5.subTopicType = "Payment";
@@ -1079,7 +1079,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise6 = new RolePlayTopic();
         // basic role play info
-        A2Exercise6.difficulty = difficultyA1;
+        A2Exercise6.difficulty = difficultyA2;
         A2Exercise6.language = languageSpanish;
         A2Exercise6.topicType = health;
         A2Exercise6.subTopicType = "Sick relative";
@@ -1111,7 +1111,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise7 = new RolePlayTopic();
         // basic role play info
-        A2Exercise7.difficulty = difficultyA1;
+        A2Exercise7.difficulty = difficultyA2;
         A2Exercise7.language = languageSpanish;
         A2Exercise7.topicType = invitations;
         A2Exercise7.subTopicType = "Charity";
@@ -1149,7 +1149,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise8 = new RolePlayTopic();
         // basic role play info
-        A2Exercise8.difficulty = difficultyA1;
+        A2Exercise8.difficulty = difficultyA2;
         A2Exercise8.language = languageSpanish;
         A2Exercise8.topicType = invitations;
         A2Exercise8.subTopicType = "Lunch";
@@ -1186,7 +1186,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise9 = new RolePlayTopic();
         // basic role play info
-        A2Exercise9.difficulty = difficultyA1;
+        A2Exercise9.difficulty = difficultyA2;
         A2Exercise9.language = languageSpanish;
         A2Exercise9.topicType = foodAndDrink;
         A2Exercise9.subTopicType = "Delayed drinks order";
@@ -1221,7 +1221,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise10 = new RolePlayTopic();
         // basic role play info
-        A2Exercise10.difficulty = difficultyA1;
+        A2Exercise10.difficulty = difficultyA2;
         A2Exercise10.language = languageSpanish;
         A2Exercise10.topicType = socialising;
         A2Exercise10.subTopicType = "Family size";
@@ -1262,7 +1262,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise11 = new RolePlayTopic();
         // basic role play info
-        A2Exercise11.difficulty = difficultyA1;
+        A2Exercise11.difficulty = difficultyA2;
         A2Exercise11.language = languageSpanish;
         A2Exercise11.topicType = foodAndDrink;
         A2Exercise11.subTopicType = "QR Code";
@@ -1302,7 +1302,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise12 = new RolePlayTopic();
         // basic role play info
-        A2Exercise12.difficulty = difficultyA1;
+        A2Exercise12.difficulty = difficultyA2;
         A2Exercise12.language = languageSpanish;
         A2Exercise12.topicType = appointments;
         A2Exercise12.subTopicType = "Doctor";
@@ -1345,7 +1345,7 @@ public class RolePlayManager {
         
         RolePlayTopic A2Exercise13 = new RolePlayTopic();
         // basic role play info
-        A2Exercise13.difficulty = difficultyA1;
+        A2Exercise13.difficulty = difficultyA2;
         A2Exercise13.language = languageSpanish;
         A2Exercise13.topicType = travel;
         A2Exercise13.subTopicType = "Expired Ticket";
@@ -1383,7 +1383,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise14 = new RolePlayTopic();
         // basic role play info
-        A2Exercise14.difficulty = difficultyA1;
+        A2Exercise14.difficulty = difficultyA2;
         A2Exercise14.language = languageSpanish;
         A2Exercise14.topicType = personalInfo;
         A2Exercise14.subTopicType = "Age restricted";
@@ -1423,7 +1423,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise15 = new RolePlayTopic();
         // basic role play info
-        A2Exercise15.difficulty = difficultyA1;
+        A2Exercise15.difficulty = difficultyA2;
         A2Exercise15.language = languageSpanish;
         A2Exercise15.topicType = introductions;
         A2Exercise15.subTopicType = "Ist day in job";
@@ -1460,7 +1460,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise16 = new RolePlayTopic();
         // basic role play info
-        A2Exercise16.difficulty = difficultyA1;
+        A2Exercise16.difficulty = difficultyA2;
         A2Exercise16.language = languageSpanish;
         A2Exercise16.topicType = introductions;
         A2Exercise16.subTopicType = "Job offer";
@@ -1498,7 +1498,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise17 = new RolePlayTopic();
         // basic role play info
-        A2Exercise17.difficulty = difficultyA1;
+        A2Exercise17.difficulty = difficultyA2;
         A2Exercise17.language = languageSpanish;
         A2Exercise17.topicType = directions;
         A2Exercise17.subTopicType = "Hospital Visit";
@@ -1536,7 +1536,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise18 = new RolePlayTopic();
         // basic role play info
-        A2Exercise18.difficulty = difficultyA1;
+        A2Exercise18.difficulty = difficultyA2;
         A2Exercise18.language = languageSpanish;
         A2Exercise18.topicType = foodAndDrink;
         A2Exercise18.subTopicType = "Cocktails";
@@ -1573,7 +1573,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise19 = new RolePlayTopic();
         // basic role play info
-        A2Exercise19.difficulty = difficultyA1;
+        A2Exercise19.difficulty = difficultyA2;
         A2Exercise19.language = languageSpanish;
         A2Exercise19.topicType = socialising;
         A2Exercise19.subTopicType = "Succulent";
@@ -1613,7 +1613,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise20 = new RolePlayTopic();
         // basic role play info
-        A2Exercise20.difficulty = difficultyA1;
+        A2Exercise20.difficulty = difficultyA2;
         A2Exercise20.language = languageSpanish;
         A2Exercise20.topicType = invitations;
         A2Exercise20.subTopicType = "Children at wedding";
@@ -1649,7 +1649,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise21 = new RolePlayTopic();
         // basic role play info
-        A2Exercise21.difficulty = difficultyA1;
+        A2Exercise21.difficulty = difficultyA2;
         A2Exercise21.language = languageSpanish;
         A2Exercise21.topicType = invitations;
         A2Exercise21.subTopicType = "Wedding RSVP";
@@ -1689,7 +1689,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise22 = new RolePlayTopic();
         // basic role play info
-        A2Exercise22.difficulty = difficultyA1;
+        A2Exercise22.difficulty = difficultyA2;
         A2Exercise22.language = languageSpanish;
         A2Exercise22.topicType = culturalExperiences;
         A2Exercise22.subTopicType = "Omelette";
@@ -1727,7 +1727,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise23 = new RolePlayTopic();
         // basic role play info
-        A2Exercise23.difficulty = difficultyA1;
+        A2Exercise23.difficulty = difficultyA2;
         A2Exercise23.language = languageSpanish;
         A2Exercise23.topicType = foodAndDrink;
         A2Exercise23.subTopicType = "Cocktails";
@@ -1765,7 +1765,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise24 = new RolePlayTopic();
         // basic role play info
-        A2Exercise24.difficulty = difficultyA1;
+        A2Exercise24.difficulty = difficultyA2;
         A2Exercise24.language = languageSpanish;
         A2Exercise24.topicType = health;
         A2Exercise24.subTopicType = "Visiting patient";
@@ -1803,7 +1803,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise25 = new RolePlayTopic();
         // basic role play info
-        A2Exercise25.difficulty = difficultyA1;
+        A2Exercise25.difficulty = difficultyA2;
         A2Exercise25.language = languageSpanish;
         A2Exercise25.topicType = weather;
         A2Exercise25.subTopicType = "Clothing for weather";
@@ -1843,7 +1843,7 @@ public class RolePlayManager {
         
         RolePlayTopic B1Exercise1 = new RolePlayTopic();
         // basic role play info
-        B1Exercise1.difficulty = difficultyA1;
+        B1Exercise1.difficulty = difficultyB1;
         B1Exercise1.language = languageSpanish;
         B1Exercise1.topicType = shopping;
         B1Exercise1.subTopicType = "Payment";
@@ -1883,7 +1883,7 @@ public class RolePlayManager {
         
         RolePlayTopic B1Exercise2 = new RolePlayTopic();
         // basic role play info
-        B1Exercise2.difficulty = difficultyA1;
+        B1Exercise2.difficulty = difficultyB1;
         B1Exercise2.language = languageSpanish;
         B1Exercise2.topicType = university;
         B1Exercise2.subTopicType = "Study plans";
@@ -1922,7 +1922,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise3 = new RolePlayTopic();
         // basic role play info
-        B1Exercise3.difficulty = difficultyA1;
+        B1Exercise3.difficulty = difficultyB1;
         B1Exercise3.language = languageSpanish;
         B1Exercise3.topicType = travel;
         B1Exercise3.subTopicType = "E.ticket";
@@ -1960,7 +1960,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise4 = new RolePlayTopic();
         // basic role play info
-        B1Exercise4.difficulty = difficultyA1;
+        B1Exercise4.difficulty = difficultyB1;
         B1Exercise4.language = languageSpanish;
         B1Exercise4.topicType = shopping;
         B1Exercise4.subTopicType = "Cancel hair appointment";
@@ -1998,7 +1998,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise5 = new RolePlayTopic();
         // basic role play info
-        B1Exercise5.difficulty = difficultyA1;
+        B1Exercise5.difficulty = difficultyB1;
         B1Exercise5.language = languageSpanish;
         B1Exercise5.topicType = shopping;
         B1Exercise5.subTopicType = "Purchase of computer";
@@ -2039,7 +2039,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise6 = new RolePlayTopic();
         // basic role play info
-        B1Exercise6.difficulty = difficultyA1;
+        B1Exercise6.difficulty = difficultyB1;
         B1Exercise6.language = languageSpanish;
         B1Exercise6.topicType = socialising;
         B1Exercise6.subTopicType = "Hair cut";
@@ -2080,7 +2080,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise7 = new RolePlayTopic();
         // basic role play info
-        B1Exercise7.difficulty = difficultyA1;
+        B1Exercise7.difficulty = difficultyB1;
         B1Exercise7.language = languageSpanish;
         B1Exercise7.topicType = weather;
         B1Exercise7.subTopicType = "Rain in station";
@@ -2118,7 +2118,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise8 = new RolePlayTopic();
         // basic role play info
-        B1Exercise8.difficulty = difficultyA1;
+        B1Exercise8.difficulty = difficultyB1;
         B1Exercise8.language = languageSpanish;
         B1Exercise8.topicType = foodAndDrink;
         B1Exercise8.subTopicType = "Ordering cocktails by barcode";
@@ -2153,7 +2153,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise9 = new RolePlayTopic();
         // basic role play info
-        B1Exercise9.difficulty = difficultyA1;
+        B1Exercise9.difficulty = difficultyB1;
         B1Exercise9.language = languageSpanish;
         B1Exercise9.topicType = invitations;
         B1Exercise9.subTopicType = "Offering help for Pink Unicorn Party";
@@ -2192,7 +2192,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise10 = new RolePlayTopic();
         // basic role play info
-        B1Exercise10.difficulty = difficultyA1;
+        B1Exercise10.difficulty = difficultyB1;
         B1Exercise10.language = languageSpanish;
         B1Exercise10.topicType = work;
         B1Exercise10.subTopicType = "Job offer";
@@ -2231,7 +2231,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B1Exercise11 = new RolePlayTopic();
         // basic role play info
-        B1Exercise11.difficulty = difficultyA1;
+        B1Exercise11.difficulty = difficultyB1;
         B1Exercise11.language = languageSpanish;
         B1Exercise11.topicType = housing;
         B1Exercise11.subTopicType = "Delivery of packages";
@@ -2272,7 +2272,7 @@ public class RolePlayManager {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B2Exercise1 = new RolePlayTopic();
         // basic role play info
-        B2Exercise1.difficulty = difficultyA1;
+        B2Exercise1.difficulty = difficultyB2;
         B2Exercise1.language = languageSpanish;
         B2Exercise1.topicType = shopping;
         B2Exercise1.subTopicType = "Phone purchase";
@@ -2303,13 +2303,13 @@ public class RolePlayManager {
         B2Exercise1.personBVocabAssist = personB4VocabAssistList1;
         
         // add object to a list of topic based on the difficulty
-        topicsB1.add(B2Exercise1);
+        topicsB2.add(B2Exercise1);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         RolePlayTopic B2Exercise2 = new RolePlayTopic();
         // basic role play info
-        B2Exercise2.difficulty = difficultyA1;
+        B2Exercise2.difficulty = difficultyB2;
         B2Exercise2.language = languageSpanish;
         B2Exercise2.topicType = work;
         B2Exercise2.subTopicType = "Meet for drinks";
@@ -2343,12 +2343,12 @@ public class RolePlayManager {
         B2Exercise2.personBVocabAssist = personB4VocabAssistList2;
         
         // add object to a list of topic based on the difficulty
-        topicsB1.add(B2Exercise2);
+        topicsB2.add(B2Exercise2);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B2Exercise3 = new RolePlayTopic();
         // basic role play info
-        B2Exercise3.difficulty = difficultyA1;
+        B2Exercise3.difficulty = difficultyB2;
         B2Exercise3.language = languageSpanish;
         B2Exercise3.topicType = travel;
         B2Exercise3.subTopicType = "Disneyland";
@@ -2381,12 +2381,12 @@ public class RolePlayManager {
         B2Exercise3.personBVocabAssist = personB4VocabAssistList3;
         
         // add object to a list of topic based on the difficulty
-        topicsB1.add(B2Exercise3);
+        topicsB2.add(B2Exercise3);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic B2Exercise4 = new RolePlayTopic();
         // basic role play info
-        B2Exercise4.difficulty = difficultyA1;
+        B2Exercise4.difficulty = difficultyB2;
         B2Exercise4.language = languageSpanish;
         B2Exercise4.topicType = socialising;
         B2Exercise4.subTopicType = "No show date";
@@ -2420,7 +2420,7 @@ public class RolePlayManager {
         B2Exercise4.personBVocabAssist = personB4VocabAssistList4;
         
         // add object to a list of topic based on the difficulty
-        topicsB1.add(B2Exercise4);
+        topicsB2.add(B2Exercise4);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         

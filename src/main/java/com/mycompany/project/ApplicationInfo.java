@@ -6,6 +6,9 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
+import java.awt.GraphicsConfiguration;
+import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
@@ -36,6 +39,8 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame performancePage;
     private static JFrame adminhomePage;
     private static JFrame adminPage;
+    private static JFrame ProgressPage; 
+    private static JFrame progressPage;
     
     // Setters
     
@@ -111,6 +116,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
          ApplicationInfo.databaseName = newDatabaseName;
     }
     
+    public static void setProgressPage(JFrame progressPage){
+        ApplicationInfo.progressPage = progressPage;
+    }
+    
     
     // Getters
     
@@ -183,6 +192,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     public static String getDatabaseName() {
         return ApplicationInfo.databaseName;
+    }
+    
+    public static JFrame getProgressPage(){
+        return ApplicationInfo.ProgressPage;
     }
     
     // Other functions
@@ -356,12 +369,26 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         adminPage.setTitle(appName);
         adminPage.setPreferredSize(screenSize);
         adminPage.setMaximumSize(screenSize);
-        adminPage.setMinimumSize(screenSize);
+       adminPage.setMinimumSize(screenSize);
         adminPage.setResizable(true); //temp set
         adminPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(adminhomePage);
         ApplicationInfo.setPerformancePage(adminPage);
         adminPage.setVisible(true);
+        
+         }
+         
+        public static void createprogressPage() { // creates Progress Page
+        JFrame progressPage = new ProgressPage();
+        progressPage.setTitle(appName);
+        progressPage.setPreferredSize(screenSize);
+        progressPage.setMaximumSize(screenSize);
+        progressPage.setMinimumSize(screenSize);
+        progressPage.setResizable(false);
+        progressPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(progressPage);
+        ApplicationInfo.setPerformancePage(progressPage);
+        progressPage.setVisible(true);
     } 
     
    
@@ -390,5 +417,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         page.dispose();
         System.exit(0);
     }
+
+   
    
 }

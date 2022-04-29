@@ -39,6 +39,7 @@ public class RolePlay1 extends javax.swing.JFrame {
     }
     
     List<String> buttonsVocabs;
+    List<String> radioVocabs;
     
     private void Page() {
         
@@ -156,9 +157,6 @@ public class RolePlay1 extends javax.swing.JFrame {
                     break;
             }
             }
-            
-        
-        
     }
     
   
@@ -629,7 +627,8 @@ public class RolePlay1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel text1;
     // End of variables declaration//GEN-END:variables
-private void initPage() {
+
+    private void initPage() {
         Button1.setVisible(false); 
         Button2.setVisible(false);         
         Button3.setVisible(false);         
@@ -650,9 +649,6 @@ private void initPage() {
             radioButtons.get(i).setVisible(false);
         }
         
-        
-        
-        
         List<JButton> buttons = new ArrayList();
         buttons.add(Button1);
         buttons.add(Button2);
@@ -660,10 +656,59 @@ private void initPage() {
         buttons.add(Button4);
         buttons.add(Button5);
         
+        //to disable the butons:
         for (int i = 0; i < buttons.size(); i++) {
             buttons.get(i).setEnabled(false);
             buttons.get(i).setVisible(false);
         }
+        
+        //use if statements to filter through role play lists within the rolePlayManger based on the difficulty the user selected to see which role play object matches the user's selections
+        
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
+            RolePlayTopic matchingRolePlay = new RolePlayTopic();
+            List<RolePlayTopic> rolePlayList = new ArrayList();
+            // check which difficulty the user has selected and get the list associated with that difficulty
+            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
+                case "A1":
+                    rolePlayList = RolePlayManager.getTopicsA1();
+                    break;
+                case "A2":
+                    rolePlayList = RolePlayManager.getTopicsA2();
+                    break;
+                case "B1":
+                    rolePlayList = RolePlayManager.getTopicsB1();
+                    break;
+                case "B2":
+                    rolePlayList = RolePlayManager.getTopicsB2();
+                    break;
+            }
+            //get matching roleplays
+            matchingRolePlay = getMatchingRolePlay(matchingRolePlay, rolePlayList);
+            if (matchingRolePlay == null) {
+                return;
+            }
+            if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
+                buttonsVocabs = matchingRolePlay.personBVocabAssist;
+                radioVocabs = matchingRolePlay.personBVocabEnglish;
+            }
+            else{
+                buttonsVocabs = matchingRolePlay.personAVocabAssist;
+                radioVocabs = matchingRolePlay.personAVocabEnglish;
+            }
+            if (!buttonsVocabs.isEmpty()) {
+                for (int i = 0; i < buttonsVocabs.size(); i++) {
+                    radioButtons.get(i).setEnabled(true);
+                    radioButtons.get(i).setEnabled(true);
+                    buttons.get(i).setEnabled(true);
+                    buttons.get(i).setVisible(true);
+                    radioButtons.get(i).setText(radioVocabs.get(i));
+                    buttons.get(i).setText(buttonsVocabs.get(i));
+                }
+            }
+        }
+        
+        
+        
         
         buttonsVocabs = new ArrayList();
         
@@ -676,16 +721,33 @@ private void initPage() {
                 buttons.get(i).setVisible(true);
             }*/
         
-        
-        
-        //use if statements to filter through role play lists within the rolePlayManger based on the difficulty the user selected to see which role play object matches the user's selections
-        
         List<String> vocabAssist = new ArrayList();
         //if statement to see if a user is student or teacher, retrieve vocab list  from the role Play Object equivalent and assign to vocabAssit list
         
         // enable radio buttons based on the size of the vocab list retrieved assign all the labels text to respective indexes and keep label invisible
         
         // assign role play text to scrollable panel within the page based if the user is student or teacher
+    }
+    
+    private RolePlayTopic getMatchingRolePlay(RolePlayTopic matchingRolePlays, List<RolePlayTopic> rolePlayList){
+        for (int i = 0; i < rolePlayList.size(); i++) {
+            // check for roleplays that having a matching topic
+            if (rolePlayList.get(i).topicType.equals(RolePlayManager.getRolePlaySettings().getTopicType())) {
+                //check for roleplays that have a matching difficulty
+                if (rolePlayList.get(i).difficulty.equals(RolePlayManager.getRolePlaySettings().getDifficulty())) {
+                    //check for roleplays that have a matching sub-topic
+                    if (rolePlayList.get(i).subTopicType.equals(RolePlayManager.getRolePlaySettings().getSubTopicType())) {
+                        //check for roleplays that have a matching langauge
+                        if (rolePlayList.get(i).language.equals(RolePlayManager.getRolePlaySettings().getLanguage())) {
+                            matchingRolePlays = rolePlayList.get(i);
+                        }
+                        
+                    }
+
+                }
+            }
+        }
+        return matchingRolePlays;
     }
 
 

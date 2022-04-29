@@ -313,10 +313,7 @@ public class JdbcCrud {
     public static int getVocabAssistCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -366,8 +363,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_vocab_assist= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -409,10 +404,7 @@ public class JdbcCrud {
     public static int getTopicDirectionsCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_directions FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -462,8 +454,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_directions= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -505,10 +495,7 @@ public class JdbcCrud {
     public static int getTopicEmploymentCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_employment FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -558,8 +545,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_employment= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -601,10 +586,7 @@ public class JdbcCrud {
     public static int getTopicCulturalExperiencesCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_cultural_experiences FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -654,8 +636,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_cultural_experiences= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -697,10 +677,7 @@ public class JdbcCrud {
     public static int getTopicPersonalInfoCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_personal_info FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -750,8 +727,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_personal_info= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -793,10 +768,7 @@ public class JdbcCrud {
     public static int getTopicShoppingCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_shopping FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -846,8 +818,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_shopping= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -889,10 +859,7 @@ public class JdbcCrud {
     public static int getTopicHealthCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_health FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -942,8 +909,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_health= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -985,10 +950,7 @@ public class JdbcCrud {
     public static int getTopicHousingCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_housing FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1038,8 +1000,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_housing= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1081,10 +1041,7 @@ public class JdbcCrud {
     public static int getTopicIntroductionsCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_introductions FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1134,8 +1091,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_introductions= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1177,10 +1132,7 @@ public class JdbcCrud {
     public static int getTopicAppointmentsCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_appointments FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1230,8 +1182,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_appointments= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1273,10 +1223,7 @@ public class JdbcCrud {
     public static int getTopicInvitationsCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_invitations FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1326,8 +1273,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_invitations= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1369,10 +1314,7 @@ public class JdbcCrud {
     public static int getTopicTravelCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_travel FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1422,8 +1364,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_travel= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1465,10 +1405,7 @@ public class JdbcCrud {
     public static int getTopicFoodAndDrinkCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_food_drink FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1518,8 +1455,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_food_drink= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1561,10 +1496,7 @@ public class JdbcCrud {
     public static int getTopicSocialisingCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_socialising FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1614,8 +1546,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_socialising= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1657,10 +1587,7 @@ public class JdbcCrud {
     public static int getTopicUniversityCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_university FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1710,8 +1637,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_university= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1753,10 +1678,7 @@ public class JdbcCrud {
     public static int getTopicWeatherCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_weather FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1806,8 +1728,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_weather= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1849,10 +1769,7 @@ public class JdbcCrud {
     public static int getTopicWorkCount(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_topic_work FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1902,8 +1819,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_topic_work= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1945,10 +1860,7 @@ public class JdbcCrud {
     public static String getUserLastRolePlay(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_last_roleplay FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2045,10 +1957,7 @@ public class JdbcCrud {
     public static int getRolePlayCompleteA1(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2098,8 +2007,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_complete_a1= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2141,10 +2048,7 @@ public class JdbcCrud {
     public static int getRolePlayCompleteA2(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_complete_a2 FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2194,8 +2098,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_complete_a2= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2237,10 +2139,7 @@ public class JdbcCrud {
     public static int getRolePlayCompleteB1(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_complete_b1 FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2290,8 +2189,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_complete_b1= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2333,10 +2230,7 @@ public class JdbcCrud {
     public static int getRolePlayCompleteB2(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_complete_b2 FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2386,8 +2280,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_complete_b2= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2429,10 +2321,7 @@ public class JdbcCrud {
     public static int getRolePlayStudent(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2482,8 +2371,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_person_a= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2525,10 +2412,7 @@ public class JdbcCrud {
     public static int getRolePlayTeacher(String email) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String userEmail = ApplicationInfo.getUser().userEmail;
         String query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics WHERE client_email=?";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -2578,8 +2462,6 @@ public class JdbcCrud {
         String query ="UPDATE client_Statistics"
                 + " SET client_statistics_language_roleplay_person_b= ?"
                 + " WHERE client_email= ?;";
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp SQLTimestamp = new java.sql.Timestamp(utilDate.getTime());
         try {
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();

@@ -581,7 +581,6 @@ public class RolePlay1 extends javax.swing.JFrame {
                 String personAText = matchingRolePlay.personAText;
                  // to-do assign to panel/label
             }
-            System.out.println("TEST5");
         }
     }
     

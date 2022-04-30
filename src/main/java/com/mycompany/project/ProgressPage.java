@@ -91,14 +91,14 @@ public class ProgressPage extends javax.swing.JFrame {
         jLabelAverage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaTranscript = new javax.swing.JTextArea();
+        jTextAreaRecord = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProgressRecord = new javax.swing.JTable();
         jbtnResult = new javax.swing.JButton();
         jbtnExit = new javax.swing.JButton();
         jbtnReset = new javax.swing.JButton();
         jbtnDelete = new javax.swing.JButton();
-        jbtnTranscript = new javax.swing.JButton();
+        jbtnRecord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -245,13 +245,13 @@ public class ProgressPage extends javax.swing.JFrame {
 
         getContentPane().add(jLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 490));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcript", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Record", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextAreaTranscript.setColumns(20);
-        jTextAreaTranscript.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jTextAreaTranscript.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaTranscript);
+        jTextAreaRecord.setColumns(20);
+        jTextAreaRecord.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jTextAreaRecord.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaRecord);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 420));
 
@@ -305,14 +305,14 @@ public class ProgressPage extends javax.swing.JFrame {
         });
         getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 700, 170, 40));
 
-        jbtnTranscript.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jbtnTranscript.setText("Transcript");
-        jbtnTranscript.addActionListener(new java.awt.event.ActionListener() {
+        jbtnRecord.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnRecord.setText("Record");
+        jbtnRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnTranscriptActionPerformed(evt);
+                jbtnRecordActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnTranscript, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 700, 170, 40));
+        getContentPane().add(jbtnRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 700, 170, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -474,8 +474,8 @@ private JFrame frame;
         }
     }//GEN-LAST:event_jbtnResetActionPerformed
 
-    private void jbtnTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTranscriptActionPerformed
-        jTextAreaTranscript.append("Student Result Recording System\n"
+    private void jbtnRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRecordActionPerformed
+        jTextAreaRecord.append("Student Result Recording System\n"
                 + "Full Name: " + jtxtFirstName.getText() + " " +  jtxtLastName.getText() + "\t ID: " + jtxtEmail.getText()
                 + "\n===============================\n"
                 + "Mathematic:\t\t" + jtxtSpanish.getText() + "\n"
@@ -489,7 +489,7 @@ private JFrame frame;
                 + "Average:\t\t" + jtxtAverage.getText() + "\n"
                 + "Ranking:\t\t" + jtxtRanking.getText() + "\n"
         );
-    }//GEN-LAST:event_jbtnTranscriptActionPerformed
+    }//GEN-LAST:event_jbtnRecordActionPerformed
 
     private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
         DefaultTableModel dtablemodel = (DefaultTableModel) jTableProgressRecord.getModel();
@@ -625,12 +625,12 @@ private JFrame frame;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableProgressRecord;
-    private javax.swing.JTextArea jTextAreaTranscript;
+    private javax.swing.JTextArea jTextAreaRecord;
     private javax.swing.JButton jbtnDelete;
     private javax.swing.JButton jbtnExit;
+    private javax.swing.JButton jbtnRecord;
     private javax.swing.JButton jbtnReset;
     private javax.swing.JButton jbtnResult;
-    private javax.swing.JButton jbtnTranscript;
     private javax.swing.JTextField jtxtAverage;
     private javax.swing.JTextField jtxtEmail;
     private javax.swing.JTextField jtxtFirstName;

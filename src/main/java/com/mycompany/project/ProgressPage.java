@@ -1,24 +1,55 @@
-package com.mycompany.project;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.mycompany.project;
+
+import com.sun.glass.events.KeyEvent;
+import java.awt.Component;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.MessageFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author 44793
+ *
  */
-
-
 public class ProgressPage extends javax.swing.JFrame {
 
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    DefaultTableModel dtablemodel = new DefaultTableModel();
     /**
-     * Creates new form Progress_Chart
+     * Creates new form StudentMS (Student Data Management System)
      */
     public ProgressPage() {
         initComponents();
+        
+        Object col[] = {"Email", "Difficulty","Spanish", "German", "French","Italian",
+            "Greek","Porteuguese", "TotalScore", "Average","Ranking"};
+        dtablemodel.setColumnIdentifiers(col);
+        jTableProgressRecord.setModel(dtablemodel);
+        connection = ProgressPage.ConnectDb();
+        
+        updateTable();
     }
 
     /**
@@ -30,314 +61,542 @@ public class ProgressPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jComboBoxDifficulty = new javax.swing.JComboBox<>();
+        jtxtSpanish = new javax.swing.JTextField();
+        jtxtGerman = new javax.swing.JTextField();
+        jtxtFrench = new javax.swing.JTextField();
+        jtxtItalian = new javax.swing.JTextField();
+        jtxtGreek = new javax.swing.JTextField();
+        jtxtPorteuguese = new javax.swing.JTextField();
+        jLabelStudentID = new javax.swing.JLabel();
+        jtxtEmail = new javax.swing.JTextField();
+        jLabelLastName = new javax.swing.JLabel();
+        jtxtLastName = new javax.swing.JTextField();
+        jLabelFirstName = new javax.swing.JLabel();
+        jtxtFirstName = new javax.swing.JTextField();
+        jLabelRanking = new javax.swing.JLabel();
+        jtxtTotalScore = new javax.swing.JTextField();
+        jtxtAverage = new javax.swing.JTextField();
+        jtxtRanking = new javax.swing.JTextField();
+        jLabelCourseCode = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabelMath = new javax.swing.JLabel();
+        jLabelEnglish = new javax.swing.JLabel();
+        jLabelBiology = new javax.swing.JLabel();
+        jLabelInfoTech = new javax.swing.JLabel();
+        jLabelPhysic = new javax.swing.JLabel();
+        jLabelAddMath = new javax.swing.JLabel();
+        jLabelTotalScore = new javax.swing.JLabel();
+        jLabelAverage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaTranscript = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableProgressRecord = new javax.swing.JTable();
+        jbtnResult = new javax.swing.JButton();
+        jbtnExit = new javax.swing.JButton();
+        jbtnReset = new javax.swing.JButton();
+        jbtnDelete = new javax.swing.JButton();
+        jbtnTranscript = new javax.swing.JButton();
+        jbtnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Progress");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Progress Record", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Logo/Icon");
+        jComboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ART123", "BUS456", "COM789", "TEC098", "ENG123", "PHI456", "PSY789", "MAN098" }));
+        jComboBoxDifficulty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDifficultyActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 150, 40));
 
-        jLabel3.setText("Email:");
+        jtxtSpanish.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtSpanish.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtSpanishKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 150, 40));
 
-        jLabel4.setText("Difficulty:");
+        jtxtGerman.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtGerman.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtGermanKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 150, 40));
 
-        jLabel5.setText("Role: ");
+        jtxtFrench.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtFrench.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtFrenchKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 150, 40));
 
-        jRadioButton1.setText("Student");
+        jtxtItalian.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtItalian.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtItalianKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 150, 40));
 
-        jRadioButton2.setText("Teacher");
+        jtxtGreek.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtGreek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtGreekKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 150, 40));
 
-        jLabel7.setText("Spanish:");
+        jtxtPorteuguese.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtPorteuguese.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtPorteugueseKeyTyped(evt);
+            }
+        });
+        jPanel1.add(jtxtPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 150, 40));
 
-        jLabel8.setText("German:");
+        jLabelStudentID.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelStudentID.setText("Email:");
+        jPanel1.add(jLabelStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        jLabel9.setText("French:");
+        jtxtEmail.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtEmailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, 40));
 
-        jLabel10.setText("Italian:");
+        jLabelLastName.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelLastName.setText("Last Name:");
+        jPanel1.add(jLabelLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jLabel11.setText("Greek:");
+        jtxtLastName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jPanel1.add(jtxtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 150, 40));
 
-        jLabel12.setText("Porteuguese:");
+        jLabelFirstName.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelFirstName.setText("First Name:");
+        jPanel1.add(jLabelFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(jTextField2))
-                        .addGap(66, 66, 66)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(jTextField4)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField7))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField6))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jtxtFirstName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jPanel1.add(jtxtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, 40));
 
-        jLabel13.setText("Total Score: ");
+        jLabelRanking.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelRanking.setText("Ranking:");
+        jPanel1.add(jLabelRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
-        jLabel14.setText("Average: ");
+        jtxtTotalScore.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jPanel1.add(jtxtTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 150, 40));
 
-        jLabel15.setText("Ranking: ");
+        jtxtAverage.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jPanel1.add(jtxtAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 150, 40));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        jtxtRanking.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jPanel1.add(jtxtRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 150, 40));
 
-        jButton4.setText("Exit");
+        jLabelCourseCode.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelCourseCode.setText("Difficulty");
+        jPanel1.add(jLabelCourseCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 310, -1));
 
-        jButton3.setText("Reset");
+        jLabelMath.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelMath.setText("Spanish:");
+        jPanel1.add(jLabelMath, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
-        jButton2.setText("Delete");
+        jLabelEnglish.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelEnglish.setText("German:");
+        jPanel1.add(jLabelEnglish, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        jButton1.setText("Student Result");
+        jLabelBiology.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelBiology.setText("French:");
+        jPanel1.add(jLabelBiology, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2))
-                .addGap(38, 38, 38))
-        );
+        jLabelInfoTech.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelInfoTech.setText("Italian:");
+        jPanel1.add(jLabelInfoTech, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        jLabelPhysic.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelPhysic.setText("Greek:");
+        jPanel1.add(jLabelPhysic, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
-        );
+        jLabelAddMath.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelAddMath.setText("Porteuguese:");
+        jPanel1.add(jLabelAddMath, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
+
+        jLabelTotalScore.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelTotalScore.setText("Total Score:");
+        jPanel1.add(jLabelTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+
+        jLabelAverage.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelAverage.setText("Average:");
+        jPanel1.add(jLabelAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 490));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcript", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextAreaTranscript.setColumns(20);
+        jTextAreaTranscript.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jTextAreaTranscript.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaTranscript);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 420));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 470, 490));
+
+        jTableProgressRecord.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Email", "Difficulty", "Spanish", "German", "French", "Italian", "Greek", "Porteuguese", "Total_Score", "Average", "Ranking"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableProgressRecord);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 1160, 200));
+
+        jbtnResult.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnResult.setText("Result");
+        jbtnResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnResultActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 700, 170, 40));
+
+        jbtnExit.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnExit.setText("Exit");
+        jbtnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 700, 210, 40));
+
+        jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnReset.setText("Reset");
+        jbtnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 700, 170, 40));
+
+        jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnDelete.setText("Delete");
+        jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 700, 170, 40));
+
+        jbtnTranscript.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnTranscript.setText("Transcript");
+        jbtnTranscript.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnTranscriptActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnTranscript, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 170, 40));
+
+        jbtnPrint.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnPrint.setText("Print");
+        jbtnPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPrintActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbtnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 700, 170, 40));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        this.getContentPane().setBackground(new java.awt.Color(176, 224, 230));
+    }//GEN-LAST:event_formWindowActivated
+
+    //-------------------------------BUTTON-------------------------------------//
+    private void jbtnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnResultActionPerformed
+        
+        int[] Result = new int[14];
+        Result[0] = Integer.parseInt(jtxtSpanish.getText());
+        Result[1] = Integer.parseInt(jtxtGerman.getText());
+        Result[2] = Integer.parseInt(jtxtFrench.getText());
+        Result[3] = Integer.parseInt(jtxtItalian.getText());
+        Result[4] = Integer.parseInt(jtxtGreek.getText());
+        Result[5] = Integer.parseInt(jtxtPorteuguese.getText());
+        
+        
+        // TotalScore
+        Result[6] = (Result[0]+Result[1]+Result[2]+Result[3]+Result[4]+Result[5]);
+        // Average
+        Result[8] = (Result[0]+Result[1]+Result[2]+Result[3]+Result[4]+Result[5]+Result[6]) / 7;
+        
+        // Store result to jtxtTotalScore text field
+        String TotalScore = String.format("%d", Result[8]);
+        jtxtTotalScore.setText(TotalScore);
+        
+        // Store result to jtxtAverage text field
+        String Average = String.format("%d", Result[9]);
+        jtxtAverage.setText(Average);
+        
+        // --------------------Ranking if/else Statement--------------------------//
+        if (Result[9] >= 90 && Result[9] <= 100) {
+             jtxtRanking.setText("1st");
+        } else if (Result[9] >= 70 && Result[9] <= 89) {
+                    jtxtRanking.setText("2nd");
+        } else if (Result[9] >= 60 && Result[9] <= 69) {
+                    jtxtRanking.setText("3rd");
+        } else if (Result[9] >= 0 && Result[9] <= 59) {
+                    jtxtRanking.setText("FAIL");
+        }
+        //----------------------------------------DATABASE------------------------------------------------------//
+        String sql = "INSERT INTO \"StudentData\" (\"Email\", \"Difficulty\", \"Spanish\", \"German\", "
+                + "\"French\", \"Italian\", \"Greek\", \"Porteuguese\",\"TotalScore\", "
+                + "\"Average\", \"Ranking\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        try {
+            //PreparedStatement
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, jtxtEmail.getText());
+            pst.setString(2, (String) jComboBoxDifficulty.getSelectedItem());
+            pst.setInt(3, Integer.parseInt(jtxtSpanish.getText()));
+            pst.setInt(4, Integer.parseInt(jtxtGerman.getText()));
+            pst.setInt(5, Integer.parseInt(jtxtFrench.getText()));
+            pst.setInt(6, Integer.parseInt(jtxtItalian.getText()));
+            pst.setInt(8, Integer.parseInt(jtxtGreek.getText()));
+            pst.setInt(9, Integer.parseInt(jtxtPorteuguese.getText()));
+            pst.setInt(11, Integer.parseInt(jtxtTotalScore.getText()));
+            pst.setInt(12, Integer.parseInt(jtxtAverage.getText()));
+            pst.setString(13, jtxtRanking.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "System Update Completed");
+            //rs = ResultSet
+            rs.close();
+            pst.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        updateTable();
+    }//GEN-LAST:event_jbtnResultActionPerformed
+
+    private void jtxtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtEmailActionPerformed
+
+//---------------------------------SUBJECT FIELDS-----------------------------------//
+    private void jtxtSpanishKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtSpanishKeyTyped
+        // field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtSpanishKeyTyped
+
+    private void jtxtGermanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtGermanKeyTyped
+        // field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtGermanKeyTyped
+
+    private void jtxtFrenchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtFrenchKeyTyped
+        // field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtFrenchKeyTyped
+
+    private void jtxtItalianKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtItalianKeyTyped
+        // field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtItalianKeyTyped
+
+    private void jtxtGreekKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtGreekKeyTyped
+        /// field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtGreekKeyTyped
+
+    private void jtxtPorteugueseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPorteugueseKeyTyped
+        // field will only accept numbers for score
+        char iNumber = evt.getKeyChar();
+        if (!(Character.isDigit(iNumber))
+            ||  (iNumber == KeyEvent.VK_BACKSPACE)
+                    || (iNumber == KeyEvent.VK_DELETE)) {
+        evt.consume();
+        }
+    }//GEN-LAST:event_jtxtPorteugueseKeyTyped
+
+//---------------------------------------BUTTONS------------------------------------//
+private JFrame frame;
+    private void jbtnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnExitActionPerformed
+        frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit ProgressRecordMS?", "Student Data Management System",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jbtnExitActionPerformed
+
+    private void jbtnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnResetActionPerformed
+        JTextField temp=null;
+        for (Component c:jPanel1.getComponents()) {
+            if(c.getClass().toString().contains("javax.swing.JTextField")) {
+                temp=(JTextField) c;
+                temp.setText(null);
+            }
+        }
+    }//GEN-LAST:event_jbtnResetActionPerformed
+
+    private void jbtnTranscriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTranscriptActionPerformed
+        jTextAreaTranscript.append("Student Result Recording System\n"
+                + "Full Name: " + jtxtFirstName.getText() + " " +  jtxtLastName.getText() + "\t ID: " + jtxtEmail.getText()
+                + "\n===============================\n"
+                + "Mathematic:\t\t" + jtxtSpanish.getText() + "\n"
+                + "English:\t\t" + jtxtGerman.getText() + "\n"
+                + "Biology:\t\t" + jtxtFrench.getText() + "\n"
+                + "InfoTech:\t\t" + jtxtItalian.getText() + "\n"
+                + "Physic:\t\t" + jtxtGreek.getText() + "\n"
+                + "AddMath:\t\t" + jtxtPorteuguese.getText() + "\n"
+                + "===============================\n"
+                + "Total Score:\t\t" + jtxtTotalScore.getText() + "\n"
+                + "Average:\t\t" + jtxtAverage.getText() + "\n"
+                + "Ranking:\t\t" + jtxtRanking.getText() + "\n"
+        );
+    }//GEN-LAST:event_jbtnTranscriptActionPerformed
+
+    private void jbtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPrintActionPerformed
+                        try {
+/**
+                        PrinterJob job = PrinterJob.getPrinterJob();
+                        String strDate = MessageFormat.format("{0,date,short} {0,time,short}", new Date());
+
+                        MessageFormat[] header = new MessageFormat[3];
+                        header[0] = new MessageFormat("Unofficial Transcript");
+                        header[1] = new MessageFormat("");
+                        header[2] = new MessageFormat("Printed: " + strDate);
+                        
+                        MessageFormat[] footer = new MessageFormat[6];
+
+                        // Assign the 6 Strings to the footer array
+                        footer[0] = new MessageFormat("Authorizer Signature:______________  Date:___ /___ /_____ ");
+                        footer[1] = new MessageFormat("");
+                        footer[2] = new MessageFormat("");
+                        footer[3] = new MessageFormat("Notarizer Signature:______________  Date:___ /___ /_____ ");
+                        footer[4] = new MessageFormat("");
+                        footer[5] = new MessageFormat("- {0} -");
+*/              
+                        
+                        jTableProgressRecord.print();
+                        //job.print();
+                } catch (PrinterException e) {
+                        System.err.format("Cannot print %s%n", e.getMessage());
+
+                        JOptionPane.showMessageDialog(this,
+                                "Check that your printer is working correctly", "PRINT ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+    }//GEN-LAST:event_jbtnPrintActionPerformed
+
+    private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
+        DefaultTableModel dtablemodel = (DefaultTableModel) jTableProgressRecord.getModel();
+        if (jTableProgressRecord.getSelectedRow() == -1) {
+            if (jTableProgressRecord.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "No data to delete", "Student Data Management System", JOptionPane.OK_OPTION);
+            } else {
+                JOptionPane.showMessageDialog(null, "Select a row to delete", "Student Data Management System", JOptionPane.OK_OPTION);
+            }
+        } else {
+            dtablemodel.removeRow(jTableProgressRecord.getSelectedRow());
+            //int row = jTableStudentRecord.getSelectedRow();
+            //String deleteLineRecord = jTableProgressRecord.getModel().getValueAt(row, 0).toString();
+            //String sql = "DELETE FROM \"StudentData\" WHERE \"Email\" = " + row;
+
+            try {
+                //pst = connection.prepareStatement(sql);
+                //pst.execute();
+                JOptionPane.showMessageDialog(null, "Deleted Successfully");
+            } catch (Exception e) {
+                JOptionPane.showConfirmDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_jbtnDeleteActionPerformed
+
+    private void jComboBoxDifficultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDifficultyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDifficultyActionPerformed
+
+    // add new student data to table
+    public void updateTable() {
+        
+        connection = ProgressPage.ConnectDb();
+        if (connection != null) {
+        
+            String sql = "SELECT \"Email\", \"Difficulty\", \"Spanish\", \"German\", "
+                    + "\"French\", \"Italian\", \"Greek\", \"Porteuguese\", \"TotalScore\", "
+                    + "\"Average\", \"Ranking\" FROM \"StudentData\"";
+
+            try {
+                pst = connection.prepareStatement(sql);
+                rs = pst.executeQuery();
+                Object[] columnData = new Object[13];
+
+                while(rs.next()) {
+                    columnData [0] =rs.getString("Email");
+                    columnData [1] =rs.getString("Difficulty");
+                    columnData [2] =rs.getInt("Spanish");
+                    columnData [3] =rs.getInt("German");
+                    columnData [4] =rs.getInt("French");
+                    columnData [5] =rs.getInt("Italian");
+                    columnData [6] =rs.getInt("Greek");
+                    columnData [7] =rs.getInt("Porteuguese");
+                    columnData [8] =rs.getInt("TotalScore");
+                    columnData [9] =rs.getInt("Average");
+                    columnData [10] =rs.getString("Ranking"); 
+                    // DefaultTableModel instance is created as dtablemodel
+                    dtablemodel.addRow(columnData);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -362,6 +621,8 @@ public class ProgressPage extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -370,44 +631,60 @@ public class ProgressPage extends javax.swing.JFrame {
             }
         });
     }
+    
+    public static Connection ConnectDb() {
+        try {
+            //Class.forName("org.sqlite.JDBC");
+            Class.forName("org.postgresql.Driver");
+            //embedded database DriverManager.getConnection("jdbc:sqlite:StudentDataMS.db");
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/StudentDataMS", "postgres", "md5");
+            
+            return connection;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jComboBoxDifficulty;
+    private javax.swing.JLabel jLabelAddMath;
+    private javax.swing.JLabel jLabelAverage;
+    private javax.swing.JLabel jLabelBiology;
+    private javax.swing.JLabel jLabelCourseCode;
+    private javax.swing.JLabel jLabelEnglish;
+    private javax.swing.JLabel jLabelFirstName;
+    private javax.swing.JLabel jLabelInfoTech;
+    private javax.swing.JLabel jLabelLastName;
+    private javax.swing.JLabel jLabelMath;
+    private javax.swing.JLabel jLabelPhysic;
+    private javax.swing.JLabel jLabelRanking;
+    private javax.swing.JLabel jLabelStudentID;
+    private javax.swing.JLabel jLabelTotalScore;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTableProgressRecord;
+    private javax.swing.JTextArea jTextAreaTranscript;
+    private javax.swing.JButton jbtnDelete;
+    private javax.swing.JButton jbtnExit;
+    private javax.swing.JButton jbtnPrint;
+    private javax.swing.JButton jbtnReset;
+    private javax.swing.JButton jbtnResult;
+    private javax.swing.JButton jbtnTranscript;
+    private javax.swing.JTextField jtxtAverage;
+    private javax.swing.JTextField jtxtEmail;
+    private javax.swing.JTextField jtxtFirstName;
+    private javax.swing.JTextField jtxtFrench;
+    private javax.swing.JTextField jtxtGerman;
+    private javax.swing.JTextField jtxtGreek;
+    private javax.swing.JTextField jtxtItalian;
+    private javax.swing.JTextField jtxtLastName;
+    private javax.swing.JTextField jtxtPorteuguese;
+    private javax.swing.JTextField jtxtRanking;
+    private javax.swing.JTextField jtxtSpanish;
+    private javax.swing.JTextField jtxtTotalScore;
     // End of variables declaration//GEN-END:variables
 }

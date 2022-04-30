@@ -15,6 +15,8 @@ public class User { //user object to retain information throughout different pag
     protected String userFirstName;
     protected String userLastname;
     protected Integer accountType;
+    protected double monitorWidth;
+    protected double monitorHeight;
     
 //    public User(){
 //        this.userEmail = null;
@@ -23,11 +25,13 @@ public class User { //user object to retain information throughout different pag
 //        this.userType = null;
 //    }
     
-    public User(String email, String firstName, String lastName, Integer accountType){
+    public User(String email, String firstName, String lastName, Integer accountType, double monitorWidth, double monitorHeight){
         this.userEmail = email;
         this.userFirstName = firstName;
         this.userLastname = lastName;
         this.accountType = accountType;
+        this.monitorWidth = monitorWidth;
+        this.monitorHeight = monitorHeight;
     }
     
     public User(){
@@ -38,5 +42,7 @@ public class User { //user object to retain information throughout different pag
         this.userFirstName = null;
         this.userLastname = null;
         this.accountType = null;
+        this.monitorWidth = 0;
+        this.monitorHeight = 0;
     }
 }

@@ -563,7 +563,9 @@ public class RegistrationPage extends javax.swing.JFrame {
     
     private void createUserObject(String email, String firstName, String lastName) {
         int accountType = 0;
-        User user = new User(email, firstName, lastName, accountType);
+        double width = ApplicationInfo.detectScreenWidth();
+        double height = ApplicationInfo.detectScreenHeight();
+        User user = new User(email, firstName, lastName, accountType, width, height);
         ApplicationInfo.setUser(user);
     }
     

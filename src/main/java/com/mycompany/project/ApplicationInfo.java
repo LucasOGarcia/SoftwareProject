@@ -37,9 +37,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame subTopicSelectionPage;
     private static JFrame rolePlayPage;
     private static JFrame performancePage;
-    private static JFrame adminhomePage;
-    private static JFrame adminPage;
-    private static JFrame ProgressPage; 
+   private static JFrame adminhPage;
+    private static JFrame adminPage720;
+    private static JFrame adminPage1080;
     private static JFrame progressPage;
     
     // Setters
@@ -65,11 +65,15 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static void setAdminHomePage(JFrame adminhomePage){
-        ApplicationInfo.adminhomePage = adminhomePage;
+        ApplicationInfo.adminhPage = adminhPage;
     }
     
-    public static void setAdminPage(JFrame adminPage){
-        ApplicationInfo.adminPage = adminPage;
+        public static void setAdminPage720p(JFrame adminPage720){
+        ApplicationInfo.adminPage720 = adminPage720;
+    }
+    
+    public static void setAdminPage1080p(JFrame adminPage1080){
+        ApplicationInfo.adminPage1080 = adminPage1080;
     }
     
     public static void setLanguagePage(JFrame languagePage){
@@ -172,11 +176,15 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static JFrame getAdminHomePage(){
-        return ApplicationInfo.adminhomePage;
+        return ApplicationInfo.adminhPage;
     }
     
-        public static JFrame getAdminPage(){
-        return ApplicationInfo.adminPage;
+        public static JFrame getAdminPage720p(){
+        return ApplicationInfo.adminPage720;
+    }
+    
+        public static JFrame getAdminPage1080p(){
+        return ApplicationInfo.adminPage1080;
     }
     
     public static Dimension getScreenSize(){
@@ -190,15 +198,28 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     public static String getPageIconName(){
         return ApplicationInfo.pageIconName;
     }
+    
     public static String getDatabaseName() {
         return ApplicationInfo.databaseName;
     }
     
     public static JFrame getProgressPage(){
-        return ApplicationInfo.ProgressPage;
+        return ApplicationInfo.progressPage;
     }
     
     // Other functions
+    
+    public static double detectScreenWidth(){
+            Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+            double width = monitorSize.getWidth();
+            return width;           
+    }
+    
+    public static double detectScreenHeight(){
+       Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double height = monitorSize.getHeight();
+        return height;
+    }
    
     public static void initialise() { // sets all of the application's basic info
         ApplicationInfo.setScreenSize(new Dimension(375, 667));
@@ -352,29 +373,43 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
         
         public static void createadminHomePage() { // Creates Admin home Page
-        JFrame adminhomePage = new AdminHomePage();
-        adminhomePage.setTitle(appName);
-        adminhomePage.setPreferredSize(screenSize);
-        adminhomePage.setMaximumSize(screenSize);
-        adminhomePage.setMinimumSize(screenSize);
-        adminhomePage.setResizable(false);
-        adminhomePage.setLocationRelativeTo(null);
-        setDefaultCloseMethods(adminhomePage);
-        ApplicationInfo.setPerformancePage(adminhomePage);
-        adminhomePage.setVisible(true);
+        JFrame adminhPage = new AdminHomePage();
+        adminhPage.setTitle(appName);
+        adminhPage.setPreferredSize(screenSize);
+        adminhPage.setMaximumSize(screenSize);
+        adminhPage.setMinimumSize(screenSize);
+        adminhPage.setResizable(false);
+        adminhPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminhPage);
+        ApplicationInfo.setPerformancePage(adminhPage);
+        adminhPage.setVisible(true);
     }
         
-         public static void createadminPage() { // Admin Page (adjust size)
-        JFrame adminPage = new AdminPage();
-        adminPage.setTitle(appName);
-        adminPage.setPreferredSize(screenSize);
-        adminPage.setMaximumSize(screenSize);
-       adminPage.setMinimumSize(screenSize);
-        adminPage.setResizable(true); //temp set
-        adminPage.setLocationRelativeTo(null);
-        setDefaultCloseMethods(adminhomePage);
-        ApplicationInfo.setPerformancePage(adminPage);
-        adminPage.setVisible(true);
+         public static void createadminPage1080p() { // Admin Page (adjust size)
+        JFrame adminPage1080 = new AdminPage();
+        adminPage1080.setTitle(appName);
+        adminPage1080.setPreferredSize(screenSize);//adjust to detect
+        adminPage1080.setMaximumSize(screenSize);//adjust to custom
+        adminPage1080.setMinimumSize(screenSize);//adjust to custom
+        adminPage1080.setResizable(false);
+        adminPage1080.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminPage1080);
+        ApplicationInfo.setPerformancePage(adminPage1080);
+        adminPage1080.setVisible(true);
+        
+         }
+         
+        public static void createadminPage720p() { // Admin Page (adjust size)
+        JFrame adminPage720 = new AdminPage720p();
+        adminPage720.setTitle(appName);
+        adminPage720.setPreferredSize(screenSize);//adjust to custom
+        adminPage720.setMaximumSize(screenSize); //adjust to custom
+        adminPage720.setMinimumSize(screenSize); //adjust to custom
+        adminPage720.setResizable(false);
+        adminPage720.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminPage720);
+        ApplicationInfo.setPerformancePage(adminPage720);
+        adminPage720.setVisible(true);
         
          }
          

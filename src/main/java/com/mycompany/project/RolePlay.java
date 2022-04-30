@@ -1,33 +1,36 @@
 package com.mycompany.project;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 
 /**
  *
- * @author 44793
+ * @author Najeeha
  */
 public class RolePlay extends javax.swing.JFrame {
 
     /**
-     * Creates new form RolePlay
+     * Creates new form RolePlay1
      */
     public RolePlay() {
         initComponents();
         initPage();
-
-
-
+        
     }
+    
+    List<String> buttonsVocabs;
+    List<String> radioVocabs;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,389 +41,418 @@ public class RolePlay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        completeButton = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        RadioButton1 = new javax.swing.JRadioButton();
+        RadioButton2 = new javax.swing.JRadioButton();
+        RadioButton3 = new javax.swing.JRadioButton();
+        RadioButton4 = new javax.swing.JRadioButton();
+        RadioButton5 = new javax.swing.JRadioButton();
+        Button2 = new javax.swing.JButton();
+        Button3 = new javax.swing.JButton();
+        Button4 = new javax.swing.JButton();
+        Button5 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        Button1 = new javax.swing.JButton();
+        RadioButton6 = new javax.swing.JRadioButton();
+        Button6 = new javax.swing.JButton();
+        RadioButton7 = new javax.swing.JRadioButton();
+        Button7 = new javax.swing.JButton();
+        RadioButton8 = new javax.swing.JRadioButton();
+        Button8 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        completeButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        RadioButton1.setText("jRadioButton1");
+        RadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton1ActionPerformed(evt);
+            }
+        });
+
+        RadioButton2.setText("jRadioButton2");
+        RadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton2ActionPerformed(evt);
+            }
+        });
+
+        RadioButton3.setText("jRadioButton3");
+        RadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton3ActionPerformed(evt);
+            }
+        });
+
+        RadioButton4.setText("jRadioButton4");
+        RadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton4ActionPerformed(evt);
+            }
+        });
+
+        RadioButton5.setText("jRadioButton5");
+        RadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton5ActionPerformed(evt);
+            }
+        });
+
+        Button2.setBackground(new java.awt.Color(242, 242, 242));
+        Button2.setText("jButton2");
+        Button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button2ActionPerformed(evt);
+            }
+        });
+
+        Button3.setBackground(new java.awt.Color(242, 242, 242));
+        Button3.setText("jButton3");
+        Button3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button3ActionPerformed(evt);
+            }
+        });
+
+        Button4.setBackground(new java.awt.Color(242, 242, 242));
+        Button4.setText("jButton4");
+        Button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button4ActionPerformed(evt);
+            }
+        });
+
+        Button5.setBackground(new java.awt.Color(242, 242, 242));
+        Button5.setText("jButton5");
+        Button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button5ActionPerformed(evt);
+            }
+        });
+
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setText("Key Vocabulary:");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        Button1.setBackground(new java.awt.Color(242, 242, 242));
+        Button1.setText("jButton1");
+        Button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button1ActionPerformed(evt);
+            }
+        });
+
+        RadioButton6.setText("jRadioButton6");
+        RadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton6ActionPerformed(evt);
+            }
+        });
+
+        Button6.setBackground(new java.awt.Color(242, 242, 242));
+        Button6.setText("jButton6");
+
+        RadioButton7.setText("jRadioButton7");
+        RadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton7ActionPerformed(evt);
+            }
+        });
+
+        Button7.setBackground(new java.awt.Color(242, 242, 242));
+        Button7.setText("jButton7");
+
+        RadioButton8.setText("jRadioButton8");
+        RadioButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButton8ActionPerformed(evt);
+            }
+        });
+
+        Button8.setBackground(new java.awt.Color(242, 242, 242));
+        Button8.setText("jButton8");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(RadioButton8)
+                            .addComponent(RadioButton7)
+                            .addComponent(RadioButton6)
+                            .addComponent(RadioButton5)
+                            .addComponent(RadioButton4)
+                            .addComponent(RadioButton3)
+                            .addComponent(RadioButton2)
+                            .addComponent(RadioButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Button2)
+                            .addComponent(Button3)
+                            .addComponent(Button4)
+                            .addComponent(Button5)
+                            .addComponent(Button1)
+                            .addComponent(Button6)
+                            .addComponent(Button7)
+                            .addComponent(Button8)))
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton1)
+                    .addComponent(Button1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton2)
+                    .addComponent(Button2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton3)
+                    .addComponent(Button3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton4)
+                    .addComponent(Button4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton5)
+                    .addComponent(Button5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Button6)
+                    .addComponent(RadioButton6))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Button7)
+                    .addComponent(RadioButton7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioButton8)
+                    .addComponent(Button8))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("Profile");
+        TextArea.setColumns(20);
+        TextArea.setRows(5);
+        jScrollPane1.setViewportView(TextArea);
 
-        jLabel1.setText("Languages (Logo/Icon)");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Role Play: ");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("Home");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Settings");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Key Vocabulary ?");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setText("Person A (Conversation with Customer & Employee) ");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("-A: Hi There. Do you have a table for 2?\n-B: ...\n-A: I'm sorry I don't \n-B: ...\n-A: How long is the **wait** for the table? I am very hungry\n-B: ...\n-A: Yes please. I will have two burgers & two portions of fires. \nOh & 2 large drinks. \nThank you very much.\n-B: ...\n-A: You too\n");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel8.setText("Person B (Conversation with Customer & Employee)");
-
-        jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Monospaced", 0, 10)); // NOI18N
-        jTextArea3.setRows(5);
-        jTextArea3.setText("- A: ...\n- B: Good Evening. Do you have a **reservation** \nwith us?\n- A: ...\n- B: I'm afraid we're very busy tonight so there are no free tables.\nWould you like to wait or come back later?\n- A: ...\n- B: It is **about** one hour. \nI’m sorry about that.\n Would you like to order your food for **takeaway** instead?\n- A: ...\n- B: No problem. \nYour food should be there soon. Have a nice evening!\n- A: ...");
-        jScrollPane3.setViewportView(jTextArea3);
-
-        completeButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        completeButton.setText("COMPLETE !");
+        completeButton.setText("Complete");
         completeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completeButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        homeButton.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Project/src/main/resources/home_icon.png")); // NOI18N
+        homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                homeButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Reservation: ");
-
-        jTextField1.setText("Réservation");
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/OsaiedJan/Project/src/main/resources/logo64x.png")); // NOI18N
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(145, 145, 145)
+                .addComponent(completeButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(homeButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField1))
-        );
-
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("About: ");
-
-        jTextField2.setText("Attendez");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 37, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Wait: ");
-
-        jTextField3.setText("à propos");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Takeaway:");
-
-        jTextField4.setText("À emporter");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jRadioButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jRadioButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jRadioButton1))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jLabel4)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jLabel6)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(completeButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel1)
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(completeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addComponent(completeButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void RadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton1ActionPerformed
         // TODO add your handling code here:
-        if(jRadioButton4.isSelected()){
-            jPanel13.setVisible(true);
-        }
+        /* if(RadioButton1.isSelected()){
+            Button1.setVisible(true);
+        }*/
+        
+        RadioButton1.setEnabled(false);
+        Button1.setVisible(true);
+        increaseVocabAssistCount(); 
+        
+        //int buttonIndex = 0;
+    }//GEN-LAST:event_RadioButton1ActionPerformed
 
-        else {
-            jPanel13.setVisible(false);
+    private void RadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton2ActionPerformed
+        RadioButton2.setEnabled(false);
+        Button2.setVisible(true);
+        increaseVocabAssistCount(); 
+        
+        //int buttonIndex = 1;
+        
+    }//GEN-LAST:event_RadioButton2ActionPerformed
 
-        }
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
         // TODO add your handling code here:
-        if(jRadioButton3.isSelected()){
-            jPanel10.setVisible(true);
-        }
+        //int buttonIndex = 0;
+        
+        //int buttonIndex = 0;
+    }//GEN-LAST:event_Button1ActionPerformed
 
-        else {
-            jPanel10.setVisible(false);
-
-        }
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
         // TODO add your handling code here:
-        if(jRadioButton2.isSelected()){
-            jPanel12.setVisible(true);
-        }
+      //  int buttonIndex = 1;
+        //setPersonAVocab(buttonIndex); 
+        
+        //int buttonIndex = 1;
+    }//GEN-LAST:event_Button2ActionPerformed
 
-        else {
-            jPanel12.setVisible(false);
-
-        }
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+      //  int buttonIndex = 2;
+        //setPersonAVocab(buttonIndex); 
+        //int buttonIndex = 2;
+    }//GEN-LAST:event_Button3ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void Button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button4ActionPerformed
         // TODO add your handling code here:
+       // int buttonIndex = 3;
+       // setPersonAVocab(buttonIndex); 
+       
+       //int buttonIndex = 3;
+    }//GEN-LAST:event_Button4ActionPerformed
 
-        if(jRadioButton1.isSelected()){
-            jPanel6.setVisible(true);
-        }
+    private void Button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button5ActionPerformed
+        // TODO add your handling code here:
+        //int buttonIndex = 4;
+       // setPersonAVocab(buttonIndex); 
+       
+       //int buttonIndex = 4;
+    }//GEN-LAST:event_Button5ActionPerformed
 
-        else {
-            jPanel6.setVisible(false);
+    private void RadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton3ActionPerformed
+        // TODO add your handling code here:
+        RadioButton3.setEnabled(false);
+        Button3.setVisible(true);
+        increaseVocabAssistCount(); 
+        //int buttonIndex = 2;
 
-        }
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_RadioButton3ActionPerformed
+
+    private void RadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton4ActionPerformed
+        // TODO add your handling code here:
+        RadioButton4.setEnabled(false);
+        Button4.setVisible(true);
+        increaseVocabAssistCount(); 
+        
+        //int buttonIndex = 3;
+        
+    }//GEN-LAST:event_RadioButton4ActionPerformed
+
+    private void RadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton5ActionPerformed
+        // TODO add your handling code here:
+        RadioButton5.setEnabled(false);
+        Button5.setVisible(true);
+        increaseVocabAssistCount(); 
+        //int buttonIndex = 4;
+
+    }//GEN-LAST:event_RadioButton5ActionPerformed
 
     private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed
+        // TODO add your handling code here:
         increaseRolePlayTopicCount();
         increaseRolePlayDifficultyCounter();
         increaseRolePlayRoleCounter();
@@ -428,6 +460,39 @@ public class RolePlay extends javax.swing.JFrame {
         ApplicationInfo.createHomePage();
         ApplicationInfo.getRolePlayPage().dispose();
     }//GEN-LAST:event_completeButtonActionPerformed
+
+    private void RadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton6ActionPerformed
+        // TODO add your handling code here:
+        RadioButton6.setEnabled(false);
+        Button6.setVisible(true);
+        increaseVocabAssistCount(); 
+    }//GEN-LAST:event_RadioButton6ActionPerformed
+
+    private void RadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton7ActionPerformed
+        // TODO add your handling code here:
+        RadioButton7.setEnabled(false);
+        Button7.setVisible(true);
+        increaseVocabAssistCount(); 
+    }//GEN-LAST:event_RadioButton7ActionPerformed
+
+    private void RadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButton8ActionPerformed
+        // TODO add your handling code here:
+        RadioButton8.setEnabled(false);
+        Button8.setVisible(true);
+        increaseVocabAssistCount(); 
+    }//GEN-LAST:event_RadioButton8ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        // TODO add your handling code here:
+        RolePlaySettings settings = new RolePlaySettings();
+        RolePlayManager.setRolePlaySettings(settings);
+        ApplicationInfo.createHomePage();
+        ApplicationInfo.getSubTopicSelectionPage().dispose();
+    }//GEN-LAST:event_homeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -456,8 +521,6 @@ public class RolePlay extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -468,64 +531,154 @@ public class RolePlay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button1;
+    private javax.swing.JButton Button2;
+    private javax.swing.JButton Button3;
+    private javax.swing.JButton Button4;
+    private javax.swing.JButton Button5;
+    private javax.swing.JButton Button6;
+    private javax.swing.JButton Button7;
+    private javax.swing.JButton Button8;
+    private javax.swing.JRadioButton RadioButton1;
+    private javax.swing.JRadioButton RadioButton2;
+    private javax.swing.JRadioButton RadioButton3;
+    private javax.swing.JRadioButton RadioButton4;
+    private javax.swing.JRadioButton RadioButton5;
+    private javax.swing.JRadioButton RadioButton6;
+    private javax.swing.JRadioButton RadioButton7;
+    private javax.swing.JRadioButton RadioButton8;
+    private javax.swing.JTextArea TextArea;
     private javax.swing.JButton completeButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton homeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 
     private void initPage() {
-        jPanel6.setVisible(false); 
-        jPanel12.setVisible(false);         
-        jPanel10.setVisible(false);         
-        jPanel13.setVisible(false);
-        
+        jTextField5.setFocusable(false);
         // add all radio buttons and labels to two seperate lists, do a for loop to disable all radio buttons and make the labels invisble and set their text to blank
+        List<JRadioButton> radioButtons = new ArrayList();
+        radioButtons.add(RadioButton1); 
+        radioButtons.add(RadioButton2); 
+        radioButtons.add(RadioButton3); 
+        radioButtons.add(RadioButton4); 
+        radioButtons.add(RadioButton5); 
+        radioButtons.add(RadioButton6); 
+        radioButtons.add(RadioButton7); 
+        radioButtons.add(RadioButton8); 
         
-        //use if statements to filter through role play lists within the rolePlayManger based on the difficulty the user selected to see which role play object matches the user's selections
+        //to disable the radio butons:
+        for (int i = 0; i < radioButtons.size(); i++) {
+            radioButtons.get(i).setEnabled(false);
+            radioButtons.get(i).setVisible(false);
+        }
         
-        List<String> vocabAssist = new ArrayList();
-        //if statement to see if a user is student or teacher, retrieve vocab list  from the role Play Object equivalent and assign to vocabAssit list
+        List<JButton> buttons = new ArrayList();
+        buttons.add(Button1);
+        buttons.add(Button2);
+        buttons.add(Button3);
+        buttons.add(Button4);
+        buttons.add(Button5);
+        buttons.add(Button6);
+        buttons.add(Button7);
+        buttons.add(Button8);
         
-        // enable radio buttons based on the size of the vocab list retrieved assign all the labels text to respective indexes and keep label invisible
+        //to disable the butons:
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).setEnabled(false);
+            buttons.get(i).setVisible(false);
+        }
         
-        // assign role play text to scrollable panel within the page based if the user is student or teacher
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
+            RolePlayTopic matchingRolePlay = new RolePlayTopic();
+            List<RolePlayTopic> rolePlayList = new ArrayList();
+            // check which difficulty the user has selected and get the list associated with that difficulty
+            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
+                case "A1":
+                    rolePlayList = RolePlayManager.getTopicsA1();
+                    break;
+                case "A2":
+                    rolePlayList = RolePlayManager.getTopicsA2();
+                    break;
+                case "B1":
+                    rolePlayList = RolePlayManager.getTopicsB1();
+                    break;
+                case "B2":
+                    rolePlayList = RolePlayManager.getTopicsB2();
+                    break;
+            }
+            //get matching roleplays
+            matchingRolePlay = getMatchingRolePlay(matchingRolePlay, rolePlayList);
+            if (matchingRolePlay == null) {
+                return;
+            }
+            // extract key vocab
+            if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
+                buttonsVocabs = matchingRolePlay.personBVocabAssist;
+                radioVocabs = matchingRolePlay.personBVocabEnglish;
+            }
+            
+            else{
+                buttonsVocabs = matchingRolePlay.personAVocabAssist;
+                radioVocabs = matchingRolePlay.personAVocabEnglish;
+            }
+            // set keyvocab and enable buttons based on the amount of vocab words
+            if (!buttonsVocabs.isEmpty()) {
+                for (int i = 0; i < buttonsVocabs.size(); i++) {
+                    radioButtons.get(i).setEnabled(true);
+                    radioButtons.get(i).setVisible(true);
+                    radioButtons.get(i).setText(radioVocabs.get(i));
+                    buttons.get(i).setVisible(true);
+                    buttons.get(i).setText(buttonsVocabs.get(i));
+                }
+            }
+            // assign role play text to scrollable panel within the page based if the user is student or teacher
+            if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
+                String personBText = matchingRolePlay.personBText;
+                TextArea.setText(personBText);
+                // to-do assign to panel/label
+            }
+            else{
+                String personAText = matchingRolePlay.personAText;
+                TextArea.setText(personAText);
+                 // to-do assign to panel/label
+            }
+        }
     }
     
-    
+    private RolePlayTopic getMatchingRolePlay(RolePlayTopic matchingRolePlays, List<RolePlayTopic> rolePlayList){
+        for (int i = 0; i < rolePlayList.size(); i++) {
+            // check for roleplays that having a matching topic
+            if (rolePlayList.get(i).topicType.equals(RolePlayManager.getRolePlaySettings().getTopicType())) {
+                //check for roleplays that have a matching difficulty
+                if (rolePlayList.get(i).difficulty.equals(RolePlayManager.getRolePlaySettings().getDifficulty())) {
+                    //check for roleplays that have a matching sub-topic
+                    if (rolePlayList.get(i).subTopicType.equals(RolePlayManager.getRolePlaySettings().getSubTopicType())) {
+                        //check for roleplays that have a matching langauge
+                        if (rolePlayList.get(i).language.equals(RolePlayManager.getRolePlaySettings().getLanguage())) {
+                            matchingRolePlays = rolePlayList.get(i);
+                        }
+                    }
+                }
+            }
+        }
+        return matchingRolePlays;
+    }
+
     // CRUD operations functions
     
     private void increaseVocabAssistCount() {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
+            return;
+        }
         try {
-            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail)+1;
-            JdbcCrud.upateVocabAssistCount(newAssistCount);
+            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail, RolePlayManager.getRolePlaySettings().getLanguage())+1;
+            JdbcCrud.upateVocabAssistCount(newAssistCount, RolePlayManager.getRolePlaySettings().getLanguage());
         } catch (Exception ex) {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -535,91 +688,95 @@ public class RolePlay extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings().getTopicType() == null){
             return;
         }
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
+            return;
+        }
         if (ApplicationInfo.getUser().userEmail == null) {
             return;
         }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         try{
             switch (RolePlayManager.getRolePlaySettings().getTopicType()) {
                 case "Asking and giving directions":
-                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicDirectionsCount(newCount);
+                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicDirectionsCount(newCount, userLanguage);
                     break;
                     
                 case "Basic employment issues":
-                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail) +1;
-                    JdbcCrud.upateTopicEmploymentCount(newCount);
+                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicEmploymentCount(newCount, userLanguage);
                     break;
                     
                 case "Cross-cultural experiences":
-                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail) +1;
-                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount);
+                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount, userLanguage);
                     break;
                     
                 case "Exchanging personal information":
-                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail) +1;
-                    JdbcCrud.upateTopicPersonalInfoCount(newCount);
+                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicPersonalInfoCount(newCount, userLanguage);
                     break;
                     
                 case "Going shopping and asking for prices":
-                    newCount = JdbcCrud.getTopicShoppingCount(userEmail) +1;
-                    JdbcCrud.upateTopicShoppingCount(newCount);
+                    newCount = JdbcCrud.getTopicShoppingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicShoppingCount(newCount, userLanguage);
                     break;
                     
                 case "Health":
-                    newCount = JdbcCrud.getTopicHealthCount(userEmail) +1;
-                    JdbcCrud.upateTopicHealthCount(newCount);
+                    newCount = JdbcCrud.getTopicHealthCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicHealthCount(newCount, userLanguage);
                     break;
                     
                 case "Housing conditions":
-                    newCount = JdbcCrud.getTopicHousingCount(userEmail) +1;
-                    JdbcCrud.upateTopicHousingCount(newCount);
+                    newCount = JdbcCrud.getTopicHousingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicHousingCount(newCount, userLanguage);
                     break;
                     
                 case "Introductions":
-                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicIntroductionsCount(newCount);
+                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicIntroductionsCount(newCount, userLanguage);
                     break;
                     
                 case "Making Appointments":
-                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail) +1;
-                    JdbcCrud.upateTopicAppointmentsCount(newCount);
+                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicAppointmentsCount(newCount, userLanguage);
                     break;
                     
                 case "Making invitations":
-                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail) +1;
-                    JdbcCrud.upateTopicInvitationsCount(newCount);
+                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicInvitationsCount(newCount, userLanguage);
                     break;
                     
                 case "Making travel arrangements":
-                    newCount = JdbcCrud.getTopicTravelCount(userEmail) +1;
-                    JdbcCrud.upateTopicTravelCount(newCount);
+                    newCount = JdbcCrud.getTopicTravelCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicTravelCount(newCount, userLanguage);
                     break;
                     
                 case "Ordering food and drink":
-                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail) +1;
-                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount);
+                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount, userLanguage);
                     break;
                     
                 case "Socialising":
-                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail) +1;
-                    JdbcCrud.upateTopicSocialisingCount(newCount);
+                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicSocialisingCount(newCount, userLanguage);
                     break;
                     
                 case "University life":
-                    newCount = JdbcCrud.getTopicUniversityCount(userEmail) +1;
-                    JdbcCrud.upateTopicUniversityCount(newCount);
+                    newCount = JdbcCrud.getTopicUniversityCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicUniversityCount(newCount, userLanguage);
                     break;
                     
                 case "Weather":
-                    newCount = JdbcCrud.getTopicWeatherCount(userEmail) +1;
-                    JdbcCrud.upateTopicWeatherCount(newCount);
+                    newCount = JdbcCrud.getTopicWeatherCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicWeatherCount(newCount, userLanguage);
                     break;
                     
                 case "Work life":
-                    newCount = JdbcCrud.getTopicWorkCount(userEmail) +1;
-                    JdbcCrud.upateTopicWorkCount(newCount);
+                    newCount = JdbcCrud.getTopicWorkCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicWorkCount(newCount, userLanguage);
                     break;
             }
         }
@@ -629,8 +786,9 @@ public class RolePlay extends javax.swing.JFrame {
     }
     
     private void lastRolePlayTimeStamp() {
+        
         try {
-            JdbcCrud.setUserLastRolePlay();
+            JdbcCrud.setUserLastRolePlay(RolePlayManager.getRolePlaySettings().getLanguage());
         } catch (Exception ex) {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -640,32 +798,36 @@ public class RolePlay extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings() == null){
             return;
         }
-       if (ApplicationInfo.getUser().userEmail == null) {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
             return;
         }
+        if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         
         try{
             switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
                 case "A1":
-                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA1(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteA1(newCount, userLanguage);
                     break;
                     
                 case "A2":
-                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA2(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteA2(newCount, userLanguage);
                     break;
                     
                 case "B1":
-                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB1(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteB1(newCount, userLanguage);
                     break;
                     
                 case "B2":
-                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB2(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteB2(newCount, userLanguage);
                     break;
             }
         }
@@ -678,22 +840,26 @@ public class RolePlay extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings() == null){
             return;
         }
-       if (ApplicationInfo.getUser().userEmail == null) {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
             return;
         }
+        if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         
         try{
             switch (RolePlayManager.getRolePlaySettings().getRole()){
                 case "Student":
-                    newCount = JdbcCrud.getRolePlayStudent(userEmail) +1;
-                    JdbcCrud.setRolePlayStudent(newCount);
+                    newCount = JdbcCrud.getRolePlayStudent(userEmail, userLanguage) +1;
+                    JdbcCrud.setRolePlayStudent(newCount, userLanguage);
                     break;
                     
                 case "Teacher":
-                    newCount = JdbcCrud.getRolePlayTeacher(userEmail) +1;
-                    JdbcCrud.setRolePlayTeacher(newCount);
+                    newCount = JdbcCrud.getRolePlayTeacher(userEmail, userLanguage) +1;
+                    JdbcCrud.setRolePlayTeacher(newCount, userLanguage);
                     break;
             }
         }
@@ -701,6 +867,7 @@ public class RolePlay extends javax.swing.JFrame {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
 
 }

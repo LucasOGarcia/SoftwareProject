@@ -15,7 +15,9 @@ public class RolePlayTopic {
     String difficulty;
     String topicType;
     String subTopicType;
+    List personAVocabEnglish;
     List personAVocabAssist;
+    List personBVocabEnglish;
     List personBVocabAssist;
     String personAText;
     String personBText;

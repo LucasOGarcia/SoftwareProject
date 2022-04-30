@@ -6,6 +6,8 @@
 package com.mycompany.project;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -547,9 +549,25 @@ public class RegistrationPage extends javax.swing.JFrame {
     }
 
     private boolean registerUser(String email, String firstName, String lastName, String salt, String password) {
+        List<String> languages = new ArrayList();
+        String spanish = "Spanish";
+        String french = "French";
+        String portuguese = "Portuguese";
+        String german = "German";
+        String italian = "Italian";
+        String greek = "Greek";
+        languages.add(spanish);
+        languages.add(french);
+        languages.add(portuguese);
+        languages.add(german);
+        languages.add(italian);
+        languages.add(greek);
+        
         try {
             JdbcCrud.registerUserClientInfo(email, firstName, lastName, salt, password);
-            JdbcCrud.registerUserClienStatistics(email);
+            for (int i = 0; i < languages.size(); i++) {
+                JdbcCrud.registerUserClienStatistics(email, languages.get(i));
+            }
             return true;
         } catch (Exception ex) {
             String errorMessage = "<html>Error!<br/>";
@@ -563,7 +581,9 @@ public class RegistrationPage extends javax.swing.JFrame {
     
     private void createUserObject(String email, String firstName, String lastName) {
         int accountType = 0;
-        User user = new User(email, firstName, lastName, accountType);
+        double width = ApplicationInfo.detectScreenWidth();
+        double height = ApplicationInfo.detectScreenHeight();
+        User user = new User(email, firstName, lastName, accountType, width, height);
         ApplicationInfo.setUser(user);
     }
     

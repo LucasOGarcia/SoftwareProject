@@ -112,8 +112,14 @@ public class AdminHomePage extends javax.swing.JFrame {
 
     private void adminPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminPageButtonActionPerformed
         // TODO add your handling code here:
-               ApplicationInfo.createadminPage(); 
-               ApplicationInfo.getAdminHomePage().dispose();
+        double width = ApplicationInfo.detectScreenWidth();
+         double height = ApplicationInfo.detectScreenWidth();
+        
+        if(width >= 1920 && height >= 1080){
+            adminPage1080p();
+        }else{
+            adminPage720p();
+            }
     }//GEN-LAST:event_adminPageButtonActionPerformed
 
     /**
@@ -166,6 +172,18 @@ public class AdminHomePage extends javax.swing.JFrame {
         ApplicationInfo.createMainPage();
         ApplicationInfo.getHomePage().dispose();
     }
+    
+    private void adminPage1080p(){
+        ApplicationInfo.createadminPage1080p(); 
+        ApplicationInfo.getAdminHomePage().dispose();
+        
+    }
+    
+    private void adminPage720p(){
+        ApplicationInfo.createadminPage720p(); 
+        ApplicationInfo.getAdminHomePage().dispose();
+    }
+
 
 
 }

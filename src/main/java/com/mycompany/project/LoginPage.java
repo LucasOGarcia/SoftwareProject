@@ -210,14 +210,19 @@ public class LoginPage extends javax.swing.JFrame {
             
             else{
  
+            double width = ApplicationInfo.detectScreenWidth();
+            double height = ApplicationInfo.detectScreenHeight();
+ 
             System.out.print(accountTypeCheck());
-            User user = new User(email, getFirstNameDB(), getLastNameDB(), accountTypeCheck());
+            User user = new User(email, getFirstNameDB(), getLastNameDB(), accountTypeCheck(), width, height);
             ApplicationInfo.setUser(user);
 
             userLoginTimestamp();
+
+            System.out.println("width is: " + width + " and height is: "+height);
             if(accountTypeCheck() == 1){
-                //admin home
-                adminLogin();
+                    //admin home
+                    adminLogin();
             }else{
                 //normal home
                 System.out.println(user.userFirstName);

@@ -129,10 +129,10 @@ public class JdbcCrud {
     }
     
     // Registers user to the client_Statistics table in the database
-    public static void registerUserClienStatistics(String email) throws Exception{
+    public static void registerUserClienStatistics(String email, String language) throws Exception{
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "insert into client_Statistics(client_email, client_statistics_language_roleplay_complete_a1,"
+        String query = "insert into client_Statistics_"+language+"(client_email, client_statistics_language_roleplay_complete_a1,"
         + " client_statistics_language_roleplay_complete_a2, client_statistics_language_roleplay_complete_b1,"
         + " client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
         + " client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist,"
@@ -143,12 +143,12 @@ public class JdbcCrud {
         + " client_statistics_topic_appointments, client_statistics_topic_invitations,"
         + " client_statistics_topic_travel, client_statistics_topic_food_drink,"
         + " client_statistics_topic_socialising, client_statistics_topic_university,"
-        + " client_statistics_topic_weather, client_statistics_topic_work) "
-        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        + " client_statistics_topic_weather, client_statistics_topic_work, client_statistics_last_roleplay) "
+        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
             con = ConnectDB.getConnection();
             int startingValue = 0; // base value for all statistics counter
-            System.out.println("Registering user into client_Statistics...");
+            System.out.println("Registering user into client_Statistics_"+language+"...");
             
             // set all parameters
             psmt = con.prepareStatement(query);
@@ -176,11 +176,12 @@ public class JdbcCrud {
             psmt.setInt(22, startingValue);
             psmt.setInt(23, startingValue);
             psmt.setInt(24, startingValue);
+            psmt.setNull(25, Types.NULL);
             
             // execute preparedStatement INSERT
             psmt.executeUpdate();
             con.commit();
-            System.out.println("registering user into client_Statistics completed!");
+            System.out.println("registering user into client_Statistics_"+language+" completed!");
         }
         catch (SQLException ex){
             // display error message
@@ -305,10 +306,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getVocabAssistCount(String email) throws Exception {        
+    public static int getVocabAssistCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics_"+ language
+                +" WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user vocab assist count...");
@@ -346,7 +348,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateVocabAssistCount(Integer newVocabCount) throws Exception {
+    public static void upateVocabAssistCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -354,7 +356,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_vocab_assist= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -394,10 +396,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicDirectionsCount(String email) throws Exception {        
+    public static int getTopicDirectionsCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_directions FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_directions FROM client_Statistics_"+language
+                +" WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user directions topic count...");
@@ -435,7 +438,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicDirectionsCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicDirectionsCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -443,7 +446,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_directions= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -483,10 +486,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicEmploymentCount(String email) throws Exception {        
+    public static int getTopicEmploymentCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_employment FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_employment FROM client_Statistics_"+language
+                +" WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user employment topic count...");
@@ -524,7 +528,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicEmploymentCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicEmploymentCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -532,7 +536,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_employment= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -572,10 +576,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicCulturalExperiencesCount(String email) throws Exception {        
+    public static int getTopicCulturalExperiencesCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_cultural_experiences FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_cultural_experiences FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user cultural experiences topic count...");
@@ -613,7 +618,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicCulturalExperiencesCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicCulturalExperiencesCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -621,7 +626,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_cultural_experiences= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -661,10 +666,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicPersonalInfoCount(String email) throws Exception {        
+    public static int getTopicPersonalInfoCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_personal_info FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_personal_info FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user personal info topic count...");
@@ -702,7 +708,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicPersonalInfoCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicPersonalInfoCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -710,7 +716,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_personal_info= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -750,10 +756,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicShoppingCount(String email) throws Exception {        
+    public static int getTopicShoppingCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_shopping FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_shopping FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user shopping topic count...");
@@ -791,7 +798,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicShoppingCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicShoppingCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -799,7 +806,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_shopping= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -839,10 +846,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicHealthCount(String email) throws Exception {        
+    public static int getTopicHealthCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_health FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_health FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user health topic count...");
@@ -880,7 +888,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicHealthCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicHealthCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -888,7 +896,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_health= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -928,10 +936,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicHousingCount(String email) throws Exception {        
+    public static int getTopicHousingCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_housing FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_housing FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user housing topic count...");
@@ -969,7 +978,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicHousingCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicHousingCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -977,7 +986,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_housing= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1017,10 +1026,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicIntroductionsCount(String email) throws Exception {        
+    public static int getTopicIntroductionsCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_introductions FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_introductions FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user introductions topic count...");
@@ -1058,7 +1068,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicIntroductionsCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicIntroductionsCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1066,7 +1076,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_introductions= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1106,10 +1116,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicAppointmentsCount(String email) throws Exception {        
+    public static int getTopicAppointmentsCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_appointments FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_appointments FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user appointments topic count...");
@@ -1147,7 +1158,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicAppointmentsCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicAppointmentsCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1155,7 +1166,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_appointments= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1195,10 +1206,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicInvitationsCount(String email) throws Exception {        
+    public static int getTopicInvitationsCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_invitations FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_invitations FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user invitations topic count...");
@@ -1236,7 +1248,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicInvitationsCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicInvitationsCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1244,7 +1256,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_invitations= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1284,10 +1296,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicTravelCount(String email) throws Exception {        
+    public static int getTopicTravelCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_travel FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_travel FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user travel topic count...");
@@ -1325,7 +1338,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicTravelCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicTravelCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1333,7 +1346,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_travel= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1373,10 +1386,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicFoodAndDrinkCount(String email) throws Exception {        
+    public static int getTopicFoodAndDrinkCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_food_drink FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_food_drink FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user food & drink topic count...");
@@ -1414,7 +1428,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicFoodAndDrinkCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicFoodAndDrinkCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1422,7 +1436,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_food_drink= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1462,10 +1476,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicSocialisingCount(String email) throws Exception {        
+    public static int getTopicSocialisingCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_socialising FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_socialising FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user socialising topic count...");
@@ -1503,7 +1518,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicSocialisingCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicSocialisingCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1511,7 +1526,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_socialising= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1551,10 +1566,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicUniversityCount(String email) throws Exception {        
+    public static int getTopicUniversityCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_university FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_university FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user university topic count...");
@@ -1592,7 +1608,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicUniversityCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicUniversityCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1600,7 +1616,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_university= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1640,10 +1656,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicWeatherCount(String email) throws Exception {        
+    public static int getTopicWeatherCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_weather FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_weather FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user weather topic count...");
@@ -1681,7 +1698,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicWeatherCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicWeatherCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1689,7 +1706,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_weather= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1729,10 +1746,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getTopicWorkCount(String email) throws Exception {        
+    public static int getTopicWorkCount(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_topic_work FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_topic_work FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user work topic count...");
@@ -1770,7 +1788,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void upateTopicWorkCount(Integer newVocabCount) throws Exception {
+    public static void upateTopicWorkCount(Integer newVocabCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1778,7 +1796,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_topic_work= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1818,10 +1836,11 @@ public class JdbcCrud {
         }
     }
     
-    public static String getUserLastRolePlay(String email) throws Exception {        
+    public static String getUserLastRolePlay(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_last_roleplay FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_last_roleplay FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user last role play...");
@@ -1859,7 +1878,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void setUserLastRolePlay() throws Exception {
+    public static void setUserLastRolePlay(String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1871,7 +1890,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_last_roleplay= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -1911,10 +1930,11 @@ public class JdbcCrud {
         }
     }
    
-    public static int getRolePlayCompleteA1(String email) throws Exception {        
+    public static int getRolePlayCompleteA1(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete A1...");
@@ -1952,7 +1972,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void SetRolePlayCompleteA1(int newCount) throws Exception {
+    public static void SetRolePlayCompleteA1(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -1960,7 +1980,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_complete_a1= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -2000,10 +2020,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getRolePlayCompleteA2(String email) throws Exception {        
+    public static int getRolePlayCompleteA2(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_complete_a2 FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_complete_a2 FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete A2...");
@@ -2041,7 +2062,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void SetRolePlayCompleteA2(int newCount) throws Exception {
+    public static void SetRolePlayCompleteA2(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -2049,7 +2070,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_complete_a2= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -2089,10 +2110,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getRolePlayCompleteB1(String email) throws Exception {        
+    public static int getRolePlayCompleteB1(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_complete_b1 FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_complete_b1 FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete B1...");
@@ -2130,7 +2152,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void SetRolePlayCompleteB1(int newCount) throws Exception {
+    public static void SetRolePlayCompleteB1(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -2138,7 +2160,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_complete_b1= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -2178,10 +2200,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getRolePlayCompleteB2(String email) throws Exception {        
+    public static int getRolePlayCompleteB2(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_complete_b2 FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_complete_b2 FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play complete B2...");
@@ -2219,7 +2242,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void SetRolePlayCompleteB2(int newCount) throws Exception {
+    public static void SetRolePlayCompleteB2(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -2227,7 +2250,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_complete_b2= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -2267,10 +2290,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getRolePlayStudent(String email) throws Exception {        
+    public static int getRolePlayStudent(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play student count...");
@@ -2308,7 +2332,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void setRolePlayStudent(int newCount) throws Exception {
+    public static void setRolePlayStudent(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -2316,7 +2340,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_person_a= ?"
                 + " WHERE client_email= ?;";
         try {
@@ -2356,10 +2380,11 @@ public class JdbcCrud {
         }
     }
     
-    public static int getRolePlayTeacher(String email) throws Exception {        
+    public static int getRolePlayTeacher(String email, String language) throws Exception {        
         Connection con = null;
         PreparedStatement psmt = null;
-        String query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics WHERE client_email=?";
+        String query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics_"+language
+                + " WHERE client_email=?";
         try {
             con = ConnectDB.getConnection();
             System.out.println("Retrieving user role play teacher count...");
@@ -2397,7 +2422,7 @@ public class JdbcCrud {
         }
     }
     
-    public static void setRolePlayTeacher(int newCount) throws Exception {
+    public static void setRolePlayTeacher(int newCount, String language) throws Exception {
         if (ApplicationInfo.getUser() == null) {
             return;
         }
@@ -2405,7 +2430,7 @@ public class JdbcCrud {
         Connection con = null;
         PreparedStatement psmt = null;
         String userEmail = ApplicationInfo.getUser().userEmail;
-        String query ="UPDATE client_Statistics"
+        String query ="UPDATE client_Statistics_"+language
                 + " SET client_statistics_language_roleplay_person_b= ?"
                 + " WHERE client_email= ?;";
         try {

@@ -25,141 +25,13 @@ public class RolePlay1 extends javax.swing.JFrame {
      */
     public RolePlay1() {
         initComponents();
-        Page(); 
         initPage();
-        
-        Button1.setVisible(false); 
-        Button2.setVisible(false);
-        Button3.setVisible(false);
-        Button4.setVisible(false);
-        Button5.setVisible(false);
-        
         text1.setText("helloo");
         
     }
     
     List<String> buttonsVocabs;
     List<String> radioVocabs;
-    
-    private void Page() {
-        
-        /*if (RolePlayManager.getRolePlaySettings() != null 
-            && RolePlayManager.getRolePlaySettings().getLanguage() != null
-            && RolePlayManager.getRolePlaySettings().getRole()!= null  
-            && RolePlayManager.getRolePlaySettings().getDifficulty()!= null 
-            && RolePlayManager.getRolePlaySettings().getTopicType()!= null 
-            && RolePlayManager.getRolePlaySettings().getSubTopicType()!= null) {*/
-        
-        //get users previous selections:    
-        
-            if (RolePlayManager.getRolePlaySettings() != null 
-            && RolePlayManager.getRolePlaySettings().getLanguage() != null){
-            //language
-            
-            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
-                case "Spanish":
-                    
-                    break;
-                    
-                case "French":
-                    break;
-                
-                case "Portuguese":
-                    break;
-                
-                case "German":
-                    break;
-                
-                case "Italian":
-                    break;
-                
-                case "Greek":
-                    break;
-            }
-            }
-            
-            //role
-            if (RolePlayManager.getRolePlaySettings() != null 
-            && RolePlayManager.getRolePlaySettings().getRole()!= null){
-            
-            switch (RolePlayManager.getRolePlaySettings().getRole()){
-                case "StudentRadioButton":
-                    
-                    break; 
-                
-                case "TeacherRadioButton":
-                    break;
-            }
-            }
-            
-            //difficulty 
-            if (RolePlayManager.getRolePlaySettings() != null 
-            && RolePlayManager.getRolePlaySettings().getDifficulty()!= null){
-                
-                //to get the selected Difficulty
-                List<RolePlayTopic>rolePlayList = new ArrayList();
-                
-                switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
-                case "A1":
-                    rolePlayList = RolePlayManager.getTopicsA1(); 
-                    break;
-                    
-                case "A2":
-                    rolePlayList = RolePlayManager.getTopicsA2();
-                    break;
-                    
-                case "B1":
-                    rolePlayList = RolePlayManager.getTopicsB1();
-                    break;
-                    
-                case "B2":
-                    rolePlayList = RolePlayManager.getTopicsB2(); 
-                    break;
-            }
-            }
-                
-            //topic
-            if (RolePlayManager.getRolePlaySettings() != null 
-            && RolePlayManager.getRolePlaySettings().getTopicType()!= null){
-                
-                switch (RolePlayManager.getRolePlaySettings().getTopicType()){
-                case "appointmentButton":
-                    break;
-                case "crossCulturalButton":
-                    break;
-                case "directionsButton":
-                    break;
-                case "employmentButton":
-                    break;
-                case "exchangingPersonalInfoButton":
-                    break;
-                case "foodAndDrinkButton":
-                    break;
-                case "healthButton":
-                    break;  
-                case "housingButton":
-                    break;
-                case "introductionsButton":
-                    break;
-                case "invitationButton":
-                    break;
-                case "shoppingButton":
-                    break;
-                case "socialisingButton":
-                    break;  
-                case "travelButton":
-                    break;
-                case "universityButton":
-                    break;
-                case "weatherButton":
-                    break;
-                case "workButton":
-                    break;
-            }
-            }
-    }
-    
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -629,11 +501,6 @@ public class RolePlay1 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initPage() {
-        Button1.setVisible(false); 
-        Button2.setVisible(false);         
-        Button3.setVisible(false);         
-        Button4.setVisible(false);
-        Button5.setVisible(false);
         
         // add all radio buttons and labels to two seperate lists, do a for loop to disable all radio buttons and make the labels invisble and set their text to blank
         List<JRadioButton> radioButtons = new ArrayList();
@@ -690,6 +557,7 @@ public class RolePlay1 extends javax.swing.JFrame {
                 buttonsVocabs = matchingRolePlay.personBVocabAssist;
                 radioVocabs = matchingRolePlay.personBVocabEnglish;
             }
+            
             else{
                 buttonsVocabs = matchingRolePlay.personAVocabAssist;
                 radioVocabs = matchingRolePlay.personAVocabEnglish;
@@ -698,10 +566,9 @@ public class RolePlay1 extends javax.swing.JFrame {
             if (!buttonsVocabs.isEmpty()) {
                 for (int i = 0; i < buttonsVocabs.size(); i++) {
                     radioButtons.get(i).setEnabled(true);
-                    radioButtons.get(i).setEnabled(true);
-                    buttons.get(i).setEnabled(true);
-                    buttons.get(i).setVisible(true);
+                    radioButtons.get(i).setVisible(true);
                     radioButtons.get(i).setText(radioVocabs.get(i));
+                    buttons.get(i).setVisible(true);
                     buttons.get(i).setText(buttonsVocabs.get(i));
                 }
             }
@@ -714,6 +581,7 @@ public class RolePlay1 extends javax.swing.JFrame {
                 String personAText = matchingRolePlay.personAText;
                  // to-do assign to panel/label
             }
+            System.out.println("TEST5");
         }
     }
     
@@ -739,9 +607,12 @@ public class RolePlay1 extends javax.swing.JFrame {
     // CRUD operations functions
     
     private void increaseVocabAssistCount() {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
+            return;
+        }
         try {
-            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail)+1;
-            JdbcCrud.upateVocabAssistCount(newAssistCount);
+            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail, RolePlayManager.getRolePlaySettings().getLanguage())+1;
+            JdbcCrud.upateVocabAssistCount(newAssistCount, RolePlayManager.getRolePlaySettings().getLanguage());
         } catch (Exception ex) {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -751,91 +622,95 @@ public class RolePlay1 extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings().getTopicType() == null){
             return;
         }
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
+            return;
+        }
         if (ApplicationInfo.getUser().userEmail == null) {
             return;
         }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         try{
             switch (RolePlayManager.getRolePlaySettings().getTopicType()) {
                 case "Asking and giving directions":
-                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicDirectionsCount(newCount);
+                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicDirectionsCount(newCount, userLanguage);
                     break;
                     
                 case "Basic employment issues":
-                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail) +1;
-                    JdbcCrud.upateTopicEmploymentCount(newCount);
+                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicEmploymentCount(newCount, userLanguage);
                     break;
                     
                 case "Cross-cultural experiences":
-                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail) +1;
-                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount);
+                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount, userLanguage);
                     break;
                     
                 case "Exchanging personal information":
-                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail) +1;
-                    JdbcCrud.upateTopicPersonalInfoCount(newCount);
+                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicPersonalInfoCount(newCount, userLanguage);
                     break;
                     
                 case "Going shopping and asking for prices":
-                    newCount = JdbcCrud.getTopicShoppingCount(userEmail) +1;
-                    JdbcCrud.upateTopicShoppingCount(newCount);
+                    newCount = JdbcCrud.getTopicShoppingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicShoppingCount(newCount, userLanguage);
                     break;
                     
                 case "Health":
-                    newCount = JdbcCrud.getTopicHealthCount(userEmail) +1;
-                    JdbcCrud.upateTopicHealthCount(newCount);
+                    newCount = JdbcCrud.getTopicHealthCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicHealthCount(newCount, userLanguage);
                     break;
                     
                 case "Housing conditions":
-                    newCount = JdbcCrud.getTopicHousingCount(userEmail) +1;
-                    JdbcCrud.upateTopicHousingCount(newCount);
+                    newCount = JdbcCrud.getTopicHousingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicHousingCount(newCount, userLanguage);
                     break;
                     
                 case "Introductions":
-                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicIntroductionsCount(newCount);
+                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicIntroductionsCount(newCount, userLanguage);
                     break;
                     
                 case "Making Appointments":
-                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail) +1;
-                    JdbcCrud.upateTopicAppointmentsCount(newCount);
+                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicAppointmentsCount(newCount, userLanguage);
                     break;
                     
                 case "Making invitations":
-                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail) +1;
-                    JdbcCrud.upateTopicInvitationsCount(newCount);
+                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicInvitationsCount(newCount, userLanguage);
                     break;
                     
                 case "Making travel arrangements":
-                    newCount = JdbcCrud.getTopicTravelCount(userEmail) +1;
-                    JdbcCrud.upateTopicTravelCount(newCount);
+                    newCount = JdbcCrud.getTopicTravelCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicTravelCount(newCount, userLanguage);
                     break;
                     
                 case "Ordering food and drink":
-                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail) +1;
-                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount);
+                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount, userLanguage);
                     break;
                     
                 case "Socialising":
-                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail) +1;
-                    JdbcCrud.upateTopicSocialisingCount(newCount);
+                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicSocialisingCount(newCount, userLanguage);
                     break;
                     
                 case "University life":
-                    newCount = JdbcCrud.getTopicUniversityCount(userEmail) +1;
-                    JdbcCrud.upateTopicUniversityCount(newCount);
+                    newCount = JdbcCrud.getTopicUniversityCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicUniversityCount(newCount, userLanguage);
                     break;
                     
                 case "Weather":
-                    newCount = JdbcCrud.getTopicWeatherCount(userEmail) +1;
-                    JdbcCrud.upateTopicWeatherCount(newCount);
+                    newCount = JdbcCrud.getTopicWeatherCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicWeatherCount(newCount, userLanguage);
                     break;
                     
                 case "Work life":
-                    newCount = JdbcCrud.getTopicWorkCount(userEmail) +1;
-                    JdbcCrud.upateTopicWorkCount(newCount);
+                    newCount = JdbcCrud.getTopicWorkCount(userEmail, userLanguage) +1;
+                    JdbcCrud.upateTopicWorkCount(newCount, userLanguage);
                     break;
             }
         }
@@ -845,8 +720,9 @@ public class RolePlay1 extends javax.swing.JFrame {
     }
     
     private void lastRolePlayTimeStamp() {
+        
         try {
-            JdbcCrud.setUserLastRolePlay();
+            JdbcCrud.setUserLastRolePlay(RolePlayManager.getRolePlaySettings().getLanguage());
         } catch (Exception ex) {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -856,32 +732,36 @@ public class RolePlay1 extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings() == null){
             return;
         }
-       if (ApplicationInfo.getUser().userEmail == null) {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
             return;
         }
+        if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         
         try{
             switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
                 case "A1":
-                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA1(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteA1(newCount, userLanguage);
                     break;
                     
                 case "A2":
-                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA2(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteA2(newCount, userLanguage);
                     break;
                     
                 case "B1":
-                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB1(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteB1(newCount, userLanguage);
                     break;
                     
                 case "B2":
-                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB2(newCount);
+                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail, userLanguage) +1;
+                    JdbcCrud.SetRolePlayCompleteB2(newCount, userLanguage);
                     break;
             }
         }
@@ -894,22 +774,26 @@ public class RolePlay1 extends javax.swing.JFrame {
         if (RolePlayManager.getRolePlaySettings() == null){
             return;
         }
-       if (ApplicationInfo.getUser().userEmail == null) {
+        if (RolePlayManager.getRolePlaySettings().getLanguage() == null) {
             return;
         }
+        if (ApplicationInfo.getUser().userEmail == null) {
+            return;
+        }
+        String userLanguage = RolePlayManager.getRolePlaySettings().getLanguage();
         String userEmail = ApplicationInfo.getUser().userEmail;
         Integer newCount;
         
         try{
             switch (RolePlayManager.getRolePlaySettings().getRole()){
                 case "Student":
-                    newCount = JdbcCrud.getRolePlayStudent(userEmail) +1;
-                    JdbcCrud.setRolePlayStudent(newCount);
+                    newCount = JdbcCrud.getRolePlayStudent(userEmail, userLanguage) +1;
+                    JdbcCrud.setRolePlayStudent(newCount, userLanguage);
                     break;
                     
                 case "Teacher":
-                    newCount = JdbcCrud.getRolePlayTeacher(userEmail) +1;
-                    JdbcCrud.setRolePlayTeacher(newCount);
+                    newCount = JdbcCrud.getRolePlayTeacher(userEmail, userLanguage) +1;
+                    JdbcCrud.setRolePlayTeacher(newCount, userLanguage);
                     break;
             }
         }

@@ -421,10 +421,10 @@ public class RolePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed
-        increaseRolePlayTopicCount();
-        increaseRolePlayDifficultyCounter();
-        increaseRolePlayRoleCounter();
-        lastRolePlayTimeStamp();
+//        increaseRolePlayTopicCount();
+//        increaseRolePlayDifficultyCounter();
+//        increaseRolePlayRoleCounter();
+//        lastRolePlayTimeStamp();
         ApplicationInfo.createHomePage();
         ApplicationInfo.getRolePlayPage().dispose();
     }//GEN-LAST:event_completeButtonActionPerformed
@@ -522,185 +522,185 @@ public class RolePlay extends javax.swing.JFrame {
     
     // CRUD operations functions
     
-    private void increaseVocabAssistCount() {
-        try {
-            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail)+1;
-            JdbcCrud.upateVocabAssistCount(newAssistCount);
-        } catch (Exception ex) {
-            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void increaseRolePlayTopicCount() {
-        if (RolePlayManager.getRolePlaySettings().getTopicType() == null){
-            return;
-        }
-        if (ApplicationInfo.getUser().userEmail == null) {
-            return;
-        }
-        String userEmail = ApplicationInfo.getUser().userEmail;
-        Integer newCount;
-        try{
-            switch (RolePlayManager.getRolePlaySettings().getTopicType()) {
-                case "Asking and giving directions":
-                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicDirectionsCount(newCount);
-                    break;
-                    
-                case "Basic employment issues":
-                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail) +1;
-                    JdbcCrud.upateTopicEmploymentCount(newCount);
-                    break;
-                    
-                case "Cross-cultural experiences":
-                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail) +1;
-                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount);
-                    break;
-                    
-                case "Exchanging personal information":
-                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail) +1;
-                    JdbcCrud.upateTopicPersonalInfoCount(newCount);
-                    break;
-                    
-                case "Going shopping and asking for prices":
-                    newCount = JdbcCrud.getTopicShoppingCount(userEmail) +1;
-                    JdbcCrud.upateTopicShoppingCount(newCount);
-                    break;
-                    
-                case "Health":
-                    newCount = JdbcCrud.getTopicHealthCount(userEmail) +1;
-                    JdbcCrud.upateTopicHealthCount(newCount);
-                    break;
-                    
-                case "Housing conditions":
-                    newCount = JdbcCrud.getTopicHousingCount(userEmail) +1;
-                    JdbcCrud.upateTopicHousingCount(newCount);
-                    break;
-                    
-                case "Introductions":
-                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail) +1;
-                    JdbcCrud.upateTopicIntroductionsCount(newCount);
-                    break;
-                    
-                case "Making Appointments":
-                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail) +1;
-                    JdbcCrud.upateTopicAppointmentsCount(newCount);
-                    break;
-                    
-                case "Making invitations":
-                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail) +1;
-                    JdbcCrud.upateTopicInvitationsCount(newCount);
-                    break;
-                    
-                case "Making travel arrangements":
-                    newCount = JdbcCrud.getTopicTravelCount(userEmail) +1;
-                    JdbcCrud.upateTopicTravelCount(newCount);
-                    break;
-                    
-                case "Ordering food and drink":
-                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail) +1;
-                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount);
-                    break;
-                    
-                case "Socialising":
-                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail) +1;
-                    JdbcCrud.upateTopicSocialisingCount(newCount);
-                    break;
-                    
-                case "University life":
-                    newCount = JdbcCrud.getTopicUniversityCount(userEmail) +1;
-                    JdbcCrud.upateTopicUniversityCount(newCount);
-                    break;
-                    
-                case "Weather":
-                    newCount = JdbcCrud.getTopicWeatherCount(userEmail) +1;
-                    JdbcCrud.upateTopicWeatherCount(newCount);
-                    break;
-                    
-                case "Work life":
-                    newCount = JdbcCrud.getTopicWorkCount(userEmail) +1;
-                    JdbcCrud.upateTopicWorkCount(newCount);
-                    break;
-            }
-        }
-        catch (Exception ex) {
-            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void lastRolePlayTimeStamp() {
-        try {
-            JdbcCrud.setUserLastRolePlay();
-        } catch (Exception ex) {
-            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void increaseRolePlayDifficultyCounter() {
-        if (RolePlayManager.getRolePlaySettings() == null){
-            return;
-        }
-       if (ApplicationInfo.getUser().userEmail == null) {
-            return;
-        }
-        String userEmail = ApplicationInfo.getUser().userEmail;
-        Integer newCount;
-        
-        try{
-            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
-                case "A1":
-                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA1(newCount);
-                    break;
-                    
-                case "A2":
-                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteA2(newCount);
-                    break;
-                    
-                case "B1":
-                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB1(newCount);
-                    break;
-                    
-                case "B2":
-                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail) +1;
-                    JdbcCrud.SetRolePlayCompleteB2(newCount);
-                    break;
-            }
-        }
-        catch (Exception ex) {
-            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private void increaseRolePlayRoleCounter() {
-        if (RolePlayManager.getRolePlaySettings() == null){
-            return;
-        }
-       if (ApplicationInfo.getUser().userEmail == null) {
-            return;
-        }
-        String userEmail = ApplicationInfo.getUser().userEmail;
-        Integer newCount;
-        
-        try{
-            switch (RolePlayManager.getRolePlaySettings().getRole()){
-                case "Student":
-                    newCount = JdbcCrud.getRolePlayStudent(userEmail) +1;
-                    JdbcCrud.setRolePlayStudent(newCount);
-                    break;
-                    
-                case "Teacher":
-                    newCount = JdbcCrud.getRolePlayTeacher(userEmail) +1;
-                    JdbcCrud.setRolePlayTeacher(newCount);
-                    break;
-            }
-        }
-        catch (Exception ex) {
-            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    private void increaseVocabAssistCount() {
+//        try {
+//            int newAssistCount  = JdbcCrud.getVocabAssistCount(ApplicationInfo.getUser().userEmail)+1;
+//            JdbcCrud.upateVocabAssistCount(newAssistCount);
+//        } catch (Exception ex) {
+//            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    private void increaseRolePlayTopicCount() {
+//        if (RolePlayManager.getRolePlaySettings().getTopicType() == null){
+//            return;
+//        }
+//        if (ApplicationInfo.getUser().userEmail == null) {
+//            return;
+//        }
+//        String userEmail = ApplicationInfo.getUser().userEmail;
+//        Integer newCount;
+//        try{
+//            switch (RolePlayManager.getRolePlaySettings().getTopicType()) {
+//                case "Asking and giving directions":
+//                    newCount = JdbcCrud.getTopicDirectionsCount(userEmail) +1;
+//                    JdbcCrud.upateTopicDirectionsCount(newCount);
+//                    break;
+//                    
+//                case "Basic employment issues":
+//                    newCount = JdbcCrud.getTopicEmploymentCount(userEmail) +1;
+//                    JdbcCrud.upateTopicEmploymentCount(newCount);
+//                    break;
+//                    
+//                case "Cross-cultural experiences":
+//                    newCount = JdbcCrud.getTopicCulturalExperiencesCount(userEmail) +1;
+//                    JdbcCrud.upateTopicCulturalExperiencesCount(newCount);
+//                    break;
+//                    
+//                case "Exchanging personal information":
+//                    newCount = JdbcCrud.getTopicPersonalInfoCount(userEmail) +1;
+//                    JdbcCrud.upateTopicPersonalInfoCount(newCount);
+//                    break;
+//                    
+//                case "Going shopping and asking for prices":
+//                    newCount = JdbcCrud.getTopicShoppingCount(userEmail) +1;
+//                    JdbcCrud.upateTopicShoppingCount(newCount);
+//                    break;
+//                    
+//                case "Health":
+//                    newCount = JdbcCrud.getTopicHealthCount(userEmail) +1;
+//                    JdbcCrud.upateTopicHealthCount(newCount);
+//                    break;
+//                    
+//                case "Housing conditions":
+//                    newCount = JdbcCrud.getTopicHousingCount(userEmail) +1;
+//                    JdbcCrud.upateTopicHousingCount(newCount);
+//                    break;
+//                    
+//                case "Introductions":
+//                    newCount = JdbcCrud.getTopicIntroductionsCount(userEmail) +1;
+//                    JdbcCrud.upateTopicIntroductionsCount(newCount);
+//                    break;
+//                    
+//                case "Making Appointments":
+//                    newCount = JdbcCrud.getTopicAppointmentsCount(userEmail) +1;
+//                    JdbcCrud.upateTopicAppointmentsCount(newCount);
+//                    break;
+//                    
+//                case "Making invitations":
+//                    newCount = JdbcCrud.getTopicInvitationsCount(userEmail) +1;
+//                    JdbcCrud.upateTopicInvitationsCount(newCount);
+//                    break;
+//                    
+//                case "Making travel arrangements":
+//                    newCount = JdbcCrud.getTopicTravelCount(userEmail) +1;
+//                    JdbcCrud.upateTopicTravelCount(newCount);
+//                    break;
+//                    
+//                case "Ordering food and drink":
+//                    newCount = JdbcCrud.getTopicFoodAndDrinkCount(userEmail) +1;
+//                    JdbcCrud.upateTopicFoodAndDrinkCount(newCount);
+//                    break;
+//                    
+//                case "Socialising":
+//                    newCount = JdbcCrud.getTopicSocialisingCount(userEmail) +1;
+//                    JdbcCrud.upateTopicSocialisingCount(newCount);
+//                    break;
+//                    
+//                case "University life":
+//                    newCount = JdbcCrud.getTopicUniversityCount(userEmail) +1;
+//                    JdbcCrud.upateTopicUniversityCount(newCount);
+//                    break;
+//                    
+//                case "Weather":
+//                    newCount = JdbcCrud.getTopicWeatherCount(userEmail) +1;
+//                    JdbcCrud.upateTopicWeatherCount(newCount);
+//                    break;
+//                    
+//                case "Work life":
+//                    newCount = JdbcCrud.getTopicWorkCount(userEmail) +1;
+//                    JdbcCrud.upateTopicWorkCount(newCount);
+//                    break;
+//            }
+//        }
+//        catch (Exception ex) {
+//            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    private void lastRolePlayTimeStamp() {
+//        try {
+//            JdbcCrud.setUserLastRolePlay();
+//        } catch (Exception ex) {
+//            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    private void increaseRolePlayDifficultyCounter() {
+//        if (RolePlayManager.getRolePlaySettings() == null){
+//            return;
+//        }
+//       if (ApplicationInfo.getUser().userEmail == null) {
+//            return;
+//        }
+//        String userEmail = ApplicationInfo.getUser().userEmail;
+//        Integer newCount;
+//        
+//        try{
+//            switch (RolePlayManager.getRolePlaySettings().getDifficulty()){
+//                case "A1":
+//                    newCount = JdbcCrud.getRolePlayCompleteA1(userEmail) +1;
+//                    JdbcCrud.SetRolePlayCompleteA1(newCount);
+//                    break;
+//                    
+//                case "A2":
+//                    newCount = JdbcCrud.getRolePlayCompleteA2(userEmail) +1;
+//                    JdbcCrud.SetRolePlayCompleteA2(newCount);
+//                    break;
+//                    
+//                case "B1":
+//                    newCount = JdbcCrud.getRolePlayCompleteB1(userEmail) +1;
+//                    JdbcCrud.SetRolePlayCompleteB1(newCount);
+//                    break;
+//                    
+//                case "B2":
+//                    newCount = JdbcCrud.getRolePlayCompleteB2(userEmail) +1;
+//                    JdbcCrud.SetRolePlayCompleteB2(newCount);
+//                    break;
+//            }
+//        }
+//        catch (Exception ex) {
+//            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//    
+//    private void increaseRolePlayRoleCounter() {
+//        if (RolePlayManager.getRolePlaySettings() == null){
+//            return;
+//        }
+//       if (ApplicationInfo.getUser().userEmail == null) {
+//            return;
+//        }
+//        String userEmail = ApplicationInfo.getUser().userEmail;
+//        Integer newCount;
+//        
+//        try{
+//            switch (RolePlayManager.getRolePlaySettings().getRole()){
+//                case "Student":
+//                    newCount = JdbcCrud.getRolePlayStudent(userEmail) +1;
+//                    JdbcCrud.setRolePlayStudent(newCount);
+//                    break;
+//                    
+//                case "Teacher":
+//                    newCount = JdbcCrud.getRolePlayTeacher(userEmail) +1;
+//                    JdbcCrud.setRolePlayTeacher(newCount);
+//                    break;
+//            }
+//        }
+//        catch (Exception ex) {
+//            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
 
 }

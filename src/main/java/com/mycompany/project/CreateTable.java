@@ -7,6 +7,8 @@ package com.mycompany.project;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,8 +16,30 @@ import javax.swing.JOptionPane;
  * @author lucas
  */
 public class CreateTable {
+    
+    public static void initialise(){
+        createClientInfoTable();
+        List<String> languages = new ArrayList();
+        String spanish = "Spanish";
+        String french = "French";
+        String portuguese = "Portuguese";
+        String german = "German";
+        String italian = "Italian";
+        String greek = "Greek";
+        languages.add(spanish);
+        languages.add(french);
+        languages.add(portuguese);
+        languages.add(german);
+        languages.add(italian);
+        languages.add(greek);
+        for (int i = 0; i < languages.size(); i++) {
+            createClientStatisticsTable(languages.get(i));
+        }
+        
+        
+    }
    
-    public static void createTables() {
+    public static void createClientInfoTable() {
         Connection con = ConnectDB.getConnection();
         System.out.println("creating client_Info table...");
         Statement stmt = null;
@@ -56,11 +80,14 @@ public class CreateTable {
                 }
             }
         }
-        con = ConnectDB.getConnection();
-        stmt = null;
-        System.out.println("Creating client_Statistics table...");
-        String query2 = null;
-        query2 = "Create TABLE if not exists client_Statistics \n("
+    }
+    
+    public static void createClientStatisticsTable(String language) {
+        Connection con = ConnectDB.getConnection();
+        System.out.println("creating client_Statistics_"+language+"...");
+        Statement stmt = null;
+        String query;
+        query = "Create TABLE if not exists client_Statistics_"+language+"("
                 + "     client_email VARCHAR(254) not null,"
                 + "     client_statistics_language_roleplay_complete_a1 INTEGER not null,"
                 + "     client_statistics_language_roleplay_complete_a2 INTEGER not null,"
@@ -85,12 +112,13 @@ public class CreateTable {
                 + "     client_statistics_topic_university INTEGER not null,"
                 + "     client_statistics_topic_weather INTEGER not null,"
                 + "     client_statistics_topic_work INTEGER not null,"
+                + "     client_statistics_last_roleplay VARCHAR(254),"
                 + "     FOREIGN KEY (client_email) references client_Info(client_email)\n" + ");";
         try {
             stmt = con.createStatement();
-            stmt.executeUpdate(query2);
+            stmt.executeUpdate(query);
             con.commit();
-            System.out.println("Client_Statistics table created");
+            System.out.println("client_Statistics_"+language+" table created");
         }
         catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, "SQLException: " + ex.getMessage());
@@ -131,7 +159,57 @@ public class CreateTable {
                 + "     1" + ");";
         String query2;
         query2 = "INSERT INTO "
-                + "     client_Statistics (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_Statistics_Spanish (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
+                + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                + "     client_statistics_topic_shopping,  client_statistics_topic_health, client_statistics_topic_housing, client_statistics_topic_introductions,"
+                + "     client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                + "     client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, client_statistics_topic_work) "
+                + "     VALUES"
+                + "     ('w1783737@my.westminster.ac.uk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );";
+        String query3 = "INSERT INTO "
+                + "     client_Statistics_French (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
+                + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                + "     client_statistics_topic_shopping,  client_statistics_topic_health, client_statistics_topic_housing, client_statistics_topic_introductions,"
+                + "     client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                + "     client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, client_statistics_topic_work) "
+                + "     VALUES"
+                + "     ('w1783737@my.westminster.ac.uk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );";
+        String query4 = "INSERT INTO "
+                + "     client_Statistics_Portuguese (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
+                + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                + "     client_statistics_topic_shopping,  client_statistics_topic_health, client_statistics_topic_housing, client_statistics_topic_introductions,"
+                + "     client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                + "     client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, client_statistics_topic_work) "
+                + "     VALUES"
+                + "     ('w1783737@my.westminster.ac.uk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );";
+        String query5 = "INSERT INTO "
+                + "     client_Statistics_German (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
+                + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                + "     client_statistics_topic_shopping,  client_statistics_topic_health, client_statistics_topic_housing, client_statistics_topic_introductions,"
+                + "     client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                + "     client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, client_statistics_topic_work) "
+                + "     VALUES"
+                + "     ('w1783737@my.westminster.ac.uk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );";
+        String query6 = "INSERT INTO "
+                + "     client_Statistics_Italian (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
+                + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
+                + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
+                + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
+                + "     client_statistics_topic_shopping,  client_statistics_topic_health, client_statistics_topic_housing, client_statistics_topic_introductions,"
+                + "     client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel, client_statistics_topic_food_drink,"
+                + "     client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, client_statistics_topic_work) "
+                + "     VALUES"
+                + "     ('w1783737@my.westminster.ac.uk', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 );";
+        String query7 = "INSERT INTO "
+                + "     client_Statistics_Greek (client_email, client_statistics_language_roleplay_complete_a1, client_statistics_language_roleplay_complete_a2,"
                 + "     client_statistics_language_roleplay_complete_b1, client_statistics_language_roleplay_complete_b2, client_statistics_language_roleplay_person_a,"
                 + "     client_statistics_language_roleplay_person_b, client_statistics_language_vocab_assist, client_statistics_topic_directions,"
                 + "     client_statistics_topic_employment, client_statistics_topic_cultural_experiences, client_statistics_topic_personal_info,"
@@ -144,6 +222,11 @@ public class CreateTable {
             stmt = con.createStatement();
             stmt.executeUpdate(query);
             stmt.executeUpdate(query2);
+            stmt.executeUpdate(query3);
+            stmt.executeUpdate(query4);
+            stmt.executeUpdate(query5);
+            stmt.executeUpdate(query6);
+            stmt.executeUpdate(query7);
             con.commit();
             System.out.println("Admin user created");
         }

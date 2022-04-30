@@ -27,7 +27,7 @@ public class Project {
         if(!file.exists()) {
             System.out.println("Database doesn't exist. Creating database now...");
             CreateDatabase.createDB();
-            CreateTable.createTables();
+            CreateTable.initialise();
             CreateTable.createTestAdmin();
             System.out.println("Database successfully created!");
         }

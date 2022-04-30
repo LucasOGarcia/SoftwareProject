@@ -347,7 +347,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
    
     public static void createRolePlayPage() { // Creates the create role play page
-        JFrame rolePlayPage = new RolePlay1();
+        JFrame rolePlayPage = new RolePlay();
         rolePlayPage.setTitle(appName);
         rolePlayPage.setPreferredSize(screenSize);
         rolePlayPage.setMaximumSize(screenSize);

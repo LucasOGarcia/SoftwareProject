@@ -18,12 +18,12 @@ import javax.swing.JRadioButton;
  *
  * @author Najeeha
  */
-public class RolePlay1 extends javax.swing.JFrame {
+public class RolePlay extends javax.swing.JFrame {
 
     /**
      * Creates new form RolePlay1
      */
-    public RolePlay1() {
+    public RolePlay() {
         initComponents();
         initPage();
         text1.setText("helloo");
@@ -458,20 +458,21 @@ public class RolePlay1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RolePlay1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RolePlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RolePlay1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RolePlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RolePlay1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RolePlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RolePlay1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RolePlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RolePlay1().setVisible(true);
+                new RolePlay().setVisible(true);
             }
         });
     }

@@ -99,7 +99,6 @@ public class ProgressPage extends javax.swing.JFrame {
         jbtnReset = new javax.swing.JButton();
         jbtnDelete = new javax.swing.JButton();
         jbtnTranscript = new javax.swing.JButton();
-        jbtnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -277,7 +276,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jbtnResultActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 700, 170, 40));
+        getContentPane().add(jbtnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 700, 170, 40));
 
         jbtnExit.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jbtnExit.setText("Exit");
@@ -286,7 +285,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jbtnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 700, 210, 40));
+        getContentPane().add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 700, 210, 40));
 
         jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jbtnReset.setText("Reset");
@@ -295,7 +294,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jbtnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 700, 170, 40));
+        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 700, 170, 40));
 
         jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jbtnDelete.setText("Delete");
@@ -304,7 +303,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jbtnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 700, 170, 40));
+        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 700, 170, 40));
 
         jbtnTranscript.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jbtnTranscript.setText("Transcript");
@@ -313,16 +312,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jbtnTranscriptActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnTranscript, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 170, 40));
-
-        jbtnPrint.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jbtnPrint.setText("Print");
-        jbtnPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnPrintActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbtnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 700, 170, 40));
+        getContentPane().add(jbtnTranscript, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 700, 170, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -501,38 +491,6 @@ private JFrame frame;
         );
     }//GEN-LAST:event_jbtnTranscriptActionPerformed
 
-    private void jbtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPrintActionPerformed
-                        try {
-/**
-                        PrinterJob job = PrinterJob.getPrinterJob();
-                        String strDate = MessageFormat.format("{0,date,short} {0,time,short}", new Date());
-
-                        MessageFormat[] header = new MessageFormat[3];
-                        header[0] = new MessageFormat("Unofficial Transcript");
-                        header[1] = new MessageFormat("");
-                        header[2] = new MessageFormat("Printed: " + strDate);
-                        
-                        MessageFormat[] footer = new MessageFormat[6];
-
-                        // Assign the 6 Strings to the footer array
-                        footer[0] = new MessageFormat("Authorizer Signature:______________  Date:___ /___ /_____ ");
-                        footer[1] = new MessageFormat("");
-                        footer[2] = new MessageFormat("");
-                        footer[3] = new MessageFormat("Notarizer Signature:______________  Date:___ /___ /_____ ");
-                        footer[4] = new MessageFormat("");
-                        footer[5] = new MessageFormat("- {0} -");
-*/              
-                        
-                        jTableProgressRecord.print();
-                        //job.print();
-                } catch (PrinterException e) {
-                        System.err.format("Cannot print %s%n", e.getMessage());
-
-                        JOptionPane.showMessageDialog(this,
-                                "Check that your printer is working correctly", "PRINT ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-    }//GEN-LAST:event_jbtnPrintActionPerformed
-
     private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
         DefaultTableModel dtablemodel = (DefaultTableModel) jTableProgressRecord.getModel();
         if (jTableProgressRecord.getSelectedRow() == -1) {
@@ -670,7 +628,6 @@ private JFrame frame;
     private javax.swing.JTextArea jTextAreaTranscript;
     private javax.swing.JButton jbtnDelete;
     private javax.swing.JButton jbtnExit;
-    private javax.swing.JButton jbtnPrint;
     private javax.swing.JButton jbtnReset;
     private javax.swing.JButton jbtnResult;
     private javax.swing.JButton jbtnTranscript;

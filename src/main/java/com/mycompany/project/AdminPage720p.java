@@ -47,7 +47,7 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ADMIN PAGE");
+        jLabel2.setText("ADMIN PAGE (720p)");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select:", "Name", "Email", "Institution" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,12 +107,6 @@ public class AdminPage720p extends javax.swing.JFrame {
                 crudsearchButtonActionPerformed(evt);
             }
         });
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,4 +268,10 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+private void backtoHome(){
+        ApplicationInfo.createadminHomePage(); 
+        ApplicationInfo.getAdminPage720p().dispose();
+}
+
 }

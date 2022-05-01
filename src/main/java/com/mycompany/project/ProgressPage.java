@@ -85,9 +85,12 @@ public class ProgressPage extends javax.swing.JFrame {
         jLabelPorteuguese = new javax.swing.JLabel();
         jLabelTotalScore = new javax.swing.JLabel();
         jLabelAverage = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaRecord = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableProgressRecord = new javax.swing.JTable();
         jbtnResult = new javax.swing.JButton();
@@ -104,152 +107,162 @@ public class ProgressPage extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLastName.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Progress Record", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jLastName.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jComboBoxDifficulty.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beginner", "Intermediate", "Expert", "Professional"}));
         jComboBoxDifficulty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDifficultyActionPerformed(evt);
             }
         });
-        jLastName.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 150, 40));
+        jLastName.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 30));
 
-        jtxtSpanish.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtSpanish.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtSpanish.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtSpanishKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 150, 40));
+        jLastName.add(jtxtSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 150, 30));
 
-        jtxtGerman.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtGerman.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtGerman.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtGermanKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 150, 40));
+        jLastName.add(jtxtGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, 30));
 
-        jtxtFrench.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtFrench.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtFrench.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtFrenchKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 150, 40));
+        jLastName.add(jtxtFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 150, 30));
 
-        jtxtItalian.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtItalian.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtItalian.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtItalianKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 150, 40));
+        jLastName.add(jtxtItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 150, 30));
 
-        jtxtGreek.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtGreek.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtGreek.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtGreekKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 150, 40));
+        jLastName.add(jtxtGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 150, 30));
 
-        jtxtPorteuguese.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtPorteuguese.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtPorteuguese.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtxtPorteugueseKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 150, 40));
+        jLastName.add(jtxtPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 150, 30));
 
-        jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelEmail.setText("Email:");
         jLastName.add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        jtxtEmail.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jtxtEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtEmailActionPerformed(evt);
             }
         });
-        jLastName.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, 40));
+        jLastName.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, 30));
 
-        jLabelLastName.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelLastName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelLastName.setText("Last Name:");
         jLastName.add(jLabelLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jtxtLastName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLastName.add(jtxtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 150, 40));
+        jtxtLastName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLastName.add(jtxtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, 30));
 
-        jLabelFirstName.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelFirstName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelFirstName.setText("First Name:");
         jLastName.add(jLabelFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        jtxtFirstName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLastName.add(jtxtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, 40));
+        jtxtFirstName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLastName.add(jtxtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 30));
 
-        jLabelRanking.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelRanking.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelRanking.setText("Ranking:");
         jLastName.add(jLabelRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
-        jtxtTotalScore.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLastName.add(jtxtTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 150, 40));
+        jtxtTotalScore.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLastName.add(jtxtTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 150, 30));
 
-        jtxtAverage.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLastName.add(jtxtAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 150, 40));
+        jtxtAverage.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLastName.add(jtxtAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 150, 30));
 
-        jtxtRanking.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLastName.add(jtxtRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 150, 40));
+        jtxtRanking.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLastName.add(jtxtRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 30));
 
-        jLabelDifficulty.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelDifficulty.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelDifficulty.setText("Difficulty");
         jLastName.add(jLabelDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
         jLastName.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 310, -1));
 
-        jLabelSpanish.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelSpanish.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelSpanish.setText("Spanish:");
         jLastName.add(jLabelSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
-        jLabelGerman.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelGerman.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelGerman.setText("German:");
         jLastName.add(jLabelGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        jLabelFrench.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelFrench.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelFrench.setText("French:");
         jLastName.add(jLabelFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
-        jLabelItalian.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelItalian.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelItalian.setText("Italian:");
         jLastName.add(jLabelItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
-        jLabelGreek.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelGreek.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelGreek.setText("Greek:");
         jLastName.add(jLabelGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
-        jLabelPorteuguese.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelPorteuguese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPorteuguese.setText("Porteuguese:");
         jLastName.add(jLabelPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
-        jLabelTotalScore.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelTotalScore.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelTotalScore.setText("Total Score:");
         jLastName.add(jLabelTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabelAverage.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabelAverage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelAverage.setText("Average:");
         jLastName.add(jLabelAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Progress");
+        jLastName.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        jLabel2.setText("Label/Icon");
+        jLastName.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
         getContentPane().add(jLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 490));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Record", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextAreaRecord.setColumns(20);
-        jTextAreaRecord.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jTextAreaRecord.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTextAreaRecord.setRows(5);
         jScrollPane2.setViewportView(jTextAreaRecord);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 430, 420));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Record");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 470, 490));
 
@@ -265,50 +278,50 @@ public class ProgressPage extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 1160, 200));
 
-        jbtnResult.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnResult.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnResult.setText("Result");
         jbtnResult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnResultActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 700, 170, 40));
+        getContentPane().add(jbtnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 700, 150, 40));
 
-        jbtnExit.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnExit.setText("Exit");
         jbtnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 700, 210, 40));
+        getContentPane().add(jbtnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 700, 150, 40));
 
-        jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnReset.setText("Reset");
         jbtnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 700, 170, 40));
+        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 700, 150, 40));
 
-        jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnDelete.setText("Delete");
         jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 700, 170, 40));
+        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 700, 150, 40));
 
-        jbtnRecord.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jbtnRecord.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnRecord.setText("Record");
         jbtnRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnRecordActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 700, 170, 40));
+        getContentPane().add(jbtnRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, 150, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -602,6 +615,9 @@ private JFrame frame;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBoxDifficulty;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAverage;
     private javax.swing.JLabel jLabelDifficulty;
     private javax.swing.JLabel jLabelEmail;

@@ -5,27 +5,18 @@
  */
 package com.mycompany.project;
 
-import com.sun.glass.events.KeyEvent;
 import java.awt.Component;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.MessageFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -392,7 +383,7 @@ public class ProgressPage extends javax.swing.JFrame {
             //rs = ResultSet
             rs.close();
             pst.close();
-        } catch (Exception e) {
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         updateTable();
@@ -406,10 +397,11 @@ public class ProgressPage extends javax.swing.JFrame {
     private void jtxtSpanishKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtSpanishKeyTyped
         // field will only accept numbers for score
         char iNumber = evt.getKeyChar();
-        if (!(Character.isDigit(iNumber))
-            ||  (iNumber == KeyEvent.VK_BACKSPACE)
-                    || (iNumber == KeyEvent.VK_DELETE)) {
-        evt.consume();
+        if (Character.isDigit(iNumber)
+            &&  iNumber != KeyEvent.VK_BACKSPACE
+                    && iNumber != KeyEvent.VK_DELETE) {
+        } else {
+            evt.consume();
         }
     }//GEN-LAST:event_jtxtSpanishKeyTyped
 
@@ -518,7 +510,7 @@ private JFrame frame;
                 //pst = connection.prepareStatement(sql);
                 //pst.execute();
                 JOptionPane.showMessageDialog(null, "Deleted Successfully");
-            } catch (Exception e) {
+            } catch (HeadlessException e) {
                 JOptionPane.showConfirmDialog(null, e);
             }
         }
@@ -558,7 +550,7 @@ private JFrame frame;
                     // DefaultTableModel instance is created as dtablemodel
                     dtablemodel.addRow(columnData);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
@@ -593,6 +585,7 @@ private JFrame frame;
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ProgressPage().setVisible(true);
             }
@@ -607,7 +600,7 @@ private JFrame frame;
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/StudentDataMS", "postgres", "md5");
             
             return connection;
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
             return null;
         }

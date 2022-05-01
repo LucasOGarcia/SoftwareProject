@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 
+
 /**
  *
  * @author lucas
@@ -40,7 +41,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
    private static JFrame adminhPage;
     private static JFrame adminPage720;
     private static JFrame adminPage1080;
-    private static JFrame progressPage;
+    private static JFrame ProgressPage;
     
     // Setters
     
@@ -65,7 +66,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static void setAdminHomePage(JFrame adminhomePage){
-        ApplicationInfo.adminhPage = adminhPage;
+        ApplicationInfo.adminHomePage = adminHomePage;
     }
     
         public static void setAdminPage720p(JFrame adminPage720){
@@ -121,7 +122,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static void setProgressPage(JFrame progressPage){
-        ApplicationInfo.progressPage = progressPage;
+        ApplicationInfo.ProgressPage = progressPage;
     }
     
     
@@ -204,7 +205,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static JFrame getProgressPage(){
-        return ApplicationInfo.progressPage;
+        return ApplicationInfo.ProgressPage;
     }
     
     // Other functions
@@ -413,7 +414,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         
          }
          
-        public static void createprogressPage() { // creates Progress Page
+        public static void createProgressPage() { // creates Progress Page
         JFrame progressPage = new ProgressPage();
         progressPage.setTitle(appName);
         progressPage.setPreferredSize(screenSize);

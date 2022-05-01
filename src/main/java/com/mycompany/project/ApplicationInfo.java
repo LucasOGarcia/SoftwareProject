@@ -11,6 +11,7 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -211,13 +212,13 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     // Other functions
     
     public static double detectScreenWidth(){
-            Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
-            double width = monitorSize.getWidth();
-            return width;           
+        Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = monitorSize.getWidth();
+        return width;           
     }
     
     public static double detectScreenHeight(){
-       Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
         double height = monitorSize.getHeight();
         return height;
     }
@@ -317,8 +318,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         conversationLevelSelectionPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(conversationLevelSelectionPage);
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
-        conversationLevelSelectionPage.setVisible(true);
-        
+        conversationLevelSelectionPage.setVisible(true);      
     }
    
     public static void createTopicSelectionPage() { // Creates the topic selection page
@@ -346,9 +346,35 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
         subTopicSelectionPage.setVisible(true);
     }
-   
+    
+    public static void createSubTopicSelectionPage(List<RolePlayTopic> newMatchingSubTopics) { // Creates the sub-topic selection page based of a list
+        JFrame subTopicSelectionPage = new SubTopicSelection(newMatchingSubTopics);
+        subTopicSelectionPage.setTitle(appName);
+        subTopicSelectionPage.setPreferredSize(screenSize);
+        subTopicSelectionPage.setMaximumSize(screenSize);
+        subTopicSelectionPage.setMinimumSize(screenSize);
+        subTopicSelectionPage.setResizable(false);
+        subTopicSelectionPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(subTopicSelectionPage);
+        ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
+        subTopicSelectionPage.setVisible(true);
+    }
+    
     public static void createRolePlayPage() { // Creates the create role play page
         JFrame rolePlayPage = new RolePlay();
+        rolePlayPage.setTitle(appName);
+        rolePlayPage.setPreferredSize(screenSize);
+        rolePlayPage.setMaximumSize(screenSize);
+        rolePlayPage.setMinimumSize(screenSize);
+        rolePlayPage.setResizable(false);
+        rolePlayPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(rolePlayPage);
+        ApplicationInfo.setRolePlayPage(rolePlayPage);
+        rolePlayPage.setVisible(true);
+    }
+    
+    public static void createRolePlayPage(List<RolePlayTopic> newMatchingSubTopics) { // Creates the create role play page
+        JFrame rolePlayPage = new RolePlay(newMatchingSubTopics);
         rolePlayPage.setTitle(appName);
         rolePlayPage.setPreferredSize(screenSize);
         rolePlayPage.setMaximumSize(screenSize);

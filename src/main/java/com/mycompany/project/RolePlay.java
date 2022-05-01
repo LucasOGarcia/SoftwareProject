@@ -26,9 +26,15 @@ public class RolePlay extends javax.swing.JFrame {
     public RolePlay() {
         initComponents();
         initPage();
-        
     }
     
+    public RolePlay(List<RolePlayTopic> newMatchingSubTopics) {
+        setPreviousSubTopics(newMatchingSubTopics);
+        initComponents();
+        initPage();
+    }
+    
+    List<RolePlayTopic> previousSubTopics;
     List<String> buttonsVocabs;
     List<String> radioVocabs;
 
@@ -729,12 +735,16 @@ public class RolePlay extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        
         RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
-        settings.setTopicType(null);
+        settings.setSubTopicType(null);
         RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createTopicSelectionPage();
-        ApplicationInfo.createSubTopicSelectionPage();
-        //ApplicationInfo.getSubTopicSelectionPage();
+        if (!previousSubTopics.isEmpty()) {
+            ApplicationInfo.createSubTopicSelectionPage(previousSubTopics);
+        }
+        else{
+            ApplicationInfo.createSubTopicSelectionPage();
+        }
         ApplicationInfo.getRolePlayPage().dispose(); 
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -923,6 +933,10 @@ public class RolePlay extends javax.swing.JFrame {
             }
         }
         return matchingRolePlays;
+    }
+    
+    private void setPreviousSubTopics(List<RolePlayTopic> newPreviousSubTopics) {
+        this.previousSubTopics = newPreviousSubTopics;
     }
 
     // CRUD operations functions

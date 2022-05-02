@@ -411,7 +411,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
         
     public static void createadminPage1080p() { // Admin Page (adjust size)
-        JFrame adminPage1080 = new AdminPage();
+        JFrame adminPage1080 = new AdminPage1080p();
         adminPage1080.setTitle(appName);
         adminPage1080.setPreferredSize(screenSize);//adjust to detect
         adminPage1080.setMaximumSize(screenSize);//adjust to custom

@@ -47,80 +47,72 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Component id="jTextField4" min="-2" pref="139" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" pref="151" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jTabbedPane3" min="-2" pref="783" max="-2" attributes="0"/>
-                              <EmptySpace pref="10" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jButton3" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="clientInfoTab" min="-2" pref="746" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="backButton" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jTabbedPane1" min="-2" pref="312" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jTabbedPane1" alignment="0" min="-2" pref="312" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="clientInfoTab" min="-2" pref="225" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTabbedPane1" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Component id="jTabbedPane3" min="-2" pref="196" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <Component id="backButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -579,11 +571,18 @@
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
+    <Container class="javax.swing.JTabbedPane" name="clientInfoTab">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -597,7 +596,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable2">
+            <Component class="javax.swing.JTable" name="clientInfoTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="4">
@@ -609,14 +608,48 @@
                     <Column editable="true" title="Account Type" type="java.lang.Integer"/>
                   </Table>
                 </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+        <Container class="javax.swing.JScrollPane" name="jScrollPane8">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -630,133 +663,44 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable3">
+            <Component class="javax.swing.JTable" name="jTable8">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="true" title="Latest Roleplay" type="java.lang.String"/>
                   </Table>
                 </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane6">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="client_Statistics_French">
-                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_French"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable4">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane7">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="client_Statistics_Portuguese">
-                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_Portuguese"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable5">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane8">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="client_Statistics_German">
-                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_German"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable6">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="jScrollPane9">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="cliebnt_Statistics_Italian">
-                <Property name="tabTitle" type="java.lang.String" value="cliebnt_Statistics_Italian"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable7">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane10">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -770,15 +714,366 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable8">
+            <Component class="javax.swing.JTable" name="jTable9">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="false" title="Latest Roleplay" type="java.lang.String"/>
                   </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="client_Statistics_Italian">
+                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_Italian"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable10">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="true" title="Latest Roleplay" type="java.lang.String"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane12">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="client_Statistics_French">
+                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_French"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable12">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="true" title="Latest Roleplay" type="java.lang.String"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane13">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="client_Statistics_German">
+                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_German"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable13">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="true" title="Latest Roleplay" type="java.lang.String"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane14">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="client_Statistics_Portuguese">
+                <Property name="tabTitle" type="java.lang.String" value="client_Statistics_Portuguese"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable14">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="24" rowCount="4">
+                    <Column editable="true" title="Email" type="java.lang.String"/>
+                    <Column editable="false" title="A1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="A2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B1 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="B2 Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person A Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Person B Completion" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Directions Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Employment Count" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Cultural Experience" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Personal Info" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Shopping" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Health" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Housing" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Introductions" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Appointments" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Invitations" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Travel" type="java.lang.Integer"/>
+                    <Column editable="false" title="Topic Food &amp; Drink" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Social" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic University" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Weather" type="java.lang.Integer"/>
+                    <Column editable="true" title="Topic Work" type="java.lang.Integer"/>
+                    <Column editable="true" title="Latest Roleplay" type="java.lang.String"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
               </Properties>
             </Component>

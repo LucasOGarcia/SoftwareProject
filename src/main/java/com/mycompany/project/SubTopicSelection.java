@@ -586,6 +586,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             buttons.get(i).setEnabled(false);
             buttons.get(i).setVisible(false);
         }
+        matchingSubTopics = newMatchingSubTopics;
         // set button text and enable them according to the number of matching sub-topics
         for (int i = 0; i < newMatchingSubTopics.size(); i++) {
             buttonsSubTopicTypes.add(newMatchingSubTopics.get(i).subTopicType);

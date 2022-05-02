@@ -6,8 +6,6 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
-import java.awt.GraphicsConfiguration;
-import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -347,7 +345,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         subTopicSelectionPage.setVisible(true);
     }
     
-    public static void createSubTopicSelectionPage(List<RolePlayTopic> newMatchingSubTopics) { // Creates the sub-topic selection page based of a list
+    public static void createSubTopicSelectionPage(List<RolePlayTopic> newMatchingSubTopics) { // // Overloaded method to create the sub-topic page based of a list
         JFrame subTopicSelectionPage = new SubTopicSelection(newMatchingSubTopics);
         subTopicSelectionPage.setTitle(appName);
         subTopicSelectionPage.setPreferredSize(screenSize);
@@ -373,7 +371,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setVisible(true);
     }
     
-    public static void createRolePlayPage(List<RolePlayTopic> newMatchingSubTopics) { // Creates the create role play page
+    public static void createRolePlayPage(List<RolePlayTopic> newMatchingSubTopics) { // Overloaded method to create the role play page based of a list
         JFrame rolePlayPage = new RolePlay(newMatchingSubTopics);
         rolePlayPage.setTitle(appName);
         rolePlayPage.setPreferredSize(screenSize);
@@ -447,7 +445,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         progressPage.setResizable(false);
         progressPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(progressPage);
-        ApplicationInfo.setPerformancePage(progressPage);
+        ApplicationInfo.setProgressPage(progressPage);
         progressPage.setVisible(true);
     } 
     

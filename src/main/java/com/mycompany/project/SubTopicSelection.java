@@ -25,6 +25,12 @@ public class SubTopicSelection extends javax.swing.JFrame {
         initPage();
     }
     
+    public SubTopicSelection(List<RolePlayTopic> newMatchingSubTopics) {
+        initComponents();
+        initPage(newMatchingSubTopics);
+    }
+    
+    List<RolePlayTopic> matchingSubTopics;
     List<String> buttonsSubTopicTypes;
 
     /**
@@ -494,6 +500,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
             //get matching roleplays
             matchingRolePlays = getMatchingRolePlays(matchingRolePlays, rolePlayList);
+            matchingSubTopics = matchingRolePlays;
             if (matchingRolePlays.isEmpty()) {
                 // the topic has no subtopic for this difficulty
                 errorLabel.setText("<html> There are currently no subtopics available<br/> for this difficulty...");
@@ -508,6 +515,84 @@ public class SubTopicSelection extends javax.swing.JFrame {
                 buttons.get(i).setVisible(true);
             }
             
+        }
+    }
+    
+    private void initPage(List<RolePlayTopic> newMatchingSubTopics) {
+        
+        // -------------------showcase user's selections-----------------------
+        jTextField1.setFocusable(false);
+        jTextField1.setFocusable(false);
+        setPageIcon();
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getLanguage() != null) {
+            String imageName = null;
+            //set the langauge label text to the selected language
+            if (RolePlayManager.getRolePlaySettings().getDifficulty() != null) {
+                // set the language label icon according to the selected language and difficulty
+                languageLabel.setText(RolePlayManager.getRolePlaySettings().getLanguage() + " "  + RolePlayManager.getRolePlaySettings().getDifficulty());
+            }
+            switch (RolePlayManager.getRolePlaySettings().getLanguage()) {
+                case "Spanish":
+                    imageName = "Spain";
+                    break;
+                    
+                case "French":
+                    imageName = "France";
+                    break;
+                
+                case "Portuguese":
+                    imageName = "Portugual";
+                    break;
+                
+                case "German":
+                    imageName = "Germany";
+                    break;
+                
+                case "Italian":
+                    imageName = "Italy";
+                    break;
+                
+                case "Greek":
+                    imageName = "Greece";
+                    break;
+            }
+            if (imageName != null) {
+                ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+                languageLabel.setIcon((image));
+            }
+        }
+        // set the correct role icon
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getRole() != null) {
+            String imageName = RolePlayManager.getRolePlaySettings().getRole();
+            ImageIcon image = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            roleIcon.setIcon((image));
+        }
+        if (RolePlayManager.getRolePlaySettings() != null && RolePlayManager.getRolePlaySettings().getTopicType() != null) {
+            topicName.setText(RolePlayManager.getRolePlaySettings().getTopicType());
+        }
+        
+        // -----------------set buttons and their text-------------------------
+        buttonsSubTopicTypes = new ArrayList();
+        // add buttons to a list
+        List<JButton> buttons = new ArrayList();
+        buttons.add(topic1Button);
+        buttons.add(topic2Button);
+        buttons.add(topic3Button);
+        buttons.add(topic4Button);
+        buttons.add(topic5Button);
+        buttons.add(topic6Button);
+        // disable and hide all buttons by default
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).setEnabled(false);
+            buttons.get(i).setVisible(false);
+        }
+        matchingSubTopics = newMatchingSubTopics;
+        // set button text and enable them according to the number of matching sub-topics
+        for (int i = 0; i < newMatchingSubTopics.size(); i++) {
+            buttonsSubTopicTypes.add(newMatchingSubTopics.get(i).subTopicType);
+            buttons.get(i).setText(newMatchingSubTopics.get(i).subTopicType);
+            buttons.get(i).setEnabled(true);
+            buttons.get(i).setVisible(true);
         }
     }
     
@@ -537,8 +622,12 @@ public class SubTopicSelection extends javax.swing.JFrame {
         RolePlaySettings settings = RolePlayManager.getRolePlaySettings();
         settings.setSubTopicType(buttonsSubTopicTypes.get(index));
         RolePlayManager.setRolePlaySettings(settings);
-        ApplicationInfo.createRolePlayPage();
-
+        if (!matchingSubTopics.isEmpty()) {
+            ApplicationInfo.createRolePlayPage(matchingSubTopics);
+        }
+        else{
+            ApplicationInfo.createRolePlayPage();
+        }
         ApplicationInfo.getSubTopicSelectionPage().dispose();
     }
 }

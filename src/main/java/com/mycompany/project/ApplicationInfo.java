@@ -6,11 +6,10 @@
 package com.mycompany.project;
 
 import java.awt.Dimension;
-import java.awt.GraphicsConfiguration;
-import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -38,7 +37,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame subTopicSelectionPage;
     private static JFrame rolePlayPage;
     private static JFrame performancePage;
-   private static JFrame adminhPage;
+    private static JFrame adminHomePage;
     private static JFrame adminPage720;
     private static JFrame adminPage1080;
     private static JFrame ProgressPage;
@@ -65,7 +64,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.homePage = homePage;
     }
     
-    public static void setAdminHomePage(JFrame adminhomePage){
+    public static void setAdminHomePage(JFrame adminHomePage){
         ApplicationInfo.adminHomePage = adminHomePage;
     }
     
@@ -177,7 +176,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static JFrame getAdminHomePage(){
-        return ApplicationInfo.adminhPage;
+        return ApplicationInfo.adminHomePage;
     }
     
         public static JFrame getAdminPage720p(){
@@ -211,13 +210,13 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     // Other functions
     
     public static double detectScreenWidth(){
-            Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
-            double width = monitorSize.getWidth();
-            return width;           
+        Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width = monitorSize.getWidth();
+        return width;           
     }
     
     public static double detectScreenHeight(){
-       Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension monitorSize = Toolkit.getDefaultToolkit().getScreenSize();
         double height = monitorSize.getHeight();
         return height;
     }
@@ -317,8 +316,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         conversationLevelSelectionPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(conversationLevelSelectionPage);
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
-        conversationLevelSelectionPage.setVisible(true);
-        
+        conversationLevelSelectionPage.setVisible(true);      
     }
    
     public static void createTopicSelectionPage() { // Creates the topic selection page
@@ -346,7 +344,20 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
         subTopicSelectionPage.setVisible(true);
     }
-   
+    
+    public static void createSubTopicSelectionPage(List<RolePlayTopic> newMatchingSubTopics) { // // Overloaded method to create the sub-topic page based of a list
+        JFrame subTopicSelectionPage = new SubTopicSelection(newMatchingSubTopics);
+        subTopicSelectionPage.setTitle(appName);
+        subTopicSelectionPage.setPreferredSize(screenSize);
+        subTopicSelectionPage.setMaximumSize(screenSize);
+        subTopicSelectionPage.setMinimumSize(screenSize);
+        subTopicSelectionPage.setResizable(false);
+        subTopicSelectionPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(subTopicSelectionPage);
+        ApplicationInfo.setSubTopicSelectionPage(subTopicSelectionPage);
+        subTopicSelectionPage.setVisible(true);
+    }
+    
     public static void createRolePlayPage() { // Creates the create role play page
         JFrame rolePlayPage = new RolePlay();
         rolePlayPage.setTitle(appName);
@@ -360,7 +371,20 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         rolePlayPage.setVisible(true);
     }
     
-        public static void createPerformancePage() { // Creates Performance page
+    public static void createRolePlayPage(List<RolePlayTopic> newMatchingSubTopics) { // Overloaded method to create the role play page based of a list
+        JFrame rolePlayPage = new RolePlay(newMatchingSubTopics);
+        rolePlayPage.setTitle(appName);
+        rolePlayPage.setPreferredSize(screenSize);
+        rolePlayPage.setMaximumSize(screenSize);
+        rolePlayPage.setMinimumSize(screenSize);
+        rolePlayPage.setResizable(false);
+        rolePlayPage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(rolePlayPage);
+        ApplicationInfo.setRolePlayPage(rolePlayPage);
+        rolePlayPage.setVisible(true);
+    }
+    
+    public static void createPerformancePage() { // Creates Performance page
         JFrame performancePage = new Performance();
         performancePage.setTitle(appName);
         performancePage.setPreferredSize(screenSize);
@@ -373,20 +397,20 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         performancePage.setVisible(true);
     }
         
-        public static void createadminHomePage() { // Creates Admin home Page
-        JFrame adminhPage = new AdminHomePage();
-        adminhPage.setTitle(appName);
-        adminhPage.setPreferredSize(screenSize);
-        adminhPage.setMaximumSize(screenSize);
-        adminhPage.setMinimumSize(screenSize);
-        adminhPage.setResizable(false);
-        adminhPage.setLocationRelativeTo(null);
-        setDefaultCloseMethods(adminhPage);
-        ApplicationInfo.setPerformancePage(adminhPage);
-        adminhPage.setVisible(true);
+    public static void createadminHomePage() { // Creates Admin home Page
+        JFrame adminHomePage = new AdminHomePage();
+        adminHomePage.setTitle(appName);
+        adminHomePage.setPreferredSize(screenSize);
+        adminHomePage.setMaximumSize(screenSize);
+        adminHomePage.setMinimumSize(screenSize);
+        adminHomePage.setResizable(false);
+        adminHomePage.setLocationRelativeTo(null);
+        setDefaultCloseMethods(adminHomePage);
+        ApplicationInfo.setAdminHomePage(adminHomePage);
+        adminHomePage.setVisible(true);
     }
         
-         public static void createadminPage1080p() { // Admin Page (adjust size)
+    public static void createadminPage1080p() { // Admin Page (adjust size)
         JFrame adminPage1080 = new AdminPage();
         adminPage1080.setTitle(appName);
         adminPage1080.setPreferredSize(screenSize);//adjust to detect
@@ -397,10 +421,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         setDefaultCloseMethods(adminPage1080);
         ApplicationInfo.setPerformancePage(adminPage1080);
         adminPage1080.setVisible(true);
-        
-         }
+    }
          
-        public static void createadminPage720p() { // Admin Page (adjust size)
+    public static void createadminPage720p() { // Admin Page (adjust size)
         JFrame adminPage720 = new AdminPage720p();
         adminPage720.setTitle(appName);
         adminPage720.setPreferredSize(screenSize);//adjust to custom
@@ -411,10 +434,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         setDefaultCloseMethods(adminPage720);
         ApplicationInfo.setPerformancePage(adminPage720);
         adminPage720.setVisible(true);
-        
-         }
+    }
          
-        public static void createProgressPage() { // creates Progress Page
+    public static void createProgressPage() { // creates Progress Page
         JFrame progressPage = new ProgressPage();
         progressPage.setTitle(appName);
         progressPage.setPreferredSize(screenSize);
@@ -423,11 +445,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         progressPage.setResizable(false);
         progressPage.setLocationRelativeTo(null);
         setDefaultCloseMethods(progressPage);
-        ApplicationInfo.setPerformancePage(progressPage);
+        ApplicationInfo.setProgressPage(progressPage);
         progressPage.setVisible(true);
     } 
     
-   
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         page.addWindowListener(new WindowAdapter() {

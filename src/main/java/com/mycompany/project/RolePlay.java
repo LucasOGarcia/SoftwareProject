@@ -720,7 +720,7 @@ public class RolePlay extends javax.swing.JFrame {
         RolePlaySettings settings = new RolePlaySettings();
         RolePlayManager.setRolePlaySettings(settings);
         ApplicationInfo.createHomePage();
-        ApplicationInfo.getSubTopicSelectionPage().dispose();
+        ApplicationInfo.getRolePlayPage().dispose();
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void completeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeButtonActionPerformed

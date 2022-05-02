@@ -5,6 +5,7 @@
  */
 package com.mycompany.project;
 
+import static com.mycompany.project.ConnectDB.url;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -22,7 +23,11 @@ import javax.swing.table.DefaultTableModel;
  *
  *
  */
-public class ProgressPage extends javax.swing.JFrame {
+public final class ProgressPage extends javax.swing.JFrame {
+
+    private static Connection ConnectDb() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     Connection connection = null;
     PreparedStatement pst = null;
@@ -38,7 +43,7 @@ public class ProgressPage extends javax.swing.JFrame {
             "Greek","Porteuguese", "TotalScore", "Average","Ranking"};
         dtablemodel.setColumnIdentifiers(col);
         jTableProgressRecord.setModel(dtablemodel);
-        connection = ProgressPage.ConnectDb();
+      
         
         updateTable();
     }
@@ -48,7 +53,7 @@ public class ProgressPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLastName = new javax.swing.JPanel();
+        jProgress = new javax.swing.JPanel();
         jComboBoxDifficulty = new javax.swing.JComboBox<>();
         jtxtSpanish = new javax.swing.JTextField();
         jtxtGerman = new javax.swing.JTextField();
@@ -98,7 +103,7 @@ public class ProgressPage extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLastName.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jProgress.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBoxDifficulty.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beginner", "Intermediate", "Expert", "Professional"}));
@@ -107,7 +112,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jComboBoxDifficultyActionPerformed(evt);
             }
         });
-        jLastName.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 30));
+        jProgress.add(jComboBoxDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 30));
 
         jtxtSpanish.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtSpanish.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -115,7 +120,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtSpanishKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 150, 30));
+        jProgress.add(jtxtSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 150, 30));
 
         jtxtGerman.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtGerman.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -123,7 +128,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtGermanKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, 30));
+        jProgress.add(jtxtGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 150, 30));
 
         jtxtFrench.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtFrench.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -131,7 +136,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtFrenchKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 150, 30));
+        jProgress.add(jtxtFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 150, 30));
 
         jtxtItalian.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtItalian.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -139,7 +144,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtItalianKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 150, 30));
+        jProgress.add(jtxtItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 150, 30));
 
         jtxtGreek.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtGreek.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -147,7 +152,7 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtGreekKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 150, 30));
+        jProgress.add(jtxtGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 150, 30));
 
         jtxtPorteuguese.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtPorteuguese.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -155,11 +160,11 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtPorteugueseKeyTyped(evt);
             }
         });
-        jLastName.add(jtxtPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 150, 30));
+        jProgress.add(jtxtPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 150, 30));
 
         jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelEmail.setText("Email:");
-        jLastName.add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jProgress.add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         jtxtEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtxtEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -167,80 +172,80 @@ public class ProgressPage extends javax.swing.JFrame {
                 jtxtEmailActionPerformed(evt);
             }
         });
-        jLastName.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, 30));
+        jProgress.add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, 30));
 
         jLabelLastName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelLastName.setText("Last Name:");
-        jLastName.add(jLabelLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        jProgress.add(jLabelLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jtxtLastName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLastName.add(jtxtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, 30));
+        jProgress.add(jtxtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 150, 30));
 
         jLabelFirstName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelFirstName.setText("First Name:");
-        jLastName.add(jLabelFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jProgress.add(jLabelFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         jtxtFirstName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLastName.add(jtxtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 30));
+        jProgress.add(jtxtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 30));
 
         jLabelRanking.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelRanking.setText("Ranking:");
-        jLastName.add(jLabelRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        jProgress.add(jLabelRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
         jtxtTotalScore.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLastName.add(jtxtTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 150, 30));
+        jProgress.add(jtxtTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 150, 30));
 
         jtxtAverage.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLastName.add(jtxtAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 150, 30));
+        jProgress.add(jtxtAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 150, 30));
 
         jtxtRanking.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLastName.add(jtxtRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 30));
+        jProgress.add(jtxtRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 30));
 
         jLabelDifficulty.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelDifficulty.setText("Difficulty");
-        jLastName.add(jLabelDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-        jLastName.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 310, -1));
+        jProgress.add(jLabelDifficulty, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jProgress.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 310, -1));
 
         jLabelSpanish.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelSpanish.setText("Spanish:");
-        jLastName.add(jLabelSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
+        jProgress.add(jLabelSpanish, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
 
         jLabelGerman.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelGerman.setText("German:");
-        jLastName.add(jLabelGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+        jProgress.add(jLabelGerman, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
         jLabelFrench.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelFrench.setText("French:");
-        jLastName.add(jLabelFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+        jProgress.add(jLabelFrench, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
         jLabelItalian.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelItalian.setText("Italian:");
-        jLastName.add(jLabelItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
+        jProgress.add(jLabelItalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
 
         jLabelGreek.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelGreek.setText("Greek:");
-        jLastName.add(jLabelGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
+        jProgress.add(jLabelGreek, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         jLabelPorteuguese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPorteuguese.setText("Porteuguese:");
-        jLastName.add(jLabelPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
+        jProgress.add(jLabelPorteuguese, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
 
         jLabelTotalScore.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelTotalScore.setText("Total Score:");
-        jLastName.add(jLabelTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        jProgress.add(jLabelTotalScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         jLabelAverage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelAverage.setText("Average:");
-        jLastName.add(jLabelAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        jProgress.add(jLabelAverage, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Progress");
-        jLastName.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        jProgress.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         jLabel2.setText("Label/Icon");
-        jLastName.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        jProgress.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        getContentPane().add(jLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 490));
+        getContentPane().add(jProgress, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 490));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -459,7 +464,7 @@ public class ProgressPage extends javax.swing.JFrame {
 private JFrame frame;
     private void jbtnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnExitActionPerformed
         frame = new JFrame("Exit");
-        if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit ProgressRecordMS?", "Student Data Management System",
+        if (JOptionPane.showConfirmDialog(frame, "Are you sure you want to exit ProgressRecordMS?", "Data Management System",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             System.exit(0);
         }
@@ -467,7 +472,7 @@ private JFrame frame;
 
     private void jbtnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnResetActionPerformed
         JTextField temp=null;
-        for (Component c:jLastName.getComponents()) {
+        for (Component c:jProgress.getComponents()) {
             if(c.getClass().toString().contains("javax.swing.JTextField")) {
                 temp=(JTextField) c;
                 temp.setText(null);
@@ -479,12 +484,12 @@ private JFrame frame;
         jTextAreaRecord.append("Student Result Recording System\n"
                 + "Full Name: " + jtxtFirstName.getText() + " " +  jtxtLastName.getText() + "\t ID: " + jtxtEmail.getText()
                 + "\n===============================\n"
-                + "Mathematic:\t\t" + jtxtSpanish.getText() + "\n"
-                + "English:\t\t" + jtxtGerman.getText() + "\n"
-                + "Biology:\t\t" + jtxtFrench.getText() + "\n"
-                + "InfoTech:\t\t" + jtxtItalian.getText() + "\n"
-                + "Physic:\t\t" + jtxtGreek.getText() + "\n"
-                + "AddMath:\t\t" + jtxtPorteuguese.getText() + "\n"
+                + "Spanish:\t\t" + jtxtSpanish.getText() + "\n"
+                + "German:\t\t" + jtxtGerman.getText() + "\n"
+                + "French:\t\t" + jtxtFrench.getText() + "\n"
+                + "Italian:\t\t" + jtxtItalian.getText() + "\n"
+                + "Greek:\t\t" + jtxtGreek.getText() + "\n"
+                + "Porteuguese:\t\t" + jtxtPorteuguese.getText() + "\n"
                 + "===============================\n"
                 + "Total Score:\t\t" + jtxtTotalScore.getText() + "\n"
                 + "Average:\t\t" + jtxtAverage.getText() + "\n"
@@ -496,15 +501,15 @@ private JFrame frame;
         DefaultTableModel dtablemodel = (DefaultTableModel) jTableProgressRecord.getModel();
         if (jTableProgressRecord.getSelectedRow() == -1) {
             if (jTableProgressRecord.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(null, "No data to delete", "Student Data Management System", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, "No data to delete", "Data Management System", JOptionPane.OK_OPTION);
             } else {
-                JOptionPane.showMessageDialog(null, "Select a row to delete", "Student Data Management System", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, "Select a row to delete", "Data Management System", JOptionPane.OK_OPTION);
             }
         } else {
             dtablemodel.removeRow(jTableProgressRecord.getSelectedRow());
             //int row = jTableStudentRecord.getSelectedRow();
             //String deleteLineRecord = jTableProgressRecord.getModel().getValueAt(row, 0).toString();
-            //String sql = "DELETE FROM \"StudentData\" WHERE \"Email\" = " + row;
+            //String sql = "DELETE FROM \"ProgressData\" WHERE \"Email\" = " + row;
 
             try {
                 //pst = connection.prepareStatement(sql);
@@ -528,7 +533,7 @@ private JFrame frame;
         
             String sql = "SELECT \"Email\", \"Difficulty\", \"Spanish\", \"German\", "
                     + "\"French\", \"Italian\", \"Greek\", \"Porteuguese\", \"TotalScore\", "
-                    + "\"Average\", \"Ranking\" FROM \"StudentData\"";
+                    + "\"Average\", \"Ranking\" FROM \"ProgressData\"";
 
             try {
                 pst = connection.prepareStatement(sql);
@@ -592,15 +597,15 @@ private JFrame frame;
         });
     }
     
-    public static Connection ConnectDb() {
+    public static Connection getConnection() {
         try {
-            //Class.forName("org.sqlite.JDBC");
-            Class.forName("org.postgresql.Driver");
-            //embedded database DriverManager.getConnection("jdbc:sqlite:StudentDataMS.db");
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/StudentDataMS", "postgres", "md5");
-            
-            return connection;
-        } catch (ClassNotFoundException | SQLException e) {
+            Class.forName("org.sqlite.JDBC");
+            Connection con = DriverManager.getConnection(url);
+            con.setAutoCommit(false);
+            JOptionPane.showMessageDialog(null, "Connection Established");
+            return con;
+        } catch (SQLException  | ClassNotFoundException e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, e);
             return null;
         }
@@ -624,8 +629,8 @@ private JFrame frame;
     private javax.swing.JLabel jLabelRanking;
     private javax.swing.JLabel jLabelSpanish;
     private javax.swing.JLabel jLabelTotalScore;
-    private javax.swing.JPanel jLastName;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jProgress;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

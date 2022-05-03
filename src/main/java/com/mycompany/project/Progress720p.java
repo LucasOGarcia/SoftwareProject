@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +24,7 @@ public class Progress720p extends javax.swing.JFrame {
      */
     public Progress720p() {
         initComponents();
+        initialisePage();
         emailBox();
         
     }
@@ -39,7 +44,7 @@ public class Progress720p extends javax.swing.JFrame {
         difficultyComboBox = new javax.swing.JComboBox<>();
         languageComboBox = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        percentageLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,10 +73,15 @@ public class Progress720p extends javax.swing.JFrame {
         difficultyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Difficulty", "A1", "A2", "B1", "B2" }));
 
         languageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Language", "Spanish", "French", "Italian", "German", "Portuguese", "Greek" }));
+        languageComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                languageComboBoxActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel11.setText("jLabel11");
+        percentageLabel.setText("jLabel11");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,14 +89,14 @@ public class Progress720p extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(451, 451, 451)
-                .addComponent(jLabel11)
+                .addComponent(percentageLabel)
                 .addContainerGap(498, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(jLabel11)
+                .addComponent(percentageLabel)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -110,7 +120,7 @@ public class Progress720p extends javax.swing.JFrame {
 
         jLabel10.setText("completed");
 
-        topicComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        topicComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Topic", "Asking and giving directions", "Basic employment issues", "Cross-cultural experiences", "Exchanging personal information", "Going shopping and asking for prices", "Health", "Housing conditions", "Introductions", "Making Appointments", "Making invitations", "Making travel arrangements", "Ordering food and drink", "Socialising", "University life", "Weather", "Work life" }));
         topicComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 topicComboBoxActionPerformed(evt);
@@ -118,6 +128,11 @@ public class Progress720p extends javax.swing.JFrame {
         });
 
         confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,25 +144,26 @@ public class Progress720p extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(403, 403, 403)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(55, 55, 55)
                                 .addComponent(difficultyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(88, 88, 88)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(88, 88, 88)
                                         .addComponent(jLabel5)
                                         .addGap(66, 66, 66)
                                         .addComponent(jLabel6))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(59, 59, 59)
                                         .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(52, 52, 52)
-                                        .addComponent(topicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(403, 403, 403)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))))
+                                        .addGap(56, 56, 56)
+                                        .addComponent(topicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,6 +228,14 @@ public class Progress720p extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_topicComboBoxActionPerformed
 
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        getProgress();
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void languageComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_languageComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,7 +278,6 @@ public class Progress720p extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> emailComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -265,30 +288,40 @@ public class Progress720p extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> languageComboBox;
+    private javax.swing.JLabel percentageLabel;
     private javax.swing.JComboBox<String> topicComboBox;
     // End of variables declaration//GEN-END:variables
 
-private void emailBox(){
-        emailComboBox.removeAllItems();
-        Connection con = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "SELECT client_email FROM client_Info";
-            PreparedStatement pst = con.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-
-            while(rs.next()){
-                String abs = rs.getString(1);
-                 emailComboBox.addItem(abs);
-            }               
-            con.close();
-            pst.close();
+    private void initialisePage() {
+        // set window icon for the JFrame
+        if (ApplicationInfo.getPageIconName() != null) {
+            String imageName = ApplicationInfo.getPageIconName();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            this.setIconImage(icon.getImage());
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }    
-}
+    }
+    
+    private void emailBox(){
+            emailComboBox.removeAllItems();
+            Connection con = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = "SELECT client_email FROM client_Info";
+                PreparedStatement pst = con.prepareStatement(query);
+                ResultSet rs = pst.executeQuery();
+
+                while(rs.next()){
+                    String abs = rs.getString(1);
+                     emailComboBox.addItem(abs);
+                }               
+                con.close();
+                pst.close();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }    
+    }
 
 /*
         directions = "Asking and giving directions";
@@ -309,5 +342,194 @@ private void emailBox(){
         work = "Work life";
 */
 
+    private void getProgress() {
+        String email = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        String difficulty = difficultyComboBox.getItemAt(difficultyComboBox.getSelectedIndex());
+        String language = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
+        String topic = topicComboBox.getItemAt(topicComboBox.getSelectedIndex());
+        //check if the combo boxes aren't the default values
+        System.out.println("language "+language);
+        System.out.println("difficulty "+difficulty);
+        System.out.println("language "+language);
+        System.out.println("topic "+topic);
+        System.out.println("----------------------");
+        if (checkIfComboBoxesDefault(email, difficulty, language, topic)) {
+            return;
+        }
+        if (!language.equals("Spanish")) {
+            return;
+        }
+        //check if table is present in the database
+        String table = "progress_"+language+ "_"+difficulty+ "_"+ getTable(topic);;
+        System.out.println(table);
+        if (!checkIfTableExists(table)) {
+            return;
+        }
+        // extract column count from table
+        Integer columnCount = getColumnCount(table);
+        System.out.println("column count "+ columnCount);
+        
+        //get column name
+        List<String> columnNames = getColumnNames(table, columnCount);
+        for (int i = 0; i < columnNames.size(); i++) {
+            System.out.println(columnNames.get(i));
+        }
+        List<Integer> columnValues = getValuesFromColumns(email, table, columnNames);
+        Integer completedRolePlays = null; 
+        if (!columnValues.isEmpty()) {
+            completedRolePlays = columnValues.size();
+            for (int i = 0; i < columnValues.size(); i++) {
+                System.out.println(columnValues.get(i));
+            }
+        }
+        else{
+            completedRolePlays = 0;
+        }
+        
+        Double rolePlayCount = completedRolePlays.doubleValue();
+        Double totalRolePlays = columnCount.doubleValue()-1;
+        
+        Double percentageCompleted = (rolePlayCount/totalRolePlays)* 100.0;
+        System.out.println(percentageCompleted+"%");
+
+    }
+    
+    private boolean checkIfComboBoxesDefault(String email, String difficulty, String language, String topic) {
+        // check if the user has selecte values for all combo boxes
+        boolean result = false;
+        if (email.isEmpty()) {
+            result = true;
+        }
+        
+        if (difficulty.equalsIgnoreCase("Select Difficulty")) {
+            result = true;
+        }
+        
+        if (language.equalsIgnoreCase("Select Language")) {
+            result = true;
+        }
+        
+        if (topic.equalsIgnoreCase("Select Topic")) {
+            result = true;
+        }
+        return result;
+    }
+    
+    private String getTable(String topic) {
+        String table = null;
+        switch (topic) {
+            case "Asking and giving directions":
+                table = "Directions";
+                break;
+                
+            case "Basic employment issues":
+                table = "Employment";
+                break;
+                
+            case "Cross-cultural experiences":
+                table = "Cultural_Experiences";
+                break; 
+                
+            case "Exchanging personal information":
+                table = "Personal_Info";
+                break;
+                
+            case "Going shopping and asking for prices":
+                table = "Shopping";
+                break;
+                
+            case "Health":
+                table = "Health";
+                break;
+                
+            case "Housing conditions":
+                table = "Housing";
+                break;
+                
+            case "Introductions":
+                table = "Introductions";
+                break;
+                
+            case "Making Appointments":
+                table = "Appointments";
+                break;
+                
+            case "Making invitations":
+                table = "Invitations";
+                break;
+                
+            case "Making travel arrangements":
+                table = "Travel";
+                break;
+                
+            case "Ordering food and drink":
+                table = "Food_Drink";
+                break;
+                
+            case "Socialising":
+                table = "Socialising";
+                break;
+                
+            case "University life":
+                table = "University";
+                break;
+                
+            case "Weather":
+                table = "Weather";
+                break;
+                
+            case "Work life":
+                table = "Work";
+                break;
+        }
+        return table;
+    }
+
+    private boolean checkIfTableExists(String table) {
+        boolean result = false;
+        try {
+            result = JdbcCrud.checkIfTableExists(table);
+        } catch (Exception ex) {
+            Logger.getLogger(Progress720p.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+
+    private int getColumnCount(String tableName) {
+        try {
+            return JdbcCrud.getColumnCount(tableName);
+        } 
+        catch (Exception ex) {
+            Logger.getLogger(Progress720p.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    private List getColumnNames(String tableName, int columnCount) {
+        List<String> names = new ArrayList();
+        try {
+            names = JdbcCrud.getColumnNames(tableName, columnCount);
+            return names;
+        } catch (Exception ex) {
+            Logger.getLogger(Progress720p.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return names;
+    }
+
+    private List<Integer> getValuesFromColumns(String email, String tableName, List<String> columnNames) {
+        List values = new ArrayList();
+        for (int i = 0; i < columnNames.size(); i++) {
+            try {
+                Integer result = JdbcCrud.getColumnValue(email ,tableName, columnNames.get(i));
+                if (result == 1) {
+                values.add(result);
+            }
+            } catch (Exception ex) {
+                Logger.getLogger(Progress720p.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return values;
+    }
 
 }

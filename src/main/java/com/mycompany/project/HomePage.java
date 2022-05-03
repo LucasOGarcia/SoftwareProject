@@ -21,7 +21,6 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         initPage();
         profilePicture.requestFocus();
-        adminButton.setEnabled(false);
     }
 
     /**
@@ -38,7 +37,7 @@ public class HomePage extends javax.swing.JFrame {
         profilePicture = new javax.swing.JLabel();
         userEmailLabel = new javax.swing.JLabel();
         userNameLabel = new javax.swing.JLabel();
-        adminButton = new javax.swing.JButton();
+        performanceButton = new javax.swing.JButton();
         languagesButton = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
 
@@ -60,18 +59,19 @@ public class HomePage extends javax.swing.JFrame {
 
         userNameLabel.setText("user name");
 
-        adminButton.setText("Admin");
-        adminButton.setMaximumSize(new java.awt.Dimension(123, 38));
-        adminButton.setMinimumSize(new java.awt.Dimension(123, 38));
-        adminButton.setPreferredSize(new java.awt.Dimension(123, 38));
-        adminButton.addActionListener(new java.awt.event.ActionListener() {
+        performanceButton.setText("Student Performance");
+        performanceButton.setMaximumSize(new java.awt.Dimension(123, 38));
+        performanceButton.setMinimumSize(new java.awt.Dimension(123, 38));
+        performanceButton.setPreferredSize(new java.awt.Dimension(153, 38));
+        performanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adminButtonActionPerformed(evt);
+                performanceButtonActionPerformed(evt);
             }
         });
 
         languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
         languagesButton.setText("Languages");
+        languagesButton.setPreferredSize(new java.awt.Dimension(153, 38));
         languagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 languagesButtonActionPerformed(evt);
@@ -98,24 +98,24 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(profilePicture)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(languagesButton)
-                                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(113, 113, 113))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(113, 113, 113)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(profilePicture)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(languagesButton)
+                .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logo)
                 .addGap(18, 18, 18)
@@ -160,13 +160,13 @@ public class HomePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_languagesButtonActionPerformed
 
-    private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
-        if (ApplicationInfo.getUser().accountType != 1) {
+    private void performanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performanceButtonActionPerformed
+        if (ApplicationInfo.getUser().accountType != 2) {
             return;
         }
-        // to-do send to admin page
+        ApplicationInfo.createPerformancePage();
         ApplicationInfo.getHomePage().dispose();
-    }//GEN-LAST:event_adminButtonActionPerformed
+    }//GEN-LAST:event_performanceButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,11 +205,11 @@ public class HomePage extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton adminButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton languagesButton;
     private javax.swing.JLabel logo;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JButton performanceButton;
     private javax.swing.JLabel profilePicture;
     private javax.swing.JLabel userEmailLabel;
     private javax.swing.JLabel userNameLabel;
@@ -221,14 +221,14 @@ public class HomePage extends javax.swing.JFrame {
             User user = ApplicationInfo.getUser();
             userNameLabel.setText("User: " + user.userFirstName + " " + user.userLastname);
             userEmailLabel.setText("Email: " + user.userEmail);
-            // disable admin button if user has a regular account
-            if (user.accountType != 1) {
-                adminButton.setEnabled(false);
-                adminButton.setVisible(false);
+            // disable teacher performance button if user has a regular account
+            if (user.accountType == 2) {
+                performanceButton.setEnabled(true);
+                performanceButton.setVisible(true);
             }
             else{
-                adminButton.setEnabled(true);
-                adminButton.setVisible(true);
+                performanceButton.setEnabled(false);
+                performanceButton.setVisible(false);
             }
         }
     }

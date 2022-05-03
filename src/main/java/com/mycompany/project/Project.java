@@ -13,7 +13,9 @@ import java.io.File;
  */
 public class Project { 
 
-    // admin account credentials:   email: test@my.westminster.ac.uk  password: Test12345@
+    // admin account credentials:   email: admin@my.westminster.ac.uk  password: Test12345@
+    // teacher account credentials: email: teacher@my.westminster.ac.uk  password: Test12345@
+    // student account credentials: email: student@my.westminster.ac.uk  password: Test12345@
     public static void main(String[] args) {
         ApplicationInfo.initialise();
         RolePlayManager.initialise();
@@ -28,7 +30,6 @@ public class Project {
             System.out.println("Database doesn't exist. Creating database now...");
             CreateDatabase.createDB();
             CreateTable.initialise();
-            CreateTable.createTestAdmin();
             System.out.println("Database successfully created!");
         }
     }

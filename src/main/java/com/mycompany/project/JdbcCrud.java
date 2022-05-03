@@ -6,6 +6,7 @@
 package com.mycompany.project;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -2986,6 +2987,44 @@ public class JdbcCrud {
                 }
                 if (psmt != null){
                     psmt.close();
+                }
+            }
+            catch (SQLException ex) {
+                // display error message
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+                throw new Exception();
+            }
+        }
+    }
+    
+    public static boolean checkIfTableExists(String tableName) throws Exception {
+        Connection con = null;
+        try {
+            System.out.println("Checking if table exists...");
+            con = ConnectDB.getConnection();
+            DatabaseMetaData metaData = con.getMetaData();
+            ResultSet res = metaData.getTables(null, null, tableName, null);
+            if (res.next()) {
+              // table exists
+              System.out.println("Table exists!");
+              return true;
+            }
+            else {
+              // table doesn't exist
+              System.out.println("Table doesn't exists!");
+              return false;
+            }
+        }
+        catch (SQLException ex) {
+            // display error message
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
                 }
             }
             catch (SQLException ex) {

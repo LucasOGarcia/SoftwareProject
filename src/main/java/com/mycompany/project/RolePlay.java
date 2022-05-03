@@ -20,6 +20,10 @@ import javax.swing.JRadioButton;
  *
  * @author Najeeha
  */
+
+//references
+//https://www.codejava.net/java-se/swing/jradiobutton-basic-tutorial-and-examples 
+//https://stackoverflow.com/questions/43529703/how-do-i-place-an-if-statement-after-a-selection-if-made-from-dropdown
 public class RolePlay extends javax.swing.JFrame {
 
     /**

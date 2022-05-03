@@ -12,6 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author Najeeha
  */
+
+
+//References:
+//https://stackoverflow.com/questions/51863144/how-to-validate-radio-button-for-gender
+//https://www.codejava.net/java-se/swing/jradiobutton-basic-tutorial-and-examples
+
 public class Role extends javax.swing.JFrame {
 
     /**

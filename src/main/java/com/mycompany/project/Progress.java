@@ -4,6 +4,7 @@
  */
 package com.mycompany.project;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +44,7 @@ public class Progress extends javax.swing.JFrame {
         emailComboBox = new javax.swing.JComboBox<>();
         difficultyComboBox = new javax.swing.JComboBox<>();
         languageComboBox = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
+        colourPanel = new javax.swing.JPanel();
         percentageLabel = new javax.swing.JLabel();
         progressLabel = new javax.swing.JLabel();
         numberOutOfLabel = new javax.swing.JLabel();
@@ -54,7 +55,7 @@ public class Progress extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Progress - (720p)");
+        jLabel1.setText("Progress ");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
@@ -74,40 +75,40 @@ public class Progress extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        colourPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        percentageLabel.setText("g");
-        percentageLabel.setMaximumSize(new java.awt.Dimension(72, 36));
-        percentageLabel.setMinimumSize(new java.awt.Dimension(72, 36));
-        percentageLabel.setPreferredSize(new java.awt.Dimension(72, 36));
+        percentageLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        percentageLabel.setMaximumSize(new java.awt.Dimension(100, 36));
+        percentageLabel.setMinimumSize(new java.awt.Dimension(100, 36));
+        percentageLabel.setPreferredSize(new java.awt.Dimension(100, 36));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout colourPanelLayout = new javax.swing.GroupLayout(colourPanel);
+        colourPanel.setLayout(colourPanelLayout);
+        colourPanelLayout.setHorizontalGroup(
+            colourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colourPanelLayout.createSequentialGroup()
                 .addContainerGap(484, Short.MAX_VALUE)
                 .addComponent(percentageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(451, 451, 451))
+                .addGap(423, 423, 423))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        colourPanelLayout.setVerticalGroup(
+            colourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colourPanelLayout.createSequentialGroup()
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(percentageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
         );
 
         progressLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        progressLabel.setText("Search to check a user's progress in a difficulty");
+        progressLabel.setText("Check an user's progress in the chosen language's difficulty");
         progressLabel.setMaximumSize(new java.awt.Dimension(368, 76));
         progressLabel.setMinimumSize(new java.awt.Dimension(368, 76));
         progressLabel.setPreferredSize(new java.awt.Dimension(368, 76));
 
-        numberOutOfLabel.setText("g");
-        numberOutOfLabel.setMaximumSize(new java.awt.Dimension(72, 36));
-        numberOutOfLabel.setMinimumSize(new java.awt.Dimension(72, 36));
-        numberOutOfLabel.setPreferredSize(new java.awt.Dimension(72, 36));
+        numberOutOfLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        numberOutOfLabel.setMaximumSize(new java.awt.Dimension(230, 36));
+        numberOutOfLabel.setMinimumSize(new java.awt.Dimension(230, 36));
+        numberOutOfLabel.setPreferredSize(new java.awt.Dimension(230, 36));
 
         topicComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Topic", "Asking and giving directions", "Basic employment issues", "Cross-cultural experiences", "Exchanging personal information", "Going shopping and asking for prices", "Health", "Housing conditions", "Introductions", "Making Appointments", "Making invitations", "Making travel arrangements", "Ordering food and drink", "Socialising", "University life", "Weather", "Work life" }));
         topicComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -142,9 +143,11 @@ public class Progress extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(403, 403, 403)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(30, 30, 30)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -160,13 +163,13 @@ public class Progress extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(colourPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(progressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(numberOutOfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(508, 508, 508))
+                .addGap(346, 346, 346))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +192,7 @@ public class Progress extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(progressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(colourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(numberOutOfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(163, Short.MAX_VALUE))
@@ -259,12 +262,12 @@ public class Progress extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JPanel colourPanel;
     private javax.swing.JButton confirmButton;
     private javax.swing.JComboBox<String> difficultyComboBox;
     private javax.swing.JComboBox<String> emailComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> languageComboBox;
     private javax.swing.JLabel numberOutOfLabel;
     private javax.swing.JLabel percentageLabel;
@@ -323,29 +326,34 @@ public class Progress extends javax.swing.JFrame {
 */
 
     private void getProgress() {
-        progressLabel.setText("Search to check a user's progress in a difficulty");
+        progressLabel.setText("Check an user's progress in the chosen language's difficulty");
         percentageLabel.setText("");
         numberOutOfLabel.setText("");
+        colourPanel.setBackground(null);
         String email = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
         String difficulty = difficultyComboBox.getItemAt(difficultyComboBox.getSelectedIndex());
         String language = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
         String topic = topicComboBox.getItemAt(topicComboBox.getSelectedIndex());
         //check if the combo boxes aren't the default values
+        System.out.println("Selected combo box options:");
         System.out.println("language "+language);
         System.out.println("difficulty "+difficulty);
         System.out.println("language "+language);
         System.out.println("topic "+topic);
         System.out.println("----------------------");
         if (checkIfComboBoxesDefault(email, difficulty, language, topic)) {
+            numberOutOfLabel.setText("No data found");
             return;
         }
         if (!language.equals("Spanish")) {
+            numberOutOfLabel.setText("No data found");
             return;
         }
         //check if table is present in the database
         String table = "progress_"+language+ "_"+difficulty+ "_"+ getTable(topic);;
         System.out.println(table);
         if (!checkIfTableExists(table)) {
+            numberOutOfLabel.setText("No data found");
             return;
         }
         // extract column count from table
@@ -368,6 +376,7 @@ public class Progress extends javax.swing.JFrame {
         else{
             completedRolePlays = 0;
         }
+        System.out.println("completed role plays "+ completedRolePlays);
         
         Double rolePlayCount = completedRolePlays.doubleValue();
         Double totalRolePlays = columnCount.doubleValue()-1;
@@ -376,7 +385,8 @@ public class Progress extends javax.swing.JFrame {
         System.out.println(percentageCompleted+"% completed!");
         progressLabel.setText(email+" progress in "+language+" difficulty "+difficulty);
         percentageLabel.setText(percentageCompleted+"%");
-        numberOutOfLabel.setText(completedRolePlays + "/" + (columnCount-1));
+        numberOutOfLabel.setText(completedRolePlays + "/" + (columnCount-1)+" roleplays");
+        setPanelColour(percentageCompleted);
 
     }
     
@@ -518,4 +528,27 @@ public class Progress extends javax.swing.JFrame {
         return values;
     }
 
+    private void setPanelColour(Double percentageCompleted) {
+        if (percentageCompleted == 100.0){
+            Color green = new Color(44, 155, 81);
+            colourPanel.setBackground(green);
+            return;
+        }
+        if (percentageCompleted >= 66.0){
+            Color orange = new Color(233, 124, 0);
+            colourPanel.setBackground(orange);
+            
+            return;
+        }
+        if (percentageCompleted >= 33.0){
+            Color yellow = new Color(233, 202, 0);
+            colourPanel.setBackground(yellow);
+            return;
+        }
+        if (percentageCompleted < 33.0){
+            Color red = new Color(233, 70, 0);
+            colourPanel.setBackground(Color.red);
+            return;
+        }
+    }
 }

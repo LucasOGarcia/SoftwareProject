@@ -787,10 +787,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     
-    //Extract the log in time
-        //convert it to time/date from  method 
-        //set text 
-    
     private void setPageIcon(){
         // set window icon for the JFrame
         if (ApplicationInfo.getPageIconName() != null) {
@@ -815,9 +811,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
             rs=pst.executeQuery();
             //DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
             clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));
-            con.close();
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database,  Info", e);} 
+               throw new IllegalStateException("Can't connect to the database,  Info", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
 }
     
         private void populateSpanishTable(){
@@ -831,9 +841,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 pst=con.prepareStatement(query);
                 rs=pst.executeQuery();
                 clientSpanishTable.setModel(DbUtils.resultSetToTableModel(rs));
-                con.close();
             }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Spanish", e);} 
+                   throw new IllegalStateException("Can't connect to the database, Spanish", e);}
+            	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
             }
         
         private void populateFrenchTable(){
@@ -847,9 +871,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 pst=con.prepareStatement(query);
                 rs=pst.executeQuery();
                 clientFrenchTable.setModel(DbUtils.resultSetToTableModel(rs));
-                con.close();
             }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, French", e);} 
+                   throw new IllegalStateException("Can't connect to the database, French", e);}
+            	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }  
         
         private void populateGermanTable(){
@@ -879,9 +917,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 pst=con.prepareStatement(query);
                 rs=pst.executeQuery();
                 clientGreekTable.setModel(DbUtils.resultSetToTableModel(rs));
-                con.close();
             }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Greek", e);} 
+                   throw new IllegalStateException("Can't connect to the database, Greek", e);}
+            	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }
         
         private void populateItalianTable(){
@@ -895,9 +947,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 pst=con.prepareStatement(query);
                 rs=pst.executeQuery();
                 clientItalianTable.setModel(DbUtils.resultSetToTableModel(rs));
-                con.close();
             }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Italian", e);} 
+                   throw new IllegalStateException("Can't connect to the database, Italian", e);}
+            	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }
         
         private void populatePortugueseTable(){
@@ -911,9 +977,23 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 pst=con.prepareStatement(query);
                 rs=pst.executeQuery();
                 clientPortugueseTable.setModel(DbUtils.resultSetToTableModel(rs));
-                con.close();
             }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Portuguese", e);} 
+                   throw new IllegalStateException("Can't connect to the database, Portuguese", e);}
+            	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }
         
         
@@ -1025,18 +1105,33 @@ private void replaceFName(){
             String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
             Connection con = null;
             ResultSet rs = null;
+            PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "UPDATE client_Info SET client_forename=? WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(query);
+             pst = con.prepareStatement(query);
             pst.setString(1,first_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
             con.commit();
-            con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace fname", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }  
 }
 
@@ -1049,19 +1144,31 @@ private void replaceLName(){
                   updateError.setForeground(Color.blue);
             }
             String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
-            Connection con = null; 
+            Connection con = null;
+            PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "UPDATE client_Info SET client_surname=? WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(query);
+             pst = con.prepareStatement(query);
             pst.setString(1,last_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
             con.commit();
-            con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace lname", e);}
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }      
 }
 
@@ -1101,19 +1208,31 @@ private void replacePass(){
         securePassword = getSecurePassword(password, salt);   
          String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
          Connection con = null; 
+         PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "UPDATE client_Info SET client_encrypted_password=?, client_salt=? WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(query);
+             pst = con.prepareStatement(query);
             pst.setString(1,securePassword);
             pst.setString(2,salt); //Replaces the salt as well
             pst.setString(3, selected_text);
             pst.executeUpdate();
             con.commit();
-            con.close();
             }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, replace salt and pass", e);} 
+               throw new IllegalStateException("Can't connect to the database, replace salt and pass", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         } 
 }
 
@@ -1126,18 +1245,30 @@ private void replaceaccType(){
         }
          String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
          Connection con = null; 
+         PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "UPDATE client_Info SET client_account_type=? WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(query);
+             pst = con.prepareStatement(query);
             pst.setString(1,accType);
             pst.setString(2, selected_text);
             pst.executeUpdate();
             con.commit();
-            con.close();
             }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, acc Type", e);}   
+               throw new IllegalStateException("Can't connect to the database, acc Type", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         }
 }
 
@@ -1399,6 +1530,7 @@ private void replaceaccType(){
         String input = searchText.getText().trim();
          Connection con = null;
          ResultSet rs = null;
+         PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -1407,13 +1539,27 @@ private void replaceaccType(){
                     + "client_encrypted_password as 'Password', client_last_login as 'Login Time', "
                     + "client_last_logout as 'Logout Time', client_account_type as 'Account Type' "
                     + "FROM client_Info WHERE client_email LIKE ?";
-            PreparedStatement pst = con.prepareStatement(search_query);
+             pst = con.prepareStatement(search_query);
             pst.setString(1, input + '%');
             rs = pst.executeQuery();
             clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));  
-            con.close();
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, search", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
         
     }    
     private void gotoperformanceAdmin(){
@@ -1437,6 +1583,7 @@ private void replaceaccType(){
             }               
             con.close();
             pst.close();
+            rs.close();
         }
         catch(Exception e){
             e.printStackTrace();

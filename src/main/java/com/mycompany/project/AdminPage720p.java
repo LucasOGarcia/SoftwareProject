@@ -4,10 +4,17 @@
  */
 package com.mycompany.project;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +29,32 @@ public class AdminPage720p extends javax.swing.JFrame {
      */
     public AdminPage720p() {
         initComponents();
-        populateEmailTab();
+                refreshDB();
+
+        
+       // updateComboBox.setModel(new DefaultComboBoxModel<String>(names.toArray(new String[0])));
+                ArrayList<String> names = new ArrayList<>();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 updateComboBox.addItem(abs);
+                 performComboBox.addItem(abs);
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        
+      
 
     }
 
@@ -42,11 +74,11 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        performComboBox = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        searchText = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -54,41 +86,47 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        insertSubmit = new javax.swing.JButton();
+        firstNameInput = new javax.swing.JTextField();
+        lastNameInput = new javax.swing.JTextField();
+        emailInput = new javax.swing.JTextField();
+        errorLabel = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        accTypeInput = new javax.swing.JTextField();
+        passwordInput = new javax.swing.JPasswordField();
+        confirmInput = new javax.swing.JPasswordField();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField5 = new javax.swing.JTextField();
+        updateComboBox = new javax.swing.JComboBox<>();
+        updateaccTypeInput = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        updateEmailInput = new javax.swing.JTextField();
+        updateFirstNameInput = new javax.swing.JTextField();
+        updateLastNameInput = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        updateError = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        updatePassInput = new javax.swing.JPasswordField();
+        updateconfirmInput = new javax.swing.JPasswordField();
         jButton3 = new javax.swing.JButton();
         clientInfoTab = new javax.swing.JTabbedPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         clientInfoTable = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        clientSpanishTable = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        clientGreekTable = new javax.swing.JTable();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
+        clientItalianTable = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTable12 = new javax.swing.JTable();
+        clientFrenchTable = new javax.swing.JTable();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTable13 = new javax.swing.JTable();
+        clientGermanTable = new javax.swing.JTable();
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTable14 = new javax.swing.JTable();
+        clientPortugueseTable = new javax.swing.JTable();
 
         jScrollPane2.setViewportView(jEditorPane1);
 
@@ -110,10 +148,10 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Email", "Email 1" }));
-        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
+        performComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Email", "Email 1" }));
+        performComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox9ActionPerformed(evt);
+                performComboBoxActionPerformed(evt);
             }
         });
 
@@ -132,7 +170,7 @@ public class AdminPage720p extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
-                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(189, Short.MAX_VALUE))
@@ -147,7 +185,7 @@ public class AdminPage720p extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(119, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,10 +195,16 @@ public class AdminPage720p extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        jButton2.setText("Search");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        searchText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                searchTextActionPerformed(evt);
+            }
+        });
+
+        searchButton.setText("Search Email");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -176,47 +220,50 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         jLabel8.setText("Confirm Password");
 
-        jButton1.setText("Finish");
+        insertSubmit.setText("Finish");
 
-        jTextField7.setText("jTextField7");
+        errorLabel.setText("jLabel7");
 
-        jTextField8.setText("jTextField8");
-
-        jTextField9.setText("jTextField9");
-
-        jTextField10.setText("jTextField10");
-
-        jTextField11.setText("jTextField11");
+        jLabel14.setText("Account Type");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6))
-                                    .addGap(42, 42, 42)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING))))))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(81, 81, 81)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(confirmInput))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lastNameInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                        .addComponent(firstNameInput, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(passwordInput)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(insertSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(errorLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(accTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,35 +271,39 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+                    .addComponent(confirmInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(accTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(insertSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(errorLabel)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Insert", jPanel1);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Emails", "Email 1", "Email 2" }));
-
-        jTextField5.setText("jTextField5");
+        updateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Emails", "Email 1", "Email 2" }));
 
         jLabel9.setText("Account Type");
 
@@ -264,15 +315,11 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         jLabel13.setText("Email");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField6.setText("jTextField4");
-
         jButton4.setText("Make Changes");
+
+        updateError.setText("jLabel7");
+
+        jLabel7.setText("Confirm Password");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -280,27 +327,44 @@ public class AdminPage720p extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(updateError)
+                .addGap(126, 126, 126))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateaccTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(updateconfirmInput, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(updatePassInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(36, 36, 36)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(jLabel13)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel9)))
-                            .addGap(45, 45, 45)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel11))
+                                    .addGap(62, 62, 62))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jLabel13))
+                                    .addGap(45, 45, 45)))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField6)
-                                .addComponent(jTextField5)))
+                                .addComponent(updateEmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                .addComponent(updateFirstNameInput)
+                                .addComponent(updateLastNameInput)))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(64, 64, 64)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -310,33 +374,39 @@ public class AdminPage720p extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(527, Short.MAX_VALUE))
+                .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(updatePassInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(updateconfirmInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateaccTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(160, 160, 160)
+                .addComponent(updateError)
+                .addGap(59, 59, 59))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(124, 124, 124)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(updateEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(updateFirstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(updateLastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(116, 116, 116)
+                    .addComponent(jLabel10)
+                    .addGap(153, 153, 153)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(103, Short.MAX_VALUE)))
+                    .addContainerGap(112, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Update", jPanel3);
@@ -344,6 +414,11 @@ public class AdminPage720p extends javax.swing.JFrame {
         jButton3.setText("Refresh");
 
         clientInfoTab.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        clientInfoTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clientInfoTabMouseEntered(evt);
+            }
+        });
 
         clientInfoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -369,7 +444,7 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         clientInfoTab.addTab("client_info", jScrollPane3);
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        clientSpanishTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -395,12 +470,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable8.getTableHeader().setReorderingAllowed(false);
-        jScrollPane8.setViewportView(jTable8);
+        clientSpanishTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane8.setViewportView(clientSpanishTable);
 
         clientInfoTab.addTab("client_Statistics_Spanish", jScrollPane8);
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        clientGreekTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -426,12 +501,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable9.getTableHeader().setReorderingAllowed(false);
-        jScrollPane9.setViewportView(jTable9);
+        clientGreekTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane9.setViewportView(clientGreekTable);
 
         clientInfoTab.addTab("client_Statistics_Greek", jScrollPane9);
 
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        clientItalianTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -457,12 +532,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable10.getTableHeader().setReorderingAllowed(false);
-        jScrollPane10.setViewportView(jTable10);
+        clientItalianTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane10.setViewportView(clientItalianTable);
 
         clientInfoTab.addTab("client_Statistics_Italian", jScrollPane10);
 
-        jTable12.setModel(new javax.swing.table.DefaultTableModel(
+        clientFrenchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -488,12 +563,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable12.getTableHeader().setReorderingAllowed(false);
-        jScrollPane12.setViewportView(jTable12);
+        clientFrenchTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane12.setViewportView(clientFrenchTable);
 
         clientInfoTab.addTab("client_Statistics_French", jScrollPane12);
 
-        jTable13.setModel(new javax.swing.table.DefaultTableModel(
+        clientGermanTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -519,12 +594,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable13.getTableHeader().setReorderingAllowed(false);
-        jScrollPane13.setViewportView(jTable13);
+        clientGermanTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane13.setViewportView(clientGermanTable);
 
         clientInfoTab.addTab("client_Statistics_German", jScrollPane13);
 
-        jTable14.setModel(new javax.swing.table.DefaultTableModel(
+        clientPortugueseTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -550,8 +625,8 @@ public class AdminPage720p extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable14.getTableHeader().setReorderingAllowed(false);
-        jScrollPane14.setViewportView(jTable14);
+        clientPortugueseTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane14.setViewportView(clientPortugueseTable);
 
         clientInfoTab.addTab("client_Statistics_Portuguese", jScrollPane14);
 
@@ -566,9 +641,9 @@ public class AdminPage720p extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(51, 51, 51)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addComponent(jButton2))
+                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(373, 373, 373)
                                 .addComponent(jLabel2))))
@@ -599,8 +674,8 @@ public class AdminPage720p extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2))))
+                                    .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchButton))))
                         .addGap(18, 18, 18)
                         .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -621,25 +696,37 @@ public class AdminPage720p extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         backtoHome();
+        this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
+    private void performComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox9ActionPerformed
+    }//GEN-LAST:event_performComboBoxActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
 
         //Goes to performanceadmin
-        gotoPerformanceAdmin();
+        //gotoPerformanceAdmin();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
         
-                //Search is only visible on client info tab
+        //Search is only visible on client info tab
+        searchDB();
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTextActionPerformed
+
+    private void clientInfoTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientInfoTabMouseEntered
+        // TODO add your handling code here:
+        searchButton.isVisible();
+        searchText.isVisible();
+    }//GEN-LAST:event_clientInfoTabMouseEntered
 
     /**
      * @param args the command line arguments
@@ -677,28 +764,38 @@ public class AdminPage720p extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accTypeInput;
     private javax.swing.JButton backButton;
+    private javax.swing.JTable clientFrenchTable;
+    private javax.swing.JTable clientGermanTable;
+    private javax.swing.JTable clientGreekTable;
     private javax.swing.JTabbedPane clientInfoTab;
     private javax.swing.JTable clientInfoTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTable clientItalianTable;
+    private javax.swing.JTable clientPortugueseTable;
+    private javax.swing.JTable clientSpanishTable;
+    private javax.swing.JPasswordField confirmInput;
+    private javax.swing.JTextField emailInput;
+    private javax.swing.JLabel errorLabel;
+    private javax.swing.JTextField firstNameInput;
+    private javax.swing.JButton insertSubmit;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -713,28 +810,23 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable12;
-    private javax.swing.JTable jTable13;
-    private javax.swing.JTable jTable14;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField lastNameInput;
+    private javax.swing.JPasswordField passwordInput;
+    private javax.swing.JComboBox<String> performComboBox;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchText;
+    private javax.swing.JComboBox<String> updateComboBox;
+    private javax.swing.JTextField updateEmailInput;
+    private javax.swing.JLabel updateError;
+    private javax.swing.JTextField updateFirstNameInput;
+    private javax.swing.JTextField updateLastNameInput;
+    private javax.swing.JPasswordField updatePassInput;
+    private javax.swing.JTextField updateaccTypeInput;
+    private javax.swing.JPasswordField updateconfirmInput;
     // End of variables declaration//GEN-END:variables
 
-    
-private void populateEmailTab(){
+    private void populateEmailTable(){
             Connection con = null;
   
             PreparedStatement pst = null;
@@ -742,60 +834,645 @@ private void populateEmailTab(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "SELECT * FROM client_Info"; //or prepared statement
+            String query = "SELECT client_email as 'Email', client_forename as 'Forename', client_surname as"
+                    + " 'Surname', client_salt as 'Salt Code', client_encrypted_password as 'Password', client_last_login"
+                    + " as 'Login Time', client_last_logout as 'Logout Time', client_account_type as 'Account Type' FROM client_Info"; //or prepared statement
             pst=con.prepareStatement(query);
             rs=pst.executeQuery();
-            DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
+            //DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
             clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));           
             con.close();
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, surname", e);} 
+               throw new IllegalStateException("Can't connect to the database,  Info", e);} 
+}
+    
+        private void populateSpanishTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "Spanish"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientSpanishTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, Spanish", e);} 
+            }
+        
+        private void populateFrenchTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "French"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientFrenchTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, French", e);} 
+        }  
+        
+        private void populateGermanTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "German"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientGermanTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, German", e);} 
+        }
+        
+        private void populateGreekTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "Greek"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientGreekTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, Greek", e);} 
+        }
+        
+        private void populateItalianTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "Italian"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientItalianTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, Italian", e);} 
+        }
+        
+        private void populatePortugueseTable(){
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try{
+                ConnectDB connectDB = new ConnectDB();
+                con = connectDB.getConnection();
+                String query = long_query() + "Portuguese"; //or prepared statement
+                pst=con.prepareStatement(query);
+                rs=pst.executeQuery();
+                clientPortugueseTable.setModel(DbUtils.resultSetToTableModel(rs));
+                con.close();
+            }catch (SQLException e) {
+                   throw new IllegalStateException("Can't connect to the database, Portuguese", e);} 
+        }
+        
+        
+        
+private void backtoHome(){
+        ApplicationInfo.createadminHomePage(); 
+        ApplicationInfo.getAdminPage1080p().dispose();
 }
 
 
+private String long_query(){
+    String result = "SELECT client_email AS 'Email', client_statistics_language_roleplay_complete_a1 as "
+            + "'A1 Completion', client_statistics_language_roleplay_complete_a2 AS 'A2 Completion', "
+            + "client_statistics_language_roleplay_complete_b1 AS 'B1 Completion', client_statistics_language_roleplay_complete_b2"
+            + " AS 'B2 Completion', client_statistics_language_roleplay_person_a AS 'Person A Count', client_statistics_language_roleplay_person_b"
+            + " AS 'Person B Count', client_statistics_language_vocab_assist AS 'Assist Count', client_statistics_topic_directions AS 'Directions Topic'"
+            + ",client_statistics_topic_employment AS 'Employment Topic', client_statistics_topic_cultural_experiences AS 'Cultural Exper. Topic',"
+            + "client_statistics_topic_personal_info AS 'Personal Info Topic', client_statistics_topic_shopping AS 'Shopping Topic', client_statistics_topic_health"
+            + " AS 'Health Topic', client_statistics_topic_housing AS 'Housing Topic', client_statistics_topic_introductions AS 'Introductions Topic', "
+            + "client_statistics_topic_appointments AS 'Appointment Topic', client_statistics_topic_invitations AS 'Invitation Topic', client_statistics_topic_travel "
+            + "AS 'Travel Topic', client_statistics_topic_food_drink AS 'Food/Drink Topic', client_statistics_topic_socialising AS 'Socialise Topic', "
+            + "client_statistics_topic_university AS 'University Topic', client_statistics_topic_weather AS 'Weather Topic', client_statistics_topic_work AS 'Work Topic', "
+            + "client_statistics_last_roleplay AS 'Latest Roleplay' FROM Client_Statistics_";  
+    return result;
+}
 
+private void insertData(){ //Mimicks the Registration Page
+    
+    
+    String first_name = firstNameInput.getText().toLowerCase().trim();
+    String last_name = lastNameInput.getText().toLowerCase().trim();
+    String email = emailInput.getText().toLowerCase().trim();
+    String password = String.valueOf(passwordInput.getPassword());
+    String confirm = String.valueOf(confirmInput.getPassword());
+    Integer accType = Integer.parseInt(accTypeInput.getText());
+    
+    if(!checkIfFieldsAreEmpty(first_name, last_name, email, password, confirm, accType)){
+        return;
+        }
+    
+    if (!checkLength(first_name, last_name, email, password, accType)){
+         return;
+        }
+    
+    if(!checkIfValidPassword(password)){
+            //exit function since password doesn't meet specs
+            return;
+        }
+        
+        // Confirm passwords match
+        if (!checkIfPasswordsMatch(password, confirm)){
+            //Exit since passwords don't match
+            return;
+        }
+        
+        // Verify email format
+        if(!checkIfValidEmail(email)){
+            //Exit since email isn't in the right format
+            return;
+        }
+        
+        // Check if email is already in the database
+        if (checkIfEmailInDataBase(email)) {
+            //Exit the function to avoid a registration error
+            return;
+        }
+        
+        first_name = first_name.substring(0, 1).toUpperCase() + first_name.substring(1);
+        last_name = last_name.substring(0, 1).toUpperCase() + last_name.substring(1);
+        
+        // Create variables to generate a secure password
+        String salt = null;
+        String securePassword = null;
+        
+        // Generate a secure password
+        salt = getSalt(salt);
+        securePassword = getSecurePassword(password, salt);
+        
+        if (!addUsertoDB(email, first_name, last_name, salt, securePassword)){
+        // error inputing data into Database
+            return;
+        }
+        
+        refreshDB();
+       
+}
 
+private void updateData(){
 
+    
+    
 
+    replaceEmail();
+    replaceFName();
+    replaceLName();
+    replacePass();
+    replaceaccType();
+    
+    refreshDB();
 
+    
+        //if password isnt empty
+            //check if confirm password isn't empty
+            //check length
+            //check if valid
+            //generate salt
+        
+        //if acctype isnt empty
+            //check length
+  
+}
 
-/*
-private Integer addEmailtoArray(){
-            Connection con = null;
-            //Statement stmt =con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs;
-            DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
+private void replaceEmail(){
+    String email = updateEmailInput.getText().toLowerCase().trim();
+            if(!email.isEmpty()){
+             int maxEmailLength = 254;
+                     if (email.length() > maxEmailLength){
+                            updateError.setText("<html>Error!<br/>; Email is too long <br/>");
+                            updateError.setForeground(Color.blue);
+                    }
+                     else if(!checkIfValidEmail(email)){
+                         return;
+                     }
+                     else if(checkIfEmailInDataBase(email)){
+                         return;                       
+                     }
+    String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
+    System.out.println("selected text is " + selected_text);
+    System.out.println("input is "+email);
+    Connection con = null; 
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            //String row_count = "SELECT client_email FROM client_Info";
-             rs = stmt.executeQuery("SELECT client_email FROM client_Info");
-            int counter = rs.getRow();
-            rs.first();
-            String[] emailArray = new String[counter];
-            
-            counter = 0;
-    while (rs.next()){
-              emailArray[counter] = rs.getString(1);
-
-              model.addRow(new Object[]{emailArray[counter]});
-              counter++;  
-            }
+            String query = "UPDATE client_Info SET client_email ='?' WHERE client_email='?'";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,email);
+            pst.setString(2, selected_text);
+            pst.executeUpdate();
             con.close();
-            return 0; //change this
-        }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, surname", e);} 
-}*/
-    
-    
-    
-private void backtoHome(){
-        ApplicationInfo.createadminHomePage(); 
-        ApplicationInfo.getAdminPage720p().dispose();
+            }catch(Exception e){
+                e.printStackTrace();
+               throw new IllegalStateException("Can't connect to the database, replace email", e);}  
+    }      
 }
 
-private void gotoPerformanceAdmin(){
-    
+private void replaceFName(){
+        String first_name = updateFirstNameInput.getText().toLowerCase().trim();
+
+        if(!first_name.isEmpty()){
+            int maxFirstNameLength = 32;
+            if (first_name.length() > maxFirstNameLength){
+                  updateError.setText("<html>Error!<br/>; Name is too long <br/></html>");
+                  updateError.setForeground(Color.blue);
+            }
+            String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
+            Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "UPDATE client_Info SET client_forename =? WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,first_name);
+            pst.setString(2, selected_text);
+            pst.executeUpdate();
+            con.close();
+            }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, replace fname", e);}
+        }  
 }
 
+private void replaceLName(){
+            String last_name = updateLastNameInput.getText().toLowerCase().trim();
+        if(!last_name.isEmpty()){
+            int maxLastNameLength = 32;
+            if (last_name.length() > maxLastNameLength){
+                  updateError.setText("<html>Error!<br/>; Name is too long <br/></html>");
+                  updateError.setForeground(Color.blue);
+            }
+            String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
+            Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "UPDATE client_Info SET client_surname =? WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,last_name);
+            pst.setString(2, selected_text);
+            pst.executeUpdate();
+            con.close();
+            }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, replace lname", e);}
+        }      
+}
+
+private void replacePass(){
+        String password = String.valueOf(updatePassInput.getPassword());
+        String confirm = String.valueOf(updateconfirmInput.getPassword());
+        
+        if(!password.isEmpty() && !confirm.isEmpty()){
+        int minPasswordLength = 8;
+        int maxPasswordLength = 12;
+           if (password.length() > maxPasswordLength || password.length() < minPasswordLength){
+                  updateError.setText("<html>Error!<br/>;Pass is too long or too short<br/></html>");
+                  updateError.setForeground(Color.blue);
+           }else if (!checkIfPasswordsMatch(password, confirm)){
+                updateError.setText("<html>Error!<br/>;Pass don't match<br/></html>");
+                updateError.setForeground(Color.blue);
+        }else if(!checkIfValidPassword(password)){
+                updateError.setText("<html>Error!<br/>;Pass invalid<br/></html>");
+                updateError.setForeground(Color.blue);
+        }else if(!password.isEmpty() && confirm.isEmpty()){
+                        //error please fill both to change passwords
+            updateError.setText("<html>Error!<br/>Fill in both Passwords<br/></html>");
+            updateError.setForeground(Color.blue);
+            
+        }else if(password.isEmpty() && !confirm.isEmpty()){
+             updateError.setText("<html>Error!<br/>Fill in both Passwords<br/></html>");
+            updateError.setForeground(Color.blue);
+        }
+        String salt = null;
+        String securePassword = null;
+
+        salt = getSalt(salt);
+        securePassword = getSecurePassword(password, salt);   
+         String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "UPDATE client_Info SET client_encrypted_password =?, client_salt =? WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,securePassword);
+            pst.setString(2,salt); //Replaces the salt as well
+            pst.setString(3, selected_text);
+            pst.executeUpdate();
+
+            con.close();
+            }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, replace salt and pass", e);} 
+        } 
+}
+
+private void replaceaccType(){
+        String accType = updateaccTypeInput.getText();
+        if(!accType.isEmpty()){
+           if(!accType.equals("0") || !accType.equals("1") || !accType.equals("2")){
+            updateError.setText("<html>Error!<br/>;Account Type is invalid<br/></html>");
+            updateError.setForeground(Color.blue);
+        }
+         String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "UPDATE client_Info SET client_account_type =? WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,accType);
+            pst.setString(2, selected_text);
+            pst.executeUpdate();
+
+            con.close();
+            }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, acc Type", e);}   
+        }
+}
+
+    private boolean checkIfFieldsAreEmpty(String first_name, String last_name, String email, String password, String confirm, Integer accType) {
+        if (first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || password.isEmpty() || confirm.isEmpty() || accType.toString().isEmpty()) {
+            String errorMessage = "<html>Error!<br/>";
+            if (first_name.isEmpty()){
+                errorMessage += "<html>First Name is Empty<br/>";
+            }
+            if (last_name.isEmpty()){
+                errorMessage += "Last Name is Empty<br/>";
+            }
+            if (email.isEmpty()){
+                errorMessage += "Email is Empty<br/>";
+            }
+            if (password.isEmpty()){
+                errorMessage += "Password is Empty<br/>";
+            }
+            if (confirm.isEmpty()){
+                errorMessage += "Confirm Password is Empty<br/>";
+            }
+            if (accType.toString().isEmpty()){
+                errorMessage += "Account Type is Empty<br/>";
+            }
+            errorMessage += "</html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.blue);
+            
+            return false;
+        }
+        return true;
+    }
+    
+        private boolean checkLength(String first_name, String last_name, String email, String password, Integer accType) {
+        boolean result = true;
+        String errorMessage = "<html>Error!<br/>";
+        int maxFirstNameLength = 32;
+        int maxSurnameNameLength = 32;
+        int maxEmailLength = 254;
+        int minPasswordLength = 8;
+        int maxPasswordLength = 12;
+        
+        if (first_name.length() > maxFirstNameLength){
+            errorMessage += "First name is too long <br/>";
+            result = false;
+        }
+        if (last_name.length() > maxSurnameNameLength){
+            errorMessage += "Last name is too long <br/>";
+            result = false;
+        }
+        if (email.length() > maxEmailLength){
+            errorMessage += "Email is too long <br/>";
+            result = false;
+        }
+        if (password.length() > maxPasswordLength){
+            errorMessage += "Password is too long <br/>";
+            result = false;
+        }
+        else if (password.length() < minPasswordLength){
+            errorMessage += "Password is too short <br/>";
+            result = false;
+        }
+        if(accType < 0 || accType > 2){
+            errorMessage += "Account Type Number is invalid<br/>";
+            result = false;
+        }
+        
+        errorMessage += "</html>";
+        if (!result){
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.blue);
+        }
+        return result;
+    }
+        
+        private boolean checkIfValidPassword(String password) {
+        boolean result = true;
+        String errorMessage = "<html>Error!<br/>";
+        
+        Pattern lowerLetters = Pattern.compile("[a-z]");
+        Pattern upperLetters = Pattern.compile("[A-Z]");
+        Pattern digits = Pattern.compile("[0-9]");
+        Pattern specialChars = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+
+        Matcher hasLowerLetter = lowerLetters.matcher(password);
+        Matcher hasUpperLetter = upperLetters.matcher(password);
+        Matcher hasDigit = digits.matcher(password);
+        Matcher hasSpecial = specialChars.matcher(password);
+        if(!hasLowerLetter.find()){
+           errorMessage += "The password must contain at least one lower case char <br/>";
+           result = false;
+        }
+        if(!hasUpperLetter.find()){
+           errorMessage += "The password must contain at least one upper case char <br/>";
+           result = false;
+        }
+        if(!hasDigit.find()){
+            errorMessage += "The  password must contain a number <br/>";
+            result = false;
+        }
+        if(!hasSpecial.find()){
+            errorMessage += "The password must contain a special char <br/>";
+            result = false;
+        }
+        errorMessage += "</html>";
+        if (!result){
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.blue);
+        }
+        return result;
+    }
+    
+    private boolean checkIfPasswordsMatch(String password, String confirm) {
+        if(!password.equals(confirm)){
+            System.out.println("password match error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Passwords don't match </html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.blue);
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean checkIfValidEmail(String email){
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +  // local part
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern emailPattern = Pattern.compile(emailRegex);
+        boolean result = emailPattern.matcher(email).matches();
+        
+        if(!result){
+            System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email is invalid </html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.blue);
+        }
+        return result;
+    }
+    
+    private String getSalt(String salt) {
+        // generate salt
+        int saltLength = 254;
+        salt = PasswordManager.generateSalt(saltLength);
+        return salt;
+    }
+    
+    private String getSecurePassword(String password, String salt) {
+        //add encyption to password+salt
+        String result = PasswordManager.generateSecurePassword(password, salt);
+        return result;
+    }
+    
+    private boolean checkIfEmailInDataBase(String email) {
+        boolean result = JdbcCrud.checkIfEmailExists(email);
+        if (result){
+            System.out.println("email error");
+            String errorMessage = "<html>Error!<br/>";
+            errorMessage += "Email already in use </html>";
+            errorLabel.setText(errorMessage);
+            errorLabel.setForeground(Color.red);
+        }
+        return result;
+    }
+    
+    private boolean addUsertoDB(String email, String first_name, String last_name, String salt, String password) {
+        List<String> languages = new ArrayList();
+        String spanish = "Spanish";
+        String french = "French";
+        String portuguese = "Portuguese";
+        String german = "German";
+        String italian = "Italian";
+        String greek = "Greek";
+        languages.add(spanish);
+        languages.add(french);
+        languages.add(portuguese);
+        languages.add(german);
+        languages.add(italian);
+        languages.add(greek);
+        
+        try {
+            Integer accType = Integer.parseInt(accTypeInput.getText());
+            insertInfo(email, first_name, last_name, salt, password, accType);
+            for (int i = 0; i < languages.size(); i++) {
+                JdbcCrud.registerUserClienStatistics(email, languages.get(i));
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public static void insertInfo(String email, String first_name, String last_name, String salt, String password, Integer accType) throws Exception{
+        Connection con = null;
+        PreparedStatement psmt = null;
+        String query = "INSERT INTO client_Info("
+        + " client_email,"
+        + " client_forename,"
+        + " client_surname,"
+        + " client_salt,"
+        + " client_encrypted_password,"
+        + " client_last_login,"
+        + " client_last_logout,"
+        + " client_account_type)"
+        + " VALUES (?,?,?,?,?,?,?,?)";
+        try{
+            con = ConnectDB.getConnection();
+            int accountType = accType; //0 regular user //1 admin //2 teacher
+            System.out.println("Registering user into client_Info...");
+            
+            
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, email);
+            psmt.setString(2, first_name);
+            psmt.setString(3, last_name);
+            psmt.setString(4, salt);
+            psmt.setString(5, password);
+            psmt.setNull(6, Types.NULL);
+            psmt.setNull(7, Types.NULL);
+            psmt.setInt(8, accountType);
+            
+            psmt.executeUpdate();
+            con.commit();
+            
+            System.out.println("Registering user into client_Info completed!");
+        }
+        catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (psmt != null){
+                    psmt.close();
+                }
+            }
+            catch (SQLException ex) {
+                throw new Exception();
+            }
+        }
+    }       
+        
+    private void refreshDB(){
+        populateEmailTable();
+        populateSpanishTable();
+        populateFrenchTable();
+        populateGreekTable();
+        populatePortugueseTable();
+        populateItalianTable();
+        populateGermanTable();
+        
+    }
+private void searchDB(){
+        String input = searchText.getText().trim();
+         Connection con = null;
+         ResultSet rs = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String salt_query = "SELECT * FROM client_Info WHERE client_email LIKE '"+input+"%'";
+            PreparedStatement pst = con.prepareStatement(salt_query);
+            rs = pst.executeQuery();
+            clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));  
+            con.close();
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, search", e);}
+        
+    }
 }

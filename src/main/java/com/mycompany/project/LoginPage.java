@@ -5,7 +5,7 @@
  */
 package com.mycompany.project;
 
-import static com.mycompany.project.PasswordManager.generateSecurePassword;
+//import static com.mycompany.project.PasswordManager.generateSecurePassword;
 //import static com.mycompany.project.User.User;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -361,7 +361,7 @@ public class LoginPage extends javax.swing.JFrame {
      
     public static boolean verifyPassword(String input_password,  String pw_query, String salt_query){ //find place to put input_password
         boolean result = false;
-        String newSecurePassword = generateSecurePassword(input_password, salt_query);
+        String newSecurePassword = PasswordManager.generateSecurePassword(input_password, salt_query);
         result = newSecurePassword.equalsIgnoreCase(pw_query);
         return result;
     }

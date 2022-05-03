@@ -28,9 +28,10 @@ public class JdbcCrud {
     //check for injections in every db query reference:
     // https://www.journaldev.com/34028/sql-injection-in-java
     //reference for date timestamp:
-    //https://www.dariawan.com/tutorials/java/how-convert-java-util-date-to-java-sql-timestamp/#:~:text=Date%20to%20java.-,sql.,millisecond%20value%20of%20that%20object.
-    //reference for checking if table exists
-    // https://www.baeldung.com/jdbc-check-table-exists
+    // https://www.dariawan.com/tutorials/java/how-convert-java-util-date-to-java-sql-timestamp/#:~:text=Date%20to%20java.-,sql.,millisecond%20value%20of%20that%20object.
+
+    //reference for checking how many columns in a table
+    // https://stackoverflow.com/questions/658395/find-the-number-of-columns-in-a-table
         
     //verify if email is already within the database  
     public static boolean checkIfEmailExists(String email){
@@ -47,6 +48,7 @@ public class JdbcCrud {
             // execute preparedStatement SELECT * FROM WHERE
             ResultSet rs = pst.executeQuery();
             boolean result = rs.next();
+            rs.close();
             System.out.println("Checking if email in database finished, result:" + result);
             return result;
         }
@@ -805,6 +807,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer vocabCount = rs.getInt(1);
+            rs.close();
             System.out.println("User vocab assist count successfully retrieved!");
             return vocabCount;
             
@@ -895,6 +898,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User directions topic count successfully retrieved!");
             return amount;
             
@@ -985,6 +989,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User employment topic count successfully retrieved!");
             return amount;
             
@@ -1075,6 +1080,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User cultural experiences topic count successfully retrieved!");
             return amount;
             
@@ -1165,6 +1171,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User personal info topic count successfully retrieved!");
             return amount;
             
@@ -1255,6 +1262,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User shopping topic count successfully retrieved!");
             return amount;
             
@@ -1345,6 +1353,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User health topic count successfully retrieved!");
             return amount;
             
@@ -1435,6 +1444,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User housing topic count successfully retrieved!");
             return amount;
             
@@ -1525,6 +1535,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User introductions topic count successfully retrieved!");
             return amount;
             
@@ -1615,6 +1626,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User appointments topic count successfully retrieved!");
             return amount;
             
@@ -1705,6 +1717,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User invitations topic count successfully retrieved!");
             return amount;
             
@@ -1795,6 +1808,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User travel topic count successfully retrieved!");
             return amount;
             
@@ -1885,6 +1899,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User food & drink  topic count successfully retrieved!");
             return amount;
             
@@ -1975,6 +1990,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User socialising topic count successfully retrieved!");
             return amount;
             
@@ -2065,6 +2081,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User university topic count successfully retrieved!");
             return amount;
             
@@ -2155,6 +2172,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User weather topic count successfully retrieved!");
             return amount;
             
@@ -2245,6 +2263,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             Integer amount = rs.getInt(1);
+            rs.close();
             System.out.println("User work topic count successfully retrieved!");
             return amount;
             
@@ -2335,6 +2354,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             String lastRolePlay = rs.getString(1);
+            rs.close();
             System.out.println("User last role play successfully retrieved!");
             return lastRolePlay;
             
@@ -2429,6 +2449,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play complete A1 successfully retrieved!");
             return lastRolePlay;
             
@@ -2519,6 +2540,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play complete A2 successfully retrieved!");
             return lastRolePlay;
             
@@ -2609,6 +2631,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play complete B1 successfully retrieved!");
             return lastRolePlay;
             
@@ -2699,6 +2722,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play complete B2 successfully retrieved!");
             return lastRolePlay;
             
@@ -2789,6 +2813,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play student count successfully retrieved!");
             return lastRolePlay;
             
@@ -2879,6 +2904,7 @@ public class JdbcCrud {
             // execute preparedStatement UPDATE
             ResultSet rs = psmt.executeQuery();
             int lastRolePlay = rs.getInt(1);
+            rs.close();
             System.out.println("User role play teacher count successfully retrieved!");
             return lastRolePlay;
             
@@ -3009,15 +3035,17 @@ public class JdbcCrud {
             System.out.println("Checking if table exists...");
             con = ConnectDB.getConnection();
             DatabaseMetaData metaData = con.getMetaData();
-            ResultSet res = metaData.getTables(null, null, tableName, null);
-            if (res.next()) {
+            ResultSet rs = metaData.getTables(null, null, tableName, null);
+            if (rs.next()) {
               // table exists
               System.out.println("Table exists!");
+              rs.close();
               return true;
             }
             else {
               // table doesn't exist
               System.out.println("Table doesn't exists!");
+              rs.close();
               return false;
             }
         }
@@ -3054,6 +3082,7 @@ public class JdbcCrud {
             ResultSetMetaData rsmd = rs.getMetaData();
             columnsNum = rsmd.getColumnCount();
             System.out.println("Column count for table "+tableName+" is: "+columnsNum);
+            rs.close();
             return columnsNum;
 
         } catch (SQLException ex) {
@@ -3093,6 +3122,7 @@ public class JdbcCrud {
                 String name = rsmd.getColumnName(i);
                 columNames.add(name);
             }
+            rs.close();
             System.out.println("Successfully retrieved column names from table "+tableName );
             return columNames;
 
@@ -3133,6 +3163,7 @@ public class JdbcCrud {
             // execute preparedStatement SELECT * FROM WHERE
             ResultSet rs = pst.executeQuery();
             result = rs.getInt(1);
+            rs.close();
             System.out.println("Retrieved value from "+tableName+" "+columnName+" "+result);
             return result;
         }

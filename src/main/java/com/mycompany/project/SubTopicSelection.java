@@ -97,6 +97,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
         topicName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         topicName.setRequestFocusEnabled(false);
 
+        topic1Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic1Button.setText("jButton1");
         topic1Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic1Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -108,6 +109,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
         });
 
+        topic2Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic2Button.setText("jButton2");
         topic2Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic2Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -119,6 +121,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
         });
 
+        topic3Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic3Button.setText("jButton3");
         topic3Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic3Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -130,6 +133,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
         });
 
+        topic4Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic4Button.setText("jButton4");
         topic4Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic4Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -141,6 +145,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
         });
 
+        topic5Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic5Button.setText("jButton5");
         topic5Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic5Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -152,6 +157,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
             }
         });
 
+        topic6Button.setFont(new java.awt.Font("Helvetica Neue", 0, 10)); // NOI18N
         topic6Button.setText("jButton6");
         topic6Button.setMaximumSize(new java.awt.Dimension(138, 38));
         topic6Button.setMinimumSize(new java.awt.Dimension(138, 38));
@@ -171,22 +177,22 @@ public class SubTopicSelection extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(topic1Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(topic2Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(topic3Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(topic5Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(topic6Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(topic4Button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(topic3Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(topic5Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(topic4Button, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                            .addComponent(topic6Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(topicName)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(errorLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(topic1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(topic2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -248,7 +254,7 @@ public class SubTopicSelection extends javax.swing.JFrame {
                         .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(homeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(languagesButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

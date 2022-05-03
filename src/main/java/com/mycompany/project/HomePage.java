@@ -21,7 +21,6 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         initPage();
         profilePicture.requestFocus();
-        performanceButton.setEnabled(false);
     }
 
     /**
@@ -222,14 +221,14 @@ public class HomePage extends javax.swing.JFrame {
             User user = ApplicationInfo.getUser();
             userNameLabel.setText("User: " + user.userFirstName + " " + user.userLastname);
             userEmailLabel.setText("Email: " + user.userEmail);
-            // disable admin button if user has a regular account
-            if (user.accountType != 2) {
-                performanceButton.setEnabled(false);
-                performanceButton.setVisible(false);
-            }
-            else{
+            // disable teacher performance button if user has a regular account
+            if (user.accountType == 2) {
                 performanceButton.setEnabled(true);
                 performanceButton.setVisible(true);
+            }
+            else{
+                performanceButton.setEnabled(false);
+                performanceButton.setVisible(false);
             }
         }
     }

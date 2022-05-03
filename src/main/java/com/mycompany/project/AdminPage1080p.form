@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -139,7 +140,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="performanceButton" min="-2" max="-2" attributes="0"/>
                               <Component id="performComboBox" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -160,19 +161,19 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="performanceButton" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace pref="50" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="performanceButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Check User&apos;s Performance Stats"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="performanceButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="performComboBox">

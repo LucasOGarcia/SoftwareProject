@@ -4,6 +4,11 @@
  */
 package com.mycompany.project;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gabriel
@@ -15,6 +20,27 @@ public class Performance extends javax.swing.JFrame {
      */
     public Performance() {
         initComponents();
+        
+        ArrayList<String> names = new ArrayList<>();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String data = rs.getString(1);
+                 emailComboBox.addItem(data);
+
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -41,8 +67,8 @@ public class Performance extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        user_Name = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        emailComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,9 +159,9 @@ public class Performance extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("PERFORMANCE");
 
-        user_Name.setText("(Name goes here)");
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
+
+        emailComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Email" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,13 +176,15 @@ public class Performance extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(user_Name)))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,8 +193,8 @@ public class Performance extends javax.swing.JFrame {
                     .addComponent(backButton)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(user_Name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
@@ -223,6 +251,7 @@ public class Performance extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JComboBox<String> emailComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,6 +267,5 @@ public class Performance extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JLabel user_Name;
     // End of variables declaration//GEN-END:variables
 }

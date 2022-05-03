@@ -69,7 +69,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         refreshButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        performanceButton = new javax.swing.JButton();
         performComboBox = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         backButton = new javax.swing.JButton();
@@ -124,6 +124,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
         clientPortugueseTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
@@ -140,10 +141,10 @@ public class AdminPage1080p extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton5.setText("Check User's Performance Stats");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        performanceButton.setText("Check User's Performance Stats");
+        performanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                performanceButtonActionPerformed(evt);
             }
         });
 
@@ -165,7 +166,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
+                            .addComponent(performanceButton)
                             .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(155, 155, 155)
@@ -180,7 +181,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -724,13 +725,13 @@ public class AdminPage1080p extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void performanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performanceButtonActionPerformed
         // TODO add your handling code here:
         
         //Goes to performance
         gotoperformanceAdmin();
         //this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_performanceButtonActionPerformed
 
     private void performComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performComboBoxActionPerformed
         // TODO add your handling code here:
@@ -828,7 +829,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JTextField firstNameInput;
     private javax.swing.JButton insertSubmit;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -859,6 +859,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JTextField lastNameInput;
     private javax.swing.JPasswordField passwordInput;
     private javax.swing.JComboBox<String> performComboBox;
+    private javax.swing.JButton performanceButton;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchText;
@@ -1075,18 +1076,12 @@ private void insertData(){ //Mimicks the Registration Page
 }
 
 private void updateData(){
-
-    
-    
-
     replaceEmail();
     replaceFName();
     replaceLName();
     replacePass();
     replaceaccType();
-    
     refreshDB();
-
 }
 
 private void replaceEmail(){

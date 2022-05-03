@@ -40,7 +40,9 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame adminHomePage;
     private static JFrame adminPage720;
     private static JFrame adminPage1080;
-    private static JFrame ProgressPage;
+    private static JFrame progress720;
+    private static JFrame progress1080;
+    private static JFrame performanceAdmin;
     
     // Setters
     
@@ -120,8 +122,16 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
          ApplicationInfo.databaseName = newDatabaseName;
     }
     
-    public static void setProgressPage(JFrame progressPage){
-        ApplicationInfo.ProgressPage = progressPage;
+    public static void setProgressPage720p(JFrame progressPage720p){
+        ApplicationInfo.progress720 = progressPage720p;
+    }
+    
+    public static void setProgressPage1080p(JFrame progressPage1080p){
+        ApplicationInfo.progress1080 = progressPage1080p;
+    }
+    
+    public static void setPerformanceAdmin(JFrame performanceAdminPage){
+        ApplicationInfo.performanceAdmin = performanceAdminPage;
     }
     
     
@@ -203,8 +213,15 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         return ApplicationInfo.databaseName;
     }
     
-    public static JFrame getProgressPage(){
-        return ApplicationInfo.ProgressPage;
+    public static JFrame getProgressPage720p(){
+        return ApplicationInfo.progress720;
+    }
+    
+    public static JFrame getProgressPage1080p(){
+        return ApplicationInfo.progress1080;
+    }
+        public static JFrame getPerformanceAdmin(){
+        return ApplicationInfo.performanceAdmin;
     }
     
     // Other functions
@@ -435,6 +452,44 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setPerformancePage(adminPage720);
         adminPage720.setVisible(true);
     }
+    
+        public static void createprogressPage720p() { // Admin Page (adjust size)
+        JFrame progress720 = new Progress720p();
+        progress720.setTitle(appName);
+        progress720.setPreferredSize(screenSize);//adjust to custom
+        progress720.setMaximumSize(screenSize); //adjust to custom
+        progress720.setMinimumSize(screenSize); //adjust to custom
+        progress720.setResizable(false);
+        progress720.setLocationRelativeTo(null);
+        setDefaultCloseMethods(progress720);
+        ApplicationInfo.setPerformancePage(progress720);
+        progress720.setVisible(true);
+    }
+        
+        public static void createprogressPage1080p() { // Admin Page (adjust size)
+        JFrame progress1080 = new Progress1080p();
+        progress1080.setTitle(appName);
+        progress1080.setPreferredSize(screenSize);//adjust to custom
+        progress1080.setMaximumSize(screenSize); //adjust to custom
+        progress1080.setMinimumSize(screenSize); //adjust to custom
+        progress1080.setResizable(false);
+        progress1080.setLocationRelativeTo(null);
+        setDefaultCloseMethods(progress1080);
+        ApplicationInfo.setPerformancePage(progress1080);
+        progress1080.setVisible(true);
+    }
+        public static void createperformanceAdminPage() { // Admin Page (adjust size)
+        JFrame performanceAdmin = new PerformanceAdmin();
+        performanceAdmin.setTitle(appName);
+        performanceAdmin.setPreferredSize(screenSize);//adjust to custom
+        performanceAdmin.setMaximumSize(screenSize); //adjust to custom
+        performanceAdmin.setMinimumSize(screenSize); //adjust to custom
+        performanceAdmin.setResizable(false);
+        performanceAdmin.setLocationRelativeTo(null);
+        setDefaultCloseMethods(performanceAdmin);
+        ApplicationInfo.setPerformancePage(performanceAdmin);
+        performanceAdmin.setVisible(true);
+    }    
          
 //    public static void createProgressPage() { // creates Progress Page
 //        JFrame progressPage = new ProgressPage();

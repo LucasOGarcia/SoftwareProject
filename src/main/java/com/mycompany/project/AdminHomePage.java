@@ -39,6 +39,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("ADMIN HOME");
 
+        adminPageButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         adminPageButton.setText("Admin Page");
         adminPageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +54,7 @@ public class AdminHomePage extends javax.swing.JFrame {
             }
         });
 
+        chartButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chartButton.setText("User Progress Chart");
         chartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,36 +66,40 @@ public class AdminHomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoutButton2)
-                .addGap(148, 148, 148))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(306, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chartButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(adminPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(415, 415, 415)
                         .addComponent(jLabel2)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(381, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(358, 358, 358))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(logoutButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                .addComponent(adminPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(229, 229, 229)
-                .addComponent(logoutButton2)
-                .addGap(32, 32, 32))
+                .addGap(54, 54, 54)
+                .addComponent(adminPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131)
+                .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addComponent(logoutButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -106,8 +112,17 @@ public class AdminHomePage extends javax.swing.JFrame {
 
     private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
         // TAKES YOU TO PERFORMANCE PAGE INSTEAD
-        ApplicationInfo.createPerformancePage();
-        ApplicationInfo.getAdminHomePage().dispose();
+        //ApplicationInfo.createPerformancePage();
+        //ApplicationInfo.getAdminHomePage().dispose();
+         double width = ApplicationInfo.detectScreenWidth();
+         double height = ApplicationInfo.detectScreenWidth();
+        
+        if(width >= 1920 && height >= 1080){
+            progressPage1080();
+        }else{
+            progressPage720();
+            }
+        
     }//GEN-LAST:event_chartButtonActionPerformed
 
     private void adminPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminPageButtonActionPerformed
@@ -182,6 +197,18 @@ public class AdminHomePage extends javax.swing.JFrame {
     private void adminPage720p(){
         ApplicationInfo.createadminPage720p(); 
         ApplicationInfo.getAdminHomePage().dispose();
+    }
+    
+    private void progressPage1080(){
+        ApplicationInfo.createprogressPage1080p();
+        ApplicationInfo.getAdminHomePage().dispose();
+
+    }
+    
+    private void progressPage720(){
+        ApplicationInfo.createprogressPage720p();
+        ApplicationInfo.getAdminHomePage().dispose();
+        
     }
 
 

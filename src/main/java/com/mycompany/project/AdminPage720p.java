@@ -75,7 +75,7 @@ public class AdminPage720p extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         performComboBox = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
+        performanceButton = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         searchText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
@@ -133,6 +133,7 @@ public class AdminPage720p extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
@@ -155,10 +156,10 @@ public class AdminPage720p extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Check User's Performance Stats");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        performanceButton.setText("Check User's Performance Stats");
+        performanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                performanceButtonActionPerformed(evt);
             }
         });
 
@@ -177,7 +178,7 @@ public class AdminPage720p extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(148, 148, 148)
-                    .addComponent(jButton5)
+                    .addComponent(performanceButton)
                     .addContainerGap(238, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -191,7 +192,7 @@ public class AdminPage720p extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap(110, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
@@ -703,12 +704,13 @@ public class AdminPage720p extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_performComboBoxActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void performanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performanceButtonActionPerformed
         // TODO add your handling code here:
 
         //Goes to performanceadmin
-        //gotoPerformanceAdmin();
-    }//GEN-LAST:event_jButton5ActionPerformed
+        gotoperformanceAdmin();
+        //this.dispose();
+    }//GEN-LAST:event_performanceButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
@@ -781,7 +783,6 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JButton insertSubmit;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -814,6 +815,7 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JTextField lastNameInput;
     private javax.swing.JPasswordField passwordInput;
     private javax.swing.JComboBox<String> performComboBox;
+    private javax.swing.JButton performanceButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchText;
     private javax.swing.JComboBox<String> updateComboBox;
@@ -1473,6 +1475,10 @@ private void searchDB(){
             con.close();
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, search", e);}
+        
+    }
+
+    private void gotoperformanceAdmin(){
         
     }
 }

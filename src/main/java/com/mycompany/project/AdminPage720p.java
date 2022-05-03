@@ -145,8 +145,6 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         insertSubmit.setText("Finish");
 
-        errorLabel.setText("jLabel7");
-
         jLabel14.setText("Account Type");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -219,7 +217,7 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addComponent(insertSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(errorLabel)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Insert", jPanel1);
@@ -242,8 +240,6 @@ public class AdminPage720p extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-
-        updateError.setText("jLabel7");
 
         jLabel7.setText("Confirm Password");
 
@@ -298,7 +294,7 @@ public class AdminPage720p extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(updatePassInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -616,7 +612,7 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -973,40 +969,7 @@ private void updateData(){
     replaceaccType();
     refreshDB();
 }
-/*
-private void replaceEmail(){
-    String email = updateEmailInput.getText().toLowerCase().trim();
-            if(!email.isEmpty()){
-             int maxEmailLength = 254;
-                     if (email.length() > maxEmailLength){
-                            updateError.setText("<html>Error!<br/>; Email is too long <br/>");
-                            updateError.setForeground(Color.blue);
-                    }
-                     else if(!checkIfValidEmail(email)){
-                         return;
-                     }
-                     else if(checkIfEmailInDataBase(email)){
-                         return;                       
-                     }
-    String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
-    System.out.println("selected text is " + selected_text);
-    System.out.println("input is "+email);
-    Connection con = null; 
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_email ='?' WHERE client_email='?'";
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1,email);
-            pst.setString(2, selected_text);
-            pst.executeUpdate();
-            con.close();
-            }catch(Exception e){
-                e.printStackTrace();
-               throw new IllegalStateException("Can't connect to the database, replace email", e);}  
-    }      
-}
-*/
+
 private void replaceFName(){
         String first_name = updateFirstNameInput.getText().toLowerCase().trim();
 
@@ -1110,7 +1073,7 @@ private void replacePass(){
 private void replaceaccType(){
         String accType = updateaccTypeInput.getText();
         if(!accType.isEmpty()){
-           if(!accType.equals(0) || !"1".equals(accType) || !accType.equals(2)){
+           if(!accType.equals(0) || !accType.equals(1) || !accType.equals(2)){
             updateError.setText("<html>Error!<br/>;Account Type is invalid<br/></html>");
             updateError.setForeground(Color.blue);
         }
@@ -1392,8 +1355,13 @@ private void searchDB(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String salt_query = "SELECT * FROM client_Info WHERE client_email LIKE '"+input+"%'";
-            PreparedStatement pst = con.prepareStatement(salt_query);
+            String search_query = "SELECT client_email as 'Email', client_forename as 'Forename', "
+                    + "client_surname as 'Surname', client_salt as 'Salt Code', "
+                    + "client_encrypted_password as 'Password', client_last_login as 'Login Time', "
+                    + "client_last_logout as 'Logout Time', client_account_type as 'Account Type' "
+                    + "FROM client_Info WHERE client_email LIKE ?";
+            PreparedStatement pst = con.prepareStatement(search_query);
+            pst.setString(1, input + '%');
             rs = pst.executeQuery();
             clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));  
             con.close();

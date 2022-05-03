@@ -187,7 +187,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         ApplicationInfo.setLogoutTimeStamp();
         ApplicationInfo.setUser(null);
         ApplicationInfo.createMainPage();
-        ApplicationInfo.getHomePage().dispose();
+        ApplicationInfo.getAdminHomePage().dispose();
     }
     
     private void adminPage1080p(){

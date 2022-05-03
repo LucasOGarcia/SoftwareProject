@@ -568,6 +568,7 @@ public class RegistrationPage extends javax.swing.JFrame {
             for (int i = 0; i < languages.size(); i++) {
                 JdbcCrud.registerUserClienStatistics(email, languages.get(i));
             }
+            JdbcCrud.registerUserSpanishProgress(email);
             return true;
         } catch (Exception ex) {
             String errorMessage = "<html>Error!<br/>";

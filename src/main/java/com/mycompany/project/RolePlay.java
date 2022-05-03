@@ -34,6 +34,7 @@ public class RolePlay extends javax.swing.JFrame {
         initPage();
     }
     
+    RolePlayTopic currentRolePlay;
     List<RolePlayTopic> previousSubTopics;
     List<String> buttonsVocabs;
     List<String> radioVocabs;
@@ -728,6 +729,7 @@ public class RolePlay extends javax.swing.JFrame {
         increaseRolePlayTopicCount();
         increaseRolePlayDifficultyCounter();
         increaseRolePlayRoleCounter();
+        updateRolePlayProgress();
         lastRolePlayTimeStamp();
         ApplicationInfo.createHomePage();
         ApplicationInfo.getRolePlayPage().dispose();
@@ -882,6 +884,8 @@ public class RolePlay extends javax.swing.JFrame {
             if (matchingRolePlay == null) {
                 return;
             }
+            //set global role play object
+            currentRolePlay = matchingRolePlay;
             // extract key vocab
             if (RolePlayManager.getRolePlaySettings().getRole().equals("Teacher")) {
                 buttonsVocabs = matchingRolePlay.personBVocabAssist;
@@ -892,6 +896,7 @@ public class RolePlay extends javax.swing.JFrame {
                 buttonsVocabs = matchingRolePlay.personAVocabAssist;
                 radioVocabs = matchingRolePlay.personAVocabEnglish;
             }
+            
             // set keyvocab and enable buttons based on the amount of vocab words
             if (!buttonsVocabs.isEmpty()) {
                 for (int i = 0; i < buttonsVocabs.size(); i++) {
@@ -900,6 +905,9 @@ public class RolePlay extends javax.swing.JFrame {
                     radioButtons.get(i).setText(radioVocabs.get(i));
                     //buttons.get(i).setVisible(true);
                     buttons.get(i).setText(buttonsVocabs.get(i));
+                    if (buttonsVocabs.size() == 0) {
+                        break;
+                    }
                 }
             }
             // assign role play text to scrollable panel within the page based if the user is student or teacher
@@ -1136,7 +1144,87 @@ public class RolePlay extends javax.swing.JFrame {
             Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-
-
+    
+    private void updateRolePlayProgress() {
+        if (currentRolePlay == null) {
+            return;
+        }
+        String table = "progress_"+ currentRolePlay.language+ "_"+ currentRolePlay.difficulty+ "_"+ getTable();
+        String column = "client_progress_"+currentRolePlay.subTopicKey;
+        try {
+            JdbcCrud.upateProgress(table, column);
+        } catch (Exception ex) {
+            Logger.getLogger(RolePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private String getTable() {
+        String table = null;
+        switch (currentRolePlay.topicType) {
+            case "Asking and giving directions":
+                table = "Directions";
+                break;
+                
+            case "Basic employment issues":
+                table = "Employment";
+                break;
+                
+            case "Cross-cultural experiences":
+                table = "Cultural_Experiences";
+                break; 
+                
+            case "Exchanging personal information":
+                table = "Personal_Info";
+                break;
+                
+            case "Going shopping and asking for prices":
+                table = "Shopping";
+                break;
+                
+            case "Health":
+                table = "Health";
+                break;
+                
+            case "Housing conditions":
+                table = "Housing";
+                break;
+                
+            case "Introductions":
+                table = "Introductions";
+                break;
+                
+            case "Making Appointments":
+                table = "Appointments";
+                break;
+                
+            case "Making invitations":
+                table = "Invitations";
+                break;
+                
+            case "Making travel arrangements":
+                table = "Travel";
+                break;
+                
+            case "Ordering food and drink":
+                table = "Food_Drink";
+                break;
+                
+            case "Socialising":
+                table = "Socialising";
+                break;
+                
+            case "University life":
+                table = "University";
+                break;
+                
+            case "Weather":
+                table = "Weather";
+                break;
+                
+            case "Work life":
+                table = "Work";
+                break;
+        }
+        return table;
+    }
 }

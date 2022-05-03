@@ -23,7 +23,7 @@ public class ConnectDB {
             Class.forName("org.sqlite.JDBC");
             Connection con = DriverManager.getConnection(url);
             con.setAutoCommit(false);
-            JOptionPane.showMessageDialog(null, "Connection Established");
+//            JOptionPane.showMessageDialog(null, "Connection Established");
             return con;
         } catch (SQLException  | ClassNotFoundException e) {
             System.out.println(e);

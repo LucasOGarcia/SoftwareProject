@@ -436,18 +436,18 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         adminPage720.setVisible(true);
     }
          
-    public static void createProgressPage() { // creates Progress Page
-        JFrame progressPage = new ProgressPage();
-        progressPage.setTitle(appName);
-        progressPage.setPreferredSize(screenSize);
-        progressPage.setMaximumSize(screenSize);
-        progressPage.setMinimumSize(screenSize);
-        progressPage.setResizable(false);
-        progressPage.setLocationRelativeTo(null);
-        setDefaultCloseMethods(progressPage);
-        ApplicationInfo.setProgressPage(progressPage);
-        progressPage.setVisible(true);
-    } 
+//    public static void createProgressPage() { // creates Progress Page
+//        JFrame progressPage = new ProgressPage();
+//        progressPage.setTitle(appName);
+//        progressPage.setPreferredSize(screenSize);
+//        progressPage.setMaximumSize(screenSize);
+//        progressPage.setMinimumSize(screenSize);
+//        progressPage.setResizable(false);
+//        progressPage.setLocationRelativeTo(null);
+//        setDefaultCloseMethods(progressPage);
+//        ApplicationInfo.setProgressPage(progressPage);
+//        progressPage.setVisible(true);
+//    } 
     
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

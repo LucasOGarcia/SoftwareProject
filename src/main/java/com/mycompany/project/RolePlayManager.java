@@ -101,16 +101,17 @@ public class RolePlayManager {
     }
     
     public static void createTopics() {
-        RolePlayTopic A1Exercise1 = new RolePlayTopic();
+        RolePlayTopic A1Exercise = new RolePlayTopic();
         // basic role play info
-        A1Exercise1.difficulty = difficultyA1;
-        A1Exercise1.language = languageSpanish;
-        A1Exercise1.topicType = culturalExperiences;
-        A1Exercise1.subTopicType = "International Food";
+        A1Exercise.difficulty = difficultyA1;
+        A1Exercise.language = languageSpanish;
+        A1Exercise.topicType = culturalExperiences;
+        A1Exercise.subTopicType = "International Food";
+        A1Exercise.subTopicKey = "international_food";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
-        A1Exercise1.personAText = "<html> What is this? <br/>"
+        A1Exercise.personAText = "<html> What is this? <br/>"
                 + " What kind of tea? <br/>"
                 + " Yes, I like it. I want to make it at home. <br/>"
                 + " How do I make it? <br/>"
@@ -118,19 +119,19 @@ public class RolePlayManager {
                 + " Thank you. <html>";
         
         // list of vocab words associated with person A
-        List<String> personAVocabAssistList1 = Arrays.asList("texto");
+        List<String> personAVocabAssistList = Arrays.asList("texto");
         
         
         // add to the list in the object
-        A1Exercise1.personAVocabAssist = personAVocabAssistList1;
+        A1Exercise.personAVocabAssist = personAVocabAssistList;
         
         
-        List<String> personAVocabEnglish1= Arrays.asList("text");
-        A1Exercise1.personAVocabEnglish = personAVocabEnglish1;
+        List<String> personAVocabEnglish = Arrays.asList("text");
+        A1Exercise.personAVocabEnglish = personAVocabEnglish;
          
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
-        A1Exercise1.personBText = "<html> It's tea. <br/> "
+        A1Exercise.personBText = "<html> It's tea. <br/> "
                 + " Chai tea. It's made with black tea, milk and <font color ='red'>spices</font>. Do you like it? <br/>"
                 + " You can buy the spices at the supermarket. <br/>"
                 + " First you <font color ='red'>boil</font> the milk, then you add the teabag and spices. <br/>"
@@ -140,16 +141,16 @@ public class RolePlayManager {
         List<String> personBVocabAssistList1 = Arrays.asList("especias", "hervir");
         
         // add to the list in the object
-        A1Exercise1.personBVocabAssist = personBVocabAssistList1;
+        A1Exercise.personBVocabAssist = personBVocabAssistList1;
         
         
         
         List<String> personBVocabEnglish1= Arrays.asList("spices", "boil");
-        A1Exercise1.personBVocabEnglish = personBVocabEnglish1; 
+        A1Exercise.personBVocabEnglish = personBVocabEnglish1; 
         
         
         // add object to a list of topic based on the difficulty
-        topicsA1.add(A1Exercise1);
+        topicsA1.add(A1Exercise);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         
@@ -159,6 +160,7 @@ public class RolePlayManager {
         A1Exercise2.language = languageSpanish;
         A1Exercise2.topicType = foodAndDrink;
         A1Exercise2.subTopicType = "Takeaway";
+        A1Exercise2.subTopicKey = "takeaway";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise2.personAText = "<html> Hi there. Do you have a table for 2? <br/>"
@@ -204,6 +206,7 @@ public class RolePlayManager {
         A1Exercise3.language = languageSpanish;
         A1Exercise3.topicType = personalInfo;
         A1Exercise3.subTopicType = "Social Media";
+        A1Exercise3.subTopicKey = "social_media";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise3.personAText = "<html> Hi Peter. How was your weekend? <br/>"
@@ -249,6 +252,7 @@ public class RolePlayManager {
         A1Exercise4.language = languageSpanish;
         A1Exercise4.topicType = shopping;
         A1Exercise4.subTopicType = "Payment";
+        A1Exercise4.subTopicKey = "payment";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise4.personAText = "<html> Hi there. May I pay for these items please? <br/>"
@@ -294,6 +298,7 @@ public class RolePlayManager {
         A1Exercise5.language = languageSpanish;
         A1Exercise5.topicType = appointments;
         A1Exercise5.subTopicType = "Booking";
+        A1Exercise5.subTopicKey = "booking";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise5.personAText = "<html> Hello, can I make an <font color='red'>appointment</font> for tomorrow. <br/>"
@@ -338,6 +343,7 @@ public class RolePlayManager {
         A1Exercise6.language = languageSpanish;
         A1Exercise6.topicType = directions;
         A1Exercise6.subTopicType = "Repeat Name";
+        A1Exercise6.subTopicKey = "repeat_name";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise6.personAText = "<html> Hello, my name is Danielle. <br/>"
@@ -384,6 +390,7 @@ public class RolePlayManager {
         A1Exercise7.language = languageSpanish;
         A1Exercise7.topicType = employment;
         A1Exercise7.subTopicType = "Cover";
+        A1Exercise7.subTopicKey = "cover";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise7.personAText = "<html> Hello, is the <font color ='red'>manager</font> there? <br/>"
@@ -433,6 +440,7 @@ public class RolePlayManager {
         A1Exercise8.language = languageSpanish;
         A1Exercise8.topicType = shopping;
         A1Exercise8.subTopicType = "Refund";
+        A1Exercise8.subTopicKey = "refund";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise8.personAText = "<html> Hello there. I would like a <font color ='red'>refund</font> for these <font color ='red'>items</font> please. <br/>"
@@ -477,6 +485,7 @@ public class RolePlayManager {
         A1Exercise9.language = languageSpanish;
         A1Exercise9.topicType = socialising;
         A1Exercise9.subTopicType = "Interview arrangements";
+        A1Exercise9.subTopicKey = "interview";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise9.personAText = "<html> Hi Derreck. How was your weekend? <br/>"
@@ -520,6 +529,7 @@ public class RolePlayManager {
         A1Exercise10.language = languageSpanish;
         A1Exercise10.topicType = foodAndDrink;
         A1Exercise10.subTopicType = "Coffee Order";
+        A1Exercise10.subTopicKey = "coffee";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise10.personAText = "<html> Could I please have a regular <font color ='red'>decafe latte</font>. <br/>"
@@ -565,6 +575,7 @@ public class RolePlayManager {
         A1Exercise11.language = languageSpanish;
         A1Exercise11.topicType = appointments;
         A1Exercise11.subTopicType = "Spelling your name";
+        A1Exercise11.subTopicKey = "spelling_name";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise11.personAText = "<html> Hello, can I make an appointment for tomorrow. <br/>"
@@ -613,6 +624,7 @@ public class RolePlayManager {
         A1Exercise12.language = languageSpanish;
         A1Exercise12.topicType = employment;
         A1Exercise12.subTopicType = "Inteview";
+        A1Exercise12.subTopicKey = "interview";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise12.personAText = "<html> Good afternoon, how can I help you? <br/>"
@@ -659,6 +671,7 @@ public class RolePlayManager {
         A1Exercise13.language = languageSpanish;
         A1Exercise13.topicType = foodAndDrink;
         A1Exercise13.subTopicType = "Water for table";
+        A1Exercise13.subTopicKey = "water_for_table";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise13.personAText = "<html> Good evening, how is it going? <br/>"
@@ -703,6 +716,7 @@ public class RolePlayManager {
         A1Exercise14.language = languageSpanish;
         A1Exercise14.topicType = foodAndDrink;
         A1Exercise14.subTopicType = "Reservation";
+        A1Exercise14.subTopicKey = "reservation";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -751,6 +765,7 @@ public class RolePlayManager {
         A1Exercise15.language = languageSpanish;
         A1Exercise15.topicType = directions;
         A1Exercise15.subTopicType = "Delivery Driver";
+        A1Exercise15.subTopicKey = "delivery_driver";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -796,6 +811,7 @@ public class RolePlayManager {
         A1Exercise16.language = languageSpanish; 
         A1Exercise16.topicType = personalInfo;
         A1Exercise16.subTopicType = "Instagram";
+        A1Exercise16.subTopicKey = "instagram";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -844,6 +860,7 @@ public class RolePlayManager {
         A1Exercise17.language = languageSpanish;
         A1Exercise17.topicType = personalInfo;
         A1Exercise17.subTopicType = "Neighbour's Parcel";
+        A1Exercise17.subTopicKey = "neighbours_parcel";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -891,6 +908,7 @@ public class RolePlayManager {
         A1Exercise18.language = languageSpanish;
         A1Exercise18.topicType = foodAndDrink;
         A1Exercise18.subTopicType = "Cocktails by card payment";
+        A1Exercise18.subTopicKey = "cocktails_by_card";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -936,6 +954,7 @@ public class RolePlayManager {
         A1Exercise19.language = languageSpanish;
         A1Exercise19.topicType = invitations;
         A1Exercise19.subTopicType = "Disneyland";
+        A1Exercise19.subTopicKey = "disneyland";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -980,6 +999,7 @@ public class RolePlayManager {
         A1Exercise20.language = languageSpanish;
         A1Exercise20.topicType = invitations;
         A1Exercise20.subTopicType = "Help with child's birthday party";
+        A1Exercise20.subTopicKey = "help_with_child_party";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -990,7 +1010,7 @@ public class RolePlayManager {
                 + " That would be great.  See you then. <html>";
         
         List<String> personAVocabEnglish20= Arrays.asList();
-        A1Exercise1.personAVocabEnglish = personAVocabEnglish20;
+        A1Exercise20.personAVocabEnglish = personAVocabEnglish20;
         
         //text for person B with html tags for new lines and highlights for eligible vocab assist words
         A1Exercise20.personBText = "<html> Hi! About your son's birthday next week? <br/> "
@@ -1022,6 +1042,7 @@ public class RolePlayManager {
         A1Exercise21.language = languageSpanish;
         A1Exercise21.topicType = personalInfo;
         A1Exercise21.subTopicType = "Description of town";
+        A1Exercise21.subTopicKey = "description_of_town";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1067,6 +1088,7 @@ public class RolePlayManager {
         A1Exercise22.language = languageSpanish;
         A1Exercise22.topicType = university;
         A1Exercise22.subTopicType = "Study in cafe";
+        A1Exercise22.subTopicKey = "study_in_cafe";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1109,10 +1131,7 @@ public class RolePlayManager {
         topicsA1.add(A1Exercise22);
         
        
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
        
         RolePlayTopic A2Exercise1 = new RolePlayTopic();
         // basic role play info
@@ -1120,6 +1139,7 @@ public class RolePlayManager {
         A2Exercise1.language = languageSpanish;
         A2Exercise1.topicType = directions;
         A2Exercise1.subTopicType = "Delivery Driver";
+        A2Exercise1.subTopicKey = "delivery_driver";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         A2Exercise1.personAText = "<html> Hello there. Is this Mary?<br/>"
@@ -1165,6 +1185,7 @@ public class RolePlayManager {
         A2Exercise2.language = languageSpanish;
         A2Exercise2.topicType = foodAndDrink;
         A2Exercise2.subTopicType = "Vegan pizza";
+        A2Exercise2.subTopicKey = "vegan_pizza";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1211,6 +1232,7 @@ public class RolePlayManager {
         A2Exercise3.language = languageSpanish;
         A2Exercise3.topicType = appointments;
         A2Exercise3.subTopicType = "Dentist";
+        A2Exercise3.subTopicKey = "dentist";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1255,6 +1277,7 @@ public class RolePlayManager {
         A2Exercise4.language = languageSpanish;
         A2Exercise4.topicType = foodAndDrink;
         A2Exercise4.subTopicType = "Reservation";
+        A2Exercise4.subTopicKey = "reservation";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1298,12 +1321,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise4);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise5 = new RolePlayTopic();
         // basic role play info
         A2Exercise5.difficulty = difficultyA2;
         A2Exercise5.language = languageSpanish;
         A2Exercise5.topicType = shopping;
         A2Exercise5.subTopicType = "Payment";
+        A2Exercise5.subTopicKey = "payment";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1346,6 +1371,7 @@ public class RolePlayManager {
         A2Exercise6.language = languageSpanish;
         A2Exercise6.topicType = health;
         A2Exercise6.subTopicType = "Sick relative";
+        A2Exercise6.subTopicKey = "sick_relative";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1386,6 +1412,7 @@ public class RolePlayManager {
         A2Exercise7.language = languageSpanish;
         A2Exercise7.topicType = invitations;
         A2Exercise7.subTopicType = "Charity";
+        A2Exercise7.subTopicKey = "charity";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1426,12 +1453,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise7);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise8 = new RolePlayTopic();
         // basic role play info
         A2Exercise8.difficulty = difficultyA2;
         A2Exercise8.language = languageSpanish;
         A2Exercise8.topicType = invitations;
         A2Exercise8.subTopicType = "Lunch";
+        A2Exercise8.subTopicKey = "lunch";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1471,12 +1500,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise8);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise9 = new RolePlayTopic();
         // basic role play info
         A2Exercise9.difficulty = difficultyA2;
         A2Exercise9.language = languageSpanish;
         A2Exercise9.topicType = foodAndDrink;
         A2Exercise9.subTopicType = "Delayed drinks order";
+        A2Exercise9.subTopicKey = "delayed_drinks";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1514,12 +1545,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise9);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise10 = new RolePlayTopic();
         // basic role play info
         A2Exercise10.difficulty = difficultyA2;
         A2Exercise10.language = languageSpanish;
         A2Exercise10.topicType = socialising;
         A2Exercise10.subTopicType = "Family size";
+        A2Exercise10.subTopicKey = "family_size";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1563,12 +1596,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise10);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise11 = new RolePlayTopic();
         // basic role play info
         A2Exercise11.difficulty = difficultyA2;
         A2Exercise11.language = languageSpanish;
         A2Exercise11.topicType = foodAndDrink;
         A2Exercise11.subTopicType = "QR Code";
+        A2Exercise11.subTopicKey = "qr_code";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1611,12 +1646,15 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise11);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
         RolePlayTopic A2Exercise12 = new RolePlayTopic();
         // basic role play info
         A2Exercise12.difficulty = difficultyA2;
         A2Exercise12.language = languageSpanish;
         A2Exercise12.topicType = appointments;
         A2Exercise12.subTopicType = "Doctor";
+        A2Exercise12.subTopicKey = "doctor";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1668,6 +1706,7 @@ public class RolePlayManager {
         A2Exercise13.language = languageSpanish;
         A2Exercise13.topicType = travel;
         A2Exercise13.subTopicType = "Expired Ticket";
+        A2Exercise13.subTopicKey = "expired_ticket";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1714,6 +1753,7 @@ public class RolePlayManager {
         A2Exercise14.language = languageSpanish;
         A2Exercise14.topicType = personalInfo;
         A2Exercise14.subTopicType = "Age restricted";
+        A2Exercise14.subTopicKey = "age_restricted";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1757,12 +1797,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise14);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise15 = new RolePlayTopic();
         // basic role play info
         A2Exercise15.difficulty = difficultyA2;
         A2Exercise15.language = languageSpanish;
         A2Exercise15.topicType = introductions;
-        A2Exercise15.subTopicType = "Ist day in job";
+        A2Exercise15.subTopicType = "1st day in job";
+        A2Exercise15.subTopicKey = "first_day_in_job";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1803,12 +1845,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise15);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise16 = new RolePlayTopic();
         // basic role play info
         A2Exercise16.difficulty = difficultyA2;
         A2Exercise16.language = languageSpanish;
         A2Exercise16.topicType = introductions;
         A2Exercise16.subTopicType = "Job offer";
+        A2Exercise16.subTopicKey = "job_offer";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1855,6 +1899,7 @@ public class RolePlayManager {
         A2Exercise17.language = languageSpanish;
         A2Exercise17.topicType = directions;
         A2Exercise17.subTopicType = "Hospital Visit";
+        A2Exercise17.subTopicKey = "hospital_visit";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1895,12 +1940,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise17);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise18 = new RolePlayTopic();
         // basic role play info
         A2Exercise18.difficulty = difficultyA2;
         A2Exercise18.language = languageSpanish;
         A2Exercise18.topicType = foodAndDrink;
         A2Exercise18.subTopicType = "Cocktails";
+        A2Exercise18.subTopicKey = "cocktails";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1940,12 +1987,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise18);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise19 = new RolePlayTopic();
         // basic role play info
         A2Exercise19.difficulty = difficultyA2;
         A2Exercise19.language = languageSpanish;
         A2Exercise19.topicType = socialising;
         A2Exercise19.subTopicType = "Succulent";
+        A2Exercise19.subTopicKey = "succelent";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -1988,12 +2037,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise19);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise20 = new RolePlayTopic();
         // basic role play info
         A2Exercise20.difficulty = difficultyA2;
         A2Exercise20.language = languageSpanish;
         A2Exercise20.topicType = invitations;
         A2Exercise20.subTopicType = "Children at wedding";
+        A2Exercise20.subTopicKey = "children_at_wedding";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2032,12 +2083,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise20);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise21 = new RolePlayTopic();
         // basic role play info
         A2Exercise21.difficulty = difficultyA2;
         A2Exercise21.language = languageSpanish;
         A2Exercise21.topicType = invitations;
         A2Exercise21.subTopicType = "Wedding RSVP";
+        A2Exercise21.subTopicKey = "wedding_reservation";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2080,12 +2133,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise21);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise22 = new RolePlayTopic();
         // basic role play info
         A2Exercise22.difficulty = difficultyA2;
         A2Exercise22.language = languageSpanish;
         A2Exercise22.topicType = culturalExperiences;
         A2Exercise22.subTopicType = "Omelette";
+        A2Exercise22.subTopicKey = "omelette";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2126,58 +2181,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise22);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        RolePlayTopic A2Exercise23 = new RolePlayTopic();
-        // basic role play info
-        A2Exercise23.difficulty = difficultyA2;
-        A2Exercise23.language = languageSpanish;
-        A2Exercise23.topicType = foodAndDrink;
-        A2Exercise23.subTopicType = "Cocktails";
         
-        //text for person A with html tags for new lines and highlights for eligible vocab assist words
-        
-        A2Exercise23.personAText = "<html> Hi there we would like to order 2 cocktails please. <br/>"
-                + " I will have an espresso martini and my friend will have the pina colada.<br/>"
-                + " Card, please. <br/>"
-                + " We only ordered two, why are there 4 drinks? <br/>"
-                + " Wow, great thanks! <html>";
-        
-        // list of vocab words associated with person A
-        List<String> personA2VocabAssistList23 = Arrays.asList();
-        
-        // add to the list in the object
-        A2Exercise23.personAVocabAssist = personA2VocabAssistList23;
-        
-        
-        List<String> personA2VocabEnglish23= Arrays.asList();
-        A2Exercise23.personAVocabEnglish = personA2VocabEnglish23;
-        
-        //text for person B with html tags for new lines and highlights for eligible vocab assist words
-        A2Exercise23.personBText = "<html> Good evening. Here's the menu which one would you like? <br/> "
-                + " Great, coming right up. Are you going to be paying card or cash? <br/>"
-                + " There, these are ready for you. <br/>"
-                + " Oh, it is <font color ='red'>happy hour</font>, which means all are cocktails are on a 2 for 1 offer. <br/>"
-                + " You're welcome. Enjoy your night. <html> ";
-        
-        // list of vocab words associated with person B
-        List<String> personB2VocabAssistList23 = Arrays.asList("hora feliz");
-        
-        // add to the list in the object
-        A2Exercise23.personBVocabAssist = personB2VocabAssistList23;
-        
-        
-        List<String> personB2VocabEnglish23= Arrays.asList("happy hour");
-        A2Exercise23.personBVocabEnglish = personB2VocabEnglish23;
-        
-        // add object to a list of topic based on the difficulty
-        topicsA2.add(A2Exercise23);
-        
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         RolePlayTopic A2Exercise24 = new RolePlayTopic();
         // basic role play info
         A2Exercise24.difficulty = difficultyA2;
         A2Exercise24.language = languageSpanish;
         A2Exercise24.topicType = health;
         A2Exercise24.subTopicType = "Visiting patient";
+        A2Exercise24.subTopicKey = "visiting_patient";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2218,12 +2229,14 @@ public class RolePlayManager {
         topicsA2.add(A2Exercise24);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic A2Exercise25 = new RolePlayTopic();
         // basic role play info
         A2Exercise25.difficulty = difficultyA2;
         A2Exercise25.language = languageSpanish;
         A2Exercise25.topicType = weather;
         A2Exercise25.subTopicType = "Clothing for weather";
+        A2Exercise25.subTopicKey = "cloathing_for_weather";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2265,13 +2278,13 @@ public class RolePlayManager {
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
-        
         RolePlayTopic B1Exercise1 = new RolePlayTopic();
         // basic role play info
         B1Exercise1.difficulty = difficultyB1;
         B1Exercise1.language = languageSpanish;
         B1Exercise1.topicType = shopping;
         B1Exercise1.subTopicType = "Payment";
+        B1Exercise1.subTopicKey = "payment";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2320,6 +2333,7 @@ public class RolePlayManager {
         B1Exercise2.language = languageSpanish;
         B1Exercise2.topicType = university;
         B1Exercise2.subTopicType = "Study plans";
+        B1Exercise2.subTopicKey = "study_plans";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2361,12 +2375,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise2);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise3 = new RolePlayTopic();
         // basic role play info
         B1Exercise3.difficulty = difficultyB1;
         B1Exercise3.language = languageSpanish;
         B1Exercise3.topicType = travel;
         B1Exercise3.subTopicType = "E.ticket";
+        B1Exercise3.subTopicKey = "eticket";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2406,12 +2422,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise3);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise4 = new RolePlayTopic();
         // basic role play info
         B1Exercise4.difficulty = difficultyB1;
         B1Exercise4.language = languageSpanish;
         B1Exercise4.topicType = shopping;
         B1Exercise4.subTopicType = "Cancel hair appointment";
+        B1Exercise4.subTopicKey = "cancel_hair_appointment";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2452,12 +2470,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise4);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise5 = new RolePlayTopic();
         // basic role play info
         B1Exercise5.difficulty = difficultyB1;
         B1Exercise5.language = languageSpanish;
         B1Exercise5.topicType = shopping;
         B1Exercise5.subTopicType = "Purchase of computer";
+        B1Exercise5.subTopicKey = "purchase_computer";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2501,12 +2521,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise5);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise6 = new RolePlayTopic();
         // basic role play info
         B1Exercise6.difficulty = difficultyB1;
         B1Exercise6.language = languageSpanish;
         B1Exercise6.topicType = socialising;
-        B1Exercise6.subTopicType = "Hair cut";
+        B1Exercise6.subTopicType = "Haircut";
+        B1Exercise6.subTopicKey = "haircut";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2550,12 +2572,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise6);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise7 = new RolePlayTopic();
         // basic role play info
         B1Exercise7.difficulty = difficultyB1;
         B1Exercise7.language = languageSpanish;
         B1Exercise7.topicType = weather;
         B1Exercise7.subTopicType = "Rain in station";
+        B1Exercise7.subTopicKey = "rain_in_station";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2596,12 +2620,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise7);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise8 = new RolePlayTopic();
         // basic role play info
         B1Exercise8.difficulty = difficultyB1;
         B1Exercise8.language = languageSpanish;
         B1Exercise8.topicType = foodAndDrink;
         B1Exercise8.subTopicType = "Ordering cocktails by barcode";
+        B1Exercise8.subTopicKey = "cocktails_by_barcode";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2639,12 +2665,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise8);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise9 = new RolePlayTopic();
         // basic role play info
         B1Exercise9.difficulty = difficultyB1;
         B1Exercise9.language = languageSpanish;
         B1Exercise9.topicType = invitations;
         B1Exercise9.subTopicType = "Offering help for Pink Unicorn Party";
+        B1Exercise9.subTopicKey = "offering_help";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2686,12 +2714,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise9);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise10 = new RolePlayTopic();
         // basic role play info
         B1Exercise10.difficulty = difficultyB1;
         B1Exercise10.language = languageSpanish;
         B1Exercise10.topicType = work;
         B1Exercise10.subTopicType = "Job offer";
+        B1Exercise10.subTopicKey = "job_offer";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2733,12 +2763,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise10);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B1Exercise11 = new RolePlayTopic();
         // basic role play info
         B1Exercise11.difficulty = difficultyB1;
         B1Exercise11.language = languageSpanish;
         B1Exercise11.topicType = housing;
         B1Exercise11.subTopicType = "Delivery of packages";
+        B1Exercise11.subTopicKey = "delivery_of_package";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2782,12 +2814,14 @@ public class RolePlayManager {
         topicsB1.add(B1Exercise11);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B2Exercise1 = new RolePlayTopic();
         // basic role play info
         B2Exercise1.difficulty = difficultyB2;
         B2Exercise1.language = languageSpanish;
         B2Exercise1.topicType = shopping;
         B2Exercise1.subTopicType = "Phone purchase";
+        B2Exercise1.subTopicKey = "phone_purchase";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2827,12 +2861,14 @@ public class RolePlayManager {
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
+        
         RolePlayTopic B2Exercise2 = new RolePlayTopic();
         // basic role play info
         B2Exercise2.difficulty = difficultyB2;
         B2Exercise2.language = languageSpanish;
         B2Exercise2.topicType = work;
         B2Exercise2.subTopicType = "Meet for drinks";
+        B2Exercise2.subTopicKey = "meet_for_drinks";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2874,12 +2910,14 @@ public class RolePlayManager {
         topicsB2.add(B2Exercise2);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B2Exercise3 = new RolePlayTopic();
         // basic role play info
         B2Exercise3.difficulty = difficultyB2;
         B2Exercise3.language = languageSpanish;
         B2Exercise3.topicType = travel;
         B2Exercise3.subTopicType = "Disneyland";
+        B2Exercise3.subTopicKey = "disneyland";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         
@@ -2920,12 +2958,14 @@ public class RolePlayManager {
         topicsB2.add(B2Exercise3);
         
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         RolePlayTopic B2Exercise4 = new RolePlayTopic();
         // basic role play info
         B2Exercise4.difficulty = difficultyB2;
         B2Exercise4.language = languageSpanish;
         B2Exercise4.topicType = socialising;
         B2Exercise4.subTopicType = "No show date";
+        B2Exercise4.subTopicKey = "no_show_date";
         
         //text for person A with html tags for new lines and highlights for eligible vocab assist words
         

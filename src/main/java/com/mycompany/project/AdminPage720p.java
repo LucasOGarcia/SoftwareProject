@@ -49,14 +49,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        performComboBox = new javax.swing.JComboBox<>();
-        performanceButton = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        teacherComboBox = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         searchText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -75,7 +67,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         accTypeInput = new javax.swing.JTextField();
         passwordInput = new javax.swing.JPasswordField();
         confirmInput = new javax.swing.JPasswordField();
-        jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         updateComboBox = new javax.swing.JComboBox<>();
         updateaccTypeInput = new javax.swing.JTextField();
@@ -106,6 +97,7 @@ public class AdminPage720p extends javax.swing.JFrame {
         clientGermanTable = new javax.swing.JTable();
         jScrollPane14 = new javax.swing.JScrollPane();
         clientPortugueseTable = new javax.swing.JTable();
+        performanceButton = new javax.swing.JButton();
 
         jScrollPane2.setViewportView(jEditorPane1);
 
@@ -125,79 +117,6 @@ public class AdminPage720p extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        performComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Email", "Email 1" }));
-        performComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                performComboBoxActionPerformed(evt);
-            }
-        });
-
-        performanceButton.setText("Check User's Performance Stats");
-        performanceButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                performanceButtonActionPerformed(evt);
-            }
-        });
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish", "French", "Itralian" }));
-
-        teacherComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Teacher" }));
-
-        jLabel13.setText("Teachers");
-
-        jLabel15.setText("Students");
-
-        jLabel17.setText("Language");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(113, 113, 113)
-                .addComponent(jLabel13)
-                .addGap(124, 124, 124))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(148, 148, 148)
-                    .addComponent(performanceButton)
-                    .addContainerGap(238, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel17))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(94, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(110, Short.MAX_VALUE)
-                    .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
 
         searchText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,8 +148,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         errorLabel.setText("jLabel7");
 
         jLabel14.setText("Account Type");
-
-        jLabel16.setText("jLabel16");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -269,8 +186,7 @@ public class AdminPage720p extends javax.swing.JFrame {
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
                         .addComponent(accTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jLabel16))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,8 +198,7 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
+                    .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -639,6 +554,13 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         clientInfoTab.addTab("client_Statistics_Portuguese", jScrollPane14);
 
+        performanceButton.setText("Check User's Performance Stats");
+        performanceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                performanceButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -658,12 +580,12 @@ public class AdminPage720p extends javax.swing.JFrame {
                                 .addComponent(jLabel2))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(performanceButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(240, 240, 240)
@@ -674,29 +596,27 @@ public class AdminPage720p extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(searchButton))))
-                        .addGap(18, 18, 18)
-                        .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane1)))
+                .addComponent(backButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton))))
+                .addGap(18, 18, 18)
+                .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -707,10 +627,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         backtoHome();
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void performComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_performComboBoxActionPerformed
 
     private void performanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performanceButtonActionPerformed
         // TODO add your handling code here:
@@ -798,17 +714,12 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JTextField firstNameInput;
     private javax.swing.JButton insertSubmit;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -818,7 +729,6 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane12;
@@ -832,11 +742,9 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField lastNameInput;
     private javax.swing.JPasswordField passwordInput;
-    private javax.swing.JComboBox<String> performComboBox;
     private javax.swing.JButton performanceButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchText;
-    private javax.swing.JComboBox<String> teacherComboBox;
     private javax.swing.JButton updateButton;
     private javax.swing.JComboBox<String> updateComboBox;
     private javax.swing.JLabel updateError;
@@ -1475,7 +1383,6 @@ private void replaceaccType(){
         populateItalianTable();
         populateGermanTable();
         emailBox();
-        teacherEmailBox();
         
     }
 private void searchDB(){
@@ -1502,7 +1409,6 @@ private void searchDB(){
     
         private void emailBox(){
             updateComboBox.removeAllItems();
-            performComboBox.removeAllItems();
         Connection con = null;
         try{
             ConnectDB connectDB = new ConnectDB();
@@ -1514,7 +1420,6 @@ private void searchDB(){
             while(rs.next()){
                 String abs = rs.getString(1);
                  updateComboBox.addItem(abs);
-                 performComboBox.addItem(abs);
             }
             con.close();
             pst.close();
@@ -1524,26 +1429,4 @@ private void searchDB(){
         }
     }
      
-    private void teacherEmailBox(){
-        teacherComboBox.removeAllItems();
-                Connection con = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "SELECT client_email FROM client_Info WHERE client_account_type = 2";
-            PreparedStatement pst = con.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-
-            while(rs.next()){
-                String abs = rs.getString(1);
-                 teacherComboBox.addItem(abs);
-            }               
-            con.close();
-            pst.close();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        
-    }
 }

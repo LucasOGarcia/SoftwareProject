@@ -223,7 +223,7 @@ public class Performance extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:private void backtoHome(){
-        ApplicationInfo.createadminHomePage(); 
+        ApplicationInfo.createHomePage(); 
         ApplicationInfo.getPerformancePage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -568,7 +568,7 @@ private String topicCount(){
              result = "Work";   
             }else{
                 //data is tied
-                result="TEST ERROR";
+                result="No data found";
             }
 
             con.close();

@@ -4,6 +4,11 @@
  */
 package com.mycompany.project;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Gabriel
@@ -15,6 +20,8 @@ public class PerformanceAdmin extends javax.swing.JFrame {
      */
     public PerformanceAdmin() {
         initComponents();
+        emailBox();
+        teacherEmailBox();
     }
 
     /**
@@ -28,33 +35,33 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        studentPersonA = new javax.swing.JTextField();
+        studentPersonB = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        studentAssist = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        studentDiff = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        studentTopic = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        teacherPersonA = new javax.swing.JTextField();
+        teacherPersonB = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        teacherAssist = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        teacherDiff = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        teacherTopic = new javax.swing.JTextField();
+        teacherComboBox = new javax.swing.JComboBox<>();
+        studentComboBox = new javax.swing.JComboBox<>();
+        languageComboBox = new javax.swing.JComboBox<>();
+        confirmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,11 +70,12 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
-        jLabel3.setText("'s Data");
-
-        jLabel4.setText("'s Data");
-
-        jButton1.setText("Back");
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
@@ -75,21 +83,21 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         jLabel6.setText("Number of times Person B (Teacher role)");
 
-        jTextField1.setEditable(false);
+        studentPersonA.setEditable(false);
 
-        jTextField2.setEditable(false);
+        studentPersonB.setEditable(false);
 
         jLabel7.setText("Number of Assist ");
 
-        jTextField3.setEditable(false);
+        studentAssist.setEditable(false);
 
         jLabel8.setText("Most Common Difficulty");
 
-        jTextField4.setEditable(false);
+        studentDiff.setEditable(false);
 
         jLabel9.setText("Most Common Topic");
 
-        jTextField5.setEditable(false);
+        studentTopic.setEditable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -105,11 +113,11 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(studentPersonA)
+                    .addComponent(studentPersonB)
+                    .addComponent(studentAssist)
+                    .addComponent(studentDiff)
+                    .addComponent(studentTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -118,23 +126,23 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentPersonA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentPersonB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentAssist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(191, Short.MAX_VALUE))
         );
 
@@ -144,21 +152,21 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         jLabel11.setText("Number of times Person B (Teacher role)");
 
-        jTextField6.setEditable(false);
+        teacherPersonA.setEditable(false);
 
-        jTextField7.setEditable(false);
+        teacherPersonB.setEditable(false);
 
         jLabel12.setText("Number of Assist ");
 
-        jTextField8.setEditable(false);
+        teacherAssist.setEditable(false);
 
         jLabel13.setText("Most Common Difficulty");
 
-        jTextField9.setEditable(false);
+        teacherDiff.setEditable(false);
 
         jLabel14.setText("Most Common Topic");
 
-        jTextField10.setEditable(false);
+        teacherTopic.setEditable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -174,11 +182,11 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(teacherPersonA)
+                    .addComponent(teacherPersonB)
+                    .addComponent(teacherAssist)
+                    .addComponent(teacherDiff)
+                    .addComponent(teacherTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -187,29 +195,38 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teacherPersonA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teacherPersonB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teacherAssist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teacherDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(teacherTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(191, Short.MAX_VALUE))
         );
 
-        jLabel15.setText("(SELECTED TEACHER)");
+        teacherComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Teacher" }));
 
-        jLabel16.setText("(SELECTED STUDENT)");
+        studentComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Student" }));
+
+        languageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish", "French", "Italian", "German", "Portuguese", "Greek" }));
+
+        confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,55 +235,101 @@ public class PerformanceAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(261, 261, 261)
+                .addGap(344, 344, 344)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(backButton))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(219, 219, 219))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(studentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(backButton))
+                    .addComponent(jLabel2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1)
-                                .addComponent(jButton1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel15))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel16))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(studentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+         double width = ApplicationInfo.detectScreenWidth();
+         double height = ApplicationInfo.detectScreenWidth();
+        
+        if(width >= 1920 && height >= 1080){
+        ApplicationInfo.createadminPage1080p(); 
+        ApplicationInfo.getPerformanceAdminPage().dispose();
+        }else{
+            ApplicationInfo.createadminPage720p(); 
+        ApplicationInfo.getPerformanceAdminPage().dispose();
+            }
+
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+        
+        String selected_text = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
+        if(!selected_text.equals("Spanish")){
+        studentPersonA.setText("null");
+        studentPersonB.setText("null");
+        studentAssist.setText("null");
+        studentDiff.setText("null");
+        studentTopic.setText("null");
+        teacherPersonA.setText("null");
+        teacherPersonB.setText("null");
+        teacherAssist.setText("null");
+        teacherDiff.setText("null");
+        teacherTopic.setText("null");
+        }else{
+        commonDiff_S();
+        commonDiff_T();
+        setPersonCount();
+        studentAssist.setText(String.valueOf(assistCount_S()));
+        teacherAssist.setText(String.valueOf(assistCount_T()));
+        studentTopic.setText(topicCount_S());
+        teacherTopic.setText(topicCount_T());
+        }
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,18 +367,15 @@ public class PerformanceAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -323,15 +383,602 @@ public class PerformanceAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> languageComboBox;
+    private javax.swing.JTextField studentAssist;
+    private javax.swing.JComboBox<String> studentComboBox;
+    private javax.swing.JTextField studentDiff;
+    private javax.swing.JTextField studentPersonA;
+    private javax.swing.JTextField studentPersonB;
+    private javax.swing.JTextField studentTopic;
+    private javax.swing.JTextField teacherAssist;
+    private javax.swing.JComboBox<String> teacherComboBox;
+    private javax.swing.JTextField teacherDiff;
+    private javax.swing.JTextField teacherPersonA;
+    private javax.swing.JTextField teacherPersonB;
+    private javax.swing.JTextField teacherTopic;
     // End of variables declaration//GEN-END:variables
+    private String topicCount_S(){
+    Connection con = null;
+    String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+
+
+    try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String topic_query = "SELECT client_statistics_topic_directions, client_statistics_topic_employment, client_statistics_topic_cultural_experiences"
+                    + ",client_statistics_topic_personal_info, client_statistics_topic_shopping,client_statistics_topic_health, client_statistics_topic_housing, "
+                    + "client_statistics_topic_introductions, client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel,"
+                    + " client_statistics_topic_food_drink, client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, "
+                    + "client_statistics_topic_work FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(topic_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String result = "";//set to most common topic
+            
+            
+            
+            
+            
+            int directions = rs.getInt(1); //get element + 1
+            int employment = rs.getInt(2);
+            int cultural = rs.getInt(3);
+            int info = rs.getInt(4);
+            int shopping = rs.getInt(5);
+            int health = rs.getInt(6);
+            int housing = rs.getInt(7);
+            int introductions = rs.getInt(8);
+            int appointments = rs.getInt(9);
+            int invitations = rs.getInt(10);
+            int travel = rs.getInt(11);
+            int food_drink = rs.getInt(12);
+            int socialise = rs.getInt(13);
+            int university = rs.getInt(14);
+            int weather = rs.getInt(15);
+            int work = rs.getInt(16);
+            
+            
+            
+            if(directions > employment && directions > cultural && directions > info && directions > shopping && directions > health && directions > housing && directions > introductions
+                    && directions > appointments && directions > invitations && directions > travel && directions > food_drink && directions > socialise && directions > university && directions
+                    > weather && directions > work){
+                result = "Directions";
+            }
+            else if(employment > directions && employment > cultural && employment > info && employment > shopping && employment > health && employment > housing && employment > introductions
+                     && employment > appointments && employment > invitations && employment > travel && employment > food_drink && employment > socialise && employment > university && employment > weather
+                     && employment > work){
+                result = "Employement";
+            }
+            else if(cultural > directions && cultural > employment && cultural > info && cultural > shopping && cultural > health && cultural > housing && cultural > introductions && cultural > appointments
+                     && cultural > invitations && cultural > travel && cultural > food_drink && cultural > socialise && cultural > university && cultural > weather && cultural > work){
+             result = "Cultural Experiences";   
+            }
+            else if(info > directions && info > employment && info > cultural && info > shopping && info > health && info > housing && info > introductions && info > appointments
+                     && info > invitations && info > travel && info > food_drink && info > socialise && info > university && info > weather && info > work){
+             result = "Personal Information";   
+            }
+            else if(shopping > directions && shopping > employment && shopping > cultural && shopping > info && shopping > health && shopping > housing && shopping > introductions && shopping > appointments
+                     && shopping > invitations && shopping > travel && shopping > food_drink && shopping > socialise && shopping > university && shopping > weather && shopping > work){
+             result = "Shopping";   
+            }
+            else if(health > directions && health > employment && health > cultural && health > info && health > shopping && health > housing && health > introductions && health > appointments
+                     && health > invitations && health > travel && health > food_drink && health > socialise && health > university && health > weather && health > work){
+             result = "Health";   
+            }
+            else if(housing > directions && housing > employment && housing > cultural && housing > info && housing > shopping && housing > health && housing > introductions && housing > appointments
+                     && housing > invitations && housing > travel && housing > food_drink && housing > socialise && housing > university && housing > weather && housing > work){
+             result = "Housing";   
+            }
+            else if(introductions > directions && introductions > employment && introductions > cultural && introductions > info && introductions > shopping && introductions > health && introductions > housing && introductions > appointments
+                     && introductions > invitations && introductions > travel && introductions > food_drink && introductions > socialise && introductions > university && introductions > weather && introductions > work){
+             result = "Introductions";   
+            }
+             else if(appointments > directions && appointments > employment && appointments > cultural && appointments > info && appointments > shopping && appointments > health && appointments > housing && appointments > introductions
+             && appointments > invitations && appointments > travel && appointments > food_drink && appointments > socialise && appointments > university && appointments > weather && appointments > work){
+             result = "Appointments";   
+            }
+             else if(invitations > directions && invitations > employment && invitations > cultural && invitations > info && invitations > shopping && invitations > health && invitations > housing && invitations > introductions
+             && invitations > appointments && invitations > travel && invitations > food_drink && invitations > socialise && invitations > university && invitations > weather && invitations > work){
+             result = "Invitations";   
+            }
+            else if(travel > directions && travel > employment && travel > cultural && travel > info && travel > shopping && travel > health && travel > housing && travel > introductions
+             && travel > appointments && travel > invitations && travel > food_drink && travel > socialise && travel > university && travel > weather && travel > work){
+             result = "Travel";   
+            }
+            else if(food_drink > directions && food_drink > employment && food_drink > cultural && food_drink > info && food_drink > shopping && food_drink > health && food_drink > housing && food_drink > introductions
+             && food_drink > appointments && food_drink > invitations && food_drink > travel && food_drink > socialise && food_drink > university && food_drink > weather && food_drink > work){
+             result = "Food and Drink";   
+            }
+            else if(socialise > directions && socialise > employment && socialise > cultural && socialise > info && socialise > shopping && socialise > health && socialise > housing && socialise > introductions
+             && socialise > appointments && socialise > invitations && socialise > travel && socialise > food_drink && socialise > university && socialise > weather && socialise > work){
+             result = "Socialise";   
+            }
+            else if(university > directions && university > employment && university > cultural && university > info && university > shopping && university > health && university > housing && university > introductions
+             && university > appointments && university > invitations && university > travel && university > food_drink && university > socialise && university > weather && university > work){
+             result = "University";   
+            }
+            else if(weather > directions && weather > employment && weather > cultural && weather > info && weather > shopping && weather > health && weather > housing && weather > introductions
+             && weather > appointments && weather > invitations && weather > travel && weather > food_drink && weather > socialise && weather > university && weather > work){
+             result = "Weather";   
+            }
+            else if(work > directions && work > employment && work > cultural && work > info && work > shopping && work > health && work > housing && work > introductions
+             && work > appointments && work > invitations && work > travel && work > food_drink && work > socialise && work > university && work > weather){
+             result = "Work";   
+            }else{
+                //data is tied
+                result="No Data Found";
+            }
+
+            con.close();
+            return result;
+         }catch(SQLException e){
+               throw new IllegalStateException("Can't connect to the database, topics", e);}
+    
+}
+
+    private String topicCount_T(){
+    Connection con = null;
+    String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+
+
+    try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String topic_query = "SELECT client_statistics_topic_directions, client_statistics_topic_employment, client_statistics_topic_cultural_experiences"
+                    + ",client_statistics_topic_personal_info, client_statistics_topic_shopping,client_statistics_topic_health, client_statistics_topic_housing, "
+                    + "client_statistics_topic_introductions, client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel,"
+                    + " client_statistics_topic_food_drink, client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, "
+                    + "client_statistics_topic_work FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(topic_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String result = "";//set to most common topic
+            
+            
+            
+            
+            
+            int directions = rs.getInt(1); //get element + 1
+            int employment = rs.getInt(2);
+            int cultural = rs.getInt(3);
+            int info = rs.getInt(4);
+            int shopping = rs.getInt(5);
+            int health = rs.getInt(6);
+            int housing = rs.getInt(7);
+            int introductions = rs.getInt(8);
+            int appointments = rs.getInt(9);
+            int invitations = rs.getInt(10);
+            int travel = rs.getInt(11);
+            int food_drink = rs.getInt(12);
+            int socialise = rs.getInt(13);
+            int university = rs.getInt(14);
+            int weather = rs.getInt(15);
+            int work = rs.getInt(16);
+            
+            
+            
+            if(directions > employment && directions > cultural && directions > info && directions > shopping && directions > health && directions > housing && directions > introductions
+                    && directions > appointments && directions > invitations && directions > travel && directions > food_drink && directions > socialise && directions > university && directions
+                    > weather && directions > work){
+                result = "Directions";
+            }
+            else if(employment > directions && employment > cultural && employment > info && employment > shopping && employment > health && employment > housing && employment > introductions
+                     && employment > appointments && employment > invitations && employment > travel && employment > food_drink && employment > socialise && employment > university && employment > weather
+                     && employment > work){
+                result = "Employement";
+            }
+            else if(cultural > directions && cultural > employment && cultural > info && cultural > shopping && cultural > health && cultural > housing && cultural > introductions && cultural > appointments
+                     && cultural > invitations && cultural > travel && cultural > food_drink && cultural > socialise && cultural > university && cultural > weather && cultural > work){
+             result = "Cultural Experiences";   
+            }
+            else if(info > directions && info > employment && info > cultural && info > shopping && info > health && info > housing && info > introductions && info > appointments
+                     && info > invitations && info > travel && info > food_drink && info > socialise && info > university && info > weather && info > work){
+             result = "Personal Information";   
+            }
+            else if(shopping > directions && shopping > employment && shopping > cultural && shopping > info && shopping > health && shopping > housing && shopping > introductions && shopping > appointments
+                     && shopping > invitations && shopping > travel && shopping > food_drink && shopping > socialise && shopping > university && shopping > weather && shopping > work){
+             result = "Shopping";   
+            }
+            else if(health > directions && health > employment && health > cultural && health > info && health > shopping && health > housing && health > introductions && health > appointments
+                     && health > invitations && health > travel && health > food_drink && health > socialise && health > university && health > weather && health > work){
+             result = "Health";   
+            }
+            else if(housing > directions && housing > employment && housing > cultural && housing > info && housing > shopping && housing > health && housing > introductions && housing > appointments
+                     && housing > invitations && housing > travel && housing > food_drink && housing > socialise && housing > university && housing > weather && housing > work){
+             result = "Housing";   
+            }
+            else if(introductions > directions && introductions > employment && introductions > cultural && introductions > info && introductions > shopping && introductions > health && introductions > housing && introductions > appointments
+                     && introductions > invitations && introductions > travel && introductions > food_drink && introductions > socialise && introductions > university && introductions > weather && introductions > work){
+             result = "Introductions";   
+            }
+             else if(appointments > directions && appointments > employment && appointments > cultural && appointments > info && appointments > shopping && appointments > health && appointments > housing && appointments > introductions
+             && appointments > invitations && appointments > travel && appointments > food_drink && appointments > socialise && appointments > university && appointments > weather && appointments > work){
+             result = "Appointments";   
+            }
+             else if(invitations > directions && invitations > employment && invitations > cultural && invitations > info && invitations > shopping && invitations > health && invitations > housing && invitations > introductions
+             && invitations > appointments && invitations > travel && invitations > food_drink && invitations > socialise && invitations > university && invitations > weather && invitations > work){
+             result = "Invitations";   
+            }
+            else if(travel > directions && travel > employment && travel > cultural && travel > info && travel > shopping && travel > health && travel > housing && travel > introductions
+             && travel > appointments && travel > invitations && travel > food_drink && travel > socialise && travel > university && travel > weather && travel > work){
+             result = "Travel";   
+            }
+            else if(food_drink > directions && food_drink > employment && food_drink > cultural && food_drink > info && food_drink > shopping && food_drink > health && food_drink > housing && food_drink > introductions
+             && food_drink > appointments && food_drink > invitations && food_drink > travel && food_drink > socialise && food_drink > university && food_drink > weather && food_drink > work){
+             result = "Food and Drink";   
+            }
+            else if(socialise > directions && socialise > employment && socialise > cultural && socialise > info && socialise > shopping && socialise > health && socialise > housing && socialise > introductions
+             && socialise > appointments && socialise > invitations && socialise > travel && socialise > food_drink && socialise > university && socialise > weather && socialise > work){
+             result = "Socialise";   
+            }
+            else if(university > directions && university > employment && university > cultural && university > info && university > shopping && university > health && university > housing && university > introductions
+             && university > appointments && university > invitations && university > travel && university > food_drink && university > socialise && university > weather && university > work){
+             result = "University";   
+            }
+            else if(weather > directions && weather > employment && weather > cultural && weather > info && weather > shopping && weather > health && weather > housing && weather > introductions
+             && weather > appointments && weather > invitations && weather > travel && weather > food_drink && weather > socialise && weather > university && weather > work){
+             result = "Weather";   
+            }
+            else if(work > directions && work > employment && work > cultural && work > info && work > shopping && work > health && work > housing && work > introductions
+             && work > appointments && work > invitations && work > travel && work > food_drink && work > socialise && work > university && work > weather){
+             result = "Work";   
+            }else{
+                //data is tied
+                result="No data Found";
+            }
+
+            con.close();
+            return result;
+         }catch(SQLException e){
+               throw new IllegalStateException("Can't connect to the database, topics", e);}
+    
+}
+
+    
+    private Integer total_A1_S(){
+        Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a1_2 = rs.getInt(1);
+            con.close();
+            return a1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a1 count", e);}  
+}
+
+
+private Integer total_A2_S(){
+    Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a2_2 = rs.getInt(1);
+            con.close();
+            return a2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a2 count", e);}
+    
+}
+
+private Integer total_B1_S(){
+        Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b1_2 = rs.getInt(1);
+            con.close();
+            return b1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b1 count", e);}
+    
+}
+
+private Integer total_B2_S(){
+        Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b2_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b2_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b2_2 = rs.getInt(1);
+            con.close();
+            return b2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b2 count", e);}
+    
+}
+
+    private Integer total_A1_T(){
+        Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a1_2 = rs.getInt(1);
+            con.close();
+            return a1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a1 count", e);}  
+}
+
+
+private Integer total_A2_T(){
+    Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a2_2 = rs.getInt(1);
+            con.close();
+            return a2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a2 count", e);}
+    
+}
+
+private Integer total_B1_T(){
+        Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b1_2 = rs.getInt(1);
+            con.close();
+            return b1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b1 count", e);}
+    
+}
+
+private Integer total_B2_T(){
+        Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b2_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b2_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b2_2 = rs.getInt(1);
+            con.close();
+            return b2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b2 count", e);}
+    
+}
+    
+    
+    
+    private void commonDiff_S(){
+        int a1 = total_A1_S();
+        int a2 = total_A2_S();
+        int b1 = total_B1_S();
+        int b2 = total_B2_S();
+        
+        if(a1 > a2 && a1 > b1 && a1 > b2){
+            studentDiff.setText(String.valueOf(a1));
+        }
+        else if(a2 > a1 && a2 > b1 && a2> b2){
+            studentDiff.setText(String.valueOf(a2));
+        }
+        else if(b1 > a1 && b1 > a2 && b1 > b2){
+            studentDiff.setText(String.valueOf(b1));
+        }
+        else if(b2 > a1 && b2 > a2 && b2 > b1){
+            studentDiff.setText(String.valueOf(b2));
+        }else{
+            studentDiff.setText("null");
+        }  
+    }
+        
+        private void commonDiff_T(){
+        int a1 = total_A1_T();
+        int a2 = total_A2_T();
+        int b1 = total_B1_T();
+        int b2 = total_B2_T();
+        
+        if(a1 > a2 && a1 > b1 && a1 > b2){
+            teacherDiff.setText(String.valueOf(a1));
+        }
+        else if(a2 > a1 && a2 > b1 && a2> b2){
+            teacherDiff.setText(String.valueOf(a2));
+        }
+        else if(b1 > a1 && b1 > a2 && b1 > b2){
+            teacherDiff.setText(String.valueOf(b1));
+        }
+        else if(b2 > a1 && b2 > a2 && b2 > b1){
+            teacherDiff.setText(String.valueOf(b2));
+        }else{
+            teacherDiff.setText("null");
+        }  
+    }    
+    private Integer assistCount_S(){
+    Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b_query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, assist count student", e);}
+}
+    
+    private Integer assistCount_T(){
+    Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String assist_query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(assist_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, assist count teacher", e);}
+}
+
+private void setPersonCount(){
+        studentPersonA.setText(String.valueOf(personACount_S()));
+        studentPersonB.setText(String.valueOf(personBCount_S()));
+        teacherPersonA.setText(String.valueOf(personACount_T()));
+        teacherPersonB.setText(String.valueOf(personBCount_T()));
+    }    
+    
+private Integer personACount_S(){
+            Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a_query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person a count", e);}
+    
+}
+
+private Integer personBCount_S(){
+        Connection con = null;
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b_query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person b count", e);}   
+}
+
+private Integer personACount_T(){
+            Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a_query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person a count", e);}
+    
+}
+
+private Integer personBCount_T(){
+        Connection con = null;
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b_query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person b count", e);}   
+}
+
+    
+    
+    private void emailBox(){
+            studentComboBox.removeAllItems();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info WHERE client_account_type = 0";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 studentComboBox.addItem(abs);
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    private void teacherEmailBox(){
+        teacherComboBox.removeAllItems();
+                Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info WHERE client_account_type = 2";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 teacherComboBox.addItem(abs);
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }     
+    }
+
 }

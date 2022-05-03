@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -29,6 +30,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
     public AdminPage1080p() {
         initComponents();
         refreshDB();
+        setPageIcon();
 
     }
 
@@ -868,6 +870,15 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JPasswordField updateconfirmInput;
     // End of variables declaration//GEN-END:variables
 
+    private void setPageIcon(){
+        // set window icon for the JFrame
+        if (ApplicationInfo.getPageIconName() != null) {
+            String imageName = ApplicationInfo.getPageIconName();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            this.setIconImage(icon.getImage());
+        }
+    }
+    
     private void populateEmailTable(){
             Connection con = null;
   

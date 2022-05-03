@@ -158,7 +158,6 @@ public class CreateTable {
                 + "     client_email VARCHAR(254) not null,"
                 + "     client_progress_repeat_name INTEGER not null,"
                 + "     client_progress_delivery_driver INTEGER not null,"
-                + "     client_statistics_last_roleplay VARCHAR(254),"
                 + "     FOREIGN KEY (client_email) references client_Info(client_email)\n" + ");";
         
         String query2 = "Create TABLE if not exists progress_Spanish_A2_Directions \n("

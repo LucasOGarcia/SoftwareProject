@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -27,6 +28,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        initialise();
     }
 
     /**
@@ -276,14 +278,8 @@ public class LoginPage extends javax.swing.JFrame {
             con.close();
             return accType;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, account type", e);}       
-            
-            
-            
-            
-            
-    }
-        
+               throw new IllegalStateException("Can't connect to the database, account type", e);}             
+    }   
         
     public String getFirstNameDB(){
         String email = emailInput.getText().toLowerCase().trim();
@@ -301,8 +297,6 @@ public class LoginPage extends javax.swing.JFrame {
         }catch (SQLException e) {
                throw new IllegalStateException("Can't connect to the database, surname", e);}     
     }
-        
-    
     
     public String getLastNameDB(){
                 String email = emailInput.getText().toLowerCase().trim();
@@ -388,6 +382,15 @@ public class LoginPage extends javax.swing.JFrame {
     private void adminLogin(){
        ApplicationInfo.createadminHomePage(); 
        ApplicationInfo.getLoginPage().dispose();
+    }
+    
+    private void initialise() {
+        // set window icon for the JFrame
+        if (ApplicationInfo.getPageIconName() != null) {
+            String imageName = ApplicationInfo.getPageIconName();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            this.setIconImage(icon.getImage());
+        }
     }
 
 }

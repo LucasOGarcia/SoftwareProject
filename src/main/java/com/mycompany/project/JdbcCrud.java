@@ -9,10 +9,14 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +29,8 @@ public class JdbcCrud {
     // https://www.journaldev.com/34028/sql-injection-in-java
     //reference for date timestamp:
     //https://www.dariawan.com/tutorials/java/how-convert-java-util-date-to-java-sql-timestamp/#:~:text=Date%20to%20java.-,sql.,millisecond%20value%20of%20that%20object.
+    //reference for checking if table exists
+    // https://www.baeldung.com/jdbc-check-table-exists
         
     //verify if email is already within the database  
     public static boolean checkIfEmailExists(String email){
@@ -3034,5 +3040,126 @@ public class JdbcCrud {
             }
         }
     }
+    
+    public static int getColumnCount(String tableName) throws Exception {
+        Connection con = null;
+        Statement stmt = null;
+        int columnsNum = 0;
+        String query = "select * from "+tableName;
+        try {
+            con = ConnectDB.getConnection();
+            System.out.println("Retrieving column count from table "+tableName);
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            columnsNum = rsmd.getColumnCount();
+            System.out.println("Column count for table "+tableName+" is: "+columnsNum);
+            return columnsNum;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }
+            catch (SQLException ex) {
+                // display error message
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+                throw new Exception();
+            }
+        }
+    }
+    
+    public static List getColumnNames(String tableName, int columNum) throws Exception {
+        Connection con = null;
+        Statement stmt = null;
+        List<String> columNames = new ArrayList();
+        String query = "select * FROM "+tableName;
+        try {
+            con = ConnectDB.getConnection();
+            System.out.println("Retrieving column names from table "+tableName);
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            ResultSetMetaData rsmd = rs.getMetaData();
+            for (int i = 2; i <= columNum; i++) {
+                String name = rsmd.getColumnName(i);
+                columNames.add(name);
+            }
+            System.out.println("Successfully retrieved column names from table "+tableName );
+            return columNames;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            System.out.println(ex);
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+            }
+            catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+                System.out.println(ex);
+                throw new Exception();
+            }
+        }
+    }
+    
+    public static Integer getColumnValue(String email ,String tableName, String columnName) throws Exception {
+        Integer result = 0;
+        Connection con = null;
+        PreparedStatement pst = null;
+        String query = "SELECT "+columnName+" From "+tableName+" WHERE client_email=?";
+        try{
+            con = ConnectDB.getConnection();
+            System.out.println("Retrieving value from "+tableName+" "+columnName);
+            //set all parameters
+            pst = con.prepareStatement(query);
+            pst.setString(1, email);
+            
+            // execute preparedStatement SELECT * FROM WHERE
+            ResultSet rs = pst.executeQuery();
+            result = rs.getInt(1);
+            System.out.println("Retrieved value from "+tableName+" "+columnName+" "+result);
+            return result;
+        }
+        catch (SQLException ex){
+            // display error message
+            JOptionPane.showMessageDialog(null, "Error!\n"+ex);;
+            throw new Exception();
+        }
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+                // display error message
+                System.out.println("couldn't execute finally branch");
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);;
+                throw new Exception();
+            }
+        }
+    }
+    
+     
+
     
 }

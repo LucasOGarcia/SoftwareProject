@@ -47,6 +47,10 @@ public class PerformanceAdmin extends javax.swing.JFrame {
         studentDiff = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         studentTopic = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        studentLogin = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        studentLogout = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -58,6 +62,10 @@ public class PerformanceAdmin extends javax.swing.JFrame {
         teacherDiff = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         teacherTopic = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        teacherLogin = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        teacherLogout = new javax.swing.JTextField();
         teacherComboBox = new javax.swing.JComboBox<>();
         studentComboBox = new javax.swing.JComboBox<>();
         languageComboBox = new javax.swing.JComboBox<>();
@@ -99,6 +107,19 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         studentTopic.setEditable(false);
 
+        jLabel3.setText("User's Last Login");
+
+        studentLogin.setEditable(false);
+        studentLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentLoginActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("User's Last Logout");
+
+        studentLogout.setEditable(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -110,15 +131,20 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel15))
                 .addGap(57, 57, 57)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(studentPersonA)
-                    .addComponent(studentPersonB)
-                    .addComponent(studentAssist)
-                    .addComponent(studentDiff)
-                    .addComponent(studentTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(studentLogout)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(studentPersonA)
+                        .addComponent(studentPersonB)
+                        .addComponent(studentAssist)
+                        .addComponent(studentDiff)
+                        .addComponent(studentTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(studentLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +169,15 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(studentTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(studentLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(studentLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -168,6 +202,14 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
         teacherTopic.setEditable(false);
 
+        jLabel4.setText("User's Last Login");
+
+        teacherLogin.setEditable(false);
+
+        jLabel16.setText("User's Last Logout");
+
+        teacherLogout.setEditable(false);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -179,15 +221,22 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel16))
                 .addGap(57, 57, 57)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(teacherPersonA)
-                    .addComponent(teacherPersonB)
-                    .addComponent(teacherAssist)
-                    .addComponent(teacherDiff)
-                    .addComponent(teacherTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(teacherLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(teacherPersonA)
+                            .addComponent(teacherPersonB)
+                            .addComponent(teacherAssist)
+                            .addComponent(teacherDiff)
+                            .addComponent(teacherTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(teacherLogout))
+                .addGap(15, 15, 15))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +261,15 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(teacherTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(teacherLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(teacherLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         teacherComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Teacher" }));
@@ -271,9 +328,9 @@ public class PerformanceAdmin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,7 +364,10 @@ public class PerformanceAdmin extends javax.swing.JFrame {
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
-        
+        getLogin_S();
+        getLogout_S();
+        getLogin_T();
+        getLogout_T();
         String selected_text = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
         if(!selected_text.equals("Spanish")){
         studentPersonA.setText("null");
@@ -330,6 +390,10 @@ public class PerformanceAdmin extends javax.swing.JFrame {
         teacherTopic.setText(topicCount_T());
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void studentLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,7 +439,11 @@ public class PerformanceAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -387,16 +455,114 @@ public class PerformanceAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField studentAssist;
     private javax.swing.JComboBox<String> studentComboBox;
     private javax.swing.JTextField studentDiff;
+    private javax.swing.JTextField studentLogin;
+    private javax.swing.JTextField studentLogout;
     private javax.swing.JTextField studentPersonA;
     private javax.swing.JTextField studentPersonB;
     private javax.swing.JTextField studentTopic;
     private javax.swing.JTextField teacherAssist;
     private javax.swing.JComboBox<String> teacherComboBox;
     private javax.swing.JTextField teacherDiff;
+    private javax.swing.JTextField teacherLogin;
+    private javax.swing.JTextField teacherLogout;
     private javax.swing.JTextField teacherPersonA;
     private javax.swing.JTextField teacherPersonB;
     private javax.swing.JTextField teacherTopic;
     // End of variables declaration//GEN-END:variables
+    private void getLogin_S(){
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_last_login FROM client_Info WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String time = rs.getString(1);
+            while (rs.next()){
+             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_login");
+             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
+             studentLogin.setText(String.valueOf(currDate));
+            }
+
+            con.close();
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, login", e);} 
+    }
+    
+        private void getLogout_S(){
+        String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_last_logout FROM client_Info WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String time = rs.getString(1);
+            while (rs.next()){
+             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_logout");
+             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
+             studentLogout.setText(String.valueOf(currDate));
+            }
+
+            con.close();
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, logout", e);} 
+    }
+    
+        private void getLogin_T(){
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_last_login FROM client_Info WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String time = rs.getString(1);
+            while (rs.next()){
+             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_login");
+             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
+             teacherLogin.setText(String.valueOf(currDate));
+            }
+
+            con.close();
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, login", e);} 
+    }
+    
+        private void getLogout_T(){
+        String selected_text = teacherComboBox.getItemAt(teacherComboBox.getSelectedIndex());
+         Connection con = null; 
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_last_logout FROM client_Info WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String time = rs.getString(1);
+            while (rs.next()){
+             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_logout");
+             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
+             teacherLogout.setText(String.valueOf(currDate));
+            }
+
+            con.close();
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, logout", e);} 
+    }    
+    
+    
+    
+    
+    
+    
+    
     private String topicCount_S(){
     Connection con = null;
     String selected_text = studentComboBox.getItemAt(studentComboBox.getSelectedIndex());

@@ -38,6 +38,7 @@ public class Performance extends javax.swing.JFrame {
             }               
             con.close();
             pst.close();
+            rs.close();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -339,130 +340,244 @@ public class Performance extends javax.swing.JFrame {
 private Integer total_A1(){
         Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(a1_query);
+             pst = con.prepareStatement(a1_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer a1_2 = rs.getInt(1);
-            con.close();
             return a1_2;
          }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, a1 count", e);}  
+               throw new IllegalStateException("Can't connect to the database, a1 count", e);}
+                        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
 }
 
 
 private Integer total_A2(){
     Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+                PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(a1_query);
+             pst = con.prepareStatement(a1_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer a2_2 = rs.getInt(1);
-            con.close();
             return a2_2;
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, a2 count", e);}
+                                finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     
 }
 
 private Integer total_B1(){
         Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String b1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(b1_query);
+             pst = con.prepareStatement(b1_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer b1_2 = rs.getInt(1);
-            con.close();
             return b1_2;
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, b1 count", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     
 }
 
 private Integer total_B2(){
         Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String b2_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(b2_query);
+             pst = con.prepareStatement(b2_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer b2_2 = rs.getInt(1);
-            con.close();
             return b2_2;
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, b2 count", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     
 }
 
 private Integer personACount(){
             Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String a_query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(a_query);
+             pst = con.prepareStatement(a_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer b = rs.getInt(1);
-            con.close();
             return b;
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, person a count", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     
 }
 
 private Integer personBCount(){
         Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String b_query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(b_query);
+             pst = con.prepareStatement(b_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer b = rs.getInt(1);
-            con.close();
             return b;
          }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, person b count", e);}   
+               throw new IllegalStateException("Can't connect to the database, person b count", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
 }
 
 private Integer assistCount(){
     Connection con = null;
         String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String b_query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(b_query);
+             pst = con.prepareStatement(b_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             Integer b = rs.getInt(1);
-            con.close();
             return b;
          }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, assist count", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
 }
 
 private String topicCount(){
     Connection con = null;
     String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+    PreparedStatement pst = null;
+        ResultSet rs = null;
 
 
     try{
@@ -473,9 +588,9 @@ private String topicCount(){
                     + "client_statistics_topic_introductions, client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel,"
                     + " client_statistics_topic_food_drink, client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, "
                     + "client_statistics_topic_work FROM client_Statistics_Spanish WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(topic_query);
+             pst = con.prepareStatement(topic_query);
             pst.setString(1, selected_text);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             String result = "";//set to most common topic
             
             
@@ -571,10 +686,25 @@ private String topicCount(){
                 result="No data found";
             }
 
-            con.close();
             return result;
          }catch(SQLException e){
                throw new IllegalStateException("Can't connect to the database, topics", e);}
+    	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
+    
     
 }
 

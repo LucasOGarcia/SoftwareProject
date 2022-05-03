@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -275,79 +276,152 @@ public class LoginPage extends javax.swing.JFrame {
             pst.setString(1, email);
             ResultSet rs = pst.executeQuery();
             Integer accType = rs.getInt(1);
-            con.close();
             return accType;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, account type", e);}             
+               throw new IllegalStateException("Can't connect to the database, account type", e);}
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            }
+            catch (SQLException ex) {;
+                JOptionPane.showMessageDialog(null, "Error!\n"+ex);
+            }
+        }             
     }   
         
     public String getFirstNameDB(){
         String email = emailInput.getText().toLowerCase().trim();
         Connection con = null;
+        ResultSet rs = null;
+        PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "SELECT client_forename FROM client_Info WHERE client_email=?"; //or prepared statement
-            PreparedStatement pst = con.prepareStatement(query);
+            pst = con.prepareStatement(query);
             pst.setString(1, email);
-            ResultSet rs = pst.executeQuery();
+            rs = pst.executeQuery();
             String fname = rs.getString(1);
-            con.close();
             return fname;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, surname", e);}     
+               throw new IllegalStateException("Can't connect to the database, surname", e);}        
+        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }     
     }
     
     public String getLastNameDB(){
                 String email = emailInput.getText().toLowerCase().trim();
                 Connection con = null;
+                ResultSet rs = null;
+                PreparedStatement pst = null;       
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String query = "SELECT client_surname FROM client_Info WHERE client_email=?"; //or prepared statement
-            PreparedStatement pst = con.prepareStatement(query);
+             pst = con.prepareStatement(query);
             pst.setString(1, email);
-            ResultSet rs = pst.executeQuery();
+            rs = pst.executeQuery();
             String sname = rs.getString(1);
-            con.close();
             return sname;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, surname", e);}     
+               throw new IllegalStateException("Can't connect to the database, surname", e);}
+                finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     }
     
      public String getPassDB(){
         String email = emailInput.getText().toLowerCase().trim();
         Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String pw_query = "SELECT client_encrypted_password FROM client_Info WHERE client_email=?"; //or prepared statement
-            PreparedStatement pst = con.prepareStatement(pw_query);
+             pst = con.prepareStatement(pw_query);
             pst.setString(1, email);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             String password_2 = rs.getString(1);
-            con.close();
             System.out.println(password_2);
             return password_2;
         }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database, password", e);}  
+               throw new IllegalStateException("Can't connect to the database, password", e);}
+         finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
     }
      
      public String getSaltDB(){
          String email = emailInput.getText().toLowerCase().trim();
          Connection con = null; 
+         PreparedStatement pst = null;
+         ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
             String salt_query = "SELECT client_salt FROM client_Info WHERE client_email=?";
-            PreparedStatement pst = con.prepareStatement(salt_query);
+             pst = con.prepareStatement(salt_query);
             pst.setString(1, email);
-            ResultSet rs = pst.executeQuery();
+             rs = pst.executeQuery();
             String salt_2 = rs.getString(1);
-            con.close();
             return salt_2;
          }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, salt", e);}  
+               throw new IllegalStateException("Can't connect to the database, salt", e);}
+                        finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
          }
      
     public static boolean verifyPassword(String input_password,  String pw_query, String salt_query){ //find place to put input_password

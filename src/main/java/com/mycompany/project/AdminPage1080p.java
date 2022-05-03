@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -30,30 +29,8 @@ public class AdminPage1080p extends javax.swing.JFrame {
     public AdminPage1080p() {
         initComponents();
         refreshDB();
+        emailBox();
 
-       
-        ArrayList<String> names = new ArrayList<>();
-        Connection con = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "SELECT client_email FROM client_Info";
-            PreparedStatement pst = con.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-
-            while(rs.next()){
-                String abs = rs.getString(1);
-                 updateComboBox.addItem(abs);
-                 performComboBox.addItem(abs);
-            }               
-            con.close();
-            pst.close();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        
-        
     }
 
     /**
@@ -98,8 +75,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        updateEmailInput = new javax.swing.JTextField();
         updateFirstNameInput = new javax.swing.JTextField();
         updateLastNameInput = new javax.swing.JTextField();
         updateButton = new javax.swing.JButton();
@@ -316,8 +291,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
 
         jLabel13.setText("First Name");
 
-        jLabel14.setText("Email");
-
         updateButton.setText("Make Changes");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -368,18 +341,15 @@ public class AdminPage1080p extends javax.swing.JFrame {
                                         .addComponent(jLabel12))
                                     .addGap(62, 62, 62))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel13)
-                                        .addComponent(jLabel14))
+                                    .addComponent(jLabel13)
                                     .addGap(45, 45, 45)))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(updateEmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                .addComponent(updateFirstNameInput)
-                                .addComponent(updateLastNameInput)))
+                                .addComponent(updateLastNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                .addComponent(updateFirstNameInput)))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(64, 64, 64)
                             .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                    .addContainerGap(38, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,11 +371,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 .addGap(144, 144, 144))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(124, 124, 124)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(updateEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
+                    .addGap(161, 161, 161)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel13)
                         .addComponent(updateFirstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -745,9 +711,9 @@ public class AdminPage1080p extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void insertSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSubmitActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here   
         insertData();
+       JOptionPane.showMessageDialog(null, "Added to Database");
     }//GEN-LAST:event_insertSubmitActionPerformed
 
     private void updateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateComboBoxActionPerformed
@@ -761,8 +727,8 @@ public class AdminPage1080p extends javax.swing.JFrame {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
-        
         updateData();
+        JOptionPane.showMessageDialog(null, "Updated Database Successfully");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void jTabbedPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseClicked
@@ -835,7 +801,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -865,7 +830,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JTextField searchText;
     private javax.swing.JButton updateButton;
     private javax.swing.JComboBox<String> updateComboBox;
-    private javax.swing.JTextField updateEmailInput;
     private javax.swing.JLabel updateError;
     private javax.swing.JTextField updateFirstNameInput;
     private javax.swing.JTextField updateLastNameInput;
@@ -1076,14 +1040,17 @@ private void insertData(){ //Mimicks the Registration Page
 }
 
 private void updateData(){
-    replaceEmail();
+    //replaceEmail();
+    
+    System.out.println("check 1");
     replaceFName();
     replaceLName();
     replacePass();
     replaceaccType();
+    System.out.println("check 2");
     refreshDB();
 }
-
+/*
 private void replaceEmail(){
     String email = updateEmailInput.getText().toLowerCase().trim();
             if(!email.isEmpty()){
@@ -1105,17 +1072,19 @@ private void replaceEmail(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_email ='?' WHERE client_email='?'";
+            String query = "UPDATE client_Info SET client_email=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,email);
             pst.setString(2, selected_text);
             pst.executeUpdate();
+            con.commit();
             con.close();
             }catch(Exception e){
                 e.printStackTrace();
                throw new IllegalStateException("Can't connect to the database, replace email", e);}  
     }      
 }
+*/
 
 private void replaceFName(){
         String first_name = updateFirstNameInput.getText().toLowerCase().trim();
@@ -1132,11 +1101,12 @@ private void replaceFName(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_forename ='?' WHERE client_email='?'";
+            String query = "UPDATE client_Info SET client_forename=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,first_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace fname", e);}
@@ -1156,11 +1126,12 @@ private void replaceLName(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_surname =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_surname=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,last_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace lname", e);}
@@ -1202,13 +1173,13 @@ private void replacePass(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_encrypted_password =?, client_salt =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_encrypted_password=?, client_salt=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,securePassword);
             pst.setString(2,salt); //Replaces the salt as well
             pst.setString(3, selected_text);
             pst.executeUpdate();
-
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace salt and pass", e);} 
@@ -1227,12 +1198,12 @@ private void replaceaccType(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_account_type =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_account_type=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,accType);
             pst.setString(2, selected_text);
             pst.executeUpdate();
-
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, acc Type", e);}   
@@ -1490,7 +1461,7 @@ private void replaceaccType(){
         populatePortugueseTable();
         populateItalianTable();
         populateGermanTable();
-        
+        emailBox();
     }
 
     private void searchDB(){
@@ -1510,6 +1481,31 @@ private void replaceaccType(){
         
     }    
     private void gotoperformanceAdmin(){
-        
+        ApplicationInfo.createperformanceAdminPage(); 
+       ApplicationInfo.getAdminPage1080p().dispose();  
+    }
+    
+    private void emailBox(){
+            updateComboBox.removeAllItems();
+            performComboBox.removeAllItems();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 updateComboBox.addItem(abs);
+                 performComboBox.addItem(abs);
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

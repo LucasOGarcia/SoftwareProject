@@ -8,9 +8,7 @@ package com.mycompany.project;
 //import static com.mycompany.project.PasswordManager.generateSecurePassword;
 //import static com.mycompany.project.User.User;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -326,7 +324,6 @@ public class LoginPage extends javax.swing.JFrame {
      public String getPassDB(){
         String email = emailInput.getText().toLowerCase().trim();
         Connection con = null;
-        //PreparedStatement pst = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
@@ -376,7 +373,6 @@ public class LoginPage extends javax.swing.JFrame {
         }
     }
 
- 
     private void startregisterPage(){
         //code to go to register page
         ApplicationInfo.createRegistrationPage();

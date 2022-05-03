@@ -16,7 +16,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,32 +28,8 @@ public class AdminPage720p extends javax.swing.JFrame {
      */
     public AdminPage720p() {
         initComponents();
-                refreshDB();
-
-        
-       // updateComboBox.setModel(new DefaultComboBoxModel<String>(names.toArray(new String[0])));
-                ArrayList<String> names = new ArrayList<>();
-        Connection con = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "SELECT client_email FROM client_Info";
-            PreparedStatement pst = con.prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
-
-            while(rs.next()){
-                String abs = rs.getString(1);
-                 updateComboBox.addItem(abs);
-                 performComboBox.addItem(abs);
-            }               
-            con.close();
-            pst.close();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        
-      
+                refreshDB();      
+                emailBox();
 
     }
 
@@ -102,11 +77,9 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        updateEmailInput = new javax.swing.JTextField();
         updateFirstNameInput = new javax.swing.JTextField();
         updateLastNameInput = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         updateError = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         updatePassInput = new javax.swing.JPasswordField();
@@ -314,9 +287,12 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         jLabel12.setText("First Name");
 
-        jLabel13.setText("Email");
-
-        jButton4.setText("Make Changes");
+        updateButton.setText("Make Changes");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         updateError.setText("jLabel7");
 
@@ -326,10 +302,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updateError)
@@ -339,13 +311,17 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(updateaccTypeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(updateconfirmInput, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(updatePassInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)))
+                        .addComponent(updatePassInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(updateconfirmInput, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(36, 36, 36)
@@ -358,25 +334,22 @@ public class AdminPage720p extends javax.swing.JFrame {
                                         .addComponent(jLabel11))
                                     .addGap(62, 62, 62))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel12)
-                                        .addComponent(jLabel13))
+                                    .addComponent(jLabel12)
                                     .addGap(45, 45, 45)))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(updateEmailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                .addComponent(updateFirstNameInput)
+                                .addComponent(updateFirstNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                                 .addComponent(updateLastNameInput)))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(64, 64, 64)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(28, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(83, 83, 83)
                 .addComponent(updateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(updatePassInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -391,11 +364,7 @@ public class AdminPage720p extends javax.swing.JFrame {
                 .addGap(59, 59, 59))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(124, 124, 124)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel13)
-                        .addComponent(updateEmailInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
+                    .addGap(161, 161, 161)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
                         .addComponent(updateFirstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -406,13 +375,18 @@ public class AdminPage720p extends javax.swing.JFrame {
                     .addGap(18, 18, 18)
                     .addComponent(jLabel10)
                     .addGap(153, 153, 153)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(112, Short.MAX_VALUE)))
+                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(115, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Update", jPanel3);
 
         jButton3.setText("Refresh");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         clientInfoTab.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         clientInfoTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -706,10 +680,7 @@ public class AdminPage720p extends javax.swing.JFrame {
 
     private void performanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_performanceButtonActionPerformed
         // TODO add your handling code here:
-
-        //Goes to performanceadmin
         gotoperformanceAdmin();
-        //this.dispose();
     }//GEN-LAST:event_performanceButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -717,7 +688,6 @@ public class AdminPage720p extends javax.swing.JFrame {
         
         //Search is only visible on client info tab
         searchDB();
-
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
@@ -729,6 +699,18 @@ public class AdminPage720p extends javax.swing.JFrame {
         searchButton.isVisible();
         searchText.isVisible();
     }//GEN-LAST:event_clientInfoTabMouseEntered
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        // TODO add your handling code here:
+        updateData();
+        JOptionPane.showMessageDialog(null, "Updated Database");
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Refreshed Database");
+        refreshDB();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -782,14 +764,12 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JTextField firstNameInput;
     private javax.swing.JButton insertSubmit;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -818,8 +798,8 @@ public class AdminPage720p extends javax.swing.JFrame {
     private javax.swing.JButton performanceButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchText;
+    private javax.swing.JButton updateButton;
     private javax.swing.JComboBox<String> updateComboBox;
-    private javax.swing.JTextField updateEmailInput;
     private javax.swing.JLabel updateError;
     private javax.swing.JTextField updateFirstNameInput;
     private javax.swing.JTextField updateLastNameInput;
@@ -1031,29 +1011,13 @@ private void insertData(){ //Mimicks the Registration Page
 
 private void updateData(){
 
-    
-    
-
-    replaceEmail();
     replaceFName();
     replaceLName();
     replacePass();
     replaceaccType();
-    
     refreshDB();
-
-    
-        //if password isnt empty
-            //check if confirm password isn't empty
-            //check length
-            //check if valid
-            //generate salt
-        
-        //if acctype isnt empty
-            //check length
-  
 }
-
+/*
 private void replaceEmail(){
     String email = updateEmailInput.getText().toLowerCase().trim();
             if(!email.isEmpty()){
@@ -1086,7 +1050,7 @@ private void replaceEmail(){
                throw new IllegalStateException("Can't connect to the database, replace email", e);}  
     }      
 }
-
+*/
 private void replaceFName(){
         String first_name = updateFirstNameInput.getText().toLowerCase().trim();
 
@@ -1097,15 +1061,17 @@ private void replaceFName(){
                   updateError.setForeground(Color.blue);
             }
             String selected_text = updateComboBox.getItemAt(updateComboBox.getSelectedIndex());
-            Connection con = null; 
+            Connection con = null;
+            ResultSet rs = null;
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_forename =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_forename=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,first_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace fname", e);}
@@ -1125,11 +1091,12 @@ private void replaceLName(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_surname =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_surname=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,last_name);
             pst.setString(2, selected_text);
             pst.executeUpdate();
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace lname", e);}
@@ -1171,13 +1138,13 @@ private void replacePass(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_encrypted_password =?, client_salt =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_encrypted_password=?, client_salt=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,securePassword);
             pst.setString(2,salt); //Replaces the salt as well
             pst.setString(3, selected_text);
             pst.executeUpdate();
-
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, replace salt and pass", e);} 
@@ -1187,7 +1154,7 @@ private void replacePass(){
 private void replaceaccType(){
         String accType = updateaccTypeInput.getText();
         if(!accType.isEmpty()){
-           if(!accType.equals("0") || !accType.equals("1") || !accType.equals("2")){
+           if(!accType.equals(0) || !"1".equals(accType) || !accType.equals(2)){
             updateError.setText("<html>Error!<br/>;Account Type is invalid<br/></html>");
             updateError.setForeground(Color.blue);
         }
@@ -1196,12 +1163,12 @@ private void replaceaccType(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "UPDATE client_Info SET client_account_type =? WHERE client_email=?";
+            String query = "UPDATE client_Info SET client_account_type=? WHERE client_email=?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1,accType);
             pst.setString(2, selected_text);
             pst.executeUpdate();
-
+            con.commit();
             con.close();
             }catch(Exception e){
                throw new IllegalStateException("Can't connect to the database, acc Type", e);}   
@@ -1459,6 +1426,7 @@ private void replaceaccType(){
         populatePortugueseTable();
         populateItalianTable();
         populateGermanTable();
+        emailBox();
         
     }
 private void searchDB(){
@@ -1479,6 +1447,31 @@ private void searchDB(){
     }
 
     private void gotoperformanceAdmin(){
-        
+        ApplicationInfo.createperformanceAdminPage(); 
+       ApplicationInfo.getAdminPage720p().dispose();  
+    }
+    
+        private void emailBox(){
+            updateComboBox.removeAllItems();
+            performComboBox.removeAllItems();
+        Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 updateComboBox.addItem(abs);
+                 performComboBox.addItem(abs);
+            }
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

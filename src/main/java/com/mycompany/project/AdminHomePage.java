@@ -200,13 +200,13 @@ public class AdminHomePage extends javax.swing.JFrame {
     }
     
     private void progressPage1080(){
-        ApplicationInfo.createprogressPage1080p();
+        ApplicationInfo.createProgressPage1080p();
         ApplicationInfo.getAdminHomePage().dispose();
 
     }
     
     private void progressPage720(){
-        ApplicationInfo.createprogressPage720p();
+        ApplicationInfo.createProgressPage720p();
         ApplicationInfo.getAdminHomePage().dispose();
         
     }

@@ -9,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -248,6 +246,7 @@ public class Performance extends javax.swing.JFrame {
         commonDiff();
         setPersonCount();
         assistCount.setText(String.valueOf(assistCount()));
+        commonTopic.setText(topicCount());
         
         
         }
@@ -483,8 +482,10 @@ private String topicCount(){
             
             
             
+            
+            
             int directions = rs.getInt(1); //get element + 1
-            int employement = rs.getInt(2);
+            int employment = rs.getInt(2);
             int cultural = rs.getInt(3);
             int info = rs.getInt(4);
             int shopping = rs.getInt(5);
@@ -500,53 +501,78 @@ private String topicCount(){
             int weather = rs.getInt(15);
             int work = rs.getInt(16);
             
-            List<Integer> topic = new ArrayList<>();
-            topic.add(directions);
-            topic.add(employement);
-            topic.add(cultural);
-            topic.add(info);
-            topic.add(shopping);
-            topic.add(health);
-            topic.add(housing);
-            topic.add(introductions);
-            topic.add(appointments);
-            topic.add(invitations);
-            topic.add(travel);
-            topic.add(food_drink);
-            topic.add(socialise);
-            topic.add(university);
-            topic.add(weather);
-            topic.add(work);
             
-            for(int counter = 0; counter < topic.size(); counter++){
-                
+            
+            if(directions > employment && directions > cultural && directions > info && directions > shopping && directions > health && directions > housing && directions > introductions
+                    && directions > appointments && directions > invitations && directions > travel && directions > food_drink && directions > socialise && directions > university && directions
+                    > weather && directions > work){
+                result = "Directions";
             }
-            
-            
-            List<String> topic_title = new ArrayList<>();
-            topic_title.add("Directions");
-            topic_title.add("Employement");
-            topic_title.add("Cultural Experiences");
-            topic_title.add("Personal Information");
-            topic_title.add("Shopping");
-            topic_title.add("Health");
-            topic_title.add("Housing");
-            topic_title.add("Introductions");
-            topic_title.add("Appointments");
-            topic_title.add("Invitations");
-            topic_title.add("Travel");
-            topic_title.add("Food and Drinks");
-            topic_title.add("Socialising");
-            topic_title.add("University");
-            topic_title.add("Weather");
-            topic_title.add("Work");
+            else if(employment > directions && employment > cultural && employment > info && employment > shopping && employment > health && employment > housing && employment > introductions
+                     && employment > appointments && employment > invitations && employment > travel && employment > food_drink && employment > socialise && employment > university && employment > weather
+                     && employment > work){
+                result = "Employement";
+            }
+            else if(cultural > directions && cultural > employment && cultural > info && cultural > shopping && cultural > health && cultural > housing && cultural > introductions && cultural > appointments
+                     && cultural > invitations && cultural > travel && cultural > food_drink && cultural > socialise && cultural > university && cultural > weather && cultural > work){
+             result = "Cultural Experiences";   
+            }
+            else if(info > directions && info > employment && info > cultural && info > shopping && info > health && info > housing && info > introductions && info > appointments
+                     && info > invitations && info > travel && info > food_drink && info > socialise && info > university && info > weather && info > work){
+             result = "Personal Information";   
+            }
+            else if(shopping > directions && shopping > employment && shopping > cultural && shopping > info && shopping > health && shopping > housing && shopping > introductions && shopping > appointments
+                     && shopping > invitations && shopping > travel && shopping > food_drink && shopping > socialise && shopping > university && shopping > weather && shopping > work){
+             result = "Shopping";   
+            }
+            else if(health > directions && health > employment && health > cultural && health > info && health > shopping && health > housing && health > introductions && health > appointments
+                     && health > invitations && health > travel && health > food_drink && health > socialise && health > university && health > weather && health > work){
+             result = "Health";   
+            }
+            else if(housing > directions && housing > employment && housing > cultural && housing > info && housing > shopping && housing > health && housing > introductions && housing > appointments
+                     && housing > invitations && housing > travel && housing > food_drink && housing > socialise && housing > university && housing > weather && housing > work){
+             result = "Housing";   
+            }
+            else if(introductions > directions && introductions > employment && introductions > cultural && introductions > info && introductions > shopping && introductions > health && introductions > housing && introductions > appointments
+                     && introductions > invitations && introductions > travel && introductions > food_drink && introductions > socialise && introductions > university && introductions > weather && introductions > work){
+             result = "Introductions";   
+            }
+             else if(appointments > directions && appointments > employment && appointments > cultural && appointments > info && appointments > shopping && appointments > health && appointments > housing && appointments > introductions
+             && appointments > invitations && appointments > travel && appointments > food_drink && appointments > socialise && appointments > university && appointments > weather && appointments > work){
+             result = "Appointments";   
+            }
+             else if(invitations > directions && invitations > employment && invitations > cultural && invitations > info && invitations > shopping && invitations > health && invitations > housing && invitations > introductions
+             && invitations > appointments && invitations > travel && invitations > food_drink && invitations > socialise && invitations > university && invitations > weather && invitations > work){
+             result = "Invitations";   
+            }
+            else if(travel > directions && travel > employment && travel > cultural && travel > info && travel > shopping && travel > health && travel > housing && travel > introductions
+             && travel > appointments && travel > invitations && travel > food_drink && travel > socialise && travel > university && travel > weather && travel > work){
+             result = "Travel";   
+            }
+            else if(food_drink > directions && food_drink > employment && food_drink > cultural && food_drink > info && food_drink > shopping && food_drink > health && food_drink > housing && food_drink > introductions
+             && food_drink > appointments && food_drink > invitations && food_drink > travel && food_drink > socialise && food_drink > university && food_drink > weather && food_drink > work){
+             result = "Food and Drink";   
+            }
+            else if(socialise > directions && socialise > employment && socialise > cultural && socialise > info && socialise > shopping && socialise > health && socialise > housing && socialise > introductions
+             && socialise > appointments && socialise > invitations && socialise > travel && socialise > food_drink && socialise > university && socialise > weather && socialise > work){
+             result = "Socialise";   
+            }
+            else if(university > directions && university > employment && university > cultural && university > info && university > shopping && university > health && university > housing && university > introductions
+             && university > appointments && university > invitations && university > travel && university > food_drink && university > socialise && university > weather && university > work){
+             result = "University";   
+            }
+            else if(weather > directions && weather > employment && weather > cultural && weather > info && weather > shopping && weather > health && weather > housing && weather > introductions
+             && weather > appointments && weather > invitations && weather > travel && weather > food_drink && weather > socialise && weather > university && weather > work){
+             result = "Weather";   
+            }
+            else if(work > directions && work > employment && work > cultural && work > info && work > shopping && work > health && work > housing && work > introductions
+             && work > appointments && work > invitations && work > travel && work > food_drink && work > socialise && work > university && work > weather){
+             result = "Work";   
+            }else{
+                //data is tied
+                result="TEST ERROR";
+            }
 
-
-            
-            //if number the same just print both or the first instance
-                    
-            
-            
             con.close();
             return result;
          }catch(SQLException e){

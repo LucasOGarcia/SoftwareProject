@@ -41,7 +41,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame adminPage1080;
     private static JFrame progress;
     private static JFrame performancePage;
-    private static JFrame performanceAdminPage;
+    private static JFrame performanceAdmin;
     
     // Setters
     
@@ -106,7 +106,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static void setAdminPerformancePage(JFrame adminPerformancePage){
-        ApplicationInfo.performanceAdminPage = adminPerformancePage;
+        ApplicationInfo.performanceAdmin = adminPerformancePage;
     }
     
     public static void setScreenSize(Dimension screenSize){
@@ -212,7 +212,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     }
     
     public static JFrame getPerformanceAdminPage(){
-        return ApplicationInfo.performanceAdminPage;
+        return ApplicationInfo.performanceAdmin;
     }
 
     
@@ -467,7 +467,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         performanceAdmin.setResizable(false);
         performanceAdmin.setLocationRelativeTo(null);
         setDefaultCloseMethods(performanceAdmin);
-        ApplicationInfo.setPerformancePage(performanceAdmin);
+        ApplicationInfo.setAdminPerformancePage(performanceAdmin);
         performanceAdmin.setVisible(true);
     }    
     

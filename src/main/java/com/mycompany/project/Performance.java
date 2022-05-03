@@ -7,7 +7,10 @@ package com.mycompany.project;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -52,6 +55,7 @@ public class Performance extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,14 +63,18 @@ public class Performance extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        commonTopic = new javax.swing.JTextField();
+        commonDiff = new javax.swing.JTextField();
+        assistCount = new javax.swing.JTextField();
+        bCount = new javax.swing.JTextField();
+        aCount = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         emailComboBox = new javax.swing.JComboBox<>();
+        languageComboBox = new javax.swing.JComboBox<>();
+        confirmButton = new javax.swing.JButton();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,15 +97,15 @@ public class Performance extends javax.swing.JFrame {
 
         jLabel8.setText("Most Common Difficulty");
 
-        jTextField2.setEditable(false);
+        commonTopic.setEditable(false);
 
-        jTextField3.setEditable(false);
+        commonDiff.setEditable(false);
 
-        jTextField4.setEditable(false);
+        assistCount.setEditable(false);
 
-        jTextField5.setEditable(false);
+        bCount.setEditable(false);
 
-        jTextField6.setEditable(false);
+        aCount.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,12 +122,12 @@ public class Performance extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                        .addComponent(jTextField3))
+                        .addComponent(commonTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                        .addComponent(commonDiff))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bCount, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(assistCount, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(aCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,24 +136,24 @@ public class Performance extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assistCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(commonDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(268, Short.MAX_VALUE))
+                    .addComponent(commonTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -154,6 +162,15 @@ public class Performance extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo64x.png"))); // NOI18N
 
         emailComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Email" }));
+
+        languageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish", "Italian", "German", "Portuguese", "Greek", "French" }));
+
+        confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,16 +184,25 @@ public class Performance extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
+                .addComponent(confirmButton)
+                .addGap(153, 153, 153))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,11 +211,15 @@ public class Performance extends javax.swing.JFrame {
                     .addComponent(backButton)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(emailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(languageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(confirmButton)
+                .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(88, 88, 88))
         );
 
         pack();
@@ -200,6 +230,29 @@ public class Performance extends javax.swing.JFrame {
         ApplicationInfo.createadminHomePage(); 
         ApplicationInfo.getPerformancePage().dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+        
+        
+    //If language isnt set to spanish
+        //set all text to null
+        String selected_text = languageComboBox.getItemAt(languageComboBox.getSelectedIndex());
+        if(!selected_text.equals("Spanish")){
+        assistCount.setText("null");
+        aCount.setText("null");
+        bCount.setText("null");
+        commonTopic.setText("null");
+        commonDiff.setText("null");
+        }else{
+        commonDiff();
+        setPersonCount();
+        assistCount.setText(String.valueOf(assistCount()));
+        
+        
+        }
+        
+    }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,9 +291,16 @@ public class Performance extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aCount;
+    private javax.swing.JTextField assistCount;
+    private javax.swing.JTextField bCount;
     private javax.swing.JButton backButton;
+    private javax.swing.JTextField commonDiff;
+    private javax.swing.JTextField commonTopic;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JComboBox<String> emailComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -248,21 +308,252 @@ public class Performance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JComboBox<String> languageComboBox;
     // End of variables declaration//GEN-END:variables
 
-private void total_A1(){
+    private void commonDiff(){
+        int a1 = total_A1();
+        int a2 = total_A2();
+        int b1 = total_B1();
+        int b2 = total_B2();
+        
+        if(a1 > a2 && a1 > b1 && a1 > b2){
+            commonDiff.setText(String.valueOf(a1));
+        }
+        else if(a2 > a1 && a2 > b1 && a2> b2){
+            commonDiff.setText(String.valueOf(a2));
+        }
+        else if(b1 > a1 && b1 > a2 && b1 > b2){
+            commonDiff.setText(String.valueOf(b1));
+        }
+        else if(b2 > a1 && b2 > a2 && b2 > b1){
+            commonDiff.setText(String.valueOf(b2));
+        }else{
+            commonDiff.setText("null");
+        }  
+    }
+    
+    private void setPersonCount(){
+        aCount.setText(String.valueOf(personACount()));
+        bCount.setText(String.valueOf(personBCount()));
+    }
+    
+    
+private Integer total_A1(){
+        Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a1_2 = rs.getInt(1);
+            con.close();
+            return a1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a1 count", e);}  
+}
+
+
+private Integer total_A2(){
+    Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer a2_2 = rs.getInt(1);
+            con.close();
+            return a2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, a2 count", e);}
     
 }
 
-private void total_A2(){
-    String result = "";
+private Integer total_B1(){
+        Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b1_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b1_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b1_2 = rs.getInt(1);
+            con.close();
+            return b1_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b1 count", e);}
     
 }
+
+private Integer total_B2(){
+        Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b2_query = "SELECT client_statistics_language_roleplay_complete_a1 FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b2_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b2_2 = rs.getInt(1);
+            con.close();
+            return b2_2;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, b2 count", e);}
+    
+}
+
+private Integer personACount(){
+            Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String a_query = "SELECT client_statistics_language_roleplay_person_a FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(a_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person a count", e);}
+    
+}
+
+private Integer personBCount(){
+        Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b_query = "SELECT client_statistics_language_roleplay_person_b FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, person b count", e);}   
+}
+
+private Integer assistCount(){
+    Connection con = null;
+        String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String b_query = "SELECT client_statistics_language_vocab_assist FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(b_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            Integer b = rs.getInt(1);
+            con.close();
+            return b;
+         }catch(Exception e){
+               throw new IllegalStateException("Can't connect to the database, assist count", e);}
+}
+
+private String topicCount(){
+    Connection con = null;
+    String selected_text = emailComboBox.getItemAt(emailComboBox.getSelectedIndex());
+
+
+    try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String topic_query = "SELECT client_statistics_topic_directions, client_statistics_topic_employment, client_statistics_topic_cultural_experiences"
+                    + ",client_statistics_topic_personal_info, client_statistics_topic_shopping,client_statistics_topic_health, client_statistics_topic_housing, "
+                    + "client_statistics_topic_introductions, client_statistics_topic_appointments, client_statistics_topic_invitations, client_statistics_topic_travel,"
+                    + " client_statistics_topic_food_drink, client_statistics_topic_socialising, client_statistics_topic_university, client_statistics_topic_weather, "
+                    + "client_statistics_topic_work FROM client_Statistics_Spanish WHERE client_email=?";
+            PreparedStatement pst = con.prepareStatement(topic_query);
+            pst.setString(1, selected_text);
+            ResultSet rs = pst.executeQuery();
+            String result = "";//set to most common topic
+            
+            
+            
+            int directions = rs.getInt(1); //get element + 1
+            int employement = rs.getInt(2);
+            int cultural = rs.getInt(3);
+            int info = rs.getInt(4);
+            int shopping = rs.getInt(5);
+            int health = rs.getInt(6);
+            int housing = rs.getInt(7);
+            int introductions = rs.getInt(8);
+            int appointments = rs.getInt(9);
+            int invitations = rs.getInt(10);
+            int travel = rs.getInt(11);
+            int food_drink = rs.getInt(12);
+            int socialise = rs.getInt(13);
+            int university = rs.getInt(14);
+            int weather = rs.getInt(15);
+            int work = rs.getInt(16);
+            
+            List<Integer> topic = new ArrayList<>();
+            topic.add(directions);
+            topic.add(employement);
+            topic.add(cultural);
+            topic.add(info);
+            topic.add(shopping);
+            topic.add(health);
+            topic.add(housing);
+            topic.add(introductions);
+            topic.add(appointments);
+            topic.add(invitations);
+            topic.add(travel);
+            topic.add(food_drink);
+            topic.add(socialise);
+            topic.add(university);
+            topic.add(weather);
+            topic.add(work);
+            
+            for(int counter = 0; counter < topic.size(); counter++){
+                
+            }
+            
+            
+            List<String> topic_title = new ArrayList<>();
+            topic_title.add("Directions");
+            topic_title.add("Employement");
+            topic_title.add("Cultural Experiences");
+            topic_title.add("Personal Information");
+            topic_title.add("Shopping");
+            topic_title.add("Health");
+            topic_title.add("Housing");
+            topic_title.add("Introductions");
+            topic_title.add("Appointments");
+            topic_title.add("Invitations");
+            topic_title.add("Travel");
+            topic_title.add("Food and Drinks");
+            topic_title.add("Socialising");
+            topic_title.add("University");
+            topic_title.add("Weather");
+            topic_title.add("Work");
+
+
+            
+            //if number the same just print both or the first instance
+                    
+            
+            
+            con.close();
+            return result;
+         }catch(SQLException e){
+               throw new IllegalStateException("Can't connect to the database, topics", e);}
+    
+}
+
 
 
 

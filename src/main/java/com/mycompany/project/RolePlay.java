@@ -386,7 +386,7 @@ public class RolePlay extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         int response = JOptionPane.showConfirmDialog(this, "Do you want to exit?" , "Yes", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
+        System.out.println("test");
         if(response==JOptionPane.YES_OPTION) {
             RolePlaySettings settings = new RolePlaySettings();
             RolePlayManager.setRolePlaySettings(settings);

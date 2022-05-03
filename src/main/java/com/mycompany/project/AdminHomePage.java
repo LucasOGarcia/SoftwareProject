@@ -4,6 +4,8 @@
  */
 package com.mycompany.project;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Gabriel
@@ -15,6 +17,7 @@ public class AdminHomePage extends javax.swing.JFrame {
      */
     public AdminHomePage() {
         initComponents();
+        setPageIcon();
     }
 
     /**
@@ -111,18 +114,8 @@ public class AdminHomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButton2ActionPerformed
 
     private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
-        // TAKES YOU TO PERFORMANCE PAGE INSTEAD
-        //ApplicationInfo.createPerformancePage();
-        //ApplicationInfo.getAdminHomePage().dispose();
-         double width = ApplicationInfo.detectScreenWidth();
-         double height = ApplicationInfo.detectScreenWidth();
-        
-        if(width >= 1920 && height >= 1080){
-            progressPage1080();
-        }else{
-            progressPage720();
-            }
-        
+        // take you to the progress page
+        progressPage();     
     }//GEN-LAST:event_chartButtonActionPerformed
 
     private void adminPageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminPageButtonActionPerformed
@@ -181,6 +174,15 @@ public class AdminHomePage extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     
+    private void setPageIcon(){
+        // set window icon for the JFrame
+        if (ApplicationInfo.getPageIconName() != null) {
+            String imageName = ApplicationInfo.getPageIconName();
+            ImageIcon icon = new ImageIcon(getClass().getResource("/" + imageName + ".png"));
+            this.setIconImage(icon.getImage());
+        }
+    }
+    
     private void logout() {
         ApplicationInfo.setLogoutTimeStamp();
         ApplicationInfo.setUser(null);
@@ -199,14 +201,9 @@ public class AdminHomePage extends javax.swing.JFrame {
         ApplicationInfo.getAdminHomePage().dispose();
     }
     
-    private void progressPage1080(){
-        ApplicationInfo.createProgressPage1080p();
-        ApplicationInfo.getAdminHomePage().dispose();
-
-    }
     
-    private void progressPage720(){
-        ApplicationInfo.createProgressPage720p();
+    private void progressPage(){
+        ApplicationInfo.createProgressPage();
         ApplicationInfo.getAdminHomePage().dispose();
         
     }

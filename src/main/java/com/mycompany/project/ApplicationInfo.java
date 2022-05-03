@@ -39,8 +39,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
     private static JFrame adminHomePage;
     private static JFrame adminPage720;
     private static JFrame adminPage1080;
-    private static JFrame progress720;
-    private static JFrame progress1080;
+    private static JFrame progress;
     private static JFrame performancePage;
     private static JFrame performanceAdminPage;
     
@@ -126,12 +125,8 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
          ApplicationInfo.databaseName = newDatabaseName;
     }
     
-    public static void setProgressPage720p(JFrame progressPage720p){
-        ApplicationInfo.progress720 = progressPage720p;
-    }
-    
-    public static void setProgressPage1080p(JFrame progressPage1080p){
-        ApplicationInfo.progress1080 = progressPage1080p;
+    public static void setProgressPage(JFrame progressPage){
+        ApplicationInfo.progress = progressPage;
     }
     
     // Getters
@@ -208,12 +203,8 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         return ApplicationInfo.databaseName;
     }
     
-    public static JFrame getProgressPage720p(){
-        return ApplicationInfo.progress720;
-    }
-    
-    public static JFrame getProgressPage1080p(){
-        return ApplicationInfo.progress1080;
+    public static JFrame getProgressPage(){
+        return ApplicationInfo.progress;
     }
     
     public static JFrame getPerformancePage(){
@@ -238,14 +229,14 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         double height = monitorSize.getHeight();
         return height;
     }
-   
+    
     public static void initialise() { // sets all of the application's basic info
         ApplicationInfo.setScreenSize(new Dimension(375, 667));
         ApplicationInfo.setAppName("iLearnIt");
         ApplicationInfo.setPageIconName("logo64x");
         ApplicationInfo.setDatabaseName("coursework.db") ;
     }
-   
+    
     public static void createMainPage() { // Creates the main page
         JFrame mainPage = new MainPage();
         mainPage.setTitle(appName);
@@ -258,7 +249,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setMainPage(mainPage);
         mainPage.setVisible(true);
     }
-   
+    
     public static void createRegistrationPage() { // Creates the registration page
         JFrame registrationPage = new RegistrationPage();
         registrationPage.setTitle(appName);
@@ -271,7 +262,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setRegistrationPage(registrationPage);
         registrationPage.setVisible(true);
     }
-   
+    
     public static void createLoginPage() { // Creates the login page
         JFrame loginPage = new LoginPage();
         loginPage.setTitle(appName);
@@ -284,7 +275,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setLoginPage(loginPage);
         loginPage.setVisible(true);
     }
-   
+    
     public static void createHomePage() { // Creates the home page
         JFrame homePage = new HomePage();
         homePage.setTitle(appName);
@@ -297,7 +288,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setHomePage(homePage);
         homePage.setVisible(true);
     }
-   
+    
     public static void createLanguagePage() { // Creates the language page
         JFrame languagePage = new Language();
         languagePage.setTitle(appName);
@@ -310,7 +301,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setLanguagePage(languagePage);
         languagePage.setVisible(true);
     }
-   
+    
     public static void createRolePage() { // Creates the role page
         JFrame rolePage = new Role();
         rolePage.setTitle(appName);
@@ -323,7 +314,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setRolePage(rolePage);
         rolePage.setVisible(true);
     }
-   
+    
     public static void createConversationLevelSelectionPage() { // Creates the conversation Level SelectionPage page
         JFrame conversationLevelSelectionPage = new ConversationLevelSelection();
         conversationLevelSelectionPage.setTitle(appName);
@@ -336,7 +327,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setConversationLevelSelectionPage(conversationLevelSelectionPage);
         conversationLevelSelectionPage.setVisible(true);      
     }
-   
+    
     public static void createTopicSelectionPage() { // Creates the topic selection page
         JFrame topicSelectionPage = new TopicSelection();
         topicSelectionPage.setTitle(appName);
@@ -349,7 +340,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setTopicSelectionPage(topicSelectionPage);
         topicSelectionPage.setVisible(true);
     }
-   
+    
     public static void createSubTopicSelectionPage() { // Creates the sub-topic selection page
         JFrame subTopicSelectionPage = new SubTopicSelection();
         subTopicSelectionPage.setTitle(appName);
@@ -401,7 +392,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setRolePlayPage(rolePlayPage);
         rolePlayPage.setVisible(true);
     }
-        
+    
     public static void createadminHomePage() { // Creates Admin home Page
         JFrame adminHomePage = new AdminHomePage();
         adminHomePage.setTitle(appName);
@@ -414,7 +405,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setAdminHomePage(adminHomePage);
         adminHomePage.setVisible(true);
     }
-        
+    
     public static void createadminPage1080p() { // Admin Page (adjust size)
         JFrame adminPage1080 = new AdminPage1080p();
         adminPage1080.setTitle(appName);
@@ -424,10 +415,10 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         adminPage1080.setResizable(false);
         adminPage1080.setLocationRelativeTo(null);
         setDefaultCloseMethods(adminPage1080);
-        ApplicationInfo.setPerformancePage(adminPage1080);
+        ApplicationInfo.setAdminPage1080p(adminPage1080);
         adminPage1080.setVisible(true);
     }
-         
+    
     public static void createadminPage720p() { // Admin Page (adjust size)
         JFrame adminPage720 = new AdminPage720p();
         adminPage720.setTitle(appName);
@@ -437,34 +428,21 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         adminPage720.setResizable(false);
         adminPage720.setLocationRelativeTo(null);
         setDefaultCloseMethods(adminPage720);
-        ApplicationInfo.setPerformancePage(adminPage720);
+        ApplicationInfo.setAdminPage720p(adminPage720);
         adminPage720.setVisible(true);
     }
     
-    public static void createProgressPage720p() { // Admin Page (adjust size)
-        JFrame progress720 = new Progress720p();
-        progress720.setTitle(appName);
-        progress720.setPreferredSize(screenSize);//adjust to custom
-        progress720.setMaximumSize(screenSize); //adjust to custom
-        progress720.setMinimumSize(screenSize); //adjust to custom
-        progress720.setResizable(false);
-        progress720.setLocationRelativeTo(null);
-        setDefaultCloseMethods(progress720);
-        ApplicationInfo.setPerformancePage(progress720);
-        progress720.setVisible(true);
-    }
-        
-    public static void createProgressPage1080p() { // Admin Page (adjust size)
-        JFrame progress1080 = new Progress1080p();
-        progress1080.setTitle(appName);
-        progress1080.setPreferredSize(screenSize);//adjust to custom
-        progress1080.setMaximumSize(screenSize); //adjust to custom
-        progress1080.setMinimumSize(screenSize); //adjust to custom
-        progress1080.setResizable(false);
-        progress1080.setLocationRelativeTo(null);
-        setDefaultCloseMethods(progress1080);
-        ApplicationInfo.setPerformancePage(progress1080);
-        progress1080.setVisible(true);
+    public static void createProgressPage() { // Admin Page (adjust size)
+        JFrame progress = new Progress();
+        progress.setTitle(appName);
+        progress.setPreferredSize(screenSize);//adjust to custom
+        progress.setMaximumSize(screenSize); //adjust to custom
+        progress.setMinimumSize(screenSize); //adjust to custom
+        progress.setResizable(false);
+        progress.setLocationRelativeTo(null);
+        setDefaultCloseMethods(progress);
+        ApplicationInfo.setProgressPage(progress);
+        progress.setVisible(true);
     }
     
     public static void createPerformancePage() { // peformance Page
@@ -478,8 +456,8 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         setDefaultCloseMethods(performancePage);
         ApplicationInfo.setPerformancePage(performancePage);
         performancePage.setVisible(true);
-    }   
-        
+    }
+    
     public static void createperformanceAdminPage() { // Admin Page (adjust size)
         JFrame performanceAdmin = new PerformanceAdmin();
         performanceAdmin.setTitle(appName);
@@ -492,7 +470,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
         ApplicationInfo.setPerformancePage(performanceAdmin);
         performanceAdmin.setVisible(true);
     }    
-
+    
     public static void setDefaultCloseMethods(JFrame page) {
         page.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         page.addWindowListener(new WindowAdapter() {
@@ -503,7 +481,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
             }
         });
     }
-   
+    
     public static void setLogoutTimeStamp() {
         if (ApplicationInfo.user != null) {
             try {
@@ -513,7 +491,7 @@ public class ApplicationInfo { //keeps track of what user is currently logged in
             }
         }
     }
-   
+    
     public static void closeApplication(JFrame page) {
         page.dispose();
         System.exit(0);

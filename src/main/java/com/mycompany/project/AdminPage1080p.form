@@ -88,7 +88,7 @@
                           <Component id="refreshButton" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="performanceButton" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="182" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -348,10 +348,8 @@
                               <EmptySpace min="21" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="updateconfirmInput" pref="117" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="updatePassInput" max="32767" attributes="0"/>
-                                      <Component id="updateaccTypeInput" pref="117" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="updatePassInput" max="32767" attributes="0"/>
+                                  <Component id="updateaccTypeInput" pref="117" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>

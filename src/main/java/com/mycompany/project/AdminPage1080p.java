@@ -29,7 +29,6 @@ public class AdminPage1080p extends javax.swing.JFrame {
     public AdminPage1080p() {
         initComponents();
         refreshDB();
-        emailBox();
 
     }
 
@@ -49,6 +48,10 @@ public class AdminPage1080p extends javax.swing.JFrame {
         performanceButton = new javax.swing.JButton();
         performComboBox = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        teacherComboBox = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         searchText = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
@@ -123,7 +126,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
             }
         });
 
-        performComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All Emails", "Email 1" }));
+        performComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select  Emails" }));
         performComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 performComboBoxActionPerformed(evt);
@@ -132,32 +135,55 @@ public class AdminPage1080p extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish", "French", "Itralian" }));
 
+        teacherComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Teacher" }));
+
+        jLabel14.setText("Teacher Emails");
+
+        jLabel15.setText("Student Emails");
+
+        jLabel16.setText("Languages");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(performanceButton)
-                            .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(performanceButton)
+                .addGap(225, 225, 225))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addGap(148, 148, 148)
+                .addComponent(jLabel14)
+                .addGap(89, 89, 89))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(performComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(teacherComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         backButton.setText("Back");
@@ -801,6 +827,9 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -828,6 +857,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchText;
+    private javax.swing.JComboBox<String> teacherComboBox;
     private javax.swing.JButton updateButton;
     private javax.swing.JComboBox<String> updateComboBox;
     private javax.swing.JLabel updateError;
@@ -1137,6 +1167,10 @@ private void replaceLName(){
                throw new IllegalStateException("Can't connect to the database, replace lname", e);}
         }      
 }
+
+//Extract Login and Logout timestamps
+   //Convert them to a date
+    //set db text to the converted date without changign database
 
 private void replacePass(){
         String password = String.valueOf(updatePassInput.getPassword());
@@ -1462,6 +1496,7 @@ private void replaceaccType(){
         populateItalianTable();
         populateGermanTable();
         emailBox();
+        teacherEmailBox();
     }
 
     private void searchDB(){
@@ -1471,7 +1506,11 @@ private void replaceaccType(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String salt_query = "SELECT * FROM client_Info WHERE client_email LIKE '"+input+"%'";
+            String salt_query = "SELECT client_email as 'Email', client_forename as 'Forename', "
+                    + "client_surname as 'Surname', client_salt as 'Salt Code', "
+                    + "client_encrypted_password as 'Password', client_last_login as 'Login Time', "
+                    + "client_last_logout as 'Logout Time', client_account_type as 'Account Type' "
+                    + "FROM client_Info WHERE client_email LIKE '"+input+"%'";
             PreparedStatement pst = con.prepareStatement(salt_query);
             rs = pst.executeQuery();
             clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));  
@@ -1492,7 +1531,7 @@ private void replaceaccType(){
         try{
             ConnectDB connectDB = new ConnectDB();
             con = connectDB.getConnection();
-            String query = "SELECT client_email FROM client_Info";
+            String query = "SELECT client_email FROM client_Info WHERE client_account_type = 0";
             PreparedStatement pst = con.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
 
@@ -1508,4 +1547,31 @@ private void replaceaccType(){
             e.printStackTrace();
         }
     }
+    
+    private void teacherEmailBox(){
+        teacherComboBox.removeAllItems();
+                Connection con = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email FROM client_Info WHERE client_account_type = 2";
+            PreparedStatement pst = con.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            while(rs.next()){
+                String abs = rs.getString(1);
+                 teacherComboBox.addItem(abs);
+            }               
+            con.close();
+            pst.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        
+    }
+    
+    
+    
+    
 }

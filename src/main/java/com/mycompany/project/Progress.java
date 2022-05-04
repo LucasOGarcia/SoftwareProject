@@ -300,6 +300,7 @@ public class Progress extends javax.swing.JFrame {
                 }               
                 con.close();
                 pst.close();
+                rs.close();
             }
             catch(Exception e){
                 e.printStackTrace();

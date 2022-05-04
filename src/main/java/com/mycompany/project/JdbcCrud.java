@@ -227,10 +227,6 @@ public class JdbcCrud {
         + " client_progress_hospital_visit)"
         + " VALUES (?,?,?)";
         
-        String query3 = "insert into progress_Spanish_B2_Directions (client_email, client_progress_delivery_driver,"
-        + " client_progress_hospital_visit)"
-        + " VALUES (?,?,?)";
-        
         String query4 = "insert into progress_Spanish_A1_Employment (client_email, client_progress_cover,"
         + " client_progress_interview)"
         + " VALUES (?,?,?)";
@@ -361,15 +357,6 @@ public class JdbcCrud {
             
             // set all parameters statement 2
             psmt = con.prepareStatement(query2);
-            psmt.setString(1, email);
-            psmt.setInt(2, startingValue);
-            psmt.setInt(3, startingValue);
-            
-            // execute preparedStatement INSERT
-            psmt.executeUpdate();
-            
-            // set all parameters statement 3
-            psmt = con.prepareStatement(query3);
             psmt.setString(1, email);
             psmt.setInt(2, startingValue);
             psmt.setInt(3, startingValue);

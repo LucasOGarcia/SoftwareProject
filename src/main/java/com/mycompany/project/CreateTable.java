@@ -166,12 +166,6 @@ public class CreateTable {
                 + "     client_progress_hospital_visit INTEGER not null,"
                 + "     FOREIGN KEY (client_email) references client_Info(client_email)\n" + ");";
         
-        String query3 = "Create TABLE if not exists progress_Spanish_B2_Directions \n("
-                + "     client_email VARCHAR(254) not null,"
-                + "     client_progress_delivery_driver INTEGER not null,"
-                + "     client_progress_hospital_visit INTEGER not null,"
-                + "     FOREIGN KEY (client_email) references client_Info(client_email)\n" + ");";
-        
         String query4 = "Create TABLE if not exists progress_Spanish_A1_Employment \n("
                 + "     client_email VARCHAR(254) not null,"
                 + "     client_progress_cover INTEGER not null,"
@@ -365,7 +359,6 @@ public class CreateTable {
             stmt = con.createStatement();
             stmt.executeUpdate(query1);
             stmt.executeUpdate(query2);
-            stmt.executeUpdate(query3);
             stmt.executeUpdate(query4);
             stmt.executeUpdate(query5);
             stmt.executeUpdate(query6);
@@ -659,10 +652,6 @@ public class CreateTable {
         + " client_progress_hospital_visit)"
         + " VALUES (?,?,?)";
         
-        String query3 = "insert into progress_Spanish_B2_Directions (client_email, client_progress_delivery_driver,"
-        + " client_progress_hospital_visit)"
-        + " VALUES (?,?,?)";
-        
         String query4 = "insert into progress_Spanish_A1_Employment (client_email, client_progress_cover,"
         + " client_progress_interview)"
         + " VALUES (?,?,?)";
@@ -793,15 +782,6 @@ public class CreateTable {
             
             // set all parameters statement 2
             psmt = con.prepareStatement(query2);
-            psmt.setString(1, email);
-            psmt.setInt(2, startingValue);
-            psmt.setInt(3, startingValue);
-            
-            // execute preparedStatement INSERT
-            psmt.executeUpdate();
-            
-            // set all parameters statement 3
-            psmt = con.prepareStatement(query3);
             psmt.setString(1, email);
             psmt.setInt(2, startingValue);
             psmt.setInt(3, startingValue);

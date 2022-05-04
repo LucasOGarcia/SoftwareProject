@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +32,230 @@ public class AdminPage720p extends javax.swing.JFrame {
         refreshDB();
         setPageIcon();
 
+    }
+    public ArrayList<ClientInfo> userList(){
+        ArrayList<ClientInfo> usersList = new ArrayList<>();
+            Connection con = null; 
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email as 'Email', client_forename as 'Forename', client_surname as"
+                    + " 'Surname', client_salt as 'Salt Code', client_encrypted_password as 'Password', client_last_login"
+                    + " as 'Login Time', client_last_logout as 'Logout Time', client_account_type as 'Account Type' FROM client_Info"; //or prepared statement
+            pst=con.prepareStatement(query);
+            rs=pst.executeQuery();
+            ClientInfo clientinfo;
+            while(rs.next()){
+                String time_converted_login = "null";
+                String time_converted_logout = "null";
+                
+                
+             java.sql.Timestamp currSqlTS_login = rs.getTimestamp("Login time");
+             if(currSqlTS_login != null){
+                 java.util.Date currDate_login = new java.util.Date(currSqlTS_login.getTime());
+                 time_converted_login = currDate_login.toString();}
+
+             
+             java.sql.Timestamp currSqlTS_logout = rs.getTimestamp("Logout time");
+             if(currSqlTS_logout != null){
+                 java.util.Date currDate_logout = new java.util.Date(currSqlTS_logout.getTime());
+                 time_converted_logout = currDate_logout.toString();}
+             
+                clientinfo=new ClientInfo(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5), time_converted_login, time_converted_logout, rs.getInt(8));
+                usersList.add(clientinfo);
+                //usersList.set(5, currDate.toString());
+            }
+            return usersList;
+
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database,  Info", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
+        
+    }
+    
+    
+        public ArrayList<ClientInfo> searchList(){
+        ArrayList<ClientInfo> resultList = new ArrayList<>();
+         String input = searchText.getText().trim();
+         Connection con = null;
+         ResultSet rs = null;
+         PreparedStatement pst = null;
+         
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String search_query = "SELECT client_email as 'Email', client_forename as 'Forename', "
+                    + "client_surname as 'Surname', client_salt as 'Salt Code', "
+                    + "client_encrypted_password as 'Password', client_last_login as 'Login Time', "
+                    + "client_last_logout as 'Logout Time', client_account_type as 'Account Type' "
+                    + "FROM client_Info WHERE client_email LIKE ?";
+             pst = con.prepareStatement(search_query);
+            pst.setString(1, input + '%');
+            rs = pst.executeQuery();
+            ClientInfo clientinfo;
+            while(rs.next()){
+                String time_converted_login = "null";
+                String time_converted_logout = "null";
+                
+                
+             java.sql.Timestamp currSqlTS_login = rs.getTimestamp("Login time");
+             if(currSqlTS_login != null){
+                 java.util.Date currDate_login = new java.util.Date(currSqlTS_login.getTime());
+                 time_converted_login = currDate_login.toString();}
+
+             
+             java.sql.Timestamp currSqlTS_logout = rs.getTimestamp("Logout time");
+             if(currSqlTS_logout != null){
+                 java.util.Date currDate_logout = new java.util.Date(currSqlTS_logout.getTime());
+                 time_converted_logout = currDate_logout.toString();}
+
+             
+                clientinfo=new ClientInfo(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5), time_converted_login, time_converted_logout, rs.getInt(8));
+                resultList.add(clientinfo);
+            }
+            return resultList;
+
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database,  Search", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
+        
+    }
+    
+        public ArrayList<ClientStatisticsSpanish> lanList(){
+        ArrayList<ClientStatisticsSpanish> spanishList = new ArrayList<>();
+            Connection con = null; 
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = long_query()+ "Spanish"; //or prepared statement
+            pst=con.prepareStatement(query);
+            rs=pst.executeQuery();
+            ClientStatisticsSpanish clientstatsspanish;
+            while(rs.next()){
+                //rs.ge
+                clientstatsspanish=new ClientStatisticsSpanish(rs.getString(1), rs.getInt(2),rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), 
+                        rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13), rs.getInt(14), rs.getInt(15), rs.getInt(16), rs.getInt(17), rs.getInt(18), 
+                        rs.getInt(19), rs.getInt(20), rs.getInt(21), rs.getInt(22), rs.getInt(23), rs.getInt(24),rs.getString(25));
+                spanishList.add(clientstatsspanish);
+            }
+            return spanishList;
+
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database,  language table", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
+        
+    }
+    public void show_spanish(){
+        ArrayList<ClientStatisticsSpanish> list2 = lanList();
+        DefaultTableModel model = (DefaultTableModel)clientSpanishTable.getModel();  
+        Object[] row = new Object[25];
+        for(int i=0; i < list2.size(); i++){
+        row[0]=list2.get(i).getemail();
+        row[1]=list2.get(i).geta1();
+        row[2]=list2.get(i).geta2();
+        row[3]=list2.get(i).getb1();
+        row[4]=list2.get(i).getb2();
+        row[5]=list2.get(i).getpersona();
+        row[6]=list2.get(i).getpersonb();
+        row[7]=list2.get(i).getassist();
+        row[8]=list2.get(i).getdirections();
+        row[9]=list2.get(i).getemployment();
+        row[10]=list2.get(i).getcultural();
+        row[11]=list2.get(i).getinfo();
+        row[12]=list2.get(i).getshopping();
+        row[13]=list2.get(i).gethealth();
+        row[14]=list2.get(i).gethousing();
+        row[15]=list2.get(i).getintroductions();
+        row[16]=list2.get(i).getappointments();
+        row[17]=list2.get(i).getinvitations();
+        row[18]=list2.get(i).gettravel();
+        row[19]=list2.get(i).getfooddrink();
+        row[20]=list2.get(i).getsocialise();
+        row[21]=list2.get(i).getuniversity();
+        row[22]=list2.get(i).getweather();
+        row[23]=list2.get(i).getwork();
+        row[24]=list2.get(i).getlastroleplay();
+        model.addRow(row);    
+        }       
+}
+    public void show_search(){ 
+        ArrayList<ClientInfo> list = searchList();
+        DefaultTableModel model = (DefaultTableModel)clientInfoTable.getModel();  
+        Object[] row = new Object[8];
+        for(int i=0; i < list.size(); i++){
+        row[0]=list.get(i).getemail();
+        row[1]=list.get(i).getfname();
+        row[2]=list.get(i).getlname();
+        row[3]=list.get(i).getsalt();
+        row[4]=list.get(i).getpass();
+        row[5]=list.get(i).getlogin();
+        row[6]=list.get(i).getlogout();
+        row[7]=list.get(i).getaccType();
+        model.addRow(row);    
+        }
+    }
+    
+    public void show_user(){ 
+        ArrayList<ClientInfo> list = userList();
+        DefaultTableModel model = (DefaultTableModel)clientInfoTable.getModel();  
+        Object[] row = new Object[8];
+        for(int i=0; i < list.size(); i++){
+        row[0]=list.get(i).getemail();
+        row[1]=list.get(i).getfname();
+        row[2]=list.get(i).getlname();
+        row[3]=list.get(i).getsalt();
+        row[4]=list.get(i).getpass();
+        row[5]=list.get(i).getlogin();
+        row[6]=list.get(i).getlogout();
+        row[7]=list.get(i).getaccType();
+        model.addRow(row);    
+        }   
     }
 
     /**
@@ -144,6 +368,11 @@ public class AdminPage720p extends javax.swing.JFrame {
         jLabel8.setText("Confirm Password");
 
         insertSubmit.setText("Finish");
+        insertSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertSubmitActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Account Type");
 
@@ -342,21 +571,25 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         clientInfoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Email", "First Name", "Last Name", "Salt", "Password", "Account Type"
+                "Email", "First Name", "Last Name", "Salt", "Password", "Login time", "Logout time", "Account Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         clientInfoTable.getTableHeader().setReorderingAllowed(false);
@@ -366,10 +599,7 @@ public class AdminPage720p extends javax.swing.JFrame {
 
         clientSpanishTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Email", "A1 Completion", "A2 Completion", "B1 Completion", "B2 Completion", "Person A Completion", "Person B Completion", "Topic Directions Count", "Topic Employment Count", "Topic Cultural Experience", "Topic Personal Info", "Topic Shopping", "Topic Health", "Topic Housing", "Topic Introductions", "Topic Appointments", "Topic Invitations", "Topic Travel", "Topic Food & Drink", "Topic Social", "Topic University", "Topic Weather", "Topic Work", "Latest Roleplay"
@@ -592,26 +822,27 @@ public class AdminPage720p extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(backButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchButton))))
-                .addGap(18, 18, 18)
-                .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTabbedPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchButton))))
+                        .addGap(18, 18, 18)
+                        .addComponent(clientInfoTab, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -633,7 +864,9 @@ public class AdminPage720p extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Search is only visible on client info tab
-        searchDB();
+       DefaultTableModel info = (DefaultTableModel) clientInfoTable.getModel();
+       info.setRowCount(0);
+       show_search();
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
@@ -657,6 +890,13 @@ public class AdminPage720p extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Refreshed Database");
         refreshDB();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void insertSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertSubmitActionPerformed
+        // TODO add your handling code here:
+        
+        insertData();
+       JOptionPane.showMessageDialog(null, "Added to Database");
+    }//GEN-LAST:event_insertSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -760,218 +1000,7 @@ public class AdminPage720p extends javax.swing.JFrame {
         }
     }
     
-    private void populateEmailTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String query = "SELECT client_email as 'Email', client_forename as 'Forename', client_surname as"
-                    + " 'Surname', client_salt as 'Salt Code', client_encrypted_password as 'Password', client_last_login"
-                    + " as 'Login Time', client_last_logout as 'Logout Time', client_account_type as 'Account Type' FROM client_Info"; //or prepared statement
-            pst=con.prepareStatement(query);
-            rs=pst.executeQuery();
-            //DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
-            clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));           
-        }catch (SQLException e) {
-               throw new IllegalStateException("Can't connect to the database,  Info", e);}
-        	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-}
-    
-        private void populateSpanishTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "Spanish"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientSpanishTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Spanish", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-            }
-        
-        private void populateFrenchTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "French"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientFrenchTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, French", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-        }  
-        
-        private void populateGermanTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "German"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientGermanTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, German", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-        }
-        
-        private void populateGreekTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "Greek"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientGreekTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Greek", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-        }
-        
-        private void populateItalianTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "Italian"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientItalianTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Italian", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-        }
-        
-        private void populatePortugueseTable(){
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try{
-                ConnectDB connectDB = new ConnectDB();
-                con = connectDB.getConnection();
-                String query = long_query() + "Portuguese"; //or prepared statement
-                pst=con.prepareStatement(query);
-                rs=pst.executeQuery();
-                clientPortugueseTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }catch (SQLException e) {
-                   throw new IllegalStateException("Can't connect to the database, Portuguese", e);}
-            	   finally {
-            try {
-                if (con != null) {
-                    con.close();
-                }
-                if (rs != null){
-                    rs.close();
-                }
-                if (pst != null){
-                    pst.close();
-                }
-            }
-            catch (SQLException ex) {
-            }
-        }
-        }
+   
         
         
         
@@ -1494,43 +1523,21 @@ private void replaceaccType(){
         }
     }       
         
-    private void refreshDB(){
-        populateEmailTable();
-        populateSpanishTable();
-        populateFrenchTable();
-        populateGreekTable();
-        populatePortugueseTable();
-        populateItalianTable();
-        populateGermanTable();
+        private void refreshDB(){
+        DefaultTableModel info = (DefaultTableModel) clientInfoTable.getModel();
+        info.setRowCount(0);
+        DefaultTableModel spanish = (DefaultTableModel) clientSpanishTable.getModel();
+        spanish.setRowCount(0);
+        show_user();
+        show_spanish();
         emailBox();
-        
     }
-private void searchDB(){
-        String input = searchText.getText().trim();
-         Connection con = null;
-         ResultSet rs = null;
-        try{
-            ConnectDB connectDB = new ConnectDB();
-            con = connectDB.getConnection();
-            String search_query = "SELECT client_email as 'Email', client_forename as 'Forename', "
-                    + "client_surname as 'Surname', client_salt as 'Salt Code', "
-                    + "client_encrypted_password as 'Password', client_last_login as 'Login Time', "
-                    + "client_last_logout as 'Logout Time', client_account_type as 'Account Type' "
-                    + "FROM client_Info WHERE client_email LIKE ?";
-            PreparedStatement pst = con.prepareStatement(search_query);
-            pst.setString(1, input + '%');
-            rs = pst.executeQuery();
-            clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));  
-            con.close();
-         }catch(Exception e){
-               throw new IllegalStateException("Can't connect to the database, search", e);}
         
-    }
-
-    private void gotoperformanceAdmin(){
-        ApplicationInfo.createperformanceAdminPage(); 
+       private void gotoperformanceAdmin(){
+       ApplicationInfo.createperformanceAdminPage(); 
        ApplicationInfo.getAdminPage720p().dispose();  
     }
+        
     
         private void emailBox(){
             updateComboBox.removeAllItems();

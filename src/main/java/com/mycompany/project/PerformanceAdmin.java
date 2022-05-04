@@ -501,9 +501,15 @@ public class PerformanceAdmin extends javax.swing.JFrame {
              rs = pst.executeQuery();
             String time = rs.getString(1);
             while (rs.next()){
-             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_login");
-             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
-             studentLogin.setText(String.valueOf(currDate));
+                
+                String time_converted_login = "null";
+                
+                java.sql.Timestamp currSqlTS_login = rs.getTimestamp("client_last_login");
+             if(currSqlTS_login != null){
+                 java.util.Date currDate_login = new java.util.Date(currSqlTS_login.getTime());
+                 time_converted_login = currDate_login.toString();}
+             
+             studentLogin.setText(time_converted_login);
             }
 
          }catch(Exception e){
@@ -539,9 +545,18 @@ public class PerformanceAdmin extends javax.swing.JFrame {
              rs = pst.executeQuery();
             String time = rs.getString(1);
             while (rs.next()){
-             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_logout");
-             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
-             studentLogout.setText(String.valueOf(currDate));
+                
+                String time_converted_logout = "null";
+                
+                java.sql.Timestamp currSqlTS_logout = rs.getTimestamp("client_last_logout");
+             if(currSqlTS_logout != null){
+                 java.util.Date currDate_logout = new java.util.Date(currSqlTS_logout.getTime());
+                 time_converted_logout = currDate_logout.toString();}
+             
+             studentLogout.setText(time_converted_logout);
+             
+             
+             
             }
 
          }catch(Exception e){
@@ -577,9 +592,15 @@ public class PerformanceAdmin extends javax.swing.JFrame {
              rs = pst.executeQuery();
             String time = rs.getString(1);
             while (rs.next()){
-             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_login");
-             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
-             teacherLogin.setText(String.valueOf(currDate));
+                
+                String time_converted_login = "null";
+                
+                java.sql.Timestamp currSqlTS_login = rs.getTimestamp("client_last_login");
+             if(currSqlTS_login != null){
+                 java.util.Date currDate_login = new java.util.Date(currSqlTS_login.getTime());
+                 time_converted_login = currDate_login.toString();}
+             
+             teacherLogin.setText(time_converted_login);
             }
 
          }catch(Exception e){
@@ -615,9 +636,18 @@ public class PerformanceAdmin extends javax.swing.JFrame {
              rs = pst.executeQuery();
             String time = rs.getString(1);
             while (rs.next()){
-             java.sql.Timestamp currSqlTS = rs.getTimestamp("client_last_logout");
-             java.util.Date currDate = new java.util.Date(currSqlTS.getTime());
-             teacherLogout.setText(String.valueOf(currDate));
+                
+                String time_converted_logout = "null";
+                
+                java.sql.Timestamp currSqlTS_logout = rs.getTimestamp("client_last_logout");
+             if(currSqlTS_logout != null){
+                 java.util.Date currDate_logout = new java.util.Date(currSqlTS_logout.getTime());
+                 time_converted_logout = currDate_logout.toString();}
+             
+             teacherLogout.setText(time_converted_logout);
+             
+             
+             
             }
 
             con.close();

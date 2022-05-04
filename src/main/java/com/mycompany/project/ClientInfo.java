@@ -9,11 +9,11 @@ package com.mycompany.project;
  * @author Gabriel
  */
 public class ClientInfo {
-    private String client_email, client_forename, client_surname, client_salt, client_encrypted_password;
-    private int client_last_login, client_last_logout, client_account_type;
+    private String client_email, client_forename, client_surname, client_salt, client_encrypted_password, client_last_login, client_last_logout;
+    private int client_account_type;
     
     public ClientInfo(String client_email, String client_forename,String client_surname, String client_salt, String client_encrypted_password,
-            int client_last_login, int client_last_logout, int client_account_type){
+            String client_last_login, String client_last_logout, int client_account_type){
         
         this.client_email = client_email;
         this.client_forename = client_forename;
@@ -40,10 +40,10 @@ public class ClientInfo {
     public String getpass(){
         return client_encrypted_password;
     }
-    public int getlogin(){
+    public String getlogin(){
         return client_last_login;
     }
-    public int getlogout(){
+    public String getlogout(){
         return client_last_logout;
     }
     public int getaccType(){

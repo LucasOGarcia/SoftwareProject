@@ -1009,6 +1009,10 @@ public class RolePlayManager {
                 + " I actually do. It's not easy organising a party for 30 kids. <br/>"
                 + " That would be great.  See you then. <html>";
         
+        List<String> personAVocabAssistList20 = Arrays.asList();
+        A1Exercise20.personAVocabAssist = personAVocabAssistList20;
+        
+        
         List<String> personAVocabEnglish20= Arrays.asList();
         A1Exercise20.personAVocabEnglish = personAVocabEnglish20;
         
@@ -1070,6 +1074,9 @@ public class RolePlayManager {
                 + " What is it like? <br/>"
                 + " I don't like going to the beach because I don't like sand. Is there anything else there to see? <br/>"
                 + " That does sound like a nice place, maybe I will visit sometime. <html> ";
+        
+        List<String> personBVocabAssist21= Arrays.asList();
+        A1Exercise21.personBVocabAssist = personBVocabAssist21;
         
         
         List<String> personBVocabEnglish21= Arrays.asList();
@@ -1339,6 +1346,8 @@ public class RolePlayManager {
                 + " How embarassing. I will go and get some cash from the bank. <br/>"
                 + " I will be back as soon as possible. <html>";
         
+        List<String> personA2VocabAssist5= Arrays.asList();
+        A2Exercise5.personAVocabAssist = personA2VocabAssist5;
         
         List<String> personA2VocabEnglish5= Arrays.asList();
         A2Exercise5.personAVocabEnglish = personA2VocabEnglish5;
@@ -1381,6 +1390,8 @@ public class RolePlayManager {
                 + " Let me know if you want to talk about it, okay. <br/>"
                 + " Take care. <html>";
         
+        List<String> personA2VocabAssist6= Arrays.asList();
+        A2Exercise6.personAVocabAssist = personA2VocabAssist6;
         
         List<String> personA2VocabEnglish6= Arrays.asList();
         A2Exercise6.personAVocabEnglish = personA2VocabEnglish6;

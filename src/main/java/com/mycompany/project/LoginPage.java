@@ -247,7 +247,7 @@ public class LoginPage extends javax.swing.JFrame {
             
             if (!verifyPassword(input_password, getPassDB(), getSaltDB())){//if verify password is false
             String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Email or Password is invalid </html>";
+            errorMessage += "Email or Password invalid </html>";
             errorLabels.setText(errorMessage);
             errorLabels.setForeground(Color.red);
             }

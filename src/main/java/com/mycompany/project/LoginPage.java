@@ -247,7 +247,7 @@ public class LoginPage extends javax.swing.JFrame {
             
             if (!verifyPassword(input_password, getPassDB(), getSaltDB())){//if verify password is false
             String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Email or Password <-- is invalid </html>";
+            errorMessage += "Email or Password is invalid </html>";
             errorLabels.setText(errorMessage);
             errorLabels.setForeground(Color.red);
             }
@@ -288,7 +288,7 @@ public class LoginPage extends javax.swing.JFrame {
         if(!result){
             System.out.println("email error");
             String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Email is invalid </html>";
+            errorMessage += "Enter a valid email</html>";
             errorLabels.setText(errorMessage);
             errorLabels.setForeground(Color.red);
         }
@@ -302,7 +302,7 @@ public class LoginPage extends javax.swing.JFrame {
         if (!result){
             System.out.println("email error");
             String errorMessage = "<html>Error!<br/>";
-            errorMessage += "Email does not exist </html>";
+            errorMessage += "Email or Password invalid </html>";
             errorLabels.setText(errorMessage);
             errorLabels.setForeground(Color.red);
         }

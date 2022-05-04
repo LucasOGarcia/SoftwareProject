@@ -60,9 +60,9 @@ public class HomePage extends javax.swing.JFrame {
         userNameLabel.setText("user name");
 
         performanceButton.setText("Student Performance");
-        performanceButton.setMaximumSize(new java.awt.Dimension(123, 38));
-        performanceButton.setMinimumSize(new java.awt.Dimension(123, 38));
-        performanceButton.setPreferredSize(new java.awt.Dimension(153, 38));
+        performanceButton.setMaximumSize(new java.awt.Dimension(164, 38));
+        performanceButton.setMinimumSize(new java.awt.Dimension(164, 38));
+        performanceButton.setPreferredSize(new java.awt.Dimension(164, 38));
         performanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 performanceButtonActionPerformed(evt);
@@ -71,7 +71,9 @@ public class HomePage extends javax.swing.JFrame {
 
         languagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/language.png"))); // NOI18N
         languagesButton.setText("Languages");
-        languagesButton.setPreferredSize(new java.awt.Dimension(153, 38));
+        languagesButton.setMaximumSize(new java.awt.Dimension(164, 38));
+        languagesButton.setMinimumSize(new java.awt.Dimension(164, 38));
+        languagesButton.setPreferredSize(new java.awt.Dimension(164, 38));
         languagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 languagesButtonActionPerformed(evt);
@@ -104,9 +106,9 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(113, 113, 113))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(languagesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(performanceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(languagesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(99, 99, 99))))
         );
         jPanel1Layout.setVerticalGroup(

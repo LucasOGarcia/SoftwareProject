@@ -8,14 +8,19 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -31,7 +36,80 @@ public class AdminPage1080p extends javax.swing.JFrame {
         initComponents();
         refreshDB();
         setPageIcon();
+        //show_user();
+        
+        
+       // DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
+       // JTable clientInfoTable = new JTable(tableModel);
 
+        
+    }
+    
+    public ArrayList<ClientInfo> userList(){
+        ArrayList<ClientInfo> usersList = new ArrayList<>();
+            Connection con = null; 
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+        try{
+            ConnectDB connectDB = new ConnectDB();
+            con = connectDB.getConnection();
+            String query = "SELECT client_email as 'Email', client_forename as 'Forename', client_surname as"
+                    + " 'Surname', client_salt as 'Salt Code', client_encrypted_password as 'Password', client_last_login"
+                    + " as 'Login Time', client_last_logout as 'Logout Time', client_account_type as 'Account Type' FROM client_Info"; //or prepared statement
+            pst=con.prepareStatement(query);
+            rs=pst.executeQuery();
+            ClientInfo clientinfo;
+            while(rs.next()){
+                //rs.ge
+                clientinfo=new ClientInfo(rs.getString(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8));
+                usersList.add(clientinfo);
+            }
+            return usersList;
+
+        }catch (SQLException e) {
+               throw new IllegalStateException("Can't connect to the database,  Info", e);}
+        	   finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+                if (rs != null){
+                    rs.close();
+                }
+                if (pst != null){
+                    pst.close();
+                }
+            }
+            catch (SQLException ex) {
+            }
+        }
+        
+    }
+    
+    public void show_user(){
+        
+        
+        ArrayList<ClientInfo> list = userList();
+        DefaultTableModel model = (DefaultTableModel)clientInfoTable.getModel();  
+        Object[] row = new Object[8];
+        for(int i=0; i < list.size(); i++){
+        row[0]=list.get(i).getemail();
+        row[1]=list.get(i).getfname();
+        row[2]=list.get(i).getlname();
+        row[3]=list.get(i).getsalt();
+        row[4]=list.get(i).getpass();
+        row[5]=list.get(i).getlogin();
+        row[6]=list.get(i).getlogout();
+        row[7]=list.get(i).getaccType();
+        model.addRow(row);
+        
+        
+        
+    }
+        
+        
+        
+        
     }
 
     /**
@@ -349,20 +427,17 @@ public class AdminPage1080p extends javax.swing.JFrame {
 
         clientInfoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Email", "First Name", "Last Name", "Salt", "Password", "Account Type"
+                "Email", "First Name", "Last Name", "Salt", "Password", "Login time", "Logout time", "Account Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, true, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -618,16 +693,15 @@ public class AdminPage1080p extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTabbedPane1)
-                        .addContainerGap())
+                        .addComponent(jTabbedPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                            .addComponent(performanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         pack();
@@ -786,6 +860,52 @@ public class AdminPage1080p extends javax.swing.JFrame {
     private javax.swing.JPasswordField updateconfirmInput;
     // End of variables declaration//GEN-END:variables
     
+/*
+    public static TableModel resultSetToTableModel(final ResultSet resultSet) {
+        TableModel result = null;
+
+        try {
+            final ResultSetMetaData metaData = resultSet.getMetaData();
+            final int numberOfColumns = metaData.getColumnCount();
+
+            // Get the column names.
+            final List<String> columnNames = new ArrayList<>();
+            for (int columnIndex = 1; columnIndex <= numberOfColumns; columnIndex++)
+                columnNames.add(metaData.getColumnLabel(columnIndex));
+
+            // Get all rows with data.
+            final List<List<Object>> data = new ArrayList<>();
+            while (resultSet.next()) {
+                final List<Object> newRow = new ArrayList<>();
+                for (int columnIndex = 1; columnIndex <= numberOfColumns; columnIndex++) {
+                    System.out.println(resultSet.getObject(columnIndex));
+                    newRow.add(resultSet.getObject(columnIndex));
+                }
+
+                data.add(newRow);
+            }
+
+            result = new DefaultTableModel(new ArrayList<>(data), new ArrayList<>(columnNames));
+        } catch (final SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     private void setPageIcon(){
         // set window icon for the JFrame
@@ -795,10 +915,9 @@ public class AdminPage1080p extends javax.swing.JFrame {
             this.setIconImage(icon.getImage());
         }
     }
-    
+    /*
     private void populateEmailTable(){
-            Connection con = null;
-  
+            Connection con = null; 
             PreparedStatement pst = null;
             ResultSet rs = null;
         try{
@@ -810,7 +929,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
             pst=con.prepareStatement(query);
             rs=pst.executeQuery();
             //DefaultTableModel model = (DefaultTableModel) clientInfoTable.getModel();
-            clientInfoTable.setModel(DbUtils.resultSetToTableModel(rs));
+            clientInfoTable.setModel(resultSetToTableModel(rs));
         }catch (SQLException e) {
                throw new IllegalStateException("Can't connect to the database,  Info", e);}
         	   finally {
@@ -829,6 +948,7 @@ public class AdminPage1080p extends javax.swing.JFrame {
             }
         }
 }
+*/
     
         private void populateSpanishTable(){
             Connection con = null;
@@ -1516,7 +1636,8 @@ private void replaceaccType(){
     }
         
     private void refreshDB(){
-        populateEmailTable();
+        //populateEmailTable();
+        show_user();
         populateSpanishTable();
         populateFrenchTable();
         populateGreekTable();

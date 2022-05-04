@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
- *@author jawaj
+ *
  * @author Gabriel
  */
 public class AdminPage1080p extends javax.swing.JFrame {

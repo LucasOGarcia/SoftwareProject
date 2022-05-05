@@ -18,7 +18,7 @@ public class ClientInfo {
         this.client_email = client_email;
         this.client_forename = client_forename;
         this.client_surname = client_surname;
-        this.client_salt = client_email;
+        this.client_salt = client_salt;
         this.client_encrypted_password = client_encrypted_password;
         this.client_last_login = client_last_login;
         this.client_last_logout = client_last_logout;
